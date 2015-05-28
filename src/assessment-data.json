@@ -1,0 +1,20 @@
+{
+	"questions": [
+		{		
+			"question": "Can you move around and use steps without difficulty?",
+			"hint": null,
+			"category": "Moving around and using steps",
+			"answers": [
+				{
+					"label": "Yes",
+					"value": 0
+				},
+				{
+					"label": "No",
+					"value": "Question text of follow-up question (string)"
+				}
+			]
+		}
+	]
+}
+

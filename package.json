@@ -1,0 +1,32 @@
+{
+  "name": "ESA",
+  "version": "0.1.0",
+  "author": "Heydon Pickering",
+  "private": true,
+  "dependencies": {
+    "grunt": "~0.4.0",
+    "grunt-autoprefixer": "*",
+    "grunt-bake": "^0.3.12",
+    "grunt-cli": "^0.1.13",
+    "grunt-compile-handlebars": "^1.0.1",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-jshint": "^0.11.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-htmlhint": "*",
+    "grunt-remove": "^0.1.0",
+    "matchdep": "*"
+  },
+  "scripts": {
+    "build": "grunt generate",
+    "postinstall": "npm run build",
+    "test": "grunt test"
+  },
+  "devDependencies": {
+    "grunt-casperjs": "^2.1.0",
+    "grunt-contrib-connect": "^0.10.1"
+  }
+}
