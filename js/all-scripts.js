@@ -10344,7 +10344,6 @@ if ( typeof noGlobal === strundefined ) {
 return jQuery;
 
 }));
-
 //     Underscore.js 1.8.2
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -14111,8 +14110,6 @@ window.hashHistory = [];
 
 if (db.isEmpty('ass')) {
 
-	console.log('empty');
-
 	// setup the database ass object
 	initAss();
 
@@ -14123,8 +14120,6 @@ if (db.isEmpty('ass')) {
 	loadSlide('main-menu');
 
 } else {
-
-	console.log('not empty');
 
 	// welcome back users or allow new users to restart
 	loadSlide('resume');
@@ -14145,7 +14140,7 @@ function initAss() {
 			return cat.toLowerCase()
 					  .replace(/[^\w ]+/g,'')
 					  .replace(/ +/g,'-'); }), // the categories not yet viewed*/
-		remainingCategories: _.uniq(window.allCategories),
+		remainingCategories: _.uniq(_.without(window.allCategories, "followup")),
 		started: false, // whether a practise has been started
 		answeredOne: false, // Whether any questions have been answered at all 
 		context: null, // the jQuery object for the slide in hand
@@ -14155,7 +14150,6 @@ function initAss() {
 		answers: {}, // the master object of category high scores for tallying
 		low: false, // low qualification?
 		high: false, // high qualification?
-		promote: false, // whether a food/drink question has promoted the user from WRAG to Support
 		reminders: [], // list of reminders form "Things to remember" checkboxes
 		incomplete: true, // whether all the questions have been answered
 		date: '',
@@ -14180,8 +14174,17 @@ function getCatQuestions(slug) {
 		// Remove seen questions from 
 		var all = [];
 
+		// Empty "remaining categories"
+		db.set('ass.remainingCategories', []);
+
 		$.each(window.allQuestions, function(i, v) {
-			all.push(v.question);
+			
+			// make an array of all questions
+			// excluding followup questions
+			if (v.category !== 'followup') {
+				all.push(v.question);
+			}
+
 		});		
 
 		var seen = db.get('ass.seenQuestions');
@@ -14213,7 +14216,7 @@ function loadSlide(id, type) {
 	if (id === 'stats') {
 
 		// if you ran out of unseen questions and didn't skip any
-		if (_.isEmpty(db.get('ass.unseenQuestions')) && _.isEmpty(db.get('ass.skippedQuestions')) && db.get('ass.started')) {
+		if (_.isEmpty(db.get('ass.unseenQuestions')) && _.isEmpty(db.get('ass.skippedQuestions')) && _.isEmpty(db.get('ass.remainingCategories')) && db.get('ass.started')) {
 			db.set('ass.incomplete', false);
 		}
 
@@ -14232,7 +14235,6 @@ function loadSlide(id, type) {
 
 	$('.slide > *').removeClass('loaded');
 
-
 	// set type in local storage or reset to null
 	if (type) {
 		db.set('ass.slideType', type);
@@ -14242,8 +14244,6 @@ function loadSlide(id, type) {
 
 	// go to picked question
 	window.location.hash = '#' + id;
-
-	console.log('slide loaded');
 
 	// focus title to announce title in AT
 	$('#' + id)
@@ -14279,15 +14279,13 @@ function pickQuestion() {
 	db.set('ass.started', true);
 
 	// the type of the previous slide if any
-	var type = db.get('ass.slideType');
+	var typeOfSlide = db.get('ass.slideType');
 	// the last slide seen
 	var context = db.get('ass.context');
 	// get mode (unseen or skipped)
 	var mode = db.get('ass.mode');
 
-	console.log(window.answered);
-
-	if (type === 'question' && !window.answered && mode === 'unseenQuestions') {
+	if (typeOfSlide === 'question' && !window.answered && mode === 'unseenQuestions') {
 
 		// put the unanswered question into the array of skipped questions
 		var skipped = db.get('ass.skippedQuestions');
@@ -14378,8 +14376,6 @@ function pickQuestion() {
 
 		} else {
 
-			console.log('Didn\'t remove one', questions);
-
 			// remove last question seen from random sample
 			// so two questions don't show at once
 			// unless this is the last one
@@ -14431,8 +14427,6 @@ function restart() {
 	db.set('ass.category', null);
 	db.set('ass.remainingCategories', _.uniq(window.allCategories));
 
-	console.log('restarting');
-
 	// go to start screen
 	loadSlide('start');
 
@@ -14440,8 +14434,6 @@ function restart() {
 
 // go to slide you were last at
 function resume() {
-
-	console.log('resuming');
 
 	// get the stored slide id
 	var whereIWas = db.get('ass.whereIAm');
@@ -14451,6 +14443,7 @@ function resume() {
 }
 
 function tally() {
+
 	// get all the answers
 	var answers = db.get('ass.answers');
 
@@ -14469,45 +14462,33 @@ function qualify() {
 
 	var total = tally();
 
-	console.log('total', total);
+	if (total >= 8) {
 
-	if (total >= 15) {
+		//don't show the slide if you have already
+		if (!db.get('ass.high') && !db.get('ass.low')) {
 
-		// if an end question was set to promote from low to high
-		if (db.get('ass.promote')) {
-
-			//don't show the slide if you have already
-			if (!db.get('ass.high') && !db.get('ass.low')) {
-
-				loadSlide('qualify-high');
-
-			}
-
-			// record that low qualification is possible
-			db.set('ass.low', true);
-			// AND record that high qualification is possible
-			db.set('ass.high', true);
-
-		} else {
-
-			//don't show the slide if you have already
-			if (!db.get('ass.high') && !db.get('ass.low')) {
-
-				loadSlide('qualify-low');
-
-			}
-
-			// record that low qualification is possible
-			db.set('ass.low', true);		
+			loadSlide('qualify-low');
 
 		}
 
-	} else {
-
-		// reset to false
-		db.set('ass.low', false);
+		// record that low qualification is possible
+		db.set('ass.low', true);
 
 	}
+
+	if (total >= 15) {
+
+		//don't show the slide if you have already
+		if (!db.get('ass.high')) {
+
+			loadSlide('qualify-high');
+
+		}
+
+		// record that low qualification is possible
+		db.set('ass.high', true);
+
+	}	
 
 }
 
@@ -14518,16 +14499,18 @@ function isNumeric(num) {
 
 function compileStats() {
 
-	divideAnswers();
+	// Check to see if low or high applies
+	var total = tally();
 
-	if (_.isEmpty(db.get('ass.supportAnswers'))) {
+	if (total < 15) {
 		db.set('ass.high', false);
 	}
 
-	// if WRAGroup a no, set to false
-	if (_.isEmpty(db.get('ass.WRAGAnswers'))) {
+	if (total < 8) {
 		db.set('ass.low', false);
 	}
+
+	divideAnswers();
 
 	// template up the stats with handlebars and 
 	// write to the stats container
@@ -14554,56 +14537,25 @@ function divideAnswers() {
 	
 	var answers = db.get('ass.answers');
 
-	var supportAnswers = [];
-	var WRAGAnswers = [];
+	var importantAnswers = [];
 
 	// ugly nested each to make a handelebars #each iterable array of question objects
 	$.each(answers, function(key, value) {
 		$.each(value, function(k, v) {
 			// include support group answers
-			if (v.points === 16) {
+			if (v.points > 0) {
 				// push to flattened array
-				supportAnswers.push({
+				importantAnswers.push({
 					question: v.question,
 					answer: v.answer,
 					points: v.points
 				});
 			}
-			// include WRAG answers
-			if (v.points > 0 && v.points !== 16) {
-				WRAGAnswers.push({
-					question: v.question,
-					answer: v.answer,
-					points: v.points
-				});					
-			}
 		});
 	});
 
 	// set these to be accessible by template
-	db.set('ass.supportAnswers', supportAnswers);
-	db.set('ass.WRAGAnswers', WRAGAnswers);
-
-}
-
-function checkReminders(context) {
-
-	$('.things-to-remember [type="checkbox"]', '#' + context).each(function() {
-
-		var slug = $(this).attr('data-tip-id');
-
-		var reminders = db.get('ass.reminders');
-
-		// find if the reminder has already been set
-		// ie. exists in the reminders db property
-		if (_.find(reminders, function(reminder) { return reminder.slug === slug; })) {
-
-			// IF SO, CHECK THE CORRESPONDING CHECKBOX
-			$(this).attr('checked', 'checked');
-
-		}
-
-	});
+	db.set('ass.importantAnswers', importantAnswers);
 
 }
 
@@ -14655,7 +14607,7 @@ Handlebars.registerHelper('qualifyHigh', function() {
 
 Handlebars.registerHelper('qualifyLow', function() {
 	if (!db.get('ass.high') && db.get('ass.low')) {
-		return '<p>You may qualify for the standard ESA allowance, placing you in what&#x2019;s called the Work Related Activity Group. Remember to show your assessor the questions marked <span class="warn amber">IMPORTANT</span> (below) by printing this page or opening it on your phone. These are the questions that indicate you qualify.</p>';
+		return '<p>You may qualify for the standard PIP allowance, placing you in what&#x2019;s called the Work Related Activity Group. Remember to show your assessor the questions marked <span class="warn amber">IMPORTANT</span> (below) by printing this page or opening it on your phone. These are the questions that indicate you qualify.</p>';
 	}
 });
 
@@ -14667,7 +14619,7 @@ Handlebars.registerHelper('qualifyEither', function() {
 
 Handlebars.registerHelper('qualifyNone', function() {
 	if (!db.get('ass.high') && !db.get('ass.low')) {
-		return "<p>It does not currently look like you will qualify for ESA.</p>";
+		return "<p>It does not currently look like you will qualify for PIP.</p>";
 	}
 });
 
@@ -14678,6 +14630,15 @@ Handlebars.registerHelper('sluggify', function(words) {
 		.replace(/ +/g,'-');
 	return slug;
 });
+
+function sluggify(string) {
+
+	return string
+		.toLowerCase()
+		.replace(/[^\w ]+/g,'')
+		.replace(/ +/g,'-');
+
+}
 
 /**********************************************************************
 EVENTS
@@ -14788,8 +14749,6 @@ $('body').on('click','[data-action="clean-up"]', function() {
 	// initialize database
 	initAss();
 
-	console.log(db.get('ass.incomplete'));
-
 	// load the intro slide
 	loadSlide('main-menu');
 
@@ -14828,10 +14787,10 @@ $('body').on('click','[data-action="prep"]', function() {
 
 });
 
-$('body').on('click','[data-action="about-esa"]', function() {
+$('body').on('click','[data-action="about-PIP"]', function() {
 
 	// load slide
-	loadSlide('about-esa');
+	loadSlide('about-PIP');
 
 });
 
@@ -14856,55 +14815,38 @@ $('body').on('change','[type="radio"]', function() {
 	var answer = $(':checked + span', '#' + context).text();
 
 
-	if (isNumeric(points)) {
+	if (!isNumeric(points)) {
+
+		// turn the followup question into a slug
+		var followupSlug = 'question-'+sluggify(points);
+		// load the followup slide
+		loadSlide(followupSlug);
+
+	} else {
 
 		// cast to real integer
 		points = +points;
 
-	}
+		// initialize the answer object
+		var answerObject = {
+			question: question,
+			answer: answer,
+			points: points
+		};
 
-	// initialize the answer object
-	var answerObject = {
-		question: question,
-		answer: answer,
-		points: points
-	};
-
-	// check if the category object exists
-	// and, if not, set it
-	if (!db.isSet('ass.answers.' + category)) {
-		db.set('ass.answers.' + category, category);
-	}
-
-	// set the new points for this question in this category
-	db.set('ass.answers.' + category + '.' + context, answerObject);
-
-	if (points === 16) {
-
-		if (!db.get('ass.high')) {
-
-			// record that the high qualification is true
-			db.set('ass.high', true);
-
-			// no need to add up, just tell the user
-			loadSlide('qualify-high');
-
+		// check if the category object exists
+		// and, if not, set it
+		if (!db.isSet('ass.answers.' + category)) {
+			db.set('ass.answers.' + category, category);
 		}
-		
-	} else {
 
-		// if it is an asterisk end question, make sure a score
-		// of 15+ promotes the user's qualification to high
-		if (points === '*') {
-
-			db.set('ass.promote', true);
-
-		}
+		// set the new points for this question in this category
+		db.set('ass.answers.' + category + '.' + context, answerObject);
 
 		// fire the adding up function
 		// to see if there are enough points to qualify
 		qualify();
-
+		
 	}
 
 });
@@ -14912,29 +14854,6 @@ $('body').on('change','[type="radio"]', function() {
 $('body').on('click','[data-action="categories"]', function() { 
 
 	loadSlide('categories');
-
-});
-
-$('body').on('change','.checklist [type="checkbox"]', function() {
-
-	// get the id
-	var slug = $(this).attr('id');
-
-	var reminders = db.get('ass.reminders');
-
-	var reminder = _.findWhere(reminders, {slug: slug});
-
-	if ($(this).is(':checked')) {
-
-		reminder.done = true;
-
-	} else {
-
-		reminder.done = false;
-
-	}
-
-	db.set('ass.reminders', reminders);
 
 });
 
@@ -14960,12 +14879,10 @@ $('body').on('click','[data-action="set-cat"]', function() {
 
 });
 
-$(window).on('hashchange', function(e) {
+/*$(window).on('hashchange', function(e) {
 
 	// add hash to history
 	window.hashHistory.push(window.location.hash);
-
-	console.log(hashHistory);
 
 	if (window.location.hash.substr(0,9) === '#question') {
 		if (hashHistory.indexOf(window.location.hash > -1)) {
@@ -14976,4 +14893,4 @@ $(window).on('hashchange', function(e) {
 		}
 	}
 
-});
+});*/

@@ -16,7 +16,7 @@
 			<nav role="navigation" class="to-main-menu">
 				<ul>
 					<li>
-						<a href="javascript:void(0)" data-action="menu">Main Menu</a> 
+						<a href="#main-menu" data-action="menu">Main Menu</a> 
 					</li>
 					<li>
 						<a href="javascript:void(0)" data-action="stats">My Assessment</a>
@@ -27,20 +27,20 @@
 				</ul>
 			</nav>
 		</header>
-		<div class="slide question" id="question-can-you-move-around-and-use-steps-without-difficulty" data-category="moving-around-and-using-steps">
+		<div class="slide question" id="question-can-you-prepare-and-cook-a-simple-meal-without-help-from-someone-else" data-category="preparing-food">
 			<div class="question-container">
 				<!--<img src="path/to/question-icon.svg" alt="" />-->
 				<h2 class="question-text" tabindex="-1">
-					<span class="activity">Activity: Moving around and using steps</span>
+					<span class="activity">Activity: preparing food</span>
 					<span class="vh">Question:</span>
-					<em>Can you move around and use steps without difficulty?</em>
+					<em>Can you prepare and cook a simple meal  without help from someone else?</em>
 				</h2>
 				<div class="answers" aria-label="choose an answer">
 					<label>
-			            <input type="radio" value="0" name="moving-around-and-using-steps"> <span>Yes</span>
+			            <input type="radio" value="0" name="preparing-food"> <span>Yes</span>
 			        </label>
 					<label>
-			            <input type="radio" value="Question text of follow-up question (string)" name="moving-around-and-using-steps"> <span>No</span>
+			            <input type="radio" value="0" name="preparing-food"> <span>No</span>
 			        </label>
 				</div>
 				<ul aria-label="menu">
@@ -48,7 +48,373 @@
 						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
 					</li>
 					<li>
-						<button class="nav-link stats" data-action="stats">My assessment so far</button>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-to-use-special-aids-or-appliances-to-prepare-food-or-cook-a-simple-meal" data-category="preparing-food">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: preparing food</span>
+					<span class="vh">Question:</span>
+					<em>Do you need to use special aids or appliances to  prepare food or cook a simple meal?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="2" name="preparing-food"> <span>yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>no</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-which-of-these-best-describes-what-you-would-use-to-cook-a-simple-meal-if-you-had-a-conventional-or-microwave-oven-or-were-shown-how-to-use-them" data-category="preparing-food">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: preparing food</span>
+					<span class="vh">Question:</span>
+					<em>Which of these best describes what you would use to cook a simple meal if you had a conventional or  microwave oven or were shown how to use them?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>I could  use both of them</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>I could only use the conventional oven</span>
+			        </label>
+					<label>
+			            <input type="radio" value="2" name="preparing-food"> <span>I could only use the microwave</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-to-tell-you-to-cook-and-prepare-a-simple-meal-for-yourself" data-category="preparing-food">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: preparing food</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone to tell you to cook and prepare a simple meal for yourself?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="2" name="preparing-food"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>No</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>Sometimes</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-to-supervise-you-or-assist-you-to-cook-and-prepare-a-simple-meal" data-category="preparing-food">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: preparing food</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone to supervise you or assist  you to cook and prepare a simple meal?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="4" name="preparing-food"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-can-you-prepare-and-cook-food" data-category="preparing-food">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: preparing food</span>
+					<span class="vh">Question:</span>
+					<em>Can you prepare and cook food?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="8" name="preparing-food"> <span>Not at all</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="preparing-food"> <span>Sometimmes</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-to-help-you-eat-and-drink" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone to help you eat and drink?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-use-a-special-aid-or-appliance-to-eat" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you use a special aid or appliance to eat?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="2" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-to-supervise-you-while-you-eat" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone  to supervise you while you eat?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="2" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>Sometimes</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-can-you-cut-up-food-on-your-own" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Can you cut up food on your own?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="2" name="taking-nutrition"> <span>No</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>Sometimes</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-to-be-prompted-to-eat-food-or-about-the-amount-you-should-eat" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you need to be prompted to eat food or about the amount you should eat?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="4" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>Sometimes</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-to-help-you-use-a-tube-to-eat-and-drink" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone to help you use a tube to eat and drink?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="6" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide question" id="question-do-you-need-someone-else-to-put-food-and-drink-into-your-mouth" data-category="taking-nutrition">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: taking nutrition</span>
+					<span class="vh">Question:</span>
+					<em>Do you need someone else to put food and drink into your mouth?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="10" name="taking-nutrition"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="0" name="taking-nutrition"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats" role="link">My assessment so far</button>
 					</li>
 					<li>
 						<button class="nav-link break" data-action="break">I need a break</button>
@@ -62,16 +428,16 @@
 					You may qualify for<br/>
 					<strong>Support Group</strong>
 				</h1>
-				<p>Your answer to the last question shows that you may qualify for the highest ESA allowance, placing you in what&#x2019;s called the Support Group. Do you want to try more questions?</p>
+				<p>Your answer to the last question shows that you may qualify for the highest PIP allowance, placing you in what&#x2019;s called the Support Group. Do you want to try more questions?</p>
 				<ul aria-label="menu">
 					<li>	
 						<button class="nav-link" data-action="pick">Another question</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="stats">My assessment so far</button>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="menu">Main menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -82,16 +448,16 @@
 					You may qualify for<br/>
 					<strong>Work Related Activity Group</strong>
 				</h1>
-				<p>Your answer to the last question shows that you may qualify for the standard ESA allowance, placing you in what&#x2019;s called the Work Related Activity Group. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
+				<p>Your answer to the last question shows that you may qualify for the standard PIP allowance, placing you in what&#x2019;s called the Work Related Activity Group. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
 				<ul aria-label="menu">
 					<li>	
 						<button class="nav-link" data-action="pick">Another question</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="stats">My assessment so far</button>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
 					</li>
 					<li>
-						<button href="#main-menu" class="nav-link">Main menu</button>
+						<button href="#main-menu" class="nav-link" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -106,7 +472,7 @@
 						<button class="nav-link" data-action="resume">Continue</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="menu">Main menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -117,7 +483,7 @@
 				<p>All of your assessment data has been successfully deleted from your computer.</p>
 				<ul aria-label="menu">
 					<li>
-						<button class="nav-link" data-action="menu">Main menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -135,10 +501,10 @@
 				<p>You&#x2019;ve seen all the questions (so you&#x2019;re pretty familiar with the assessment now!) but you skipped some. What would you like to do?</p>
 				<ul aria-label="menu">
 					<li>	
-						<button class="nav-link" data-action="skipped">Skipped questions</button>
+						<button class="nav-link" data-action="skipped">Answer skipped questions</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="stats">My assessment so far</button>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
 					</li>
 				</ul>
 			</div>
@@ -149,13 +515,13 @@
 				<p>You&#x2019;ve answered all the practice questions available, so you&#x2019;re pretty well versed now. What would you like to do next?</p>
 				<ul aria-label="menu">
 					<li>
-						<button class="nav-link" data-action="stats">How did my assessment go?</button>
+						<button class="nav-link" data-action="stats" role="link">How my assessment went</button>
 					</li>
 					<li>
 						<button class="nav-link" data-action="restart">Practise again</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="menu">Main Menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main Menu</button>
 					</li>
 				</ul>
 			</div>
@@ -169,7 +535,7 @@
 						<button class="nav-link" data-action="resume">Continue</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="clean-up">Main menu</button>
+						<button class="nav-link" data-action="clean-up" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -179,19 +545,19 @@
 				<div id="stats-content" class="flow"></div>
 			</div>
 		</div>
-		<div class="slide about" id="about-esa">
+		<div class="slide about" id="about-PIP">
 			<div class="flow">
-				<h1 tabindex="-1">A Quick Guide To ESA</h1>
-				<p>Please choose from the options below to get familiar with ESA and for tips on taking your assessment. Not in the mood for reading? <a role="button" data-action="start-or-resume" href="javascript:void(0)">Practice some assessment questions instead &#x2192;</a></p>
+				<h1 tabindex="-1">A Quick Guide To PIP</h1>
+				<p>Please choose from the options below to get familiar with PIP and for tips on taking your assessment. Not in the mood for reading? <a role="button" data-action="start-or-resume" href="javascript:void(0)">Practice some assessment questions instead &#x2192;</a></p>
 				<div class="expandies">
-					<h2><button aria-controls="what-is-esa-for" aria-expanded="false">What is ESA for?</button></h2>
-					<div id="what-is-esa-for" aria-hidden="true">
-						<p>ESA is an allowance for people who can&#x2019;t work because of illness or disability.</p>
+					<h2><button aria-controls="what-is-PIP-for" aria-expanded="false">What is PIP for?</button></h2>
+					<div id="what-is-PIP-for" aria-hidden="true">
+						<p>PIP stands for Employment And Support Allowance. PIP is an allowance for people who can&#x2019;t work because of illness or disability.</p>
 					</div>
 	    			<h2><button aria-controls="application-process" aria-expanded="false">Application process</button></h2>
 	    			<div id="application-process" aria-hidden="true">
-	    				<p>To get ESA you have to pass through the Work Capability Assessment.</p>
-	    				<p>The first part of the assessment involves filling in a medical questionnaire form called the ESA 50. Most people then go on to have a face-to-face assessment.</p>
+	    				<p>To get PIP you have to pass through the Work Capability Assessment.</p>
+	    				<p>The first part of the assessment involves filling in a medical questionnaire form called the PIP 50. Most people then go on to have a face-to-face assessment.</p>
 	    			</div>
 	    			<h2><button aria-controls="form" aria-expanded="false">The medical questionnaire form</button></h2>
 	    			<div id="form" aria-hidden="true">
@@ -256,23 +622,23 @@
 	    			</div>
 	    			<h2><button aria-controls="getting-started" aria-expanded="false">Getting started</button></h2>
 	    			<div id="getting-started" aria-hidden="true">
-	    				<p>To start your application for ESA, do one of the following:</p>
+	    				<p>To start your application for PIP, do one of the following:</p>
 	    				<ul class="ticks">
 	    					<li>Phone <a href="tel:08000556688">0800 055 6688</a></li>
 	    					<li>Textphone <a href="tel:08000234888">0800 023 4888</a></li>
-	    					<li>Go to the website www.gov.uk and print out <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/419630/esa1.pdf" target="_blank">the ESA1 form (PDF) <span class="vh">opens new tab</span></a>, complete it and send it to the address on the form, or take it to your local job centre.</li>
+	    					<li>Go to the website www.gov.uk and print out <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/419630/PIP1.pdf" target="_blank">the PIP1 form (PDF) <span class="vh">opens new tab</span></a>, complete it and send it to the address on the form, or take it to your local job centre.</li>
 	    				</ul>
 	    			</div>
 					<div class="print-box">
-						<a class="button-shaped" aria-hidden="true" href="docs/All_About_ESA.pdf" title="opens a new tab" target="_blank">Read The Guide (opens new tab)</a>
-						<p>Want to know more? You can <a href="docs/All_About_ESA.pdf" target="_blank">read our in-depth guide (PDF) <span class="vh">opens new tab</span></a>.</p>
+						<a class="button-shaped" aria-hidden="true" href="docs/All_About_PIP.pdf" title="opens a new tab" target="_blank">Read The Guide (opens new tab)</a>
+						<p>Want to know more? You can <a href="docs/All_About_PIP.pdf" target="_blank">read our in-depth guide (PDF) <span class="vh">opens new tab</span></a>.</p>
 					</div>
 					<ul aria-label="menu">
 						<li>
-							<button class="nav-link" data-action="start-or-resume">Practise some assessment questions</button>
+							<button class="nav-link" data-action="start-or-resume" role="link">Practise some assessment questions</button>
 						</li>
 						<li>
-							<button class="nav-link" data-action="menu">Main menu</button>
+							<button class="nav-link" data-action="menu" role="link">Main menu</button>
 						</li>
 					</ul>					
     			</div>
@@ -280,18 +646,18 @@
 		</div>
 		<div class="slide main-menu" id="main-menu">
 			<div class="flow">
-				<h1 tabindex="-1">My ESA Assessment</h1>
-				<p class="larger">Welcome to our <abbr title="Employment And Support Allowance">ESA</abbr> website, designed to help you get ready for your ESA assessment. This website is <strong class="tick">run independently and impartially</strong> by the charity SEAP, <strong class="tick">does not collect your personal data</strong> and contains <strong class="tick">no long, boring forms!</strong></p>
+				<h1 tabindex="-1">My PIP Assessment</h1>
+				<p class="larger">Welcome to our <abbr title="Employment And Support Allowance">PIP</abbr> website, designed to help you get ready for your PIP assessment. This website is <strong class="tick">run independently and impartially</strong> by the charity SEAP, <strong class="tick">does not collect your personal data</strong> and contains <strong class="tick">no long, boring forms!</strong></p>
 				<div role="toolbar" aria-label="menu options">
 					<ul>
 						<li class="half">
-							<button data-action="about-esa">A Quick Guide To ESA <span>and your assessment</span></button>
+							<button data-action="about-PIP" role="link">A Quick Guide To PIP <span>and your assessment</span></button>
 						</li>
 						<li>
 							<button data-action="start-or-resume"><i aria-hidden="true">&#x2605;</i> Practise <i aria-hidden="true">&#x2605;</i> <span>by assessing yourself</span></button>
 						</li>
 						<li>
-							<button data-action="stats">My Assessment <span>and how it&#x2019;s going so far</span></button>
+							<button data-action="stats" role="link">My Assessment <span>and how it&#x2019;s going so far</span></button>
 						</li>
 						<!--<li class="half">
 							<button data-action="answering-questions">Answering <span>questions the right way</span></button>
@@ -309,13 +675,13 @@
 				<p>You&#x2019;ve seen all the practise questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
 				<ul aria-label="menu">
 					<li>
-						<button class="nav-link" data-action="categories">A new activity</button>
+						<button class="nav-link" data-action="categories" role="link">A new activity</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="stats">My assessment so far</button>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="menu">Main menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
 					</li>
 				</ul>				
 			</div>
@@ -330,10 +696,10 @@
 						<button class="nav-link red" data-action="delete-data">I'm done! Delete my stuff</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="stats">I want to see my data first</button>
+						<button class="nav-link" data-action="stats" role="link">I want to see my data first</button>
 					</li>
 					<li>
-						<button class="nav-link" data-action="menu">Main menu</button>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
 					</li>
 				</ul>
 			</div>
@@ -346,8 +712,8 @@
 			<p>Brought to you by <a href="http://www.seap.org.uk/" target="_blank"><img src="images/logo.png" alt="The Charity, SEAP (link Opens new tab)" /></a></p>
 		</footer>
 		<script>
-			window.allQuestions = [{ question: 'question-can-you-move-around-and-use-steps-without-difficulty', category: 'Moving around and using steps' },];
-			window.allCategories = ['Moving around and using steps',];
+			window.allQuestions = [{ question: 'question-can-you-prepare-and-cook-a-simple-meal-without-help-from-someone-else', category: 'preparing food' },{ question: 'question-do-you-need-to-use-special-aids-or-appliances-to-prepare-food-or-cook-a-simple-meal', category: 'preparing food' },{ question: 'question-which-of-these-best-describes-what-you-would-use-to-cook-a-simple-meal-if-you-had-a-conventional-or-microwave-oven-or-were-shown-how-to-use-them', category: 'preparing food' },{ question: 'question-do-you-need-someone-to-tell-you-to-cook-and-prepare-a-simple-meal-for-yourself', category: 'preparing food' },{ question: 'question-do-you-need-someone-to-supervise-you-or-assist-you-to-cook-and-prepare-a-simple-meal', category: 'preparing food' },{ question: 'question-can-you-prepare-and-cook-food', category: 'preparing food' },{ question: 'question-do-you-need-someone-to-help-you-eat-and-drink', category: 'taking nutrition' },{ question: 'question-do-you-use-a-special-aid-or-appliance-to-eat', category: 'taking nutrition' },{ question: 'question-do-you-need-someone-to-supervise-you-while-you-eat', category: 'taking nutrition' },{ question: 'question-can-you-cut-up-food-on-your-own', category: 'taking nutrition' },{ question: 'question-do-you-need-to-be-prompted-to-eat-food-or-about-the-amount-you-should-eat', category: 'taking nutrition' },{ question: 'question-do-you-need-someone-to-help-you-use-a-tube-to-eat-and-drink', category: 'taking nutrition' },{ question: 'question-do-you-need-someone-else-to-put-food-and-drink-into-your-mouth', category: 'taking nutrition' },];
+			window.allCategories = ['preparing food','preparing food','preparing food','preparing food','preparing food','preparing food','taking nutrition','taking nutrition','taking nutrition','taking nutrition','taking nutrition','taking nutrition','taking nutrition',];
 		</script>
 		<script src="js/all-scripts.js"></script>
 		<script id="stats-template" type="text/x-handlebars-template">
@@ -395,33 +761,21 @@
 			
 				<h3>Important answers</h3>
 				<p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
-				<ul class="q-and-a">
-					{{#if supportAnswers}}
-						{{#each supportAnswers}}
+				{{#if importantAnswers}}
+					<ul class="q-and-a">
+						{{#each importantAnswers}}
 							<li>
-								<p class="warn">Very Important</p>
+								<p class="warn">Important</p>
 								<p><strong>Question:</strong> {{question}}</p> 
 								<p><strong>Your answer:</strong> {{answer}}</p>
 								<p class="right"><a href="javascript:void(0)" role="button" data-action="change" data-question="question-{{sluggify question}}">Change your answer?</a></p>
 							</li>
 						{{/each}}
-					{{/if}}
-					{{#if WRAGAnswers}}
-						{{#each WRAGAnswers}}
-							<li>
-								<p class="warn amber">Important</p>
-								<p><strong>Question:</strong> {{question}}</p> 
-								<p><strong>Your answer:</strong> {{answer}}</p>
-								<p class="right"><a href="javascript:void(0)" role="button" data-action="change" data-question="{{sluggify question}}">Change your answer?</a></p>
-							</li>
-						{{/each}}
-					{{/if}}
-					{{#unless WRAGAnswers}}
-						{{#unless supportAnswers}}
-							<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
-						{{/unless}}
-					{{/unless}}
-				</ul>
+					</ul>
+				{{/if}}
+				{{#unless importantAnswers}}
+					<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+				{{/unless}}
 			<!--
 				<h3>Your reminders</h3>
 				<p>Things to prepare and remember for your assessment. <span class="no-print">Tap items that you&#x2019;ve completed to check them off.</span></p>
