@@ -1,9 +1,6 @@
 language: node_js
 node_js:
   - "0.12"
-env:
-  global:
-  - secure: "qx0jrCraf+pmuA3u0NqQuZJstAZABwdmMuBnaE4DGDiLf9qSKBJU40aWAoopsaM+lvFRAal9elc6LzYTyuuhiO8jx8xYXPFENGypImAfqKaGMgrXRdutHVOeObZ1MoGYOfhQgxw9oRNAOqvrYw69IW/+SrsshCbADJbc39pM/FS0pO7NgkJEiXYLze3tRIOBRoOoozFsYcJ+Rg2wv9r3QQweSIA1fh0HNeFZ2TLs9XZmbq0PHJ5vY7CalhyGAzD84mcz6anQGXXkBJrAfMgoPumZHPdwowCN52bsXhc5Ol/9cF1JCp0IMv2rKt4ygxKI/uEZv/V4kxHyylbOgCg6ptxqMK3DgJsnS/rChKMD+Df02EnFl3YPh0NczDHheCuNNvpQ3fxiiPRCYX8A+oMgZ8l0r8SKWMSLzyvJerhDEhpXuk/rua004kVoPbT9dwlcnfVzPVWOvTeLYoV1pOzwaIX7Av0DI4aauA9jftLtXwRoyvM6xrpvFToIiizBN+1QaJyXqq1+Ya5qLehGMERQg02NXZ1J5h+tGI1M4wSkED1mbLEf0YTPB2tjRAp9h8lDrAKEegWjD5NhnbjabqlxV4Dv24TDIRPzph6ywmBJCCVkvwyeeze1rn9mSek4/+P3yPghmxjUnBo99WMMqvZ52WMsHntDKI7zJ1M7DJOAKH0="
 before_install:
   - npm install -g grunt-cli
   - npm install -g casperjs

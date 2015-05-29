@@ -108,7 +108,7 @@ module.exports = function(grunt){
         }
       },
       casperjs: {
-        files: ['tests/*_test.*']
+        files: ['tests/*_test.js', 'tests/*_test.coffee']
       }
     });
 
