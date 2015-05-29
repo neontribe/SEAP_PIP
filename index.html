@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-GB">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="css/style.css" rel="stylesheet" media="all" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,300" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
+		<title>My PIP Assessment</title>
+		<!--[if lt IE 9]>
+			<script src="js/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<header role="banner">
+			<span role="image" aria-label="SEAP assessments PIP logo">My PIP Assessment</span>
+			<nav role="navigation" class="to-main-menu">
+				<ul>
+					<li>
+						<a href="javascript:void(0)" data-action="menu">Main Menu</a> 
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-action="stats">My Assessment</a>
+					</li>
+					<li>
+						<a href="javascript:void(0)" data-action="data">My Data</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+		<div class="slide question" id="question-can-you-move-around-and-use-steps-without-difficulty" data-category="moving-around-and-using-steps">
+			<div class="question-container">
+				<!--<img src="path/to/question-icon.svg" alt="" />-->
+				<h2 class="question-text" tabindex="-1">
+					<span class="activity">Activity: Moving around and using steps</span>
+					<span class="vh">Question:</span>
+					<em>Can you move around and use steps without difficulty?</em>
+				</h2>
+				<div class="answers" aria-label="choose an answer">
+					<label>
+			            <input type="radio" value="0" name="moving-around-and-using-steps"> <span>Yes</span>
+			        </label>
+					<label>
+			            <input type="radio" value="Question text of follow-up question (string)" name="moving-around-and-using-steps"> <span>No</span>
+			        </label>
+				</div>
+				<ul aria-label="menu">
+					<li>
+						<button data-followup="#" class="nav-link pick" data-action="pick">Ask me another</button>
+					</li>
+					<li>
+						<button class="nav-link stats" data-action="stats">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link break" data-action="break">I need a break</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide qualify" id="qualify-high">
+			<div class="box green">
+				<h1 tabindex="-1">
+					You may qualify for<br/>
+					<strong>Support Group</strong>
+				</h1>
+				<p>Your answer to the last question shows that you may qualify for the highest ESA allowance, placing you in what&#x2019;s called the Support Group. Do you want to try more questions?</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="pick">Another question</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide qualify" id="qualify-low">
+			<div class="box green">
+				<h1 tabindex="-1">
+					You may qualify for<br/>
+					<strong>Work Related Activity Group</strong>
+				</h1>
+				<p>Your answer to the last question shows that you may qualify for the standard ESA allowance, placing you in what&#x2019;s called the Work Related Activity Group. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="pick">Another question</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats">My assessment so far</button>
+					</li>
+					<li>
+						<button href="#main-menu" class="nav-link">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide break-time" id="break-time">
+			<div class="box">
+				<img src="images/tea.png" alt="steaming cup of tea" />
+				<h1 tabindex="-1">You&#x2019;re on a break</h1>
+				<p>Feel free to close the window or turn off your computer and come back when you&#x2019;re ready. Everything will be as you left it :-)</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="resume">Continue</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide deleted" id="deleted">
+			<div class="box">
+				<h1 tabindex="-1" style="red">Deleted</h1>
+				<p>All of your assessment data has been successfully deleted from your computer.</p>
+				<ul aria-label="menu">
+					<li>
+						<button class="nav-link" data-action="menu">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide get-started" id="start">
+			<div class="box">
+				<h1 tabindex="-1">Let&#x2019;s begin</h1>
+				<p>In your real assessment you&#x2019;ll be asked questions about your ability to do activities. Here, you can try out some of these questions and be told how you might do in a real assessment. You can <a role="button" href="#break-time" data-action="break">take a break</a> at any time and come back later. Your computer will remember where you were in the app :-)</p>
+				<div><button class="nav-link" data-action="categories">Choose an activity</button></div>
+			</div>
+		</div>
+		<div class="slide get-started" id="seen-all">
+			<div class="box green">
+				<h1 tabindex="-1">No more new questions</h1>
+				<p>You&#x2019;ve seen all the questions (so you&#x2019;re pretty familiar with the assessment now!) but you skipped some. What would you like to do?</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="skipped">Skipped questions</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats">My assessment so far</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide get-started" id="seen-all-even-skipped">
+			<div class="box green">
+				<h1 tabindex="-1">Practise Complete!</h1>
+				<p>You&#x2019;ve answered all the practice questions available, so you&#x2019;re pretty well versed now. What would you like to do next?</p>
+				<ul aria-label="menu">
+					<li>
+						<button class="nav-link" data-action="stats">How did my assessment go?</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="restart">Practise again</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu">Main Menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide get-started" id="resume">
+			<div class="box">
+				<h1 tabindex="-1">Hello again?</h1>
+				<p>Looks like you&#x2019;ve been here before. Press &#x201c;continue&#x201d; if you want to go back to where you were. Not been here before? Choose &#x201c;main menu&#x201d;.</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="resume">Continue</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="clean-up">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide stats" id="stats">
+			<div class="stats-container">
+				<div id="stats-content" class="flow"></div>
+			</div>
+		</div>
+		<div class="slide about" id="about-esa">
+			<div class="flow">
+				<h1 tabindex="-1">A Quick Guide To ESA</h1>
+				<p>Please choose from the options below to get familiar with ESA and for tips on taking your assessment. Not in the mood for reading? <a role="button" data-action="start-or-resume" href="javascript:void(0)">Practice some assessment questions instead &#x2192;</a></p>
+				<div class="expandies">
+					<h2><button aria-controls="what-is-esa-for" aria-expanded="false">What is ESA for?</button></h2>
+					<div id="what-is-esa-for" aria-hidden="true">
+						<p>ESA is an allowance for people who can&#x2019;t work because of illness or disability.</p>
+					</div>
+	    			<h2><button aria-controls="application-process" aria-expanded="false">Application process</button></h2>
+	    			<div id="application-process" aria-hidden="true">
+	    				<p>To get ESA you have to pass through the Work Capability Assessment.</p>
+	    				<p>The first part of the assessment involves filling in a medical questionnaire form called the ESA 50. Most people then go on to have a face-to-face assessment.</p>
+	    			</div>
+	    			<h2><button aria-controls="form" aria-expanded="false">The medical questionnaire form</button></h2>
+	    			<div id="form" aria-hidden="true">
+	    				<p>After you apply, you will be given a medical questionnaire form to fill out. Here are some tips:</p>
+	    				<ul class="ticks">
+	    					<li>Don&#x2019;t be intimidated by the questions, or by the form&#x2019;s length. The questions are simple and are not trying to catch you out</li>
+	    					<li>Give enough detail about how your condition affects you</li>
+	    					<li>Get help if you need it from a Citizen&#x2019;s Advice Bureau or advice centre</li>
+	    				</ul>
+	    			</div>
+	    			<h2><button aria-controls="assessment-process" aria-expanded="false">Assessment process</button></h2>
+	    			<div id="assessment-process" aria-hidden="true">
+	    				<p>A medical professional carries out the assessment, but the final decision on your claim is made by a decision maker at the Department of Work and Pensions (DWP for short) based on recommendations by the assessor.</p>
+	    			</div>
+	    			<h2><button aria-controls="the-decision" aria-expanded="false">The decision</button></h2>
+	    			<div id="the-decision" aria-hidden="true">
+	    				<p>When making their recommendation, the assessor will consider:</p>
+	    				<ul class="ticks">
+	    					<li>The answers you give on the medical questionnaire.</li>
+	    					<li>All the evidence that you send with the questionnaire or provide at the face-to-face assessment.</li>
+	    					<li>The answers you give at your face-to-face assessment.</li>
+	    				</ul>
+	    			</div>
+	    			<h2><button aria-controls="before" aria-expanded="false">Before going to your assessment</button></h2>
+	    			<div id="before" aria-hidden="true">
+	    				<p>Just a couple of things to remember:</p>
+	    				<ul class="ticks">
+	    					<li>Make a list of your health conditions and disabilities, so that you don&#x2019;t forget to mention them at the assessment. Try <a href="javascript:void(0)" data-action="start-or-resume">taking the test on our website</a> first, where you can save and print off your most important answers! </li>
+	    					<li>Plan your journey to the assessment centre in advance. Don&#x2019;t be late! </li>
+	    				</ul>
+	    			</div>
+	    			<h2><button aria-controls="the-assessment-questions" aria-expanded="false">The assessment questions</button></h2>
+	    			<div id="the-assessment-questions" aria-hidden="true">
+	    				<p>The assessor looks at different activities that you might be asked to carry out if you were in a job or undertaking a work related activity. These are divided into physical and mental activities.</p>
+	    			</div>
+	    			<h2><button aria-controls="how-to-answer" aria-expanded="false">How to answer questions</button></h2>
+	    			<div id="how-to-answer" aria-hidden="true">
+	    				<p>Here are some tips:</p>
+	    				<ul class="ticks">
+	    					<li>Don’t put on a brave face when talking about your disability or health condition; be clear about how much it affects you.</li>
+	    					<li>Your condition may change from day to day, be clear about how it impacts on you on your worst day.</li>
+	    					<li>Equally, don’t pretend things are worse than they really are. Knowingly giving false answers as part of a benefit application is benefit fraud, which is a criminal offence.</li>
+	    				</ul>
+	    			</div>
+	    			<h2><button aria-controls="scoring" aria-expanded="false">Scoring</button></h2>
+	    			<div id="scoring" aria-hidden="true">
+	    				<p>You will be given a score from 0 to 15 for each of these physical and mental activity questions.</p>
+	    				<p>For example, for the physical activity of 'using your hands', if you can&#x2019;t press a button like a telephone keypad or turn the pages of a book, you will score 15 points. If you have full use of your hands you will score 0 points. If you can&#x2019;t write with a pen or pencil, or have problems using a keyboard, your score will be in between. </p>
+	    			</div>
+	    			<h2><button aria-controls="rights" aria-expanded="false">Your rights</button></h2>
+	    			<div id="rights" aria-hidden="true">
+	    				<ul class="ticks">
+	    					<li>You will be able to claim back reasonable expenses for getting to your assessment, so keep any bus or train tickets</li>
+	    					<li>You have the right to be accompanied at your assessment. You can ask a relative, friend, carer, or an advocate or support worker to go with you</li>
+	    					<li>You have a right to complain about the assessment if you don’t think it was conducted fairly</li>
+	    				</ul>
+	    			</div>
+	    			<h2><button aria-controls="the-outcome" aria-expanded="false">The outcome</button></h2>
+	    			<div id="the-outcome" aria-hidden="true">
+	    				<p>You will receive a letter from the DWP telling you the outcome of your application. The letter will explain how the decision was reached, including the points you scored in your test, and the amount you will be paid.</p>
+	    				<p>If you are unhappy with the decision, you can request a mandatory reconsideration. If you are still unhappy, you can appeal against it. We recommend that you get some support with this from a local Citizen’s Advice Bureau or advice centre.</p>
+	    			</div>
+	    			<h2><button aria-controls="getting-started" aria-expanded="false">Getting started</button></h2>
+	    			<div id="getting-started" aria-hidden="true">
+	    				<p>To start your application for ESA, do one of the following:</p>
+	    				<ul class="ticks">
+	    					<li>Phone <a href="tel:08000556688">0800 055 6688</a></li>
+	    					<li>Textphone <a href="tel:08000234888">0800 023 4888</a></li>
+	    					<li>Go to the website www.gov.uk and print out <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/419630/esa1.pdf" target="_blank">the ESA1 form (PDF) <span class="vh">opens new tab</span></a>, complete it and send it to the address on the form, or take it to your local job centre.</li>
+	    				</ul>
+	    			</div>
+					<div class="print-box">
+						<a class="button-shaped" aria-hidden="true" href="docs/All_About_ESA.pdf" title="opens a new tab" target="_blank">Read The Guide (opens new tab)</a>
+						<p>Want to know more? You can <a href="docs/All_About_ESA.pdf" target="_blank">read our in-depth guide (PDF) <span class="vh">opens new tab</span></a>.</p>
+					</div>
+					<ul aria-label="menu">
+						<li>
+							<button class="nav-link" data-action="start-or-resume">Practise some assessment questions</button>
+						</li>
+						<li>
+							<button class="nav-link" data-action="menu">Main menu</button>
+						</li>
+					</ul>					
+    			</div>
+			</div>
+		</div>
+		<div class="slide main-menu" id="main-menu">
+			<div class="flow">
+				<h1 tabindex="-1">My ESA Assessment</h1>
+				<p class="larger">Welcome to our <abbr title="Employment And Support Allowance">ESA</abbr> website, designed to help you get ready for your ESA assessment. This website is <strong class="tick">run independently and impartially</strong> by the charity SEAP, <strong class="tick">does not collect your personal data</strong> and contains <strong class="tick">no long, boring forms!</strong></p>
+				<div role="toolbar" aria-label="menu options">
+					<ul>
+						<li class="half">
+							<button data-action="about-esa">A Quick Guide To ESA <span>and your assessment</span></button>
+						</li>
+						<li>
+							<button data-action="start-or-resume"><i aria-hidden="true">&#x2605;</i> Practise <i aria-hidden="true">&#x2605;</i> <span>by assessing yourself</span></button>
+						</li>
+						<li>
+							<button data-action="stats">My Assessment <span>and how it&#x2019;s going so far</span></button>
+						</li>
+						<!--<li class="half">
+							<button data-action="answering-questions">Answering <span>questions the right way</span></button>
+						</li>
+						<li class="half">
+							<button data-action="prep" data-prep-slug="travel">Travelling <span>to your assessment</span></button>
+						</li>-->
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="slide category-finished" id="category-finished">
+			<div class="box">
+				<h1 tabindex="-1">Well done!</h1>
+				<p>You&#x2019;ve seen all the practise questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
+				<ul aria-label="menu">
+					<li>
+						<button class="nav-link" data-action="categories">A new activity</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu">Main menu</button>
+					</li>
+				</ul>				
+			</div>
+		</div>
+		<div class="slide data" id="data">
+			<div class="flow">
+				<h1 tabindex="-1">My Data</h1>
+				<p>This app does not send any of your data anywhere or keep any for itself. However, it <em>does</em> save some data just on the computer you&#x2019;re using in order to work properly.</p> 
+				<p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
+				<ul aria-label="menu">
+					<li>
+						<button class="nav-link red" data-action="delete-data">I'm done! Delete my stuff</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats">I want to see my data first</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide categories" id="categories">
+			<div class="box" id="categories-content">
+			</div>
+		</div>
+		<footer role="contentinfo">
+			<p>Brought to you by <a href="http://www.seap.org.uk/" target="_blank"><img src="images/logo.png" alt="The Charity, SEAP (link Opens new tab)" /></a></p>
+		</footer>
+		<script>
+			window.allQuestions = [{ question: 'question-can-you-move-around-and-use-steps-without-difficulty', category: 'Moving around and using steps' },];
+			window.allCategories = ['Moving around and using steps',];
+		</script>
+		<script src="js/all-scripts.js"></script>
+		<script id="stats-template" type="text/x-handlebars-template">
+			<h2 tabindex="-1">My Assessment</h2>
+			
+			<div class="print-box no-print">
+				<p><button onClick="window.print()">Print Now</button> <strong>Important:</strong> This page contains useful info about how you should be assessed. You can <strong>print it out</strong> and take it with you to your assessment or <strong>access it during your assessment</strong> by accessing this &#x201c;My Assessment&#x201d; page on your phone or other handset.</p> 
+			</div>
+			
+			<div class="paper">
+			
+				<h3>Basic info</h3>
+				<p class="no-print">Enter the venue, date and time of your assessment, as reminders to yourself.</p>
+				<div class="label-input">
+					<label for="venue">Venue</label> 
+					<input data-action="save-basic-info" type="text" id="venue" value="{{venue}}" placeholder="eg. 4, Hall Road">
+				</div>
+				<div class="label-input">
+					<label for="date">Date</label>
+					<input data-action="save-basic-info" type="text" id="date" value="{{date}}" placeholder="eg. March 4th">
+				</div>
+				<div class="label-input">
+					<label for="time">Time</label> 
+					<input data-action="save-basic-info" type="text" id="time" value="{{time}}" placeholder="eg. 2.30pm">
+				</div>
+			
+				<h3>Would I qualify?</h3>
+				{{#if answeredOne}}
+					{{{qualifyHigh}}}
+					{{{qualifyLow}}}
+					{{{qualifyEither}}}
+					{{{qualifyNone}}}
+				{{else}}
+					<p>You have not answered any practise questions, so this is not known.</p>
+				{{/if}}
+			
+				<div class="{{#if answeredOne}}message{{/if}} no-print">
+					{{#if answeredOne}}
+						<p>This is based on the questions you&#x2019;ve answered. You have answered <strong>{{accuracy}}</strong> of the questions available.</p>
+						{{#if incomplete}}<p style="margin-top: 0"><a href="javascript:void(0)" role="button" data-action="pick">Answer more questions <span aria-hidden="true">&#x2192;</span></a></p>{{/if}}
+					{{else}}
+						<p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+					{{/if}}
+				</div>
+			
+				<h3>Important answers</h3>
+				<p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
+				<ul class="q-and-a">
+					{{#if supportAnswers}}
+						{{#each supportAnswers}}
+							<li>
+								<p class="warn">Very Important</p>
+								<p><strong>Question:</strong> {{question}}</p> 
+								<p><strong>Your answer:</strong> {{answer}}</p>
+								<p class="right"><a href="javascript:void(0)" role="button" data-action="change" data-question="question-{{sluggify question}}">Change your answer?</a></p>
+							</li>
+						{{/each}}
+					{{/if}}
+					{{#if WRAGAnswers}}
+						{{#each WRAGAnswers}}
+							<li>
+								<p class="warn amber">Important</p>
+								<p><strong>Question:</strong> {{question}}</p> 
+								<p><strong>Your answer:</strong> {{answer}}</p>
+								<p class="right"><a href="javascript:void(0)" role="button" data-action="change" data-question="{{sluggify question}}">Change your answer?</a></p>
+							</li>
+						{{/each}}
+					{{/if}}
+					{{#unless WRAGAnswers}}
+						{{#unless supportAnswers}}
+							<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+						{{/unless}}
+					{{/unless}}
+				</ul>
+			<!--
+				<h3>Your reminders</h3>
+				<p>Things to prepare and remember for your assessment. <span class="no-print">Tap items that you&#x2019;ve completed to check them off.</span></p>
+				{{#if reminders}}
+				<ul class="checklist">
+				{{#each reminders}}
+					<li>
+						<label>
+							<input type="checkbox" id="{{slug}}" value="done" {{#if done}}checked="checked"{{/if}} /> 
+							<span>{{tip}}</span>
+						</label>
+					</li>
+				{{/each}}
+				</ul>
+				{{else}}
+					<p><strong>You haven&#x2019;t set any reminders yet.</strong></p>
+				{{/if}}
+			</div>
+			-->
+			<ul aria-label="menu">
+				<li>
+					{{#if incomplete}}
+						<button class="nav-link pick" data-action="start-or-resume">Practise some questions</button>
+					{{else}}
+						<button class="nav-link pick" data-action="restart">Practise again</button>
+					{{/if}}
+				</li>
+				<li>
+					<button class="nav-link break" data-action="break">I&#x2019;ll have a break</button>
+				</li>
+				<li>
+					<button class="nav-link break" data-action="menu">Main menu</button>
+				</li>
+			</ul>
+		</script>
+		<script id="categories-template" type="text/x-handlebars-template">
+			<h1 tabindex="-1">Choose an activity</h1>
+			<p>Try to choose an activity that is relevant to any problems you experience. When you&#x2019;ve had a chance to answer questions about this activity, you can try another one or have a break. It&#x2019;s okay to choose &#x201c;I don&#x2019;t know&#x201d; if you&#x2019;re not sure.</p>
+			<div class="category-list" role="toolbar" aria-label="menu options">
+				<ul>
+					<li>
+						<button data-action="set-cat" data-category="i-dont-know">I don&#x2019;t know</button>
+					</li>
+					{{#each remainingCategories}}
+						<li>
+							<button data-action="set-cat" data-category="{{this}}">{{this}}</button>
+						</li>
+					{{/each}}
+				</ul>
+			</div>
+		</script>
+	</body>
+</html>
+
