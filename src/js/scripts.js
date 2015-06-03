@@ -530,18 +530,18 @@ Handlebars.registerHelper('sluggify', function(words) {
 	return slug;
 });
 
+Handlebars.registerHelper('deprefix', function(cat) {
+	var reduced = cat.split(':')[1].trim();
+	console.log(reduced);
+	return reduced;
+});
+
 function sluggify(string) {
 
 	return string
 		.toLowerCase()
 		.replace(/[^\w ]+/g,'')
 		.replace(/ +/g,'-');
-
-}
-
-function removeCatPrefix(string) {
-
-	return string.split(':')[1];
 
 }
 
