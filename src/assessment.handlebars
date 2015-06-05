@@ -36,12 +36,15 @@
 					<span class="vh">Question:</span>
 					<em>{{question}}</em>
 				</h2>
-				<div class="answers" aria-label="choose an answer">
+				<div class="answers">
+				<fieldset>
+					<legend class="vh">Your answer</legend>
 					{{#each answers}}
 					<label>
 			            <input type="radio" value="{{value}}" name="{{../category}}"> <span>{{label}}</span>
 			        </label>
 					{{/each}}
+				</fieldset>
 				</div>
 				<ul aria-label="menu">
 					<li>
@@ -54,30 +57,6 @@
 						<button class="nav-link break" data-action="break">I need a break</button>
 					</li>
 				</ul>
-			</div>
-		</div>
-		{{/each}}
-		{{#each advice}}
-		<div class="slide advice" id="{{sluggify title}}">
-			<div class="flow">
-				<!--<img src="path/to/advice-icon.svg" alt="" />-->
-				<h2 class="advice" tabindex="-1">
-					{{title}}
-				</h2>
-				<p class="description">{{description}}</p>
-				<div class="things-to-remember">
-					<h3>Things to remember</h3>
-					<p>Check any items you want added to <strong>Your Reminders</strong> checklist, which you can print out with <a data-action="stats" href="javascript:void(0)">your other assessment info</a>.</p>
-					<ul>
-						{{#each tips}}
-						<li>
-							<label>
-								<input type="checkbox" value="save" data-tip-id="{{sluggify this}}"> <span>{{this}}</span>
-							</label>
-						</li>
-						{{/each}}
-					</ul>
-				</div>
 			</div>
 		</div>
 		{{/each}}

@@ -147,6 +147,11 @@ button:hover, .button-shaped:hover, [type="radio"]:hover + span {
 	color: #6fe9bf;
 }
 
+button:focus, .button-shaped:focus, [type="radio"]:focus + span {
+	outline: #003555 thin dotted;
+	outline-offset: 4px;
+}
+
 button[aria-pressed="true"], [type="radio"]:checked + span, 
 button:active, .button-shaped:active {
 	background: #006541;
@@ -399,6 +404,13 @@ small {
 
 /* forms
 ---------------------------------------------*/
+
+fieldset {
+	outline: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
 
 .label-input {
 	display: inline-block;
