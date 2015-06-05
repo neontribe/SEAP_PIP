@@ -346,46 +346,92 @@ function tally() {
 	// get all the answers
 	var answers = db.get('ass.answers');
 
+	// init objects
+	var ans = {};
+	var addedup = {};
+
+	// split into mobility and daily living
+	ans.mobility = _.omit(answers, function(val, key) { return key.indexOf('Daily Living') !== -1; });
+	ans.dailyLiving = _.omit(answers, function(val, key) { return key.indexOf('Mobility') !== -1; });
+
+	console.log('answers mobility', ans.mobility);
+	console.log('answers daily living ', ans.dailyLiving);
+
 	// add up the highest values for each category
-	// by taking the max value that's not 16 from each
+	// by taking the max value that's not 16 or * from each
 	// category and adding them together
-	var total = _.reduce(answers, function(memo, cat){
-	    return memo + _.max(_.without( _.pluck(cat, 'points'), 16, '*') );
+	addedup.mobility = _.reduce(ans.mobility, function(memo, cat){
+	    return memo + _.max(_.without( _.pluck(cat, 'points'), 16, '*'));
 	}, 0);
 
-	return total;
+	addedup.dailyLiving = _.reduce(ans.dailyLiving, function(memo, cat){
+	    return memo + _.max(_.without( _.pluck(cat, 'points'), 16, '*'));
+	}, 0);
+
+	return addedup;
 }
 
 // add the high scores for each category together
+// and notify user if they qualify
 function qualify() {
 
 	var total = tally();
+	console.log('mobility ', total.mobility);
+	console.log('daily living ', total.dailyLiving);
 
-	if (total >= 8) {
+	if (total.mobility >= 8) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high') && !db.get('ass.low')) {
+		if (!db.get('ass.high-mobility') && !db.get('ass.low-mobility')) {
 
-			loadSlide('qualify-low');
+			loadSlide('qualify-low-mobility');
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.low', true);
+		db.set('ass.low-mobility', true);
 
 	}
 
-	if (total >= 15) {
+	if (total.mobility >= 15) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high')) {
+		if (!db.get('ass.high-mobility')) {
 
-			loadSlide('qualify-high');
+			loadSlide('qualify-high-mobility');
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.high', true);
+		db.set('ass.high-mobility', true);
+
+	}	
+
+	if (total.dailyLiving >= 8) {
+
+		//don't show the slide if you have already
+		if (!db.get('ass.high-dailyLiving') && !db.get('ass.low-dailyLiving')) {
+
+			loadSlide('qualify-low-dailyLiving');
+
+		}
+
+		// record that low qualification is possible
+		db.set('ass.low-dailyLiving', true);
+
+	}
+
+	if (total.dailyLiving >= 15) {
+
+		//don't show the slide if you have already
+		if (!db.get('ass.high-dailyLiving')) {
+
+			loadSlide('qualify-high-dailyLiving');
+
+		}
+
+		// record that low qualification is possible
+		db.set('ass.high-dailyLiving', true);
 
 	}	
 
@@ -401,12 +447,20 @@ function compileStats() {
 	// Check to see if low or high applies
 	var total = tally();
 
+	if (total.mobility < 15) {
+		db.set('ass.high-mobility', false);
+	}
+
+	if (total.mobility < 8) {
+		db.set('ass.low-mobility', false);
+	}
+
 	if (total < 15) {
-		db.set('ass.high', false);
+		db.set('ass.high-mobility', false);
 	}
 
 	if (total < 8) {
-		db.set('ass.low', false);
+		db.set('ass.low-mobility', false);
 	}
 
 	divideAnswers();
@@ -437,20 +491,13 @@ function divideAnswers() {
 	var answers = db.get('ass.answers');
 
 	var importantAnswers = [];
+	var catAnswers;
 
-	// ugly nested each to make a handelebars #each iterable array of question objects
 	$.each(answers, function(key, value) {
-		$.each(value, function(k, v) {
-			// include support group answers
-			if (v.points > 0) {
-				// push to flattened array
-				importantAnswers.push({
-					question: v.question,
-					answer: v.answer,
-					points: v.points
-				});
-			}
-		});
+		catAnswers = _.values(value);
+		importantAnswers.push(_.max(catAnswers, function(answer) { 
+			return answer.points; 
+		}));
 	});
 
 	// set these to be accessible by template
@@ -498,28 +545,34 @@ Handlebars.registerHelper('accuracy', function(array) {
 	return accuracy;
 });
 
-Handlebars.registerHelper('qualifyHigh', function() {
-	if (db.get('ass.high') && !db.get('ass.low')) {
-		return '<p>You may qualify for the highest allowance, placing you in what&#x2019;s called the Support Group. Remember to show your assessor the questions marked <span class="warn">VERY IMPORTANT</span> (below) by printing this page or opening it on your phone. These are the questions that indicate you qualify.</p>';
+Handlebars.registerHelper('qualifyMobility', function() {
+	
+	var high = db.get('ass.high-mobility');
+	var low = db.get('ass.low-mobility');
+
+	if (high) {
+		return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Mobility</strong>.</p>";
+	} else if (low) {
+		return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Mobility</strong>.</p>";
+	} else {
+		return "<p>It doesn&#x2019;t so far look like you&#x2019;ll qualify for the <strong>Mobility</strong> portion of PIP.</p>";
 	}
+
 });
 
-Handlebars.registerHelper('qualifyLow', function() {
-	if (!db.get('ass.high') && db.get('ass.low')) {
-		return '<p>You may qualify for the standard PIP allowance, placing you in what&#x2019;s called the Work Related Activity Group. Remember to show your assessor the questions marked <span class="warn amber">IMPORTANT</span> (below) by printing this page or opening it on your phone. These are the questions that indicate you qualify.</p>';
-	}
-});
+Handlebars.registerHelper('qualifyDailyLiving', function() {
+	
+	var high = db.get('ass.high-dailyLiving');
+	var low = db.get('ass.low-dailyLiving');
 
-Handlebars.registerHelper('qualifyEither', function() {
-	if (db.get('ass.high') && db.get('ass.low')) {
-		return '<p>It looks like you&#x2019;ll qualify for the standard allowance (placing you in what&#x2019;s called the Work Related Activity Group) or possibly the higher allowance (Support Group). Remember to show your assessor the <strong>Important Questions</strong> (below) by printing this page or opening it on your phone. These are the questions that indicate you qualify.</p>';
+	if (high) {
+		return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Daily Living</strong>.</p>";
+	} else if (low) {
+		return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Daily Living</strong>.</p>";
+	} else {
+		return "<p>It doesn&#x2019;t so far look like you&#x2019;ll qualify for the <strong>Daily Living</strong> portion of PIP.</p>";
 	}
-});
 
-Handlebars.registerHelper('qualifyNone', function() {
-	if (!db.get('ass.high') && !db.get('ass.low')) {
-		return "<p>It does not currently look like you will qualify for PIP.</p>";
-	}
 });
 
 Handlebars.registerHelper('sluggify', function(words) {
@@ -532,7 +585,6 @@ Handlebars.registerHelper('sluggify', function(words) {
 
 Handlebars.registerHelper('deprefix', function(cat) {
 	var reduced = cat.split(':')[1].trim();
-	console.log(reduced);
 	return reduced;
 });
 

@@ -32,14 +32,14 @@
 			<div class="question-container">
 				<!--<img src="path/to/question-icon.svg" alt="" />-->
 				<h2 class="question-text" tabindex="-1">
-					<span class="activity">Activity: {{category}}</span>
+					<span class="activity">{{category}}</span>
 					<span class="vh">Question:</span>
 					<em>{{question}}</em>
 				</h2>
 				<div class="answers" aria-label="choose an answer">
 					{{#each answers}}
 					<label>
-			            <input type="radio" value="{{value}}" name="{{sluggify ../category}}"> <span>{{label}}</span>
+			            <input type="radio" value="{{value}}" name="{{../category}}"> <span>{{label}}</span>
 			        </label>
 					{{/each}}
 				</div>
@@ -81,13 +81,13 @@
 			</div>
 		</div>
 		{{/each}}
-		<div class="slide qualify" id="qualify-high">
+		<div class="slide qualify" id="qualify-high-mobility">
 			<div class="box green">
 				<h1 tabindex="-1">
-					You may qualify for<br/>
-					<strong>Support Group</strong>
+					You may qualify for the<br/>
+					<strong>High Mobility Rate</strong>
 				</h1>
-				<p>Your answer to the last question shows that you may qualify for the highest PIP allowance, placing you in what&#x2019;s called the Support Group. Do you want to try more questions?</p>
+				<p>Your answer to the last question shows that you may qualify for the high PIP allowance regarding mobility. Do you want to try more questions?</p>
 				<ul aria-label="menu">
 					<li>	
 						<button class="nav-link" data-action="pick">Another question</button>
@@ -101,13 +101,53 @@
 				</ul>
 			</div>
 		</div>
-		<div class="slide qualify" id="qualify-low">
+		<div class="slide qualify" id="qualify-low-mobility">
 			<div class="box green">
 				<h1 tabindex="-1">
-					You may qualify for<br/>
-					<strong>Work Related Activity Group</strong>
+					You may qualify for the<br/>
+					<strong>Mobility Allowance</strong>
 				</h1>
-				<p>Your answer to the last question shows that you may qualify for the standard PIP allowance, placing you in what&#x2019;s called the Work Related Activity Group. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
+				<p>Your answer to the last question indicates you may qualify for the &#x201c;Mobility&#x201d; portion of PIP. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="pick">Another question</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button href="#main-menu" class="nav-link" role="link">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide qualify" id="qualify-high-dailyLiving">
+			<div class="box green">
+				<h1 tabindex="-1">
+					You may qualify for the<br/>
+					<strong>High Daily Living Rate</strong>
+				</h1>
+				<p>Your answer to the last question shows that you may qualify for the high PIP allowance regarding &#x201c;Daily Living&#x201d;. Do you want to try more questions?</p>
+				<ul aria-label="menu">
+					<li>	
+						<button class="nav-link" data-action="pick">Another question</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="stats" role="link">My assessment so far</button>
+					</li>
+					<li>
+						<button class="nav-link" data-action="menu" role="link">Main menu</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="slide qualify" id="qualify-low-dailyLiving">
+			<div class="box green">
+				<h1 tabindex="-1">
+					You may qualify for the<br/>
+					<strong>Daily Living Allowance</strong>
+				</h1>
+				<p>Your answer to the last question indicates you may qualify for the &#x201c;Daily Living&#x201d; portion of PIP. It&#x2019;s still possible that you may qualify for a higher rate. To find out, try some more questions.</p>
 				<ul aria-label="menu">
 					<li>	
 						<button class="nav-link" data-action="pick">Another question</button>

@@ -23,10 +23,10 @@
 
 	<h3>Would I qualify?</h3>
 	{{#if answeredOne}}
-		{{{qualifyHigh}}}
-		{{{qualifyLow}}}
-		{{{qualifyEither}}}
-		{{{qualifyNone}}}
+		<h4>Daily Living</h4>
+		{{{qualifyDailyLiving}}}
+		<h4>Mobility</h4>
+		{{{qualifyMobility}}}
 	{{else}}
 		<p>You have not answered any practise questions, so this is not known.</p>
 	{{/if}}
@@ -46,7 +46,6 @@
 		<ul class="q-and-a">
 			{{#each importantAnswers}}
 				<li>
-					<p class="warn">Important</p>
 					<p><strong>Question:</strong> {{question}}</p> 
 					<p><strong>Your answer:</strong> {{answer}}</p>
 					<p class="right"><a href="javascript:void(0)" role="button" data-action="change" data-question="question-{{sluggify question}}">Change your answer?</a></p>
@@ -57,25 +56,7 @@
 	{{#unless importantAnswers}}
 		<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
 	{{/unless}}
-<!--
-	<h3>Your reminders</h3>
-	<p>Things to prepare and remember for your assessment. <span class="no-print">Tap items that you&#x2019;ve completed to check them off.</span></p>
-	{{#if reminders}}
-	<ul class="checklist">
-	{{#each reminders}}
-		<li>
-			<label>
-				<input type="checkbox" id="{{slug}}" value="done" {{#if done}}checked="checked"{{/if}} /> 
-				<span>{{tip}}</span>
-			</label>
-		</li>
-	{{/each}}
-	</ul>
-	{{else}}
-		<p><strong>You haven&#x2019;t set any reminders yet.</strong></p>
-	{{/if}}
-</div>
--->
+
 <ul aria-label="menu">
 	<li>
 		{{#if incomplete}}
