@@ -39,7 +39,7 @@ function initAss() {
 			return cat.toLowerCase()
 					  .replace(/[^\w ]+/g,'')
 					  .replace(/ +/g,'-'); }), // the categories not yet viewed*/
-		remainingCategories: _.uniq(_.without(window.allCategories, "followup")),
+		remainingCategories: _.uniq(_.without(window.allCategories, null)),
 		started: false, // whether a practise has been started
 		answeredOne: false, // Whether any questions have been answered at all 
 		context: null, // the jQuery object for the slide in hand
