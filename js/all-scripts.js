@@ -14275,6 +14275,30 @@ function loadSlide(id, type) {
 // show a random unseen question
 function pickQuestion() {
 
+	if (db.get('ass.show-qualify-low-mobility')) {
+		loadSlide('qualify-low-mobility');
+		db.set('ass.show-qualify-low-mobility', false);
+		return;
+	}
+
+	if (db.get('ass.show-qualify-high-mobility')) {
+		loadSlide('qualify-high-mobility');
+		db.set('ass.show-qualify-high-mobility', false);
+		return;
+	}
+
+	if (db.get('ass.show-qualify-low-dailyLiving')) {
+		loadSlide('qualify-low-dailyLiving');
+		db.set('ass.show-qualify-low-dailyLiving', false);
+		return;
+	}
+
+	if (db.get('ass.show-qualify-high-dailyLiving')) {
+		loadSlide('qualify-high-dailyLiving');
+		db.set('ass.show-qualify-high-dailyLiving', false);
+		return;
+	}
+
 	// We've started practicing
 	db.set('ass.started', true);
 
@@ -14485,7 +14509,7 @@ function qualify() {
 		//don't show the slide if you have already
 		if (!db.get('ass.high-mobility') && !db.get('ass.low-mobility')) {
 
-			loadSlide('qualify-low-mobility');
+			db.set('ass.show-qualify-low-mobility', true);
 
 		}
 
@@ -14499,7 +14523,7 @@ function qualify() {
 		//don't show the slide if you have already
 		if (!db.get('ass.high-mobility')) {
 
-			loadSlide('qualify-high-mobility');
+			db.set('ass.show-qualify-high-mobility', true);
 
 		}
 
@@ -14513,7 +14537,7 @@ function qualify() {
 		//don't show the slide if you have already
 		if (!db.get('ass.high-dailyLiving') && !db.get('ass.low-dailyLiving')) {
 
-			loadSlide('qualify-low-dailyLiving');
+			db.set('ass.show-qualify-low-dailyLiving', true);
 
 		}
 
@@ -14527,14 +14551,14 @@ function qualify() {
 		//don't show the slide if you have already
 		if (!db.get('ass.high-dailyLiving')) {
 
-			loadSlide('qualify-high-dailyLiving');
+			db.set('ass.show-qualify-high-dailyLiving', true);
 
 		}
 
 		// record that low qualification is possible
 		db.set('ass.high-dailyLiving', true);
 
-	}	
+	}
 
 }
 
@@ -14597,12 +14621,16 @@ function divideAnswers() {
 	$.each(answers, function(key, value) {
 		catAnswers = _.values(value);
 		importantAnswers.push(_.max(catAnswers, function(answer) { 
-			return answer.points; 
+			return answer.points;
 		}));
 	});
 
+	var removeZeros = _.reject(importantAnswers, function(ans) {
+		return ans.points === 0;
+	});
+
 	// set these to be accessible by template
-	db.set('ass.importantAnswers', importantAnswers);
+	db.set('ass.importantAnswers', removeZeros);
 
 }
 
@@ -14868,10 +14896,9 @@ $('body').on('change','[type="radio"]', function() {
 	// get checked answer's value and the category the question belongs to
 	var context = db.get('ass.context');
 	var points = $(':checked', '#' + context).val();
-	var category = $(':checked', '#' + context).attr('name');
+	var category = $(':checked', '#' + context).attr('data-category-name');
 	var question = $('h2 em', '#' + context).text();
 	var answer = $(':checked + span', '#' + context).text();
-
 
 	if (!isNumeric(points)) {
 
