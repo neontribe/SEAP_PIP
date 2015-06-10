@@ -14714,8 +14714,9 @@ Handlebars.registerHelper('sluggify', function(words) {
 });
 
 Handlebars.registerHelper('deprefix', function(cat) {
-	var reduced = cat.split(':')[1].trim();
-	return reduced;
+	var reduced = cat.split(':')[1];
+	var trimmed = $.trim(reduced);
+	return trimmed;
 });
 
 function sluggify(string) {
