@@ -28,7 +28,7 @@
 			</nav>
 		</header>
 		{{#each questions}}
-		<div class="slide question" id="question-{{sluggify question}}" data-category="{{sluggify category}}">
+		<div class="slide question" id="question-{{sluggify question}}">
 			<div class="question-container">
 				<!--<img src="path/to/question-icon.svg" alt="" />-->
 				<h2 class="question-text" tabindex="-1">
@@ -41,7 +41,7 @@
 					<legend class="vh">Your answer</legend>
 					{{#each answers}}
 					<label>
-			            <input type="radio" value="{{value}}" name="{{../category}}"> <span>{{label}}</span>
+			            <input type="radio" value="{{value}}" data-category-name="{{../category}}" name="{{sluggify ../question}}"> <span>{{label}}</span>
 			        </label>
 					{{/each}}
 				</fieldset>
