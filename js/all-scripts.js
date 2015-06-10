@@ -14181,9 +14181,7 @@ function getCatQuestions(slug) {
 			
 			// make an array of all questions
 			// excluding followup questions
-			if (v.category !== 'followup') {
-				all.push(v.question);
-			}
+			all.push(v.question);
 
 		});		
 
