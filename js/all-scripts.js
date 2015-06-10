@@ -14625,6 +14625,7 @@ function divideAnswers() {
 		}));
 	});
 
+	// get rid of zeros
 	var removeZeros = _.reject(importantAnswers, function(ans) {
 		return ans.points === 0;
 	});
