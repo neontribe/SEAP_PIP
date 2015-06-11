@@ -82,7 +82,7 @@ function getCatQuestions(slug) {
 			// excluding followup questions
 			all.push(v.question);
 
-		});		
+		});
 
 		var seen = db.get('ass.seenQuestions');
 
@@ -612,7 +612,7 @@ Handlebars.registerHelper('sluggify', function(words) {
 
 Handlebars.registerHelper('deprefix', function(cat) {
 	var reduced = cat.split(':')[1];
-	var trimmed = $.trim(reduced);
+	var trimmed = reduced.substr(1);
 	return trimmed;
 });
 
