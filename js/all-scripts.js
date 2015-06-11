@@ -14712,10 +14712,12 @@ Handlebars.registerHelper('sluggify', function(words) {
 });
 
 Handlebars.registerHelper('deprefix', function(cat) {
-	var reduced = cat.split(':')[1];
-	var trimmed = reduced.substr(1);
-	console.log(trimmed);
-	return trimmed;
+	if (cat) {
+		var reduced = cat.split(':')[1];
+		var trimmed = reduced.substr(1);
+		console.log(trimmed);
+		return trimmed;
+	}
 });
 
 function sluggify(string) {
