@@ -80,7 +80,9 @@ function getCatQuestions(slug) {
 			
 			// make an array of all questions
 			// excluding followup questions
-			all.push(v.question);
+			if (v && v.question) {
+				all.push(v.question);
+			}
 
 		});
 
