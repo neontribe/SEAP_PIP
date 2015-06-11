@@ -174,6 +174,9 @@ function loadSlide(id, type) {
 // show a random unseen question
 function pickQuestion() {
 
+	// Has the user actually invoked this function?
+	window.realPick = true;
+
 	if (db.get('ass.show-qualify-low-mobility')) {
 		loadSlide('qualify-low-mobility');
 		db.set('ass.show-qualify-low-mobility', false);
@@ -207,6 +210,10 @@ function pickQuestion() {
 	var context = db.get('ass.context');
 	// get mode (unseen or skipped)
 	var mode = db.get('ass.mode');
+
+	console.log('type', typeOfSlide);
+	console.log('answered', window.answered);
+	console.log('mode', mode);
 
 	if (typeOfSlide === 'question' && !window.answered && mode === 'unseenQuestions') {
 
@@ -332,6 +339,8 @@ function pickQuestion() {
 	// load question slide and set slide type global to 'question' 
 	loadSlide(question, 'question');
 
+	// reset the realPick var for next time
+	window.realPick = false;
 	// set to false until button pressed
 	window.answered = false;
 
@@ -870,15 +879,9 @@ $('body').on('click','[data-action="set-cat"]', function() {
 
 /*$(window).on('hashchange', function(e) {
 
-	// add hash to history
-	window.hashHistory.push(window.location.hash);
-
-	if (window.location.hash.substr(0,9) === '#question') {
+	if (window.location.hash.substr(0,9) === '#question' && !window.realPick) {
 		if (hashHistory.indexOf(window.location.hash > -1)) {
-			loadSlide(window.location.hash.substr(1));
-
-			// TODO Need to remove this question from working data here
-
+			loadSlide(window.location.hash.substr(1), 'question');
 		}
 	}
 
