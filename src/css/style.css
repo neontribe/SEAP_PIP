@@ -794,7 +794,7 @@ footer img {
 	height: 50px;
 	width: auto;
 	vertical-align: middle;
-  position: relative;
+  	position: relative;
 	top: -3px;
 	margin-left: 0.5em;
 }
@@ -963,6 +963,7 @@ footer a {
 		padding: 0;
 		background: none;
 		margin: 0;
+		page-break-before: auto;
 	}
 
 	.q-and-a li + li {
