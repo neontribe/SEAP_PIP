@@ -211,10 +211,6 @@ function pickQuestion() {
 	// get mode (unseen or skipped)
 	var mode = db.get('ass.mode');
 
-	console.log('type', typeOfSlide);
-	console.log('answered', window.answered);
-	console.log('mode', mode);
-
 	if (typeOfSlide === 'question' && !window.answered && mode === 'unseenQuestions') {
 
 		// put the unanswered question into the array of skipped questions
@@ -813,10 +809,14 @@ $('body').on('change','[type="radio"]', function() {
 	var question = $('h2 em', '#' + context).text();
 	var answer = $(':checked + span', '#' + context).text();
 
+	// Remove from skipped questions if present
+	db.set('ass.skippedQuestions', _.without(db.get('ass.skippedQuestions'), context));
+
 	if (!isNumeric(points)) {
 
 		// turn the followup question into a slug
 		var followupSlug = 'question-'+sluggify(points);
+
 		// load the followup slide
 		loadSlide(followupSlug);
 
@@ -877,7 +877,7 @@ $('body').on('click','[data-action="set-cat"]', function() {
 
 });
 
-/*$(window).on('hashchange', function(e) {
+$(window).on('hashchange', function(e) {
 
 	if (window.location.hash.substr(0,9) === '#question' && !window.realPick) {
 		if (hashHistory.indexOf(window.location.hash > -1)) {
@@ -885,4 +885,4 @@ $('body').on('click','[data-action="set-cat"]', function() {
 		}
 	}
 
-});*/
+});
