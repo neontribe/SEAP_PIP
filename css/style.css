@@ -147,6 +147,11 @@ button:hover, .button-shaped:hover, [type="radio"]:hover + span {
 	color: #6fe9bf;
 }
 
+button:focus, .button-shaped:focus, [type="radio"]:focus + span {
+	outline: #003555 thin dotted;
+	outline-offset: 4px;
+}
+
 button[aria-pressed="true"], [type="radio"]:checked + span, 
 button:active, .button-shaped:active {
 	background: #006541;
@@ -202,6 +207,10 @@ a.nav-link, button.nav-link {
 	font-weight: 700;
 	box-shadow: none;
 	background: transparent;
+}
+
+a img {
+	border: 0;
 }
 
 a.nav-link:hover, button.nav-link:hover, 
@@ -400,6 +409,13 @@ small {
 /* forms
 ---------------------------------------------*/
 
+fieldset {
+	outline: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
 .label-input {
 	display: inline-block;
 	width: 32%;
@@ -438,16 +454,17 @@ label {
 /* layout
 ---------------------------------------------*/
 
+html {
+	height: 100%;
+}
+
 body {
 	display: table;
 	table-layout: fixed;
-	position: absolute;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
+	position: relative;
 	width: 100%;
 	height: 100%;
+	min-height: 100vh;
 }
 
 .slide {
@@ -534,7 +551,6 @@ nav li + li::before {
 
 .box {
 	margin: 0 20%;
-	display: inline-block;
 	border: 5px solid #3389c1;
 	padding: 20px;
 	padding: 1.5rem;
@@ -547,6 +563,10 @@ nav li + li::before {
 
 .category-list {
 	font-size: 0.66em;
+}
+
+.category-list button:first-letter {
+	text-transform: uppercase;
 }
 
 .green {
@@ -879,6 +899,7 @@ footer a {
 		    -ms-flex-flow: column;
 		        flex-flow: column;
 		min-width: 33.333%;
+		min-height: 3em;
 	}
 
 	.category-list li button {
@@ -887,6 +908,7 @@ footer a {
 		-webkit-flex: 1 0;
 		    -ms-flex: 1 0;
 		        flex: 1 0;
+		min-height: 3.25em;
 	}
 
 }
