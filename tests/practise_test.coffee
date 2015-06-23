@@ -60,14 +60,16 @@ activitySelect = (test, activityName) ->
 answerQuestion = (value) ->
   hasValue = false
   hasValue = casper.exists '.question-container.loaded input[value="'+value+'"]'
-  casper.echo hasValue
+  #casper.echo hasValue
   casper.click '.question-container.loaded input[value="'+value+'"]' if hasValue
   hasValue
 
 ###############################
 # TEST Answer all in category #
 ###############################
-casper.test.begin 'Answer all questions in all categories', 3, (test) ->
+numOfCats = 12 
+numOfTests = numOfCats*3 + 2  
+casper.test.begin 'Answer all questions in all categories', numOfTests, (test) ->
   # Start at home, clear data, return to home, click start-or-resume
   casper
     .start url, ->
@@ -75,31 +77,38 @@ casper.test.begin 'Answer all questions in all categories', 3, (test) ->
     .then (data) ->
       allCategories = @getElementsAttribute '#categories-content li button',
         'data-category'
-      @echo allCategories
+      #@echo allCategories
       for activityName in allCategories
         if activityName != 'i-dont-know'
           activitySelect test, activityName
           isNext =
             @exists '.question-container.loaded button[data-action="pick"]'
-          test.comment 'Answer all 0'
+          #test.comment 'Answer all 0'
           while isNext
             question = @fetchText '.question-container.loaded h2 em'
-            @echo question
+            #@echo question
             # verify there is a 0 value option if not, ask another
             if answerQuestion(0) then data['answered'][question] = 0
             #@echo JSON.stringify(data)
             @click '.question-container.loaded button[data-action="pick"]'
             isNext = @exists '.question-container.loaded'
-            test.comment 'Another question in category:'+isNext
+            #test.comment 'Another question in category:'+isNext
             break unless isNext
-          # verify we are on the category-finished page
-          # TODO or exit if we are on #seen-all
-          test.assertUrlMatch url + '/#category-finished',
-            'Landed on category finished page'
-          # verify category name as expected
-          test.assertSelectorHasText '.box.loaded p strong',
-            activityName.toLowerCase(),
-            'Category name matches "' + activityName + '"'
-          @click '#category-finished button[data-action="categories"]'
+          # If we've answered all the questions verify and exit
+          match = @getCurrentUrl().indexOf 'seen-all-even-skipped'
+          if match > 0 
+            test.comment @getCurrentUrl()
+            test.assertSelectorHasText '.box.loaded h1',
+              'Practise Complete',
+              'Landed on the answered all questions page'
+          else  
+            # verify we are on the category-finished page
+            test.assertUrlMatch url + '/#category-finished',
+              'Landed on category finished page'
+            # verify category name as expected
+            test.assertSelectorHasText '.box.loaded p strong',
+              activityName.toLowerCase(),
+              'Category name matches "' + activityName + '"'
+            @click '#category-finished button[data-action="categories"]'
     .run ->
       test.done()
