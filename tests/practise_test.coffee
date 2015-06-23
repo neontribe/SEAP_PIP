@@ -67,9 +67,9 @@ answerQuestion = (value) ->
 ###############################
 # TEST Answer all in category #
 ###############################
-numOfCats = 12 
-numOfTests = numOfCats*3 + 2  
-casper.test.begin 'Answer all questions in all categories', numOfTests, (test) ->
+numOfCats = 12
+numOfTests = numOfCats*3 + 2
+casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
   # Start at home, clear data, return to home, click start-or-resume
   casper
     .start url, ->
@@ -96,12 +96,12 @@ casper.test.begin 'Answer all questions in all categories', numOfTests, (test) -
             break unless isNext
           # If we've answered all the questions verify and exit
           match = @getCurrentUrl().indexOf 'seen-all-even-skipped'
-          if match > 0 
+          if match > 0
             test.comment @getCurrentUrl()
             test.assertSelectorHasText '.box.loaded h1',
               'Practise Complete',
               'Landed on the answered all questions page'
-          else  
+          else
             # verify we are on the category-finished page
             test.assertUrlMatch url + '/#category-finished',
               'Landed on category finished page'

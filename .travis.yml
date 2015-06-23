@@ -3,7 +3,7 @@ node_js:
   - "0.12"
 before_install:
   - npm install -g grunt-cli
-  - npm install -g casperjs
+  - npm install -g casperjs@1.1.0-beta2
 before_script:  
   - phantomjs --version
   - casperjs --version
