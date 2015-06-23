@@ -2,6 +2,13 @@
 START UP
 **********************************************************************/
 
+// Define indexOf for array - ie8
+if (!Array.prototype.indexOf) {
+  Array.prototype.indexOf = function(val) {
+    return jQuery.inArray(val, this);
+  };
+}
+
 // define the database
 var db = $.localStorage;
 
