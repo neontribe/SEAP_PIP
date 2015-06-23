@@ -116,23 +116,73 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
 ##########################
 # TEST Qualifying combos #
 ##########################
-casper.test.begin 'Qualify with both, neither, either', 7, (test) ->
+# TODO look into using thenBypassIf and theBypassUnless to itterate
+# through answers. num questions is returning num options rather than questions.
+casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
   casper
     .start url, ->
       clearAndGetCategories test
     .then (data) ->
-      # Get some points from Mobility
       # Get some points from Daily Living
+      cat = 'Daily Living: Preparing food'
+      activitySelect test, cat
+      questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'
+      numQuestions = questions.length
+      @echo numQuestions
+      for i in [1..numQuestions] by 1
+        if !answerQuestion(8)
+          @click '.question-container.loaded button[data-action="pick"]'
+      @click '.question-container.loaded button[data-action="pick"]'
+      # Qualify low Daily Living
+      match = @getCurrentUrl().indexOf 'qualify-low-dailyLiving'
+      test.assert match > 0,
+        'Qualify Low with 8 points from ' + cat
+      @click '.box.loaded button[data-action="pick"]'
+      @click '.box.loaded button[data-action="categories"]'
+      # Get some points from Mobility
+      cat = 'Mobility: Planning and following journeys'
+      activitySelect test, cat
+      questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'
+      numQuestions = questions.length
+      @echo numQuestions
+      for i in [1..numQuestions] by 1
+        if !answerQuestion(10)
+          @click '.question-container.loaded button[data-action="pick"]'
+      @click '.question-container.loaded button[data-action="pick"]'
+      # Qualify low Mobility
+      match = @getCurrentUrl().indexOf 'qualify-low-mobility'
+      test.assert match > 0,
+        'Qualify Low with 10 points from ' + cat
       # Show important but not qualify for either
+      @click '.box.loaded button[data-action="stats"]'
+      importantAnswers = @getElementsInfo('ul.q-and-a li').length
+      # verify we have 2 important answers
+      test.assertEquals importantAnswers, 2, 'Found 2 important answers'
+      # Get at least 16 Daily Living points
+      @click '.stats-container.loaded button[data-action="start-or-resume"]'
+      @click '.question-container.loaded button[data-action="pick"]'
+      @click '.question-container.loaded button[data-action="pick"]'
+
+      @echo @getCurrentUrl()
+      @click '.box.loaded button[data-action="categories"]'
+      cat = 'Daily Living: Washing and bathing'
+      activitySelect test, cat
+      questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'
+      numQuestions = questions.length
+      for i in [1..numQuestions] by 1
+        if !answerQuestion(8)
+          @click '.question-container.loaded button[data-action="pick"]'
+      @click '.question-container.loaded button[data-action="pick"]'
+      # Qualify high Daily Living
+      match = @getCurrentUrl().indexOf 'qualify-high-dailyLiving'
+      test.assert match > 0,
+        'Qualify High with 16 points from Daily Living'
+
+      # Get at least 16 Mobility points and qualify high
+
+      # Change a Daily Living answer to 0 - make total below 16
+      # Qualify high only Mobility
       test.assert true
-      # Get at least 15 Daily Living points
-      # Qualify only Daily Living
-      test.assert true
-      # Get at least 15 Mobility points
-      # Qualify Daily Living and Mobility
-      test.assert true
-      # Change a Daily Living answer to 0 - make total below 15
-      # Qualify only Mobility
       test.assert true
     .run ->
       test.done()
