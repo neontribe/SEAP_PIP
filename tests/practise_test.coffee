@@ -112,3 +112,27 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
             @click '#category-finished button[data-action="categories"]'
     .run ->
       test.done()
+
+##########################
+# TEST Qualifying combos #
+##########################
+casper.test.begin 'Qualify with both, neither, either', 7, (test) ->
+  casper
+    .start url, ->
+      clearAndGetCategories test
+    .then (data) ->
+      # Get some points from Mobility
+      # Get some points from Daily Living
+      # Show important but not qualify for either
+      test.assert true
+      # Get at least 15 Daily Living points
+      # Qualify only Daily Living
+      test.assert true
+      # Get at least 15 Mobility points
+      # Qualify Daily Living and Mobility
+      test.assert true
+      # Change a Daily Living answer to 0 - make total below 15
+      # Qualify only Mobility
+      test.assert true
+    .run ->
+      test.done()
