@@ -18,12 +18,12 @@
 ## Deploy procedure
 
 __Staging__
-* We are using Travis and grunt to build test and deploy
+* We are using Travis (.travis.yml) and grunt to build test (Gruntfile.js) and deploy (deploy.sh)
 * On EVERY push, pull request or merge Travis uses Grunt test task to run all _test.coffee and _test.js files in /tests
 * If the tests pass, Travis commits the new build to gh-pages branch (our staging server) http://neontribe.github.io/SEAP_PIP
 
-__Live__
+__Live__  
 **There curently is no live hosting in place but the plan is as follows**
-* When relese is tagged and pushed
-* Use Travis to carry out procedure as for Staging
+* When release is tagged and pushed
+* Use Travis to carry out procedure as for Staging - add some lines to deploy.sh to detect release tag and...
 * If all goes well, push the new build to the live site - overwriting whatever is there.
