@@ -117,7 +117,7 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
 # TEST Qualifying combos #
 ##########################
 # TODO look into using thenBypassIf and theBypassUnless to itterate
-# through answers. num questions is returning num options rather than questions.
+# through answers.
 casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
   casper
     .start url, ->
@@ -126,9 +126,13 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
       # Get some points from Daily Living
       cat = 'Daily Living: Preparing food'
       activitySelect test, cat
-      questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'
-      numQuestions = questions.length
-      @echo numQuestions
+      # Get number of questions in category using answer data-category-name
+      answers = @getElementsInfo 'input[data-category-name="'+cat+'"]'
+      questionsObj = {}
+      for answer in answers
+        questionsObj[answer.attributes.name] = 1
+      numQuestions = Object.keys(questionsObj).length
+      # Make sure we stop before we run out of questions
       for i in [1..numQuestions] by 1
         if !answerQuestion(8)
           @click '.question-container.loaded button[data-action="pick"]'
