@@ -148,7 +148,10 @@ function loadSlide(id, type) {
 		db.set('ass.slideType', null);
 	}
 
-	// go to picked question
+	// get rid of any previously invoked alerts
+	$('[role="alert"]').empty();
+
+	// go to slide
 	window.location.hash = '#' + id;
 
 	// focus title to announce title in AT
@@ -852,6 +855,11 @@ $('body').on('change','[type="radio"]', function() {
 		// to see if there are enough points to qualify
 		qualify();
 		
+	}
+
+	if ($(':checked', '#' + context).next().text() === 'Sometimes') {
+		$('[role="alert"]', '#' + context)
+			.append('<p><strong>Okay. But can you do this frequently, accurately and without becoming too tired?<br/> You might want to change your answer.</strong></p>');
 	}
 
 });
