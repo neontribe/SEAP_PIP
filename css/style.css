@@ -826,6 +826,48 @@ footer a {
 	border: 0;
 }
 
+/* feedback
+---------------------------------------------*/
+
+[role="alert"] {
+	margin: 0;
+	font-weight: bold;
+}
+
+@-webkit-keyframes prompt {
+	0% {
+		background: transparent;
+	}
+	20% {
+		background: #3389c1;
+	}
+	100% {
+		background: transparent;
+	}
+}
+
+@keyframes prompt {
+	0% {
+		background: transparent;
+	}
+	20% {
+		background: #3389c1;
+	}
+	100% {
+		background: transparent;
+	}
+}
+
+[role="alert"] p {
+	padding: 0.75em;
+	max-width: 700px;
+	margin: 0.5em auto;
+	text-align: center;
+	-webkit-animation: prompt 0.75s linear 1;
+	        animation: prompt 0.75s linear 1;
+	border: 1px solid;
+}
+
 /* break points
 ---------------------------------------------*/
 
