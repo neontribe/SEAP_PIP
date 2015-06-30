@@ -98,6 +98,10 @@ function getCatQuestions(slug) {
 		db.set('ass.unseenQuestions', _.difference(all, seen));
 		db.set('ass.category', null);
 
+		loadSlide('chose-i-dont-know');
+
+		return;
+
 	} else {
 
 		var reducedToCat = _.where(window.allQuestions, {category: slug});
@@ -276,7 +280,7 @@ function pickQuestion() {
 		} else {
 
 			// use underscore to get random question slug
-			question = _.sample(questions);
+			question = questions[0];
 
 		}
 
@@ -291,16 +295,7 @@ function pickQuestion() {
 
 			db.set('ass.' + mode, questions);
 
-			if (db.get('ass.category')) { 
-
-				question = questions[0];
-
-			} else {
-
-				// use underscore to get random question slug
-				question = _.sample(questions);
-
-			}
+			question = questions[0];
 
 			// if the array is empty, all the skipped questions are answered
 			if (question === undefined) {
@@ -319,16 +314,7 @@ function pickQuestion() {
 				questions = _.without(questions, context);
 			}
 
-			if (db.get('ass.category')) { 
-
-				question = questions[0];
-
-			} else {
-
-				// use underscore to get random question slug
-				question = _.sample(questions);
-
-			}
+			question = questions[0];
 
 		}
 
