@@ -599,7 +599,7 @@ Handlebars.registerHelper('qualifyMobility', function() {
 	} else if (low) {
 		return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
 	} else {
-		return "<p>It doesn&#x2019;t so far look like you&#x2019;ll qualify for the <strong>Mobility</strong> portion of PIP.</p>";
+		return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
 	}
 
 });
@@ -614,7 +614,7 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
 	} else if (low) {
 		return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
 	} else {
-		return "<p>It doesn&#x2019;t so far look like you&#x2019;ll qualify for the <strong>Daily Living</strong> portion of PIP.</p>";
+		return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
 	}
 
 });

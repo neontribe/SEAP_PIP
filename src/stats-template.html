@@ -33,8 +33,7 @@
 
 	<div class="{{#if answeredOne}}message{{/if}} no-print">
 		{{#if answeredOne}}
-			<p>This is based on the questions you&#x2019;ve answered. You have answered <strong>{{accuracy}}</strong> of the questions available.</p>
-			{{#if incomplete}}<p style="margin-top: 0"><a href="javascript:void(0)" role="button" data-action="pick">Answer more questions <span aria-hidden="true">&#x2192;</span></a></p>{{/if}}
+			{{#if incomplete}}<p style="margin-top: 0"><a href="javascript:void(0)" role="button" data-action="pick">Answer more questions <span aria-hidden="true">&#x2192;</span></a> to give you a more accurate prediction.</p>{{/if}}
 		{{else}}
 			<p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
 		{{/if}}
@@ -59,7 +58,7 @@
 
 <h3>Remember</h3>
 <ul>
-  <li>You know how to get to the assessment centre and where it is - you appointment letter will usually have a map with it.</li>
+  <li>You know how to get to the assessment centre and where it is - your appointment letter will usually have a map with it.</li>
   <li>You need to take your appointment letter and proof of ID &#40;your letter tells you what is acceptable proof of ID&#41;.</li>
   <li>Make sure to ask for a travel reimbursement claim form at the assessment if you do not already have one.</li>
   <li>Make sure you keep tickets or receipts about bus tickets, parking receipts for both yourself and any companion who accompanies you.</li>
