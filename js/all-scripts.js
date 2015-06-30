@@ -14960,7 +14960,7 @@ $('body').on('change','[type="radio"]', function() {
 
 	if ($(':checked', '#' + context).next().text() === 'Sometimes') {
 		$('[role="alert"]', '#' + context)
-			.append('<p><strong>Okay. But can you do this frequently, accurately and without becoming too tired?<br/> You might want to change your answer.</strong></p>');
+			.append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please change your answer to no. Otherwise select yes.</strong></p>');
 	}
 
 });
