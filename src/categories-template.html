@@ -5,8 +5,8 @@
 		<li>
 			<button data-action="set-cat" data-category="i-dont-know">I don&#x2019;t know</button>
 		</li>
-		{{#each remainingCategories}}
-			<li>
+		{{#each allCategories}}
+			<li class="real-cat">
 				<button data-action="set-cat" data-category="{{this}}">{{deprefix this}}</button>
 			</li>
 		{{/each}}

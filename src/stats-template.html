@@ -33,7 +33,7 @@
 
 	<div class="{{#if answeredOne}}message{{/if}} no-print">
 		{{#if answeredOne}}
-			{{#if incomplete}}<p style="margin-top: 0"><a href="javascript:void(0)" role="button" data-action="pick">Answer more questions <span aria-hidden="true">&#x2192;</span></a> to give you a more accurate prediction.</p>{{/if}}
+			{{#if incomplete}}<p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Answer more questions</a> to give you a more accurate prediction.</p>{{/if}}
 		{{else}}
 			<p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
 		{{/if}}

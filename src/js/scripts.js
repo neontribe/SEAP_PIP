@@ -46,6 +46,7 @@ function initAss() {
 			return cat.toLowerCase()
 					  .replace(/[^\w ]+/g,'')
 					  .replace(/ +/g,'-'); }), // the categories not yet viewed*/
+		allCategories: _.uniq(_.without(window.allCategories, null)),
 		remainingCategories: _.uniq(_.without(window.allCategories, null)),
 		started: false, // whether a practise has been started
 		answeredOne: false, // Whether any questions have been answered at all 
@@ -508,6 +509,9 @@ function compileCategories() {
 	var output = template(assData);
 	$('#categories-content').html(output);
 
+	// set seen categories to disabled
+	disabledCats();
+
 }
 
 // remove answers from category nesting for easy iteration
@@ -532,6 +536,31 @@ function divideAnswers() {
 
 	// set these to be accessible by template
 	db.set('ass.importantAnswers', removeZeros);
+
+}
+
+function disabledCats() {
+
+	var remaining = db.get('ass.remainingCategories');
+
+	$('.real-cat').each(function() {
+
+		var button = $('button', this);
+
+		button.attr('disabled', null);
+
+		var catName = button.attr('data-category');
+
+		console.log('remaining', remaining);
+		console.log('disabled?', !_.contains(remaining, catName));
+
+		if (!_.contains(remaining, catName)) {
+
+			button.attr('disabled', 'disabled');
+			
+		}
+
+	});
 
 }
 
