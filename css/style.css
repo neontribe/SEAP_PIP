@@ -178,6 +178,19 @@ button:only-of-type {
 	font-size: 1.25em;
 }
 
+button[disabled] {
+	opacity: 0.5;
+}
+
+button[disabled]::after {
+	content: ' (done)';
+	font-size: 0.8em;
+}
+
+button[disabled]:active {
+	background: #E25C43;
+}
+
 /* links
 ---------------------------------------------*/
 
