@@ -101,7 +101,7 @@ h1, h2, h3, h4 {
 	line-height: 1;
 }
 
-h1, h2 {
+h1 {
 	font-weight: 300;
 	text-align: center;
 }
@@ -492,6 +492,17 @@ body {
 }
 
 .slide h2 {
+	margin-top: 0;
+}
+
+.paper h2 {
+	text-align: left;
+	margin-top: 30px;
+	margin-top: 1.5rem;
+	font-size: 2.125em;
+}
+
+.paper h2:first-child {
 	margin-top: 0;
 }
 
