@@ -806,7 +806,7 @@ footer p {
 footer img {
 	height: 50px;
 	width: auto;
-	vertical-align: middle;
+	vertical-align: -0.68em;
   	position: relative;
 	top: -3px;
 	margin-left: 0.5em;
