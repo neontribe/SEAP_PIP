@@ -14359,6 +14359,10 @@ function pickQuestion() {
 			}
 		}
 	} else {
+		if (mode === 'unseenQuesitons' && _.isEmpty(db.get('ass.unseenQuestions')) && _.isEmpty(db.get('ass.skippedQuestions'))) {
+			loadSlide('seen-all-even-skipped');
+			return;
+		}
 		if (mode === 'unseenQuestions' && _.isEmpty(db.get('ass.unseenQuestions'))) {
 			loadSlide('seen-all');
 			return;
@@ -14449,7 +14453,7 @@ function restart() {
 	db.set('ass.started', false);
 	db.set('ass.promote', false);
 	db.set('ass.mode', 'unseenQuestions');
-	db.set('ass.incomplete', true);
+	//db.set('ass.incomplete', true);
 	db.set('ass.category', null);
 	db.set('ass.remainingCategories', _.uniq(window.allCategories));
 
