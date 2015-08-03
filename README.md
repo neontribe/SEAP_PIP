@@ -27,3 +27,4 @@ __Live__
 * When release is tagged and pushed
 * Use Travis to carry out procedure as for Staging - add some lines to deploy.sh to detect release tag and...
 * If all goes well, push the new build to the live site - overwriting whatever is there.
+* To set up live server run travis encrypt DEPLOY_HOST=123.12.12.12 --add for DEPLOY_HOST, DEPLOY_PATH DEPLOY_USER DEPLOY_PASS and add release_deploy.sh to remote live server.
