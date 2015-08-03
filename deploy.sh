@@ -35,6 +35,6 @@ if [ "$TRAVIS_TAG" ]; then
     set -x
     ls
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-    sshpass -p $DEPLOY_PASS ssh -t $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/release_deploy.sh
+    sshpass -p $DEPLOY_PASS ssh -o stricthostkeychecking=no $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/release_deploy.sh
     echo -e "Deploy successful."
 fi
