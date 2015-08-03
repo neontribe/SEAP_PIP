@@ -33,6 +33,6 @@ if [ "$TRAVIS_TAG" ]; then
     sudo apt-get -y install sshpass
     set -x
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  cd $DEPLOY_PATH && tar -xvf release.tgz && pwd && mv www www-previous && mv seap_pip www && rm release.tgz
+    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && pwd && mv www www-previous && mv SEAP_PIP www && rm release.tgz"
     echo -e "Deploy successful."
 fi
