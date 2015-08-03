@@ -32,6 +32,8 @@ if [ "$TRAVIS_TAG" ]; then
     cd ..
     tar -czf release.tgz SEAP_PIP 
     sudo apt-get -y install sshpass
+    set -x
+    ls
     sshpass -p -o stricthostkeychecking=no $DEPLOY_PASS scp release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
     sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/release_deploy.sh
     echo -e "Deploy successful."
