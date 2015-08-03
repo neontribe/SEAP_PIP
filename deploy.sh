@@ -32,6 +32,8 @@ if [ "$TRAVIS_TAG" ]; then
     set -x #echo on
     ls
     cd ..
+    ls
+    exit;
     mv build release
     tar -czf release.tgz release 
     sudo apt-get -y install sshpass
