@@ -24,5 +24,16 @@ git push origin gh-pages
 fi
 
 #if this is a tagged release, deploy to LIVE
-echo -e "Release tag:"
-echo -e $TRAVIS_TAG
+if [ "$TRAVIS_TAG" ]; then
+    echo -e "Release tag:"
+    echo -e $TRAVIS_TAG
+    #Deploy gh-pages to live server
+    #todo
+    mkdir release
+    mv * release
+    tar -czf release.tgz release
+    sudo apt-get -y install sshpass
+    sshpass -p $DEPLOY_PASS scp release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
+    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/release_deploy.sh
+    echo -e "Deploy successful."
+fi
