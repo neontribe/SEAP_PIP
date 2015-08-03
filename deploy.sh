@@ -1,11 +1,5 @@
 ##!/usr/bin/env bash
-echo -e "Testing deploy"
-
-echo -e "$VARNAME"
-echo -e "Pull req"
-echo -e "$TRAVIS_PULL_REQUEST"
-echo -e "travis:"
-echo -e "$TRAVIS"
+echo -e "Tests passed - deploying to STAGING"
 
 #if this isn't a pull req set default github token
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
@@ -14,8 +8,6 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         git config --global user.email "katja@neontribe.co.uk"
         git config --global user.name "katjam"
     fi
-echo -e "Git Hub token"
-echo -e "$GH_TOKEN"
 
 #checkout gh_pages branch and update with contents of build folder
 git remote rm origin
@@ -30,3 +22,7 @@ git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
 git pull origin gh-pages
 git push origin gh-pages
 fi
+
+#if this is a tagged release, deploy to LIVE
+echo -e "Release tag:"
+echo -e $TRAVIS_TAG
