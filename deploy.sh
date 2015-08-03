@@ -29,9 +29,9 @@ if [ "$TRAVIS_TAG" ]; then
     echo -e $TRAVIS_TAG
     #Deploy gh-pages to live server
     #todo
-    mkdir release
-    mv * release
-    tar -czf release.tgz release
+    set -x #echo on
+    ls
+    tar -czf release.tgz .
     sudo apt-get -y install sshpass
     sshpass -p $DEPLOY_PASS scp release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
     sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST $DEPLOY_PATH/release_deploy.sh
