@@ -8,6 +8,6 @@ rm release.tgz
 # Swap it all around, keeping the previous version aside in case something goes wrong
 rm -rf www_previous
 mv www www_previous
-mv release www
+mv SEAP_PIP www
 
 # ADD this script to remote live server
