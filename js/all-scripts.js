@@ -14979,7 +14979,10 @@ $('body').on('change','[type="radio"]', function() {
 
 	if ($(':checked', '#' + context).next().text() === 'Sometimes') {
 		$('[role="alert"]', '#' + context)
-			.append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please change your answer to no. Otherwise select yes.</strong></p>');
+			.append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+	} 
+	if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
+		$('[role="alert"] p', '#' + context).remove();
 	}
 
 });
