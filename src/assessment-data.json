@@ -1,7 +1,7 @@
 {
    "questions":[
       {
-         "question":"Can you prepare and cook a simple meal  without help from someone else?",
+         "question":"Can you prepare and cook a simple meal without help from someone else?",
          "hint":null,
          "category":"Daily Living: Preparing food",
          "answers":[
@@ -16,7 +16,7 @@
          ]
       },
       {
-         "question":"Do you need to use special aids or appliances to  prepare food or cook a simple meal?",
+         "question":"Do you need to use special aids or appliances to prepare food or cook a simple meal?",
          "hint":null,
          "category":"Daily Living: Preparing food",
          "answers":[
@@ -31,12 +31,12 @@
          ]
       },
       {
-         "question":"Which of these best describes what you would use to cook a simple meal if you had a conventional or  microwave oven or were shown how to use them?",
+         "question":"Which of these best describes what you would use to cook a simple meal if you had a conventional or microwave oven or were shown how to use them?",
          "hint":null,
          "category":"Daily Living: Preparing food",
          "answers":[
             {
-               "label":"I could  use both of them",
+               "label":"I could use both of them",
                "value":0
             },
             {
@@ -69,7 +69,7 @@
          ]
       },
       {
-         "question":"Do you need someone to supervise you or assist  you to cook and prepare a simple meal?",
+         "question":"Do you need someone to supervise you or assist you to cook and prepare a simple meal?",
          "hint":null,
          "category":"Daily Living: Preparing food",
          "answers":[
@@ -129,7 +129,11 @@
             {
                "label":"No",
                "value":0
-            }
+            },
+	    {
+		"label":"Sometimes",
+		"value":0
+	    }
          ]
       },
       {
@@ -308,7 +312,11 @@
                "value":2
             },
             {
-               "label":"Seven to fourteen hours each a week",
+               "label":"Three and a half to seven hours a week",
+               "value":4
+            },
+            {
+               "label":"Seven to fourteen hours a week",
                "value":6
             },
             {
@@ -438,7 +446,7 @@
          ]
       },
       {
-         "question":"Do you need to use and aid or appliance to manage your toilet needs to incontinence?",
+         "question":"Do you need to use an aid or appliance to manage your toilet needs or incontinence?",
          "hint":null,
          "category":"Daily Living: Managing toilet needs or incontinence",
          "answers":[
@@ -528,7 +536,7 @@
          ]
       },
       {
-         "question":"Do you need to use and aid or appliance to dress or undress yourself?",
+         "question":"Do you need to use an aid or appliance to dress or undress yourself?",
          "hint":null,
          "category":"Daily Living: Dressing and undressing",
          "answers":[
@@ -574,6 +582,21 @@
       },
       {
          "question":"Can you dress and undress your lower body without help?",
+         "hint":null,
+         "category":"Daily Living: Dressing and undressing",
+         "answers":[
+            {
+               "label":"Yes",
+               "value":0
+            },
+            {
+               "label":"No",
+               "value":2
+            }
+         ]
+      },
+      {
+         "question":"Can you dress and undress your upper body without help?",
          "hint":null,
          "category":"Daily Living: Dressing and undressing",
          "answers":[
@@ -730,11 +753,11 @@
          "answers":[
             {
                "label":"Yes",
-               "value":0
+               "value":4
             },
             {
                "label":"No",
-               "value":4
+               "value":0
             }
          ]
       },
@@ -743,7 +766,11 @@
          "hint":null,
          "category":"Daily Living: Reading and understanding signs, symbols and words",
          "answers":[
-            {
+	    {
+	       "label":"Yes",
+	       "value":0
+	    },
+	    {
                "label":"No",
                "value":8
             },
@@ -784,7 +811,7 @@
          ]
       },
       {
-         "question":"Which of these best describes what  happens when you engage with other people?",
+         "question":"Which of these best describes what happens when you engage with other people?",
          "hint":null,
          "category":"Daily Living: Engaging with other people face to face",
          "answers":[
@@ -873,6 +900,10 @@
          "category":"Mobility: Planning and following journeys",
          "answers":[
             {
+               "label":"Yes",
+               "value":4
+            },
+	    {
                "label":"No",
                "value":0
             },
@@ -883,7 +914,7 @@
          ]
       },
       {
-         "question":"Do you have any sensory or learning difficulties which prevents you from planning the route of a journey?",
+         "question":"Do you have any sensory or learning difficulties which prevent you from planning the route of a journey?",
          "hint":null,
          "category":"Mobility: Planning and following journeys",
          "answers":[
@@ -946,7 +977,7 @@
             },
             {
                "label":"No",
-               "value":3
+               "value":12
             },
             {
                "label":"Sometimes",
@@ -955,7 +986,7 @@
          ]
       },
       {
-         "question":"Can you stand and then move between 50 -200 metres, either aided or unaided?",
+         "question":"Can you stand and then move between 50-200 metres, either aided or unaided?",
          "hint":null,
          "category":"Mobility: Moving around",
          "answers":[
@@ -974,7 +1005,7 @@
          ]
       },
       {
-         "question":"Can you stand and then move unaided between 20 -50 metres?",
+         "question":"Can you stand and then move unaided between 20-50 metres?",
          "hint":null,
          "category":"Mobility: Moving around",
          "answers":[
@@ -989,7 +1020,7 @@
          ]
       },
       {
-         "question":"Can you stand and then move using an aid or appliance between 20 -50 metres?",
+         "question":"Can you stand and then move using an aid or appliance between 20-50 metres?",
          "hint":null,
          "category":"Mobility: Moving around",
          "answers":[
@@ -1008,7 +1039,7 @@
          ]
       },
       {
-         "question":"Can you stand and then move between 1 - 20 metres, either aided or unaided?",
+         "question":"Can you stand and then move between 1-20 metres, either aided or unaided?",
          "hint":null,
          "category":"Mobility: Moving around",
          "answers":[
@@ -1038,7 +1069,7 @@
          ]
       },
       {
-         "question":"Can you move more than 1 metre wither aided or unaided?",
+         "question":"Can you move more than 1 metre whether aided or unaided?",
          "hint":null,
          "category":"Mobility: Moving around",
          "answers":[
