@@ -14485,8 +14485,8 @@ function tally() {
 	ans.mobility = _.omit(answers, function(val, key) { return key.indexOf('Daily Living') !== -1; });
 	ans.dailyLiving = _.omit(answers, function(val, key) { return key.indexOf('Mobility') !== -1; });
 
-	console.log('answers mobility', ans.mobility);
-	console.log('answers daily living ', ans.dailyLiving);
+	// console.log('answers mobility', ans.mobility);
+	// console.log('answers daily living ', ans.dailyLiving);
 
 	// add up the highest values for each category
 	// by taking the max value that's not 16 or * from each
@@ -14507,8 +14507,8 @@ function tally() {
 function qualify() {
 
 	var total = tally();
-	console.log('mobility ', total.mobility);
-	console.log('daily living ', total.dailyLiving);
+	// console.log('mobility ', total.mobility);
+	// console.log('daily living ', total.dailyLiving);
 
 	if (total.mobility >= 8) {
 
@@ -14656,8 +14656,8 @@ function disabledCats() {
 
 		var catName = button.attr('data-category');
 
-		console.log('remaining', remaining);
-		console.log('disabled?', !_.contains(remaining, catName));
+		// console.log('remaining', remaining);
+		// console.log('disabled?', !_.contains(remaining, catName));
 
 		if (!_.contains(remaining, catName)) {
 
@@ -14751,7 +14751,7 @@ Handlebars.registerHelper('deprefix', function(cat) {
 	if (cat) {
 		var reduced = cat.split(':')[1];
 		var trimmed = reduced.substr(1);
-		console.log(trimmed);
+		// console.log(trimmed);
 		return trimmed;
 	}
 });
@@ -14979,7 +14979,10 @@ $('body').on('change','[type="radio"]', function() {
 
 	if ($(':checked', '#' + context).next().text() === 'Sometimes') {
 		$('[role="alert"]', '#' + context)
-			.append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please change your answer to no. Otherwise select yes.</strong></p>');
+			.append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+	} 
+	if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
+		$('[role="alert"] p', '#' + context).remove();
 	}
 
 });
