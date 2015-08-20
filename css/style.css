@@ -480,11 +480,6 @@ body {
 	min-height: 100vh;
 }
 
-noscript {
-	margin: 60px 25px;
-	position: absolute;
-}
-
 .slide {
 	display: table-cell;
 	width: 100%;
