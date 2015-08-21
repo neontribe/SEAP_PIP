@@ -14,7 +14,7 @@ var db = $.localStorage;
 
 window.hashHistory = [];
 
-if (db.isEmpty('ass')) {
+if (db.isEmpty('pipAss')) {
 
 	// setup the database ass object
 	initAss();
@@ -65,7 +65,7 @@ function initAss() {
 	};
 
 	// Save the virgin ass to local storage
-	db.set('ass', assTemplate);
+	db.set('pipAss', assTemplate);
 
 	// reset radio buttons
 	$('[type="radio"]').prop('checked', false);
@@ -82,7 +82,7 @@ function getCatQuestions(slug) {
 		var all = [];
 
 		// Empty "remaining categories"
-		db.set('ass.remainingCategories', []);
+		db.set('pipAss.remainingCategories', []);
 
 		$.each(window.allQuestions, function(i, v) {
 			
@@ -94,10 +94,10 @@ function getCatQuestions(slug) {
 
 		});
 
-		var seen = db.get('ass.seenQuestions');
+		var seen = db.get('pipAss.seenQuestions');
 
-		db.set('ass.unseenQuestions', _.difference(all, seen));
-		db.set('ass.category', null);
+		db.set('pipAss.unseenQuestions', _.difference(all, seen));
+		db.set('pipAss.category', null);
 
 		loadSlide('chose-i-dont-know');
 
@@ -111,9 +111,9 @@ function getCatQuestions(slug) {
 			questions.push(v.question);
 		});
 
-		db.set('ass.unseenQuestions', questions);
+		db.set('pipAss.unseenQuestions', questions);
 
-		db.set('ass.category', slug);
+		db.set('pipAss.category', slug);
 
 	}
 
@@ -127,8 +127,8 @@ function loadSlide(id, type) {
 	if (id === 'stats') {
 
 		// if you ran out of unseen questions and didn't skip any
-		if (_.isEmpty(db.get('ass.unseenQuestions')) && _.isEmpty(db.get('ass.skippedQuestions')) && _.isEmpty(db.get('ass.remainingCategories')) && db.get('ass.started')) {
-			db.set('ass.incomplete', false);
+		if (_.isEmpty(db.get('pipAss.unseenQuestions')) && _.isEmpty(db.get('pipAss.skippedQuestions')) && _.isEmpty(db.get('pipAss.remainingCategories')) && db.get('pipAss.started')) {
+			db.set('pipAss.incomplete', false);
 		}
 
 		// compile the stats before showing slide
@@ -141,16 +141,16 @@ function loadSlide(id, type) {
 	}
 
 	if (id === 'category-finished') {
-		$('#this-activity').text(db.get('ass.category').toLowerCase());
+		$('#this-activity').text(db.get('pipAss.category').toLowerCase());
 	}
 
 	$('.slide > *').removeClass('loaded');
 
 	// set type in local storage or reset to null
 	if (type) {
-		db.set('ass.slideType', type);
+		db.set('pipAss.slideType', type);
 	} else {
-		db.set('ass.slideType', null);
+		db.set('pipAss.slideType', null);
 	}
 
 	// get rid of any previously invoked alerts
@@ -174,12 +174,12 @@ function loadSlide(id, type) {
 	if (!exclude) {
 
 		// Record where the user is for resuming purposes
-		db.set('ass.whereIAm', id);
+		db.set('pipAss.whereIAm', id);
 
 	}
 
 	// Set context reference (jQuery object)
-	db.set('ass.context', id);
+	db.set('pipAss.context', id);
 
 	// add the loaded class for transitions
 	$('#' + id + ' > *').addClass('loaded');
@@ -192,61 +192,61 @@ function pickQuestion() {
 	// Has the user actually invoked this function?
 	window.realPick = true;
 
-	if (db.get('ass.show-qualify-low-mobility')) {
+	if (db.get('pipAss.show-qualify-low-mobility')) {
 		loadSlide('qualify-low-mobility');
-		db.set('ass.show-qualify-low-mobility', false);
+		db.set('pipAss.show-qualify-low-mobility', false);
 		return;
 	}
 
-	if (db.get('ass.show-qualify-high-mobility')) {
+	if (db.get('pipAss.show-qualify-high-mobility')) {
 		loadSlide('qualify-high-mobility');
-		db.set('ass.show-qualify-high-mobility', false);
+		db.set('pipAss.show-qualify-high-mobility', false);
 		return;
 	}
 
-	if (db.get('ass.show-qualify-low-dailyLiving')) {
+	if (db.get('pipAss.show-qualify-low-dailyLiving')) {
 		loadSlide('qualify-low-dailyLiving');
-		db.set('ass.show-qualify-low-dailyLiving', false);
+		db.set('pipAss.show-qualify-low-dailyLiving', false);
 		return;
 	}
 
-	if (db.get('ass.show-qualify-high-dailyLiving')) {
+	if (db.get('pipAss.show-qualify-high-dailyLiving')) {
 		loadSlide('qualify-high-dailyLiving');
-		db.set('ass.show-qualify-high-dailyLiving', false);
+		db.set('pipAss.show-qualify-high-dailyLiving', false);
 		return;
 	}
 
 	// We've started practicing
-	db.set('ass.started', true);
+	db.set('pipAss.started', true);
 
 	// the type of the previous slide if any
-	var typeOfSlide = db.get('ass.slideType');
+	var typeOfSlide = db.get('pipAss.slideType');
 	// the last slide seen
-	var context = db.get('ass.context');
+	var context = db.get('pipAss.context');
 	// get mode (unseen or skipped)
-	var mode = db.get('ass.mode');
+	var mode = db.get('pipAss.mode');
 
 	if (typeOfSlide === 'question' && !window.answered && mode === 'unseenQuestions') {
 
 		// put the unanswered question into the array of skipped questions
-		var skipped = db.get('ass.skippedQuestions');
-		skipped.push(db.get('ass.context'));
-		db.set('ass.skippedQuestions', _.uniq(skipped));
+		var skipped = db.get('pipAss.skippedQuestions');
+		skipped.push(db.get('pipAss.context'));
+		db.set('pipAss.skippedQuestions', _.uniq(skipped));
 
 	}
 
 	// get the appropriate set
-	var questions = db.get('ass.' + mode);
+	var questions = db.get('pipAss.' + mode);
 
-	if (db.get('ass.category')) {
-		if (_.isEmpty(db.get('ass.unseenQuestions'))) {
-			if (_.isEmpty(db.get('ass.remainingCategories'))) {
+	if (db.get('pipAss.category')) {
+		if (_.isEmpty(db.get('pipAss.unseenQuestions'))) {
+			if (_.isEmpty(db.get('pipAss.remainingCategories'))) {
 
-				db.set('ass.category', null);
+				db.set('pipAss.category', null);
 
-				if (_.isEmpty(db.get('ass.skippedQuestions'))) {
+				if (_.isEmpty(db.get('pipAss.skippedQuestions'))) {
 					loadSlide('seen-all-even-skipped');
-					db.set('ass.incomplete', false);
+					db.set('pipAss.incomplete', false);
 					return;
 				} else {
 					loadSlide('seen-all');
@@ -258,17 +258,17 @@ function pickQuestion() {
 			}
 		}
 	} else {
-		if (mode === 'unseenQuesitons' && _.isEmpty(db.get('ass.unseenQuestions')) && _.isEmpty(db.get('ass.skippedQuestions'))) {
+		if (mode === 'unseenQuesitons' && _.isEmpty(db.get('pipAss.unseenQuestions')) && _.isEmpty(db.get('pipAss.skippedQuestions'))) {
 			loadSlide('seen-all-even-skipped');
 			return;
 		}
-		if (mode === 'unseenQuestions' && _.isEmpty(db.get('ass.unseenQuestions'))) {
+		if (mode === 'unseenQuestions' && _.isEmpty(db.get('pipAss.unseenQuestions'))) {
 			loadSlide('seen-all');
 			return;
 		}
-		if (mode === 'skippedQuestions' && _.isEmpty(db.get('ass.skippedQuestions'))) {
+		if (mode === 'skippedQuestions' && _.isEmpty(db.get('pipAss.skippedQuestions'))) {
 			loadSlide('seen-all-even-skipped');
-			db.set('ass.incomplete', false);
+			db.set('pipAss.incomplete', false);
 			return;
 		}		
 	}
@@ -278,7 +278,7 @@ function pickQuestion() {
 
 	if (mode === 'unseenQuestions') {
 
-		if (db.get('ass.category')) { 
+		if (db.get('pipAss.category')) { 
 
 			question = questions[0];
 
@@ -290,7 +290,7 @@ function pickQuestion() {
 		}
 
 		// set collection with this question removed
-		db.set('ass.' + mode, _.without(questions, question));
+		db.set('pipAss.' + mode, _.without(questions, question));
 
 	} else {
 
@@ -298,7 +298,7 @@ function pickQuestion() {
 
 			questions = _.without(questions, context);
 
-			db.set('ass.' + mode, questions);
+			db.set('pipAss.' + mode, questions);
 
 			question = questions[0];
 
@@ -326,12 +326,12 @@ function pickQuestion() {
 	}
 
 	// get seen questions array
-	var seen = db.get('ass.seenQuestions');
+	var seen = db.get('pipAss.seenQuestions');
 
 	// add this new question
 	seen.push(question);
 
-	db.set('ass.seenQuestions', seen);
+	db.set('pipAss.seenQuestions', seen);
 
 	// load question slide and set slide type global to 'question' 
 	loadSlide(question, 'question');
@@ -346,15 +346,15 @@ function pickQuestion() {
 // clear data and go to start screen
 function restart() {
 
-	db.set('ass.unseenQuestions', []);
-	db.set('ass.seenQuestions', []);
-	db.set('ass.skippedQuestions', []);
-	db.set('ass.started', false);
-	db.set('ass.promote', false);
-	db.set('ass.mode', 'unseenQuestions');
-	//db.set('ass.incomplete', true);
-	db.set('ass.category', null);
-	db.set('ass.remainingCategories', _.uniq(window.allCategories));
+	db.set('pipAss.unseenQuestions', []);
+	db.set('pipAss.seenQuestions', []);
+	db.set('pipAss.skippedQuestions', []);
+	db.set('pipAss.started', false);
+	db.set('pipAss.promote', false);
+	db.set('pipAss.mode', 'unseenQuestions');
+	//db.set('pipAss.incomplete', true);
+	db.set('pipAss.category', null);
+	db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
 	// go to start screen
 	loadSlide('start');
@@ -365,7 +365,7 @@ function restart() {
 function resume() {
 
 	// get the stored slide id
-	var whereIWas = db.get('ass.whereIAm');
+	var whereIWas = db.get('pipAss.whereIAm');
 
 	loadSlide(whereIWas);
 
@@ -374,7 +374,7 @@ function resume() {
 function tally() {
 
 	// get all the answers
-	var answers = db.get('ass.answers');
+	var answers = db.get('pipAss.answers');
 
 	// init objects
 	var ans = {};
@@ -412,56 +412,56 @@ function qualify() {
 	if (total.mobility >= 8) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high-mobility') && !db.get('ass.low-mobility')) {
+		if (!db.get('pipAss.high-mobility') && !db.get('pipAss.low-mobility')) {
 
-			db.set('ass.show-qualify-low-mobility', true);
+			db.set('pipAss.show-qualify-low-mobility', true);
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.low-mobility', true);
+		db.set('pipAss.low-mobility', true);
 
 	}
 
 	if (total.mobility >= 15) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high-mobility')) {
+		if (!db.get('pipAss.high-mobility')) {
 
-			db.set('ass.show-qualify-high-mobility', true);
+			db.set('pipAss.show-qualify-high-mobility', true);
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.high-mobility', true);
+		db.set('pipAss.high-mobility', true);
 
 	}	
 
 	if (total.dailyLiving >= 8) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high-dailyLiving') && !db.get('ass.low-dailyLiving')) {
+		if (!db.get('pipAss.high-dailyLiving') && !db.get('pipAss.low-dailyLiving')) {
 
-			db.set('ass.show-qualify-low-dailyLiving', true);
+			db.set('pipAss.show-qualify-low-dailyLiving', true);
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.low-dailyLiving', true);
+		db.set('pipAss.low-dailyLiving', true);
 
 	}
 
 	if (total.dailyLiving >= 15) {
 
 		//don't show the slide if you have already
-		if (!db.get('ass.high-dailyLiving')) {
+		if (!db.get('pipAss.high-dailyLiving')) {
 
-			db.set('ass.show-qualify-high-dailyLiving', true);
+			db.set('pipAss.show-qualify-high-dailyLiving', true);
 
 		}
 
 		// record that low qualification is possible
-		db.set('ass.high-dailyLiving', true);
+		db.set('pipAss.high-dailyLiving', true);
 
 	}
 
@@ -478,19 +478,19 @@ function compileStats() {
 	var total = tally();
 
 	if (total.mobility < 15) {
-		db.set('ass.high-mobility', false);
+		db.set('pipAss.high-mobility', false);
 	}
 
 	if (total.mobility < 8) {
-		db.set('ass.low-mobility', false);
+		db.set('pipAss.low-mobility', false);
 	}
 
 	if (total < 15) {
-		db.set('ass.high-mobility', false);
+		db.set('pipAss.high-mobility', false);
 	}
 
 	if (total < 8) {
-		db.set('ass.low-mobility', false);
+		db.set('pipAss.low-mobility', false);
 	}
 
 	divideAnswers();
@@ -498,8 +498,8 @@ function compileStats() {
 	// template up the stats with handlebars and 
 	// write to the stats container
 	var template = Handlebars.compile(document.getElementById("stats-template").innerHTML);
-	var assData = db.get('ass');
-	var output = template(assData);
+	var pipAssData = db.get('pipAss');
+	var output = template(pipAssData);
 	$('#stats-content').html(output);
 
 }
@@ -509,8 +509,8 @@ function compileCategories() {
 	// template up the stats with handlebars and 
 	// write to the categories container
 	var template = Handlebars.compile(document.getElementById("categories-template").innerHTML);
-	var assData = db.get('ass');
-	var output = template(assData);
+	var pipAssData = db.get('pipAss');
+	var output = template(pipAssData);
 	$('#categories-content').html(output);
 
 	// set seen categories to disabled
@@ -521,7 +521,7 @@ function compileCategories() {
 // remove answers from category nesting for easy iteration
 function divideAnswers() {
 	
-	var answers = db.get('ass.answers');
+	var answers = db.get('pipAss.answers');
 
 	var importantAnswers = [];
 	var catAnswers;
@@ -539,13 +539,13 @@ function divideAnswers() {
 	});
 
 	// set these to be accessible by template
-	db.set('ass.importantAnswers', removeZeros);
+	db.set('pipAss.importantAnswers', removeZeros);
 
 }
 
 function disabledCats() {
 
-	var remaining = db.get('ass.remainingCategories');
+	var remaining = db.get('pipAss.remainingCategories');
 
 	$('.real-cat').each(function() {
 
@@ -582,7 +582,7 @@ Handlebars.registerHelper('seen', function() {
 
 Handlebars.registerHelper('answered', function() {
 
-	var answers = db.get('ass.answers');
+	var answers = db.get('pipAss.answers');
 
 	var amount = 0;
 
@@ -595,7 +595,7 @@ Handlebars.registerHelper('answered', function() {
 
 Handlebars.registerHelper('accuracy', function(array) {
 
-	var answers = db.get('ass.answers');
+	var answers = db.get('pipAss.answers');
 
 	var answered = 0;
 
@@ -610,8 +610,8 @@ Handlebars.registerHelper('accuracy', function(array) {
 
 Handlebars.registerHelper('qualifyMobility', function() {
 	
-	var high = db.get('ass.high-mobility');
-	var low = db.get('ass.low-mobility');
+	var high = db.get('pipAss.high-mobility');
+	var low = db.get('pipAss.low-mobility');
 
 	if (high) {
 		return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
@@ -625,8 +625,8 @@ Handlebars.registerHelper('qualifyMobility', function() {
 
 Handlebars.registerHelper('qualifyDailyLiving', function() {
 	
-	var high = db.get('ass.high-dailyLiving');
-	var low = db.get('ass.low-dailyLiving');
+	var high = db.get('pipAss.high-dailyLiving');
+	var low = db.get('pipAss.low-dailyLiving');
 
 	if (high) {
 		return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
@@ -683,7 +683,7 @@ $('body').on('click','[data-action="skipped"]', function() {
 	window.answered = false;
 
 	// set mode to skipped questions
-	db.set('ass.mode', 'skippedQuestions');
+	db.set('pipAss.mode', 'skippedQuestions');
 
 	// pick a question
 	pickQuestion();
@@ -702,7 +702,7 @@ $('body').on('click','[data-action="restart"]', function() {
 $('body').on('click','[data-action="start-or-resume"]', function() {
 
 	// has the user (or _a_ user) been to the questions section before?
-	if (db.get('ass.started')) {
+	if (db.get('pipAss.started')) {
 
 		pickQuestion();
 
@@ -717,7 +717,7 @@ $('body').on('click','[data-action="start-or-resume"]', function() {
 $('body').on('click','[data-action="break"]', function() {
 
 	// run resume function defined in FUNCTIONS block
-	db.set('ass.whereIAm', window.location.hash.slice(1));
+	db.set('pipAss.whereIAm', window.location.hash.slice(1));
 	loadSlide('break-time');
 
 });
@@ -820,7 +820,7 @@ $('body').on('click','[data-action="about-PIP"]', function() {
 
 $('body').on('change','[data-action="save-basic-info"]', function() {
 
-	db.set('ass.' + $(this).attr('id'), $(this).val());
+	db.set('pipAss.' + $(this).attr('id'), $(this).val());
 
 });
 
@@ -829,17 +829,17 @@ $('body').on('change','[type="radio"]', function() {
 	// record that change has been made
 	window.answered = true;
 
-	db.set('ass.answeredOne', true);
+	db.set('pipAss.answeredOne', true);
 
 	// get checked answer's value and the category the question belongs to
-	var context = db.get('ass.context');
+	var context = db.get('pipAss.context');
 	var points = $(':checked', '#' + context).val();
 	var category = $(':checked', '#' + context).attr('data-category-name');
 	var question = $('h2 em', '#' + context).text();
 	var answer = $(':checked + span', '#' + context).text();
 
 	// Remove from skipped questions if present
-	db.set('ass.skippedQuestions', _.without(db.get('ass.skippedQuestions'), context));
+	db.set('pipAss.skippedQuestions', _.without(db.get('pipAss.skippedQuestions'), context));
 
 	if (!isNumeric(points)) {
 
@@ -863,12 +863,12 @@ $('body').on('change','[type="radio"]', function() {
 
 		// check if the category object exists
 		// and, if not, set it
-		if (!db.isSet('ass.answers.' + category)) {
-			db.set('ass.answers.' + category, category);
+		if (!db.isSet('pipAss.answers.' + category)) {
+			db.set('pipAss.answers.' + category, category);
 		}
 
 		// set the new points for this question in this category
-		db.set('ass.answers.' + category + '.' + context, answerObject);
+		db.set('pipAss.answers.' + category + '.' + context, answerObject);
 
 		// fire the adding up function
 		// to see if there are enough points to qualify
@@ -906,9 +906,9 @@ $('body').on('click','[data-action="set-cat"]', function() {
 
 	var slug = $(this).attr('data-category');
 
-	var reduced = _.without(db.get('ass.remainingCategories'), slug);
+	var reduced = _.without(db.get('pipAss.remainingCategories'), slug);
 
-	db.set('ass.remainingCategories', reduced);
+	db.set('pipAss.remainingCategories', reduced);
 
 	getCatQuestions(slug);
 
