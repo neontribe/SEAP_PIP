@@ -5,8 +5,8 @@ echo -e "Tests passed - deploying to STAGING"
 if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     if [ "$TRAVIS" == "true" ]; then
-        git config --global user.email "katja@neontribe.co.uk"
-        git config --global user.name "katjam"
+        git config --global user.email $GIT_EMAIL
+        git config --global user.name $GIT_USER
     fi
 
 #checkout gh_pages branch and update with contents of build folder
