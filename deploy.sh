@@ -38,6 +38,6 @@ if [ "$TRAVIS_TAG" ]; then
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 
     #ssh onto deployment server. unpack. tidy. fire live deploy script.
-    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && printf "$TRAVIS_TAG - $DATETIME" > SEAP_PIP/release.txt && rm release.tgz && bash deploy-seap-pip.sh"
+    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && printf "$TRAVIS_TAG-$DATETIME" > SEAP_PIP/release.txt && rm release.tgz && bash deploy-seap-pip.sh"
     echo -e "Deploying to Live."
 fi
