@@ -27,11 +27,12 @@ fi
 if [ "$TRAVIS_TAG" ]; then
     echo -e "Release tag:"
     echo -e $TRAVIS_TAG
-    #Deploy gh-pages to live server todo LIVE details to be added
+    echo -e "Prepare files for live deploy"
+    #Deploy gh-pages to deployment server
     cd ..
     tar -czf release.tgz SEAP_PIP 
     sudo apt-get -y install sshpass
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf www-previous && mv www www-previous && rm -rf SEAP_PIP/.git && mv SEAP_PIP www && rm release.tgz"
-    echo -e "Deploy successful."
+    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && rm release.tgz && bash deploy-seap-pip.sh"
+    echo -e "Deploying to Live."
 fi
