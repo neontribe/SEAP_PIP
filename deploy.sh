@@ -33,7 +33,11 @@ if [ "$TRAVIS_TAG" ]; then
     cd ..
     tar -czf release.tgz SEAP_PIP 
     sudo apt-get -y install sshpass
+
+    #copy tarball to deployment server
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
-    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && printf $TRAVIS_TAG\n$DATETIME > SEAP_PIP/release.txt && rm release.tgz && bash deploy-seap-pip.sh"
+
+    #ssh onto deployment server. unpack. tidy. fire live deploy script.
+    sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && printf "$TRAVIS_TAG\n$DATETIME" > SEAP_PIP/release.txt && rm release.tgz && bash deploy-seap-pip.sh"
     echo -e "Deploying to Live."
 fi
