@@ -11,7 +11,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
 #checkout gh_pages branch and update with contents of build folder
 git remote rm origin
-git remote add origin https://katjam:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
+git remote add origin https://$GIT_USER:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
 git fetch
 git checkout gh-pages
 cp -r build/* .
