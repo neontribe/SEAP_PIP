@@ -37,7 +37,12 @@ if [ "$TRAVIS_TAG" ]; then
     #copy tarball to deployment server
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
 
+    echo -e "Deploying to Live."
+
     #ssh onto deployment server. unpack. tidy. fire live deploy script.
     sshpass -p $DEPLOY_PASS ssh $DEPLOY_USER@$DEPLOY_HOST  "cd $DEPLOY_PATH && tar -xvf release.tgz && rm -rf SEAP_PIP/.git && printf "$TRAVIS_TAG-$DATETIME" > SEAP_PIP/release.txt && rm release.tgz && bash deploy-seap-pip.sh"
-    echo -e "Deploying to Live."
+
+    #TODO need to add robots.txt for live in above script or in deploy-seap-pip.sn on deploy server
+
+    echo -e "SUCCESS: Released tag - $TRAVIS_TAG at $DATETIME"
 fi
