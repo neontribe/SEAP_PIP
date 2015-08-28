@@ -144,7 +144,7 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
       @click '.box.loaded button[data-action="pick"]'
       @click '.box.loaded button[data-action="categories"]'
       # Get some points from Mobility
-      cat = 'Mobility: Planning and following journeys'
+      cat = 'Mobility: Planning a journey'
       activitySelect test, cat
       questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'
       numQuestions = questions.length
