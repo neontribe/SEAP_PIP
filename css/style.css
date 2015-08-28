@@ -772,7 +772,7 @@ img + h1 {
 	height: 0;
 }
 
-.print-box button, .print-box .button-shaped {
+.print-box button {
 	margin: 0;
 	margin-left: 0.5em;
 	float: right;
@@ -789,6 +789,24 @@ img + h1 {
 
 .paper h3 + p {
 	margin-top: 0;
+}
+
+/* about-PIP
+---------------------------------------------*/
+
+#about-PIP .print-box .button-box {
+	max-width: 45%;
+	float: right;
+}
+
+#about-PIP .print-box .button-shaped {
+	width: 95%;
+	margin-bottom: 0.25em;
+}
+
+#about-PIP .print-box p {
+	max-width: 55%;
+	float: left;
 }
 
 /* expandies
@@ -1003,6 +1021,13 @@ footer a {
 		display: block;
 	}
 
+	#about-PIP .print-box p,
+	#about-PIP .print-box .button-box {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#about-PIP .print-box .button-shaped,
 	[aria-label$="menu"] button {
 		width: 100%;
 		margin: 0.25em 0;
