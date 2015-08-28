@@ -105,7 +105,7 @@
       {
          "question":"Do you need someone to help you eat and drink?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -120,7 +120,7 @@
       {
          "question":"Do you use a special aid or appliance to eat?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -139,7 +139,7 @@
       {
          "question":"Do you need someone to supervise you while you eat?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -158,7 +158,7 @@
       {
          "question":"Can you cut up food on your own?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -177,7 +177,7 @@
       {
          "question":"Do you need to be prompted to eat food or about the amount you should eat?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -196,7 +196,7 @@
       {
          "question":"Do you need someone to help you use a tube to eat and drink?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -211,7 +211,7 @@
       {
          "question":"Do you need someone else to put food and drink into your mouth?",
          "hint":null,
-         "category":"Daily Living: Taking nutrition",
+         "category":"Daily Living: Eating and drinking",
          "answers":[
             {
                "label":"Yes",
@@ -226,7 +226,7 @@
       {
          "question":"Do you take any medication?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"Yes",
@@ -241,7 +241,7 @@
       {
          "question":"Do you receive or take any therapeutic treatment?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"Yes",
@@ -256,7 +256,7 @@
       {
          "question":"Can you manage your medication or therapy without help from someone else or without any aids?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"Yes",
@@ -271,7 +271,7 @@
       {
          "question":"Do you need to use an aid or special appliance to manage your medicine?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"Yes",
@@ -286,7 +286,7 @@
       {
          "question":"Do you need someone to help you or prompt you to be able to take or manage you medication?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"Yes",
@@ -301,7 +301,7 @@
       {
          "question":"How much time each week does someone need to spend helping, prompting or supervising you to manage any therapies you take (ie this is not medication)?",
          "hint":null,
-         "category":"Daily Living: Managing therapy or monitoring a health condition",
+         "category":"Daily Living: Managing your treatments",
          "answers":[
             {
                "label":"I do not have any therapies",
@@ -433,7 +433,7 @@
       {
          "question":"Can you manage your toilet needs or incontinence without help from someone else?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -448,7 +448,7 @@
       {
          "question":"Do you need to use an aid or appliance to manage your toilet needs or incontinence?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -463,7 +463,7 @@
       {
          "question":"Do you need someone to supervise or tell you to be able to manage your toilet needs?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -478,7 +478,7 @@
       {
          "question":"Do you need assistance to help you to be able to manage your toilet needs?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -493,7 +493,7 @@
       {
          "question":"Do you need assistance to be able to manage incontinence of either your bladder or bowel?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -508,7 +508,7 @@
       {
          "question":"Do you need assistance to be able to manage incontinence of both your bladder and bowel?",
          "hint":null,
-         "category":"Daily Living: Managing toilet needs or incontinence",
+         "category":"Daily Living: Managing your toilet needs/ continence",
          "answers":[
             {
                "label":"Yes",
@@ -632,7 +632,7 @@
       {
          "question":"Can you express and understand verbal information without help?",
          "hint":null,
-         "category":"Daily Living: Communicating verbally",
+         "category":"Daily Living: Communicating verbally or non verbally",
          "answers":[
             {
                "label":"Yes",
@@ -647,7 +647,7 @@
       {
          "question":"Do you need to use an aid or appliance to be able to speak or hear?",
          "hint":null,
-         "category":"Daily Living: Communicating verbally",
+         "category":"Daily Living: Communicating verbally or non verbally",
          "answers":[
             {
                "label":"Yes",
@@ -666,7 +666,7 @@
       {
          "question":"Do you require help from someone trained or experienced in communicating with people with communication needs to be able to express or understand complex verbal information?",
          "hint":null,
-         "category":"Daily Living: Communicating verbally",
+         "category":"Daily Living: Communicating verbally or non verbally",
          "answers":[
             {
                "label":"Yes",
@@ -681,7 +681,7 @@
       {
          "question":"Do you need help from someone trained or experienced in communicating with people with communication needs to be able to express or understand basic verbal information?",
          "hint":null,
-         "category":"Daily Living: Communicating verbally",
+         "category":"Daily Living: Communicating verbally or non verbally",
          "answers":[
             {
                "label":"Yes",
@@ -696,7 +696,7 @@
       {
          "question":"Are you unable to express or understand verbal information at all even with help from someone trained or experienced in communicating with people with communication needs?",
          "hint":null,
-         "category":"Daily Living: Communicating verbally",
+         "category":"Daily Living: Communicating verbally or non verbally",
          "answers":[
             {
                "label":"Yes",
@@ -719,7 +719,7 @@
       {
          "question":"Do you need to use and aid or appliance (other than glasses or contact lenses), to be able to read or understand either basic or complex written information?",
          "hint":null,
-         "category":"Daily Living: Reading and understanding signs, symbols and words",
+         "category":"Daily Living: Reading and understanding written information",
          "answers":[
             {
                "label":"Yes",
@@ -734,7 +734,7 @@
       {
          "question":"Do you need someone to explain complex written information to you?",
          "hint":null,
-         "category":"Daily Living: Reading and understanding signs, symbols and words",
+         "category":"Daily Living: Reading and understanding written information",
          "answers":[
             {
                "label":"Yes",
@@ -749,7 +749,7 @@
       {
          "question":"Do you need someone to explain basic written information to you?",
          "hint":null,
-         "category":"Daily Living: Reading and understanding signs, symbols and words",
+         "category":"Daily Living: Reading and understanding written information",
          "answers":[
             {
                "label":"Yes",
@@ -764,7 +764,7 @@
       {
          "question":"Can you read or understand signs, symbols or words at all?",
          "hint":null,
-         "category":"Daily Living: Reading and understanding signs, symbols and words",
+         "category":"Daily Living: Reading and understanding written information",
          "answers":[
 	    {
 	       "label":"Yes",
@@ -783,7 +783,7 @@
       {
          "question":"Do you need prompting to be told to engage with other people?",
          "hint":null,
-         "category":"Daily Living: Engaging with other people face to face",
+         "category":"Daily Living: Mixing with others",
          "answers":[
             {
                "label":"Yes",
@@ -798,7 +798,7 @@
       {
          "question":"Do you need social support to be able to engage with other people?",
          "hint":null,
-         "category":"Daily Living: Engaging with other people face to face",
+         "category":"Daily Living: Mixing with others",
          "answers":[
             {
                "label":"Yes",
@@ -813,7 +813,7 @@
       {
          "question":"Which of these best describes what happens when you engage with other people?",
          "hint":null,
-         "category":"Daily Living: Engaging with other people face to face",
+         "category":"Daily Living: Mixing with others",
          "answers":[
             {
                "label":"I do not have any difficulties",
@@ -840,7 +840,7 @@
       {
          "question":"Can you make decisions about working out your household and personal expenses, managing and paying bills and planning purchases in the future?",
          "hint":null,
-         "category":"Daily Living: Making budgeting decisions",
+         "category":"Daily Living: Making decisions about money",
          "answers":[
             {
                "label":"Yes",
@@ -859,7 +859,7 @@
       {
          "question":"When you pay for an item in a shop can you work out how much change you should get?",
          "hint":null,
-         "category":"Daily Living: Making budgeting decisions",
+         "category":"Daily Living: Making decisions about money",
          "answers":[
             {
                "label":"Yes",
@@ -878,7 +878,7 @@
       {
          "question":"Are you able to make any budgeting decisions at all?",
          "hint":null,
-         "category":"Daily Living: Making budgeting decisions",
+         "category":"Daily Living: Making decisions about money",
          "answers":[
             {
                "label":"Yes",
@@ -897,7 +897,7 @@
       {
          "question":"Do you need someone to remind, encourage or explain to you how to undertake a journey to avoid overwhelming psychological distress?",
          "hint":null,
-         "category":"Mobility: Planning and following journeys",
+         "category":"Mobility: Planning a journey",
          "answers":[
             {
                "label":"Yes",
@@ -916,7 +916,7 @@
       {
          "question":"Do you have any sensory or learning difficulties which prevent you from planning the route of a journey?",
          "hint":null,
-         "category":"Mobility: Planning and following journeys",
+         "category":"Mobility: Planning a journey",
          "answers":[
             {
                "label":"Yes",
@@ -931,7 +931,7 @@
       {
          "question":"Can you follow the route of an unfamiliar journey without another person, assistance or orientation aid?",
          "hint":null,
-         "category":"Mobility: Planning and following journeys",
+         "category":"Mobility: Planning a journey",
          "answers":[
             {
                "label":"Yes",
@@ -950,7 +950,7 @@
       {
          "question":"Are you able to undertake any journeys at all without it causing you overwhelming psychological distress?",
          "hint":null,
-         "category":"Mobility: Planning and following journeys",
+         "category":"Mobility: Planning a journey",
          "answers":[
             {
                "label":"Yes",
@@ -969,7 +969,7 @@
       {
          "question":"Can you follow the route of a familiar journey without another person, assistance or orientation aid?",
          "hint":null,
-         "category":"Mobility: Planning and following journeys",
+         "category":"Mobility: Planning a journey",
          "answers":[
             {
                "label":"Yes",
