@@ -23,7 +23,9 @@ __Staging__
 * If the tests pass, Travis commits the new build to gh-pages branch (our staging server) http://neontribe.github.io/SEAP_PIP
 
 __Live__  
-* When release is tagged and pushed
+* When release is tagged and pushed  
+`git tag -a v0.0.0-beta -m "description of release updates"`
+`git push origin --tags`
 * Travis will carry out procedure as for Staging
 * If all goes well, push the new build to the live site - overwriting whatever is there.
 * To set up live server run travis encrypt DEPLOY_HOST=123.12.12.12 --add for DEPLOY_HOST, DEPLOY_PATH DEPLOY_USER DEPLOY_PASS and add deploy-seap-pip.sh to deployment server (legacy hosting - live server access is locked by ip).
