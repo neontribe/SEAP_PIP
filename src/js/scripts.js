@@ -123,6 +123,11 @@ function getCatQuestions(slug) {
 }
 
 function loadSlide(id, type) {
+	// Register google page view
+	var trackHashes = ['main-menu', 'stats', 'data', 'about-PIP', 'start'];
+	if ($.inArray(id, trackHashes)) {
+		ga('send', 'pageview', '#' + id);
+	}
 
 	if (id === 'stats') {
 
