@@ -125,7 +125,7 @@ function getCatQuestions(slug) {
 function loadSlide(id, type) {
 	// Register google page view
 	var trackHashes = ['main-menu', 'stats', 'data', 'about-PIP', 'start'];
-	if ($.inArray(id, trackHashes)) {
+	if ($.inArray(id, trackHashes) !== -1) {
 		ga('send', 'pageview', '#' + id);
 	}
 
