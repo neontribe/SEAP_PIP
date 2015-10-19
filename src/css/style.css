@@ -920,8 +920,8 @@ footer a {
 
 	#about-PIP .print-box .button-shaped,
 	[aria-label$="menu"] button {
-		/*width: 33%;*/
-		/*margin: 0.25em 0;*/
+		width: 100%;
+		margin: 0.25em 0;
 	}
 
 	[role="banner"] {
@@ -1026,6 +1026,10 @@ footer a {
 
 	.label-input {
 		width: 100%;
+	}
+
+	[aria-label$="menu"] li {
+		display: block;
 	}
 
 }
