@@ -141,7 +141,7 @@ button span {
 	margin: 0;
 }
 
-button:focus, .button-shaped:focus, [type="radio"]:focus + span, 
+button:focus, .button-shaped:focus, [type="radio"]:focus + span,
 button:hover, .button-shaped:hover, [type="radio"]:hover + span {
 	background: #006541;
 	color: #6fe9bf;
@@ -152,7 +152,7 @@ button:focus, .button-shaped:focus, [type="radio"]:focus + span {
 	outline-offset: 4px;
 }
 
-button[aria-pressed="true"], [type="radio"]:checked + span, 
+button[aria-pressed="true"], [type="radio"]:checked + span,
 button:active, .button-shaped:active {
 	background: #006541;
 	color: #6fe9bf;
@@ -226,7 +226,7 @@ a img {
 	border: 0;
 }
 
-a.nav-link:hover, button.nav-link:hover, 
+a.nav-link:hover, button.nav-link:hover,
 a.nav-link:focus, button.nav-link:focus {
 	color: #fff;
 	background: #00a56b;
@@ -264,14 +264,14 @@ nav li {
 	font-size: 1.5em;
 }
 
-.answers [type="radio"], .checklist [type="checkbox"], 
+.answers [type="radio"], .checklist [type="checkbox"],
 .things-to-remember [type="checkbox"] {
-	border: 0; 
-	clip: rect(0 0 0 0); 
-	height: 1px; 
-	margin: -1px; overflow: 
-	hidden; padding: 0; 
-	position: absolute; 
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px; overflow:
+	hidden; padding: 0;
+	position: absolute;
 	width: 1px;
 }
 
@@ -445,7 +445,7 @@ fieldset {
 }
 
 input[type="text"] {
-	width: 100%;	
+	width: 100%;
 }
 
 input {
@@ -741,7 +741,7 @@ img + h1 {
 ---------------------------------------------*/
 
 .q-and-a {
-	margin-left: 0;	
+	margin-left: 0;
 }
 
 .q-and-a p {
@@ -823,7 +823,7 @@ h2 [aria-controls] {
 	text-align: left;
 }
 
-h2 [aria-controls]:hover, 
+h2 [aria-controls]:hover,
 h2 [aria-controls]:focus {
 	color: #0a8f60;
 }
@@ -939,8 +939,72 @@ footer a {
 
 }
 
+
+/*ipad 768px iphone6&6+ 736px */
+@media (max-width: 750px) {
+
+	body {
+		font-size: 17px;
+	}
+
+	[aria-label$="menu"] li {
+		display: inline-block;
+	}
+
+	#about-PIP .print-box p,
+	#about-PIP .print-box .button-box {
+		width: 100%;
+		max-width: 100%;
+	}
+
+	#about-PIP .print-box .button-shaped,
+	[aria-label$="menu"] button {
+		width: 100%;
+		margin: 0.25em 0;
+	}
+
+	[role="banner"] {
+		text-align: center;
+	}
+
+	.to-main-menu {
+		text-align: center;
+		float: none;
+		display: inline-block;
+	}
+
+	.box {
+		margin: 0;
+		padding: 1em 0.5em 0.5em;
+	}
+
+	.question h2 {
+		font-size: 1.55em;
+	}
+
+	button,
+	.button-shaped,
+	[type="radio"] + span {
+		font-size: 0.9em;
+	}
+
+	footer p {
+		text-align: center;
+		padding-right: 0;
+	}
+
+	.category-list li {
+		min-width: 100% !important;
+		-webkit-box-flex: 1 !important;
+		-webkit-flex: 1 0 100% !important;
+		    -ms-flex: 1 0 100% !important;
+		        flex: 1 0 100% !important;
+	}
+
+}
+
 @media (min-width: 600px) {
-	
+
 	[aria-label="menu options"] ul {
 		display: -webkit-box;
 		display: -webkit-flex;
@@ -953,7 +1017,7 @@ footer a {
 		    -ms-flex-pack: distribute;
 		        justify-content: space-around;
 	}
-	
+
 	[aria-label="menu options"] li {
 		width: 100%;
 		padding: 0.5em;
@@ -963,12 +1027,12 @@ footer a {
 		        flex: 1 0 auto;
 		position: relative;
 	}
-	
+
 	[aria-label="menu options"] button {
 		margin: 0;
 		height: 100%;
 	}
-	
+
 	[aria-label="menu options"] .half {
 		width: 50%;
 	}
@@ -1011,59 +1075,6 @@ footer a {
 
 }
 
-@media (max-width: 650px) {
-
-	body {
-		font-size: 17px;
-	}
-
-	[aria-label$="menu"] li {
-		display: block;
-	}
-
-	#about-PIP .print-box p,
-	#about-PIP .print-box .button-box {
-		width: 100%;
-		max-width: 100%;
-	}
-
-	#about-PIP .print-box .button-shaped,
-	[aria-label$="menu"] button {
-		width: 100%;
-		margin: 0.25em 0;
-	}
-
-	[role="banner"] {
-		text-align: center;
-	}
-
-	.to-main-menu {
-		text-align: center;
-		float: none;
-		display: inline-block;
-	}
-
-	.box {
-		margin: 0;
-		padding: 1em 0.5em 0.5em;
-	}
-
-	footer p {
-		text-align: center;
-		padding-right: 0;
-	}
-
-	.category-list li {
-		min-width: 100% !important;
-		-webkit-box-flex: 1 !important;
-		-webkit-flex: 1 0 100% !important;
-		    -ms-flex: 1 0 100% !important;
-		        flex: 1 0 100% !important;
-	}
-
-}
-
-
 @media (max-width: 500px) {
 
 	[role="banner"] {
@@ -1084,6 +1095,10 @@ footer a {
 
 	.label-input {
 		width: 100%;
+	}
+
+	[aria-label$="menu"] li {
+		display: block;
 	}
 
 }
