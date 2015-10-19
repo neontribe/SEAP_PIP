@@ -141,7 +141,7 @@ button span {
 	margin: 0;
 }
 
-button:focus, .button-shaped:focus, [type="radio"]:focus + span, 
+button:focus, .button-shaped:focus, [type="radio"]:focus + span,
 button:hover, .button-shaped:hover, [type="radio"]:hover + span {
 	background: #006541;
 	color: #6fe9bf;
@@ -152,7 +152,7 @@ button:focus, .button-shaped:focus, [type="radio"]:focus + span {
 	outline-offset: 4px;
 }
 
-button[aria-pressed="true"], [type="radio"]:checked + span, 
+button[aria-pressed="true"], [type="radio"]:checked + span,
 button:active, .button-shaped:active {
 	background: #006541;
 	color: #6fe9bf;
@@ -226,7 +226,7 @@ a img {
 	border: 0;
 }
 
-a.nav-link:hover, button.nav-link:hover, 
+a.nav-link:hover, button.nav-link:hover,
 a.nav-link:focus, button.nav-link:focus {
 	color: #fff;
 	background: #00a56b;
@@ -264,14 +264,14 @@ nav li {
 	font-size: 1.5em;
 }
 
-.answers [type="radio"], .checklist [type="checkbox"], 
+.answers [type="radio"], .checklist [type="checkbox"],
 .things-to-remember [type="checkbox"] {
-	border: 0; 
-	clip: rect(0 0 0 0); 
-	height: 1px; 
-	margin: -1px; overflow: 
-	hidden; padding: 0; 
-	position: absolute; 
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px; overflow:
+	hidden; padding: 0;
+	position: absolute;
 	width: 1px;
 }
 
@@ -445,7 +445,7 @@ fieldset {
 }
 
 input[type="text"] {
-	width: 100%;	
+	width: 100%;
 }
 
 input {
@@ -718,7 +718,7 @@ img + h1 {
 ---------------------------------------------*/
 
 .q-and-a {
-	margin-left: 0;	
+	margin-left: 0;
 }
 
 .q-and-a p {
@@ -800,7 +800,7 @@ h2 [aria-controls] {
 	text-align: left;
 }
 
-h2 [aria-controls]:hover, 
+h2 [aria-controls]:hover,
 h2 [aria-controls]:focus {
 	color: #0a8f60;
 }
@@ -900,52 +900,9 @@ footer a {
 
 }
 
-@media (min-width: 600px) {
-	
-	[aria-label="menu options"] ul {
-		display: flex;
-		flex-flow: row wrap;
-		justify-content: space-around;
-	}
-	
-	[aria-label="menu options"] li {
-		width: 100%;
-		padding: 0.5em;
-		flex: 1 0 auto;
-		position: relative;
-	}
-	
-	[aria-label="menu options"] button {
-		margin: 0;
-		height: 100%;
-	}
-	
-	[aria-label="menu options"] .half {
-		width: 50%;
-	}
 
-	.category-list ul {
-		display: flex;
-		align-items: stretch;
-	}
-
-	.category-list li {
-		flex: 1 0 33.333%;
-		display: flex;
-		flex-flow: column;
-		min-width: 33.333%;
-		min-height: 3em;
-	}
-
-	.category-list li button {
-		height: 100%;
-		flex: 1 0;
-		min-height: 3.25em;
-	}
-
-}
-
-@media (max-width: 650px) {
+/*ipad 768px iphone6&6+ 736px */
+@media (max-width: 750px) {
 
 	body {
 		font-size: 17px;
@@ -982,6 +939,16 @@ footer a {
 		padding: 1em 0.5em 0.5em;
 	}
 
+	.question h2 {
+		font-size: 1.55em;
+	}
+
+	button,
+	.button-shaped,
+	[type="radio"] + span {
+		font-size: 0.9em;
+	}
+
 	footer p {
 		text-align: center;
 		padding-right: 0;
@@ -994,6 +961,50 @@ footer a {
 
 }
 
+@media (min-width: 600px) {
+
+	[aria-label="menu options"] ul {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-around;
+	}
+
+	[aria-label="menu options"] li {
+		width: 100%;
+		padding: 0.5em;
+		flex: 1 0 auto;
+		position: relative;
+	}
+
+	[aria-label="menu options"] button {
+		margin: 0;
+		height: 100%;
+	}
+
+	[aria-label="menu options"] .half {
+		width: 50%;
+	}
+
+	.category-list ul {
+		display: flex;
+		align-items: stretch;
+	}
+
+	.category-list li {
+		flex: 1 0 33.333%;
+		display: flex;
+		flex-flow: column;
+		min-width: 33.333%;
+		min-height: 3em;
+	}
+
+	.category-list li button {
+		height: 100%;
+		flex: 1 0;
+		min-height: 3.25em;
+	}
+
+}
 
 @media (max-width: 500px) {
 
