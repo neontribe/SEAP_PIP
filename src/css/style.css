@@ -159,7 +159,7 @@ button:active, .button-shaped:active {
 	border: 0 !important;
 	box-shadow: none;
 	position: relative;
-	top: 0.125em;
+	right: 0.3em;
 }
 
 [type="radio"]:checked + span::before {
