@@ -27,6 +27,8 @@ line height = 1.5
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Source Sans Pro', sans-serif;
+	-webkit-tap-highlight-color: rgba(0,0,0,0); /*Remove tap highlight for iOS */
+	-webkit-tap-highlight-color: transparent; /* For some Androids */
 }
 
 img {
