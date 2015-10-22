@@ -871,17 +871,37 @@ footer p {
 	padding-right: 0.75em;
 }
 
-footer img {
-	height: 50px;
-	width: auto;
-	vertical-align: -0.68em;
-  	position: relative;
-	top: -3px;
-	margin-left: 0.5em;
-}
-
 footer a {
 	border: 0;
+}
+
+.sprite {
+    background-image: url(../images/spritesheet.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+		margin-left: 0.5em;
+		width: auto;
+		vertical-align: -0.68em;
+		position: relative;
+		top: -3px;
+}
+
+.sprite-TLEFlogo {
+    width: 55px;
+    height: 50px;
+    background-position: -5px -5px;
+}
+
+.sprite-comic {
+    width: 50px;
+    height: 50px;
+    background-position: -70px -5px;
+}
+
+.sprite-logo {
+    width: 84px;
+    height: 50px;
+    background-position: -5px -65px;
 }
 
 /* feedback
@@ -1111,6 +1131,9 @@ footer a {
 		display: block;
 	}
 
+	footer p {
+	font-size: 12px;
+	}
 }
 
 @media print {
