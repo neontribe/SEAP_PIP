@@ -139,16 +139,6 @@ button, .button-shaped, [type="radio"] + span {
 	box-shadow: 0 0.125em #0a8f60;
 }
 
-[type="radio"] + span {
-	padding: 0.5em 0.75em 0.5em 1.7em;
-}
-
-[type="radio"]:checked + span {
-	padding: 0.5em 0.75em 0.5em 0.6em;
-	position: relative;
-	top: 0.14em;
-}
-
 button span {
 	margin: 0;
 }
@@ -170,6 +160,8 @@ button:active, .button-shaped:active {
 	color: #6fe9bf;
 	border: 0 !important;
 	box-shadow: none;
+	position: relative;
+	right: 0.3em;
 }
 
 [type="radio"]:checked + span::before {
@@ -189,7 +181,7 @@ button:only-of-type {
 }
 
 button[disabled] {
-	opacity: 0.7;
+	opacity: 0.5;
 }
 
 button[disabled]::after {
@@ -708,18 +700,18 @@ img + h1 {
 }
 
 @-webkit-keyframes wobble {
-	0% { -webkit-transform: rotate(0.5deg); transform: rotate(0.5deg); }
-	25% { -webkit-transform: rotate(-0.5deg); transform: rotate(-0.5deg); }
-	50% { -webkit-transform: rotate(0.5deg); transform: rotate(0.5deg); }
-	75% { -webkit-transform: rotate(-0.5deg); transform: rotate(-0.5deg); }
+	0% { -webkit-transform: rotate(2deg); transform: rotate(2deg); }
+	25% { -webkit-transform: rotate(-2deg); transform: rotate(-2deg); }
+	50% { -webkit-transform: rotate(2deg); transform: rotate(2deg); }
+	75% { -webkit-transform: rotate(-2deg); transform: rotate(-2deg); }
 	100% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
 }
 
 @keyframes wobble {
-	0% { -webkit-transform: rotate(0.5deg); transform: rotate(0.5deg); }
-	25% { -webkit-transform: rotate(-0.5deg); transform: rotate(-0.5deg); }
-	50% { -webkit-transform: rotate(0.5deg); transform: rotate(0.5deg); }
-	75% { -webkit-transform: rotate(-0.5deg); transform: rotate(-0.5deg); }
+	0% { -webkit-transform: rotate(2deg); transform: rotate(2deg); }
+	25% { -webkit-transform: rotate(-2deg); transform: rotate(-2deg); }
+	50% { -webkit-transform: rotate(2deg); transform: rotate(2deg); }
+	75% { -webkit-transform: rotate(-2deg); transform: rotate(-2deg); }
 	100% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
 }
 
@@ -871,37 +863,17 @@ footer p {
 	padding-right: 0.75em;
 }
 
+footer img {
+	height: 50px;
+	width: auto;
+	vertical-align: -0.68em;
+  	position: relative;
+	top: -3px;
+	margin-left: 0.5em;
+}
+
 footer a {
 	border: 0;
-}
-
-.sprite {
-    background-image: url(../images/spritesheet.png);
-    background-repeat: no-repeat;
-    display: inline-block;
-		margin-left: 0.5em;
-		width: auto;
-		vertical-align: -0.68em;
-		position: relative;
-		top: -3px;
-}
-
-.sprite-TLEFlogo {
-    width: 55px;
-    height: 50px;
-    background-position: -5px -5px;
-}
-
-.sprite-comic {
-    width: 50px;
-    height: 50px;
-    background-position: -70px -5px;
-}
-
-.sprite-logo {
-    width: 84px;
-    height: 50px;
-    background-position: -5px -65px;
 }
 
 /* feedback
@@ -1131,9 +1103,6 @@ footer a {
 		display: block;
 	}
 
-	footer p {
-	font-size: 12px;
-	}
 }
 
 @media print {
