@@ -74,52 +74,29 @@ function initAss() {
 
 function getCatQuestions(slug) {
 
-	var questions = [];
-
 	if (slug === "i-dont-know") {
-
-		// Remove seen questions from 
-		var all = [];
-
-		// Empty "remaining categories"
-		db.set('pipAss.remainingCategories', []);
-
-		$.each(window.allQuestions, function(i, v) {
-			
-			// make an array of all questions
-			// excluding followup questions
-			if (v && v.question) {
-				all.push(v.question);
-			}
-
-		});
-
-		var seen = db.get('pipAss.seenQuestions');
-
-		db.set('pipAss.unseenQuestions', _.difference(all, seen));
-		db.set('pipAss.category', null);
-
+		// Select a category containing unseen questions
+		var nextCat = "Daily Living: Washing and bathing";
+		db.set('pipAss.category', nextCat);
 		loadSlide('chose-i-dont-know');
-
 		return;
-
 	} else {
-
-		var reducedToCat = _.where(window.allQuestions, {category: slug});
-
-		$.each(reducedToCat, function(i, v) {
-			questions.push(v.question);
-		});
-
-		db.set('pipAss.unseenQuestions', questions);
-
 		db.set('pipAss.category', slug);
-
+  	getCatQuestionArr(slug);
+		pickQuestion();
 	}
+}
 
+function getCatQuestionArr(slug) {
 
-	pickQuestion();
+	var questions = [],
+			reducedToCat = _.where(window.allQuestions, {category: slug});
 
+	$.each(reducedToCat, function(i, v) {
+		questions.push(v.question);
+	});
+
+	db.set('pipAss.unseenQuestions', questions);
 }
 
 function loadSlide(id, type) {
@@ -147,6 +124,10 @@ function loadSlide(id, type) {
 
 	if (id === 'category-finished') {
 		$('#this-activity').text(db.get('pipAss.category').toLowerCase());
+	}
+
+	if (id === 'chose-i-dont-know') {
+    $('#chose-i-dont-know button').text(db.get('pipAss.category').toLowerCase());	  
 	}
 
 	$('.slide > *').removeClass('loaded');
