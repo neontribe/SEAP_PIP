@@ -49,7 +49,7 @@ function initAss() {
 		allCategories: _.uniq(_.without(window.allCategories, null)),
 		remainingCategories: _.uniq(_.without(window.allCategories, null)),
 		started: false, // whether a practise has been started
-		answeredOne: false, // Whether any questions have been answered at all 
+		answeredOne: false, // Whether any questions have been answered at all
 		context: null, // the jQuery object for the slide in hand
 		slideType: null, // null or 'question' etc.
 		mode: 'unseenQuestions', // 'unseenQuestions' or 'skippedQuestions'
@@ -75,8 +75,8 @@ function initAss() {
 function getCatQuestions(slug) {
 
 	if (slug === "i-dont-know") {
-		// Select a category containing unseen questions
-		var nextCat = "Daily Living: Washing and bathing";
+		// Select a random category containing unseen questions
+		var nextCat = _.sample(db.get('pipAss.remainingCategories'));
 		db.set('pipAss.category', nextCat);
 		loadSlide('chose-i-dont-know');
 		return;
@@ -127,7 +127,8 @@ function loadSlide(id, type) {
 	}
 
 	if (id === 'chose-i-dont-know') {
-    $('#chose-i-dont-know button').text(db.get('pipAss.category').toLowerCase());	  
+    $('#chose-i-dont-know button').attr('data-category', db.get('pipAss.category'));
+    $('#chose-i-dont-know #unseen-category').text(db.get('pipAss.category'));
 	}
 
 	$('.slide > *').removeClass('loaded');
@@ -151,8 +152,8 @@ function loadSlide(id, type) {
 		.focus();
 
 	// find out if we've gone to one of the locations that don't need saving
-	var exclude = _.find(['resume', 'break-time', 'resume-practise'], 
-		function(unsaveable) { 
+	var exclude = _.find(['resume', 'break-time', 'resume-practise'],
+		function(unsaveable) {
 			return unsaveable === id;
 	});
 
