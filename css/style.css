@@ -50,7 +50,7 @@ body {
 
 body * + * {
 	margin-top: 30px;
-	margin-top: 1.5rem;
+	margin-top: 1.4rem;
 }
 
 li, option, dt, dd, tr, td {
@@ -66,6 +66,7 @@ p + p {
 }
 
 #stats * + h3 {
+	margin-top: 30px;
 	margin-top: 1.5rem;
 }
 
@@ -89,6 +90,10 @@ p + p {
 	font-size: 0.7em;
 	vertical-align: super;
 	line-height: 0;
+}
+
+sup {
+	color: #3389c1;
 }
 
 button i {
@@ -279,8 +284,9 @@ nav li {
 	border: 0;
 	clip: rect(0 0 0 0);
 	height: 1px;
-	margin: -1px; overflow:
-	hidden; padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
 	position: absolute;
 	width: 1px;
 }
@@ -801,26 +807,30 @@ img + h1 {
 	margin-top: 0;
 }
 
-/* about-PIP
+/* about-esa about-PIP
 ---------------------------------------------*/
 
-#about-PIP .print-box .button-box {
+#about-esa #about-PIP .print-box .button-box {
 	max-width: 45%;
 	float: right;
 }
 
-#about-PIP .print-box .button-shaped {
+#about-esa #about-PIP .print-box .button-shaped {
 	width: 95%;
 	margin-bottom: 0.25em;
 }
 
-#about-PIP .print-box p {
+#about-esa #about-PIP .print-box p {
 	max-width: 55%;
 	float: left;
 }
 
 /* expandies
 ---------------------------------------------*/
+
+.expandies h3 {
+	font-size: 1.25em;
+}
 
 h2 [aria-controls] {
 	display: block;
@@ -981,13 +991,13 @@ footer a {
 		display: inline-block;
 	}
 
-	#about-PIP .print-box p,
-	#about-PIP .print-box .button-box {
+	#about-esa .print-box p,
+	#about-esa .print-box .button-box {
 		width: 100%;
 		max-width: 100%;
 	}
 
-	#about-PIP .print-box .button-shaped,
+	#about-esa .print-box .button-shaped,
 	[aria-label$="menu"] button {
 		width: 100%;
 		margin: 0.25em 0;
@@ -1004,7 +1014,7 @@ footer a {
 	}
 
 	.box {
-		margin: 0;
+		margin: 0 0.5em;
 		padding: 1em 0.5em 0.5em;
 	}
 
@@ -1079,10 +1089,6 @@ footer a {
 	}
 
 	.category-list li {
-		-webkit-box-flex: 1;
-		-webkit-flex: 1 0 33.333%;
-		    -ms-flex: 1 0 33.333%;
-		        flex: 1 0 33.333%;
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -ms-flexbox;
@@ -1091,6 +1097,10 @@ footer a {
 		    -ms-flex-flow: column;
 		        flex-flow: column;
 		min-width: 33.333%;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1 0 33.333%;
+		    -ms-flex: 1 0 33.333%;
+		        flex: 1 0 33.333%;
 		min-height: 3em;
 	}
 
@@ -1106,6 +1116,10 @@ footer a {
 }
 
 @media (max-width: 500px) {
+
+	[aria-label$="menu"] li {
+		display: block;
+	}
 
 	[role="banner"] {
 		height: auto;
@@ -1131,8 +1145,12 @@ footer a {
 		display: block;
 	}
 
+	.box {
+		margin: 0;
+	}
+
 	footer p {
-	font-size: 12px;
+		font-size: 12px;
 	}
 }
 
