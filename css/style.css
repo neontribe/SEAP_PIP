@@ -50,7 +50,7 @@ body {
 
 body * + * {
 	margin-top: 30px;
-	margin-top: 1.4rem;
+	margin-top: 1.6rem;
 }
 
 li, option, dt, dd, tr, td {
