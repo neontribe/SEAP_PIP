@@ -127,8 +127,8 @@ function loadSlide(id, type) {
 	}
 
 	if (id === 'chose-i-dont-know') {
-    $('#chose-i-dont-know button').attr('data-category', db.get('pipAss.category'));
-    $('#chose-i-dont-know #unseen-category').text(db.get('pipAss.category'));
+		$('#chose-i-dont-know button').attr('data-category', db.get('pipAss.category'));
+		$('#chose-i-dont-know #unseen-category').text(db.get('pipAss.category'));
 	}
 
 	$('.slide > *').removeClass('loaded');
