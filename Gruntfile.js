@@ -32,11 +32,11 @@ module.exports = function(grunt){
           expand: true
         },
         generate_core: {
-				  cwd: 'node_modules/seap_core/src',
-					src: [ '**' ],
+          cwd: 'node_modules/seap_core/src',
+          src: [ '**' ],
           dest: 'build',
           expand: true,
-				}
+	}
       },
       cssmin: {
         build: {
