@@ -14343,7 +14343,7 @@ function pickQuestion() {
 				}
 			} else {
 				loadSlide('category-finished');
-				return;				
+				return;
 			}
 		}
 	} else {
@@ -14359,7 +14359,7 @@ function pickQuestion() {
 			loadSlide('seen-all-even-skipped');
 			db.set('pipAss.incomplete', false);
 			return;
-		}		
+		}
 	}
 
 	// init individual question var
@@ -14584,7 +14584,7 @@ function compileStats() {
 
 	divideAnswers();
 
-	// template up the stats with handlebars and 
+	// template up the stats with handlebars and
 	// write to the stats container
 	var template = Handlebars.compile(document.getElementById("stats-template").innerHTML);
 	var pipAssData = db.get('pipAss');
@@ -14595,7 +14595,7 @@ function compileStats() {
 
 function compileCategories() {
 
-	// template up the stats with handlebars and 
+	// template up the stats with handlebars and
 	// write to the categories container
 	var template = Handlebars.compile(document.getElementById("categories-template").innerHTML);
 	var pipAssData = db.get('pipAss');
@@ -14609,7 +14609,7 @@ function compileCategories() {
 
 // remove answers from category nesting for easy iteration
 function divideAnswers() {
-	
+
 	var answers = db.get('pipAss.answers');
 
 	var importantAnswers = [];
@@ -14650,7 +14650,7 @@ function disabledCats() {
 		if (!_.contains(remaining, catName)) {
 
 			button.attr('disabled', 'disabled');
-			
+
 		}
 
 	});
@@ -14689,7 +14689,7 @@ Handlebars.registerHelper('accuracy', function(array) {
 	var answered = 0;
 
 	$.each(answers, function(key, value) {
-	    answered += _.size(value); 
+	    answered += _.size(value);
 	});
 
 	var accuracy = Math.round((answered / allQuestions.length) * 100) + "%";
@@ -14698,7 +14698,7 @@ Handlebars.registerHelper('accuracy', function(array) {
 });
 
 Handlebars.registerHelper('qualifyMobility', function() {
-	
+
 	var high = db.get('pipAss.high-mobility');
 	var low = db.get('pipAss.low-mobility');
 
