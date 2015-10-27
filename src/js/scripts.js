@@ -750,10 +750,10 @@ $('body').on('click', '[data-action="menu"]', function() {
 
 });
 
-$('body').on('click', '[data-action="data"]', function() {
+$('body').on('click', '[data-action="remember"]', function() {
 
   // run resume function defined in FUNCTIONS block
-  loadSlide('data');
+  loadSlide('remember');
 
 });
 
