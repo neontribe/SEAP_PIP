@@ -6,21 +6,6 @@
 
 <div class="paper">
 
-	<h2>Basic info</h2>
-	<p class="no-print">Enter the venue, date and time of your assessment, as reminders to yourself.</p>
-	<div class="label-input">
-		<label for="venue">Venue</label>
-		<input data-action="save-basic-info" type="text" id="venue" value="{{venue}}" placeholder="eg. 4, Hall Road">
-	</div>
-	<div class="label-input">
-		<label for="date">Date</label>
-		<input data-action="save-basic-info" type="text" id="date" value="{{date}}" placeholder="eg. March 4th">
-	</div>
-	<div class="label-input">
-		<label for="time">Time</label>
-		<input data-action="save-basic-info" type="text" id="time" value="{{time}}" placeholder="eg. 2.30pm">
-	</div>
-
 	<h2>Would I qualify?</h2>
 	{{#if answeredOne}}
 		<h4>Daily Living</h4>
@@ -40,8 +25,8 @@
 	</div>
 
 	<h2>Important answers</h2>
-	<p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
 	{{#if importantAnswers}}
+	<p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
 		<ul class="q-and-a">
 			{{#each importantAnswers}}
 				<li>
@@ -55,68 +40,6 @@
 	{{#unless importantAnswers}}
 		<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
 	{{/unless}}
-
-	<h2>Remember</h2>
-        <h3>Travel</h3>
-        <ul class="ticks">
-                <li>
-                        You should plan your journey to the assessment - your appointment letter will usually have a map with it.
-                </li>
-                <li>
-                        Your assessor will probably ask you how you got to the assessment. It may affect your claim if the answer you give seems to contradict the answers given on your form.
-                </li>
-                <li>
-                        Make sure to ask for a travel reimbursement claim form at the assessment if you do not already have one.
-                </li>
-                <li>
-                        Make sure you keep bus/ train tickets/ receipts or parking tickets/ receipts for both yourself and anyone who accompanies you.
-                </li>
-        </ul>
-        <h3>Letters from the DWP</h3>
-        <ul class="ticks">
-                <li>
-                        You need to take your appointment letter and proof of ID to the assessment. Your letter tells you what is acceptable proof of ID.
-                </li>
-                <li>
-                        Read your appointment letter before you go as it tells you about some other things to take such as new or recent medical letters, glasses, walking aids etc.
-                </li>
-        </ul>
-        <h3>Thinking about the Questions and Preparing Your Answers</h3>
-        <ul class="ticks">
-                <li>
-                        If your condition has worsened since you completed the form, get a report/ letter from a doctor or other professional to explain how it has changed, and how that impacts on you.
-                </li>
-                <li>
-                        Write down points you want to make about your conditions and their impact on you in case they are not covered/asked about by the assessor.
-                </li>
-                <li>
-                        Write down any questions you may have for the assessor about your appointment.
-                </li>
-                <li>
-                        Consider keeping a diary which you can show the assessor. This will help you track your good and bad days, the impact of any treatment you have, and whether what you do on one day affects how you feel on the next.
-                </li>
-        </ul>
-        <h3>At the assessment</h3>
-        <ul class="ticks">
-                <li>
-                        Remember, the assessor does not decide your entitlement to benefit, they send a report to DWP who decide.
-                </li>
-                <li>
-                        If you are not sure about what you are being asked, ask the assessor for an explanation.
-                </li>
-                <li>
-                        Take your time to answer questions.
-                </li>
-                <li>
-                        If you are asked to do something physical such as bend or stretch, and it causes you any difficulty or pain or you can&#x2019;t do it, then tell the assessor.
-                </li>
-        </ul>
-        <h3>If you can&#x2019;t attend</h3>
-        <ul class="ticks">
-                <li>
-                        If you can&#x2019;t make it to the appointment you must let the DWP know. If you do not, and you do not go, your benefit will be affected and may be stopped until you do attend an assessment.  You will not usually be able to cancel more than one appointment without it affecting your benefit.
-                </li>
-        </ul>
 
 <ul aria-label="menu">
 	<li>
@@ -133,3 +56,20 @@
 		<button class="nav-link break" data-action="menu">Home</button>
 	</li>
 </ul>
+</div>
+<div class="box" id="data-box">
+<h2 tabindex="-1">My Data</h2>
+<p>This app does not send any of your data anywhere or keep any for itself. However, it <em>does</em> save some data just on the computer you&#x2019;re using in order to work properly.</p>
+<p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
+<ul aria-label="menu">
+	<li>
+		<button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
+	</li>
+	<li>
+		<button class="nav-link" data-action="stats" role="link">I want to see my data first</button>
+	</li>
+	<li>
+		<button class="nav-link" data-action="menu" role="link">Home</button>
+	</li>
+</ul>
+</div>
