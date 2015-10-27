@@ -46,9 +46,10 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			<div class="question-container">
 				<!--<img src="path/to/question-icon.svg" alt="" />-->
 				<h2 class="question-text" tabindex="-1">
-					<span class="activity">{{category}}</span>
+					<span id="category-{{sluggify question}}" class="activity" aria-hidden="true">{{category}}</span>
 					<span class="vh">Question:</span>
 					<em>{{question}}</em>
+					<span aria-labelledby="category-{{sluggify question}}"></span>
 				</h2>
 				<div role="alert"></div>
 				<div class="answers">
