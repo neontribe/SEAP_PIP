@@ -240,7 +240,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			</div>
 		</div>
 
-		<div class="slide remember" id="remember-PIP">
+		<div class="slide remember" id="remember-pip">
 			<div class="flow">
 		<h2>Remember</h2>
 					<h3>Travel</h3>
@@ -302,6 +302,21 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 									<li>
 													If you can&#x2019;t make it to the appointment you must let the DWP know. If you do not, and you do not go, your benefit will be affected and may be stopped until you do attend an assessment.  You will not usually be able to cancel more than one appointment without it affecting your benefit.
 									</li>
+					</ul>
+					<ul aria-label="menu">
+						<li>
+							{{#if incomplete}}
+								<button class="nav-link pick" data-action="start-or-resume">Practise some questions</button>
+							{{else}}
+								<button class="nav-link pick" data-action="restart">Practise again</button>
+							{{/if}}
+						</li>
+						<li>
+							<button class="nav-link break" data-action="break">I&#x2019;ll have a break</button>
+						</li>
+						<li>
+							<button class="nav-link break" data-action="menu">Home</button>
+						</li>
 					</ul>
 		</div>
 	</div>
