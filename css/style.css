@@ -801,6 +801,7 @@ img + h1 {
 .paper {
 	background: #fff;
 	padding: 1.5em;
+	margin-bottom: 1.5em;
 }
 
 .paper h3 + p {
@@ -1161,6 +1162,10 @@ footer a {
 	}
 
 	#stats {
+		display: block;
+	}
+
+	#remember {
 		display: block;
 	}
 
