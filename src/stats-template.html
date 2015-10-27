@@ -1,75 +1,70 @@
 <h1 tabindex="-1">My Assessment</h1>
 
 <div class="print-box no-print">
-	<p><button onClick="window.print()">Print Now</button> <strong>Important:</strong> This page contains useful info about how you should be assessed. You can <strong>print it out</strong> and take it with you to your assessment or <strong>access it during your assessment</strong> by accessing this &#x201c;My Assessment&#x201d; page on your phone or other handset.</p>
+  <p>
+    <button onClick="window.print()">Print Now</button> <strong>Important:</strong> This page contains useful info about how you should be assessed. You can <strong>print it out</strong> and take it with you to your assessment or <strong>access it during your assessment</strong> by accessing
+    this &#x201c;My Assessment&#x201d; page on your phone or other handset.</p>
 </div>
 
 <div class="paper">
 
-	<h2>Would I qualify?</h2>
-	{{#if answeredOne}}
-		<h4>Daily Living</h4>
-		{{{qualifyDailyLiving}}}
-		<h4>Mobility</h4>
-		{{{qualifyMobility}}}
-	{{else}}
-		<p>You have not answered any practise questions, so this is not known.</p>
-	{{/if}}
+  <h2>Would I qualify?</h2> {{#if answeredOne}}
+  <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
+  <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
+  <p>You have not answered any practise questions, so this is not known.</p>
+  {{/if}}
 
-	<div class="{{#if answeredOne}}message{{/if}} no-print">
-		{{#if answeredOne}}
-			{{#if incomplete}}<p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Answer more questions</a> to give you a more accurate prediction.</p>{{/if}}
-		{{else}}
-			<p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
-		{{/if}}
-	</div>
+  <div class="{{#if answeredOne}}message{{/if}} no-print">
+    {{#if answeredOne}} {{#if incomplete}}
+    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Answer more questions</a> to give you a more accurate prediction.</p>{{/if}} {{else}}
+    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+    {{/if}}
+  </div>
 
-	<h2>Important answers</h2>
-	{{#if importantAnswers}}
-	<p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
-		<ul class="q-and-a">
-			{{#each importantAnswers}}
-				<li>
-					<p><strong>Question:</strong> {{question}}</p>
-					<p><strong>Your answer:</strong> {{answer}}</p>
-					<p class="right no-print"><a href="javascript:void(0)" role="button" data-action="change" data-question="question-{{sluggify question}}">Change your answer?</a></p>
-				</li>
-			{{/each}}
-		</ul>
-	{{/if}}
-	{{#unless importantAnswers}}
-		<p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
-	{{/unless}}
+  <h2>Important answers</h2> {{#if importantAnswers}}
+  <p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
+  <ul class="q-and-a">
+    {{#each importantAnswers}}
+    <li>
+      <p><strong>Question:</strong> {{question}}</p>
+      <p><strong>Your answer:</strong> {{answer}}</p>
+      <p class="right no-print"><a href="javascript:void(0)" role="button" data-action="change" data-question="question-{{sluggify question}}">Change your answer?</a></p>
+    </li>
+    {{/each}}
+  </ul>
+  {{/if}} {{#unless importantAnswers}}
+  <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+  {{/unless}}
 
-<ul aria-label="menu">
-	<li>
-		{{#if incomplete}}
-			<button class="nav-link pick" data-action="start-or-resume">Practise some questions</button>
-		{{else}}
-			<button class="nav-link pick" data-action="restart">Practise again</button>
-		{{/if}}
-	</li>
-	<li>
-		<button class="nav-link break" data-action="break">I&#x2019;ll have a break</button>
-	</li>
-	<li>
-		<button class="nav-link break" data-action="menu">Home</button>
-	</li>
-</ul>
+  <ul aria-label="menu">
+    <li>
+      {{#if incomplete}}
+      <button class="nav-link pick" data-action="start-or-resume">Practise some questions</button>
+      {{else}}
+      <button class="nav-link pick" data-action="restart">Practise again</button>
+      {{/if}}
+    </li>
+    <li>
+      <button class="nav-link break" data-action="break">I&#x2019;ll have a break</button>
+    </li>
+    <li>
+      <button class="nav-link break" data-action="menu">Home</button>
+    </li>
+  </ul>
 </div>
 <div class="box" id="data-box">
-<h2 tabindex="-1">My Data</h2>
-<p>This app does not send any of your data anywhere or keep any for itself. However, it <em>does</em> save some data just on the computer you&#x2019;re using in order to work properly.</p>
-<p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
-<ul aria-label="menu">
-	<li>
-		<button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
-	</li>
-	<li>
-		<button class="nav-link" data-action="stats" role="link">I want to see my data first</button>
-	</li>
-	<li>
-		<button class="nav-link" data-action="menu" role="link">Home</button>
-	</li>
-</ul>
+  <h2 tabindex="-1">My Data</h2>
+  <p>This app does not send any of your data anywhere or keep any for itself. However, it <em>does</em> save some data just on the computer you&#x2019;re using in order to work properly.</p>
+  <p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
+  <ul aria-label="menu">
+    <li>
+      <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
+    </li>
+    <li>
+      <button class="nav-link" data-action="stats" role="link">I want to see my data first</button>
+    </li>
+    <li>
+      <button class="nav-link" data-action="menu" role="link">Home</button>
+    </li>
+  </ul>
 </div>
