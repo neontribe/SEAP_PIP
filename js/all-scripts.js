@@ -14859,6 +14859,13 @@ $('body').on('click', '[data-action="data"]', function() {
 
 });
 
+$('body').on('click', '[data-action="remember"]', function() {
+
+  // run resume function defined in FUNCTIONS block
+  loadSlide('remember');
+
+});
+
 $('body').on('click', '[data-action="clean-up"]', function() {
 
   // set answered global to false
