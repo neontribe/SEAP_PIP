@@ -750,13 +750,6 @@ $('body').on('click', '[data-action="menu"]', function() {
 
 });
 
-$('body').on('click', '[data-action="data"]', function() {
-
-  // run resume function defined in FUNCTIONS block
-  loadSlide('data');
-
-});
-
 $('body').on('click', '[data-action="remember"]', function() {
 
   // run resume function defined in FUNCTIONS block
