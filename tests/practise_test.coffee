@@ -164,8 +164,10 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
       test.assertEquals importantAnswers, 2, 'Found 2 important answers'
       # Get at least 16 Daily Living points
       @click '.stats-container.loaded button[data-action="start-or-resume"]'
+      @click '.box.loaded button[data-action="pick"]'
       @click '.question-container.loaded button[data-action="pick"]'
       @click '.question-container.loaded button[data-action="pick"]'
+
 
       @echo @getCurrentUrl()
       @click '.box.loaded button[data-action="categories"]'
