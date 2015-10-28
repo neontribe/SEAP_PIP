@@ -3,13 +3,13 @@
   if you&#x2019;re not sure.</p>
 <div class="category-list" role="toolbar" aria-label="menu options">
   <ul>
-    <li>
-      <button data-action="set-cat" data-category="i-dont-know">I don&#x2019;t know</button>
-    </li>
     {{#each allCategories}}
     <li class="real-cat">
       <button data-action="set-cat" data-category="{{this}}">{{deprefix this}}</button>
     </li>
     {{/each}}
+    <li>
+      <button data-action="set-cat" data-category="i-dont-know">I don&#x2019;t know</button>
+    </li>
   </ul>
 </div>
