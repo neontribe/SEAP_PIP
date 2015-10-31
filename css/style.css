@@ -912,20 +912,33 @@ img + h1 {
 /* about-esa about-PIP
 ---------------------------------------------*/
 
-#about-esa #about-PIP .print-box .button-box {
+#about-PIP .print-box .button-box,
+#about-esa .print-box .button-box {
   max-width: 45%;
   float: right;
 }
 
-#about-esa #about-PIP .print-box .button-shaped {
+#about-PIP .print-box .button-shaped,
+#about-esa .print-box .button-shaped {
   width: 95%;
   margin-bottom: 0.25em;
 }
 
-#about-esa #about-PIP .print-box p {
+#about-PIP .print-box p,
+#about-esa .print-box p {
   max-width: 55%;
   float: left;
 }
+
+#about-esa .print-box button, #about-PIP .print-box button {
+  /*float: left;*/
+  margin: 0.5em 0.5em 0.5em 0;
+}
+
+#video-transcription p {
+  clear: both;
+}
+
 /* expandies
 ---------------------------------------------*/
 
