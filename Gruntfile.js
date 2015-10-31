@@ -71,7 +71,7 @@ module.exports = function(grunt){
       },
       clean: {
         initial: ['build'],
-        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html']
+        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/js/handlebars.js', 'build/js/html5.js', 'build/js/selectivizr-min.js', 'build/js/storageapi.js', 'build/js/underscore.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html']
       },
       jshint: {
         options: {
@@ -118,7 +118,7 @@ module.exports = function(grunt){
       }
     });
 
-    grunt.registerTask('test', ['clean:initial', 'copy', 'compile-handlebars', 'bake','htmlhint', 'jshint', 'concat', 'autoprefixer', 'clean:tidyup', 'connect', 'casperjs']);
     grunt.registerTask('generate', ['clean:initial', 'copy','compile-handlebars','bake', 'htmlhint', 'jshint', 'concat', 'autoprefixer', 'clean:tidyup']);
+    grunt.registerTask('test', ['generate', 'connect', 'casperjs']);
     grunt.registerTask('generate-production', ['clean:initial','compile-handlebars', 'htmlhint', 'jshint', 'copy', 'concat', 'uglify', 'autoprefixer','cssmin', 'clean:tidyup']);
 };
