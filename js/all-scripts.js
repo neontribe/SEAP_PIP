@@ -14160,7 +14160,10 @@ function initAss() {
     low: false, // low qualification?
     high: false, // high qualification?
     reminders: [], // list of reminders form "Things to remember" checkboxes
-    incomplete: true // whether all the questions have been answered
+    incomplete: true, // whether all the questions have been answered
+    date: '',
+    venue: '',
+    time: ''
   };
 
   // Save the virgin ass to local storage
