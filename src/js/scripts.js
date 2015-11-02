@@ -99,6 +99,7 @@ function getCatQuestionArr(slug) {
 }
 
 function loadSlide(id, type) {
+	
   // Register google page view
   var trackHashes = ['main-menu', 'stats', 'data', 'about-PIP', 'start'];
   if ($.inArray(id, trackHashes) !== -1) {
@@ -151,7 +152,8 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['resume', 'break-time', 'resume-practise'],
+  // Only remember question based slides
+  var exclude = _.find(['main-menu', 'stats', 'deleted', 'resume', 'break-time', 'resume-practise'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -693,7 +695,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
   // has the user (or _a_ user) been to the questions section before?
   if (db.get('pipAss.started')) {
 
-    pickQuestion();
+    resume();
 
   } else {
 
@@ -705,8 +707,6 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
 
-  // run resume function defined in FUNCTIONS block
-  db.set('pipAss.whereIAm', window.location.hash.slice(1));
   loadSlide('break-time');
 
 });
