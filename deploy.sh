@@ -1,14 +1,7 @@
 ##!/usr/bin/env bash
 echo -e "Tests passed - deploying to STAGING"
-
-#if this isn't a pull req set default github token
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-
-    if [ "$TRAVIS" == "true" ]; then
-        git config --global user.email $GIT_EMAIL
-        git config --global user.name $GIT_USER
-    fi
-
+echo -e "Travis pull request bool"
+echo -e $TRAVIS_PULL_REQUEST
 #checkout gh_pages branch and update with contents of build folder
 git remote rm origin
 git remote add origin https://$GIT_USER:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
@@ -21,7 +14,6 @@ git add .
 git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
 git pull origin gh-pages
 git push origin gh-pages
-fi
 
 #if this is a tagged release, deploy to LIVE
 if [ "$TRAVIS_TAG" ]; then
