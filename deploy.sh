@@ -9,19 +9,20 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
         git config --global user.email $GIT_EMAIL
         git config --global user.name $GIT_USER
     fi
+
+  #checkout gh_pages branch and update with contents of build folder
+  git remote rm origin
+  git remote add origin https://$GIT_USER:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
+  git fetch
+  git checkout gh-pages
+  cp -r build/* .
+  rm -r build
+  rm -r node_modules
+  git add .
+  git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
+  git pull origin gh-pages
+  git push origin gh-pages
 fi
-#checkout gh_pages branch and update with contents of build folder
-git remote rm origin
-git remote add origin https://$GIT_USER:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
-git fetch
-git checkout gh-pages
-cp -r build/* .
-rm -r build
-rm -r node_modules
-git add .
-git commit -m "Travis build $TRAVIS_BUILD_NUMBER pushed to Github Pages"
-git pull origin gh-pages
-git push origin gh-pages
 
 #if this is a tagged release, deploy to LIVE
 if [ "$TRAVIS_TAG" ]; then
