@@ -669,7 +669,7 @@ nav li + li::before {
   border-color: #0a8f60;
 }
 
-.break-time img {
+.break-time img, .category-finished img {
   max-width: 8rem;
   max-width: 160px;
 }
