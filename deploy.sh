@@ -2,6 +2,14 @@
 echo -e "Tests passed - deploying to STAGING"
 echo -e "Travis pull request bool"
 echo -e $TRAVIS_PULL_REQUEST
+#if this isn't a pull req set default github token
+if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+
+    if [ "$TRAVIS" == "true" ]; then
+        git config --global user.email $GIT_EMAIL
+        git config --global user.name $GIT_USER
+    fi
+fi
 #checkout gh_pages branch and update with contents of build folder
 git remote rm origin
 git remote add origin https://$GIT_USER:$GIT_PASS@github.com/neontribe/SEAP_PIP.git
