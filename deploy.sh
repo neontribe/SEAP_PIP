@@ -30,6 +30,8 @@ if [ "$TRAVIS_TAG" ]; then
     DATETIME=`date +%Y%m%d"-"%H%M%S`
     echo -e "Prepare files for live deploy"
     #Deploy gh-pages to deployment server
+    #so the dev disallow all doesn't replace live robots.txt
+    rm robots.txt
     cd ..
     tar -czf release.tgz SEAP_PIP 
     sudo apt-get -y install sshpass
