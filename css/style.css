@@ -58,6 +58,7 @@ body * + * {
   margin-top: 1.5rem;
 }
 
+header,
 li,
 option,
 dt,
@@ -684,6 +685,21 @@ img + h1 {
   display: inline-block;
   margin-top: 0.75em;
 }
+
+header .logo {
+  float: left;
+}
+
+header img {
+  float: left;
+  margin-right: 0.5em;
+}
+
+header span {
+  display: block;
+  float: right;
+  margin-top: 0;
+}
 /* main menu
 ---------------------------------------------*/
 
@@ -1194,7 +1210,6 @@ footer a {
 
   .to-main-menu {
     text-align: center;
-    float: none;
     display: inline-block;
     font-size: 20px;
   }
@@ -1230,6 +1245,15 @@ footer a {
   .social-profile-buttons {
     margin: 2em 0 0 1.5em;
   }
+
+  header img {
+    display: none;
+  }
+
+  .c-app header img {
+    display: inline;
+  }
+
 }
 
 @media (min-width: 600px) {
@@ -1300,6 +1324,7 @@ footer a {
   [aria-label$="menu"] li {
     display: block;
   }
+
   [role="banner"] {
     height: auto;
     line-height: 1.5em;
@@ -1307,18 +1332,31 @@ footer a {
     width: 100%;
     padding: 0.5em;
   }
+
   .to-main-menu {
-    display: block;
+    float:none;
   }
+
+  header .logo {
+    width: 100%;
+  }
+
+  header span {
+    float: none;
+  }
+
   nav ul {
     margin: 0;
   }
+
   .label-input {
     width: 100%;
   }
+
   [aria-label$="menu"] li {
     display: block;
   }
+
   .box {
     margin: 0;
   }
@@ -1328,8 +1366,13 @@ footer a {
   }
 
   .c-app h1 {
-    padding-top: 80px;
-    padding-top: 4rem;
+    padding-top: 0;
+    margin-top: 60px;
+    margin-top: 3rem;
+  }
+
+  .c-app header img {
+    display: none;
   }
 
   .social-profile-buttons {
