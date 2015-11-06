@@ -267,6 +267,7 @@ function pickQuestion() {
 
     question = questions[0];
 
+    console.log('unseen mode: ' + question);
   // set collection with this question removed
   db.set('pipAss.' + mode, _.without(questions, question));
 
@@ -280,9 +281,10 @@ function pickQuestion() {
 
       question = questions[0];
 
+      console.log('not unseen mode: ' + question);
+
       // if the array is empty, all the skipped questions are answered
       if (question === undefined) {
-
         loadSlide('seen-all-even-skipped');
         return;
       }
@@ -308,7 +310,8 @@ function pickQuestion() {
   // add this new question
   seen.push(question);
 
-  db.set('pipAss.seenQuestions', seen);
+  // Unique only - if we've seen before we don't need to list it again
+  db.set('pipAss.seenQuestions', _.uniq(seen));
 
   // load question slide and set slide type global to 'question'
   loadSlide(question, 'question');
