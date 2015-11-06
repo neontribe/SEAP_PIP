@@ -25,7 +25,7 @@
 
 <body>
   <header role="banner">
-    <img src="images/c-app-logo.png" alt="seAp assessments PIP logo" />
+    <div class="logo" aria-label="seAp assessments PIP logo" aria-role="img"><img src="images/c-app-logo.png" alt="seAp assessments PIP logo" /><span>PIP Assessment Support</span></div>
     <nav role="navigation" class="to-main-menu">
       <ul>
         <li>
@@ -2901,15 +2901,12 @@
       </ul>
     </div>
     <div class="box no-print" id="data-box">
-      <h2 tabindex="-1">My Data</h2>
+      <h2>My Data</h2>
       <p>This app does not send any of your data anywhere or keep any for itself. However, it <em>does</em> save some data just on the computer you&#x2019;re using in order to work properly.</p>
       <p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
-        </li>
-        <li>
-          <button class="nav-link" data-action="stats" role="link">I want to see my data first</button>
         </li>
         <li>
           <button class="nav-link" data-action="menu" role="link">Home</button>
