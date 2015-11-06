@@ -900,9 +900,11 @@ $('body').on('click', '[data-action="set-cat"]', function() {
 
 // Fix back button
 $(window).on('hashchange', function(e) {
-  console.log('real pick ' + window.realPick);
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
+  // I don't think the realpick part of this is working but
+  // the override only happens if we've been here before as recorded
+  // by the window.hasHistory array
   if (window.location.hash.substr(0, 9) === '#question' && !window.realPick) {
     if (window.hashHistory.indexOf(window.location.hash) > -1) {
       loadSlide(window.location.hash.substr(1), 'question');
