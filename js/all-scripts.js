@@ -14162,9 +14162,6 @@ function initAss() {
     incomplete: true // whether all the questions have been answered
   };
 
-  // empty hash history
-  window.hashHistory = [];
-
   // Save empty db object to local storage
   db.set('pipAss', assTemplate);
 
@@ -14209,10 +14206,6 @@ function loadSlide(id, type) {
   if ($.inArray(id, trackHashes) !== -1) {
     ga('send', 'pageview', '#' + id);
   }
-
-  //Reset pick var Not really sure this is doing what Heydon intended.
-  //something to do with skipped questions: https://github.com/neontribe/SEAP_PIP/commit/80bae7efe68963627bff2221d80f67278917d4ac
-  window.realPick = false;
 
   if (id === 'stats') {
 
@@ -14422,6 +14415,8 @@ function pickQuestion() {
   // load question slide and set slide type global to 'question'
   loadSlide(question, 'question');
 
+  // reset the realPick var for next time
+  window.realPick = false;
   // set to false until button pressed
   window.answered = false;
 
@@ -14912,6 +14907,9 @@ $('body').on('change', '[data-action="save-basic-info"]', function() {
 
 $('body').on('change', '[type="radio"]', function() {
 
+  //add highlight class to pick button
+  $('.loaded button.nav-link[data-action="pick"]').addClass( 'highlighted' );
+
   // record that change has been made
   window.answered = true;
 
@@ -15002,14 +15000,13 @@ $('body').on('click', '[data-action="set-cat"]', function() {
 
 // Fix back button
 $(window).on('hashchange', function(e) {
-  console.log('real pick ' + window.realPick);
+
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
   if (window.location.hash.substr(0, 9) === '#question' && !window.realPick) {
-    if (window.hashHistory.indexOf(window.location.hash) > -1) {
+    if (hashHistory.indexOf(window.location.hash > -1)) {
       loadSlide(window.location.hash.substr(1), 'question');
     }
   }
-  window.hashHistory.push(window.location.hash);
-  _.uniq(window.hashHistory);
+
 });
