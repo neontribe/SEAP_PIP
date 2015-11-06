@@ -46,6 +46,7 @@ img {
 }
 
 body {
+  background: #dcf0fd;
   font-size: 20px;
   color: #003555;
   line-height: 1.5;
@@ -552,7 +553,6 @@ noscript {
   vertical-align: middle;
   text-align: center;
   display: none;
-  background: #dcf0fd;
   padding: 120px 30px;
   padding: 6rem 1.5rem;
 }
@@ -1067,6 +1067,98 @@ footer a {
           animation: prompt 0.75s linear 1;
   border: 1px solid;
 }
+
+/*Portal--------------------
+---------------------------*/
+
+.c-app h1 {
+  margin-top: 120px;
+  margin-top: 6rem;
+}
+
+.c-app .wrapper {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 1.5em;
+}
+
+.c-app .wrapper button {
+  width: 100%;
+  margin: 0;
+}
+
+.c-app .wrapper button p {
+  text-align: center;
+  display: block;
+  font-weight: normal;
+  font-style: italic;
+  font-size: 0.75em;
+}
+
+.c-app .intro {
+  margin-bottom: 1.5em;
+}
+
+.c-app .esa-section, .c-app .pip-section {
+  text-align: center;
+  width: 46%;
+  margin-bottom: 1.5em;
+}
+.c-app .esa-section {
+  float: left;
+}
+
+.c-app .pip-section {
+  float: right;
+}
+
+.c-app footer {
+  height: auto;
+}
+
+/* PROFILE BUTTONS ------------------------------------------------- */
+
+.social-profile-buttons,
+.social-profile-buttons div {
+  display: inline-block;
+  float: left;
+  margin: 1em 0 0 1.5em;
+}
+
+.social-profile-buttons a {
+  height: 32px;
+  width: 32px;
+  display: block;
+  border: none;
+}
+
+.social-profile-buttons ul {
+  margin: 0;
+}
+
+.social-profile-buttons ul li {
+  list-style-type: none;
+  display: inline-block;
+}
+
+.social-profile-buttons a.facebook {
+  background: url('../images/neontabs_social_sprite-32x32.png') #4d7dc1 2px center no-repeat;
+  background-position: 0 -32px;
+  border-color: #294c89;
+}
+
+.social-profile-buttons a.linkedin {
+  background: url('../images/neontabs_social_sprite-32x32.png') #0177b5 2px center no-repeat;
+  background-position: 0 -128px;
+  border-color: #0075b6;
+}
+
+.social-profile-buttons a.twitter {
+  background: url('../images/neontabs_social_sprite-32x32.png') #4099FF 2px center no-repeat;
+  background-position: 0 -226px;
+  border-color: #204c7f;
+}
+
 /* break points
 ---------------------------------------------*/
 
@@ -1091,6 +1183,7 @@ footer a {
   body {
     font-size: 17px;
   }
+
   [aria-label$="menu"] li {
     display: inline-block;
   }
@@ -1098,11 +1191,14 @@ footer a {
   [role="banner"] {
     text-align: center;
   }
+
   .to-main-menu {
     text-align: center;
     float: none;
     display: inline-block;
+    font-size: 20px;
   }
+
   .box {
     margin: 0 0.5em;
     padding: 1em 0.5em 0.5em;
@@ -1116,7 +1212,6 @@ footer a {
     font-size: 0.9em;
   }
   footer p {
-    text-align: center;
     padding-right: 0;
   }
   .category-list li {
@@ -1125,6 +1220,15 @@ footer a {
     -webkit-flex: 1 0 100% !important;
         -ms-flex: 1 0 100% !important;
             flex: 1 0 100% !important;
+  }
+
+  .c-app .esa-section, .c-app .pip-section {
+    text-align: center;
+    width: 100%;
+  }
+
+  .social-profile-buttons {
+    margin: 2em 0 0 1.5em;
   }
 }
 
@@ -1222,6 +1326,17 @@ footer a {
     padding: 120px 0px;
     padding: 6rem 0rem;
   }
+
+  .c-app h1 {
+    padding-top: 80px;
+    padding-top: 4rem;
+  }
+
+  .social-profile-buttons {
+    margin: 2em 0 0 1.5em;
+    width: 100%;
+  }
+
   footer p {
     font-size: 12px;
   }
