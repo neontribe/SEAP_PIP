@@ -57,11 +57,10 @@ function initAss() {
     answers: {}, // the master object of category high scores for tallying
     low: false, // low qualification?
     high: false, // high qualification?
-    reminders: [], // list of reminders form "Things to remember" checkboxes
     incomplete: true // whether all the questions have been answered
   };
 
-  // Save the virgin ass to local storage
+  // Save empty db object to local storage
   db.set('pipAss', assTemplate);
 
   // reset radio buttons
@@ -99,7 +98,7 @@ function getCatQuestionArr(slug) {
 }
 
 function loadSlide(id, type) {
-	
+
   // Register google page view
   var trackHashes = ['main-menu', 'stats', 'data', 'about-PIP', 'start'];
   if ($.inArray(id, trackHashes) !== -1) {
@@ -266,19 +265,10 @@ function pickQuestion() {
 
   if (mode === 'unseenQuestions') {
 
-    if (db.get('pipAss.category')) {
+    question = questions[0];
 
-      question = questions[0];
-
-    } else {
-
-      // use underscore to get random question slug
-      question = questions[0];
-
-    }
-
-    // set collection with this question removed
-    db.set('pipAss.' + mode, _.without(questions, question));
+  // set collection with this question removed
+  db.set('pipAss.' + mode, _.without(questions, question));
 
   } else {
 
