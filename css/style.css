@@ -291,6 +291,12 @@ button.nav-link:focus {
   background: #00a56b;
 }
 
+button.nav-link.highlighted {
+  color: #fff;
+  background: #00a56b;
+}
+
+
 a.nav-link:active,
 button.nav-link:active {
   background: #006541;
