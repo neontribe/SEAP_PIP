@@ -807,7 +807,6 @@ $('body').on('change', '[type="radio"]', function() {
 
   //add highlight class to pick button
   $('.loaded button.nav-link[data-action="pick"]').addClass( 'highlighted' );
-  console.log('button pressed');
 
   // record that change has been made
   window.answered = true;
