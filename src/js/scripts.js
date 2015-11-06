@@ -267,7 +267,6 @@ function pickQuestion() {
 
     question = questions[0];
 
-    console.log('unseen mode: ' + question);
   // set collection with this question removed
   db.set('pipAss.' + mode, _.without(questions, question));
 
@@ -280,8 +279,6 @@ function pickQuestion() {
       db.set('pipAss.' + mode, questions);
 
       question = questions[0];
-
-      console.log('not unseen mode: ' + question);
 
       // if the array is empty, all the skipped questions are answered
       if (question === undefined) {
