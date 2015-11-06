@@ -805,6 +805,9 @@ $('body').on('change', '[data-action="save-basic-info"]', function() {
 
 $('body').on('change', '[type="radio"]', function() {
 
+  //add highlight class to pick button
+  $('.loaded button.nav-link[data-action="pick"]').addClass( 'highlighted' );
+
   // record that change has been made
   window.answered = true;
 
