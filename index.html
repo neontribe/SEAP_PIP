@@ -2426,21 +2426,6 @@
       </ul>
     </div>
   </div>
-
-  <div class="slide are-you-sure" id="are-you-sure">
-    <div class="box">
-      <h1 tabindex="-1" style="red">Are you sure?</h1>
-      <p>##MISSING COPY## Do you really want to delete your data and start over? ##MISSING COPY##</p>
-      <ul aria-label="menu">
-        <li>
-          <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
-        </li>
-        <li>
-          <button class="nav-link" data-action="menu" role="link">Home</button>
-        </li>
-      </ul>
-    </div>
-
   <div class="slide deleted" id="deleted">
     <div class="box">
       <h1 tabindex="-1" style="red">Deleted</h1>
@@ -2452,13 +2437,19 @@
       </ul>
     </div>
   </div>
-  </div>
   <div class="slide get-started" id="start">
     <div class="box">
       <h1 tabindex="-1">Let&#x2019;s begin</h1>
       <p>In your real assessment you&#x2019;ll be asked questions about your ability to do activities. Here, you can try out some of these questions and be told how you might do in a real assessment. You can <a role="button" href="#break-time" data-action="break">take a break</a>        at any time and come back later. Your computer will remember where you were in the app :-)</p>
       <div>
-        <button class="nav-link" data-action="categories">Choose an activity</button>
+        <ul aria-label="menu">
+          <li>
+            <button class="nav-link" data-action="categories">Choose an activity</button>
+          </li>
+          <li>
+            <button class="nav-link" data-action="about-PIP">##MISSING COPY## More info</button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -2922,7 +2913,7 @@
       <p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
       <ul aria-label="menu">
         <li>
-          <button class="nav-link red" data-action="delete-are-you-sure">I&#x2019;m done! Delete my stuff</button>
+          <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
         </li>
         <li>
           <button class="nav-link" data-action="menu" role="link">Home</button>

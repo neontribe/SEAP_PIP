@@ -14864,13 +14864,6 @@ $('body').on('click', '[data-action="clean-up"]', function() {
 
 });
 
-$('body').on('click', '[data-action="delete-are-you-sure"]', function() {
-
-  // load the deleted data slide
-  loadSlide('are-you-sure');
-
-});
-
 $('body').on('click', '[data-action="delete-data"]', function() {
 
   // set answered global to false
@@ -14883,7 +14876,6 @@ $('body').on('click', '[data-action="delete-data"]', function() {
   loadSlide('deleted');
 
 });
-
 
 $('body').on('click', '[data-action="stats"]', function() {
 
