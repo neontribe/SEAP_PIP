@@ -14261,7 +14261,7 @@ function loadSlide(id, type) {
 
   // find out if we've gone to one of the locations that don't need saving
   // Only remember question based slides
-  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time', 'resume-practise'],
+  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
