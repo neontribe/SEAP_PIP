@@ -5,11 +5,9 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta id="theme-color" name="theme-color" content="#79bde9">
   <link href="css/style.css" rel="stylesheet" media="all" />
   <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,300" rel="stylesheet" type="text/css" media="none" onload="if(media!='all')media='all'">
   <title>PIP Assessment Support</title>
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
   <!--[if lt IE 9]>
 			<script src="js/html5.js"></script>
 			<script src="js/selectivizr-min.js"></script>
@@ -2428,6 +2426,21 @@
       </ul>
     </div>
   </div>
+
+  <div class="slide are-you-sure" id="are-you-sure">
+    <div class="box">
+      <h1 tabindex="-1" style="red">Are you sure?</h1>
+      <p>##MISSING COPY## Do you really want to delete your data and start over? ##MISSING COPY##</p>
+      <ul aria-label="menu">
+        <li>
+          <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="menu" role="link">Home</button>
+        </li>
+      </ul>
+    </div>
+  </div>
   <div class="slide deleted" id="deleted">
     <div class="box">
       <h1 tabindex="-1" style="red">Deleted</h1>
@@ -2443,14 +2456,9 @@
     <div class="box">
       <h1 tabindex="-1">Let&#x2019;s begin</h1>
       <p>In your real assessment you&#x2019;ll be asked questions about your ability to do activities. Here, you can try out some of these questions and be told how you might do in a real assessment. You can <a role="button" href="#break-time" data-action="break">take a break</a>        at any time and come back later. Your computer will remember where you were in the app :-)</p>
-        <ul aria-label="menu">
-          <li>
-            <button class="nav-link" data-action="categories">Choose an activity</button>
-          </li>
-          <li>
-            <button class="nav-link" data-action="about-PIP">##MISSING COPY## More info</button>
-          </li>
-        </ul>
+      <div>
+        <button class="nav-link" data-action="categories">Choose an activity</button>
+      </div>
     </div>
   </div>
   <div class="slide get-started" id="seen-all">
@@ -2593,8 +2601,8 @@
           <a class="button-shaped" aria-hidden="true" href="https://vimeo.com/139481065" title="opens a new tab" target="_blank">Watch The Video (signed)</a>
         </div>
         <div class="expandies">
-          <h2><button aria-controls="video-transcript" aria-expanded="false">Read the video transcript</button></h2>
-          <div id="video-transcript" aria-hidden="true">
+          <h2><button aria-controls="video-transcription" aria-expanded="false">Video Transcript</button></h2>
+          <div id="video-transcription" aria-hidden="true">
             <p>This is a guide providing the basic information to help you apply for Personal Independence Payment, PIP for short, for you or someone you care for.</p>
             <p>PIP is a new benefit paid to people who live with long-term disabilities, or long-term health conditions that impact on their daily life. It’s not designed to help people whose disability or health condition only affect them in the short term. PIP is also claimed by people who are terminally ill, for whom different conditions apply.</p>
             <p>It’s replacing Disability Living Allowance, or DLA, for people aged between 16 and 64.</p>
@@ -2913,7 +2921,7 @@
       <p>If this is not your computer, tablet or phone you can delete all this data when you are done using the app. This way, no one else will see it.</p>
       <ul aria-label="menu">
         <li>
-          <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
+          <button class="nav-link red" data-action="delete-are-you-sure">I&#x2019;m done! Delete my stuff</button>
         </li>
         <li>
           <button class="nav-link" data-action="menu" role="link">Home</button>
