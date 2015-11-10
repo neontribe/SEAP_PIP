@@ -128,6 +128,10 @@ function loadSlide(id, type) {
     compileCategories();
   }
 
+  if (id === 'about-PIP') {
+    compileAboutButtons();
+  }
+
   if (id === 'category-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
@@ -488,6 +492,13 @@ function compileStats() {
   var output = template(pipAssData);
   $('#stats-content').html(output);
 
+}
+
+function compileAboutButtons() {
+  var template = Handlebars.compile(document.getElementById("about-buttons-template").innerHTML);
+  var pipAssData = db.get('pipAss');
+  var output = template(pipAssData);
+  $('.expandies.information .about-buttons-content').html(output);
 }
 
 function compileCategories() {
