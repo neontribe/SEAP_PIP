@@ -33,7 +33,7 @@ if (db.isEmpty('pipAss')) {
 }
 
 // check if mobile device and if so closes all expanded lists
-$( document ).ready(function() {
+$(function() {
    var isMobile = window.matchMedia("only screen and (max-width: 800px)");
 
    if (isMobile.matches) {
