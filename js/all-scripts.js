@@ -14261,7 +14261,7 @@ function loadSlide(id, type) {
 
   // find out if we've gone to one of the locations that don't need saving
   // Only remember question based slides
-  var exclude = _.find(['main-menu', 'stats', 'deleted', 'resume', 'break-time', 'resume-practise'],
+  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -14864,6 +14864,13 @@ $('body').on('click', '[data-action="clean-up"]', function() {
 
 });
 
+$('body').on('click', '[data-action="delete-are-you-sure"]', function() {
+
+  // load the deleted data slide
+  loadSlide('are-you-sure');
+
+});
+
 $('body').on('click', '[data-action="delete-data"]', function() {
 
   // set answered global to false
@@ -14876,6 +14883,7 @@ $('body').on('click', '[data-action="delete-data"]', function() {
   loadSlide('deleted');
 
 });
+
 
 $('body').on('click', '[data-action="stats"]', function() {
 
