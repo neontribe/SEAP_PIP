@@ -967,7 +967,7 @@
       ]
     },
     {
-      "question":"Do you require help from someone trained or experienced in communicating with people with communication needs to be able to express or understand complex verbal information?",
+      "question":"Do you need help from a trained person, for example a sign language interpreter, so you can understand or express complicated information?",
       "hint":null,
       "category":"Daily Living: Communicating verbally or non verbally",
       "answers":[
@@ -982,7 +982,7 @@
       ]
     },
     {
-      "question":"Do you need help from someone trained or experienced in communicating with people with communication needs to be able to express or understand basic verbal information?",
+      "question":"Do you need help from a trained person, for example a sign language interpreter, so you can understand or express basic information?",
       "hint":null,
       "category":"Daily Living: Communicating verbally or non verbally",
       "answers":[
@@ -997,7 +997,7 @@
       ]
     },
     {
-      "question":"Are you unable to express or understand verbal information at all even with help from someone trained or experienced in communicating with people with communication needs?",
+      "question":"Are you able to express or understand any spoken information at all even with help from a trained person?",
       "hint":null,
       "category":"Daily Living: Communicating verbally or non verbally",
       "answers":[
