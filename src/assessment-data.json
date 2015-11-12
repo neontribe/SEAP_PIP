@@ -1,7 +1,7 @@
 {
   "questions":[
     {
-      "question":"Do you take any medication?",
+      "question":"Do you take any prescribed medication?",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -16,7 +16,7 @@
       ]
     },
     {
-      "question":"Do you receive or take any therapeutic treatment?",
+      "question":"Do you have therapeutic treatment?",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "question":"Can you manage your medication or therapy without help from someone else or without any aids?",
+      "question":"Do you manage your medication or therapy without aids or help from someone else?",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -46,7 +46,7 @@
       ]
     },
     {
-      "question":"Do you need to use an aid or special appliance to manage your medicine?",
+      "question":"Do you need to use an aid to manage your medicine? For example to open bottles or taking pills out of blister packs.",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "question":"Do you need someone to help you or prompt you to be able to take or manage you medication?",
+      "question":"Do you need someone to remind or help you to take or manage your medication?",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "question":"Do you need prompting to be told to engage with other people?",
+      "question":"Do you need to be told to chat with other people?",
       "hint":null,
       "category":"Daily Living: Mixing with others",
       "answers":[
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "question":"Do you need social support to be able to engage with other people?",
+      "question":"Do you need support to be able to chat to and interact with other people?",
       "hint":null,
       "category":"Daily Living: Mixing with others",
       "answers":[
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "question":"Which of these best describes what happens when you engage with other people?",
+      "question":"Which of these best describes what happens when you\u2019re with other people?",
       "hint":null,
       "category":"Daily Living: Mixing with others",
       "answers":[
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "question":"Do you need help to wash and bathe?",
+      "question":"Do you need help to wash?",
       "hint":null,
       "category":"Daily Living: Washing and bathing",
       "answers":[
@@ -175,22 +175,7 @@
       ]
     },
     {
-      "question":"Do you need to use an aid or appliance to wash or bathe?",
-      "hint":null,
-      "category":"Daily Living: Washing and bathing",
-      "answers":[
-        {
-          "label":"Yes",
-          "value":2
-        },
-        {
-          "label":"No",
-          "value":0
-        }
-      ]
-    },
-    {
-      "question":"Do you need to be supervised or prompted to wash or bathe?",
+      "question":"Do you need to use an aid or appliance to have a shower or bath?",
       "hint":null,
       "category":"Daily Living: Washing and bathing",
       "answers":[
@@ -205,7 +190,22 @@
       ]
     },
     {
-      "question":"Do you need help to either wash your hair or your body below your waist?",
+      "question":"Do you need to be supervised or reminded to wash?",
+      "hint":null,
+      "category":"Daily Living: Washing and bathing",
+      "answers":[
+        {
+          "label":"Yes",
+          "value":2
+        },
+        {
+          "label":"No",
+          "value":0
+        }
+      ]
+    },
+    {
+      "question":"Do you need help to either wash your hair or below your waist?",
       "hint":null,
       "category":"Daily Living: Washing and bathing",
       "answers":[
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "question":"Do you need someone to help you wash your body between your shoulders?",
+      "question":"Do you need someone to help you wash your body between your shoulders and waist (front or back)?",
       "hint":null,
       "category":"Daily Living: Washing and bathing",
       "answers":[
@@ -250,7 +250,7 @@
       ]
     },
     {
-      "question":"Do you need another person to wash and bathe your entire body because you are not able to do it yourself?",
+      "question":"Do you need another person to wash your entire body because you\u2019re not able to do it yourself?",
       "hint":null,
       "category":"Daily Living: Washing and bathing",
       "answers":[
@@ -280,7 +280,7 @@
       ]
     },
     {
-      "question":"Do you need to use an aid or appliance to dress or undress yourself?",
+      "question":"Do you use an aid or appliance to dress or undress, such as zips or velcro?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -295,7 +295,7 @@
       ]
     },
     {
-      "question":"Do you need to be told to dress or undress or to be told when you should remain clothed?",
+      "question":"Do you need to be told to dress or undress, or be told to keep your clothes on?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -310,7 +310,7 @@
       ]
     },
     {
-      "question":"Can you select appropriate clothing for the time of day or the weather conditions without help from someone else?",
+      "question":"Can you choose the right clothing for the time of day or the weather conditions without help from someone else?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -355,7 +355,7 @@
       ]
     },
     {
-      "question":"Are you able to dress or undress at all?",
+      "question":"Are you able to dress or undress on your own at all?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -374,7 +374,7 @@
       ]
     },
     {
-      "question":"Do you need someone to remind, encourage or explain to you how to undertake a journey to avoid overwhelming psychological distress?",
+      "question":"Do you need someone to remind, encourage or explain to you how to undertake a journey, so that you don\u2019t get extremely distressed?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -393,7 +393,7 @@
       ]
     },
     {
-      "question":"Do you have any sensory or learning difficulties which prevent you from planning the route of a journey?",
+      "question":"Do you have any sensory or learning difficulties that mean you can\u2019t plan the route of a journey?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -408,7 +408,7 @@
       ]
     },
     {
-      "question":"Can you follow the route of an unfamiliar journey without another person, assistance or orientation aid?",
+      "question":"Can you go on an unfamiliar journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -427,7 +427,7 @@
       ]
     },
     {
-      "question":"Are you able to undertake any journeys at all without it causing you overwhelming psychological distress?",
+      "question":"Are you able to go on any journeys at all without becoming extremely distressed?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -446,7 +446,7 @@
       ]
     },
     {
-      "question":"Can you follow the route of a familiar journey without another person, assistance or orientation aid?",
+      "question":"Can you go on a familiar journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -465,7 +465,7 @@
       ]
     },
     {
-      "question":"Can you make decisions about working out your household and personal expenses, managing and paying bills and planning purchases in the future?",
+      "question":"Can you work out your household and personal expenses, pay your bills and make decisions about what you\u2019ll buy in the future?",
       "hint":null,
       "category":"Daily Living: Making decisions about money",
       "answers":[
@@ -484,7 +484,7 @@
       ]
     },
     {
-      "question":"When you pay for an item in a shop can you work out how much change you should get?",
+      "question":"When you pay for something in a shop can you work out how much change you should get?",
       "hint":null,
       "category":"Daily Living: Making decisions about money",
       "answers":[
@@ -503,7 +503,7 @@
       ]
     },
     {
-      "question":"Are you able to make any budgeting decisions at all?",
+      "question":"Are you able to make any decisions at all about how to spend your money?",
       "hint":null,
       "category":"Daily Living: Making decisions about money",
       "answers":[
@@ -828,7 +828,7 @@
       ]
     },
     {
-      "question":"Can you move more than 1 metre whether aided or unaided?",
+      "question":"Can you move more than 1 metre, whether aided or unaided?",
       "hint":null,
       "category":"Mobility: Moving around",
       "answers":[
@@ -843,9 +843,9 @@
       ]
     },
     {
-      "question":"Can you manage your toilet needs or incontinence without help from someone else?",
+      "question":"Can you manage your toilet needs or incontinence without help from anyone else?",
       "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
+      "category":"Daily Living: Managing your toilet needs\/ continence",
       "answers":[
         {
           "label":"Yes",
@@ -858,24 +858,9 @@
       ]
     },
     {
-      "question":"Do you need to use an aid or appliance to manage your toilet needs or incontinence?",
+      "question":"Do you use an aid or appliance to manage your toilet needs or incontinence?",
       "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
-      "answers":[
-        {
-          "label":"Yes",
-          "value":2
-        },
-        {
-          "label":"No",
-          "value":0
-        }
-      ]
-    },
-    {
-      "question":"Do you need someone to supervise or tell you to be able to manage your toilet needs?",
-      "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
+      "category":"Daily Living: Managing your toilet needs\/ continence",
       "answers":[
         {
           "label":"Yes",
@@ -888,9 +873,24 @@
       ]
     },
     {
-      "question":"Do you need assistance to help you to be able to manage your toilet needs?",
+      "question":"Do you need someone to tell you to go to the toilet or supervise you?",
       "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
+      "category":"Daily Living: Managing your toilet needs\/ continence",
+      "answers":[
+        {
+          "label":"Yes",
+          "value":2
+        },
+        {
+          "label":"No",
+          "value":0
+        }
+      ]
+    },
+    {
+      "question":"Do you need help to manage your toilet needs?",
+      "hint":null,
+      "category":"Daily Living: Managing your toilet needs\/ continence",
       "answers":[
         {
           "label":"Yes",
@@ -903,9 +903,9 @@
       ]
     },
     {
-      "question":"Do you need assistance to be able to manage incontinence of either your bladder or bowel?",
+      "question":"Do you need help to manage incontinence of either your bladder or bowel?",
       "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
+      "category":"Daily Living: Managing your toilet needs\/ continence",
       "answers":[
         {
           "label":"Yes",
@@ -918,9 +918,9 @@
       ]
     },
     {
-      "question":"Do you need assistance to be able to manage incontinence of both your bladder and bowel?",
+      "question":"Do you need help to manage incontinence of both your bladder and bowel?",
       "hint":null,
-      "category":"Daily Living: Managing your toilet needs/ continence",
+      "category":"Daily Living: Managing your toilet needs\/ continence",
       "answers":[
         {
           "label":"Yes",
@@ -933,7 +933,7 @@
       ]
     },
     {
-      "question":"Can you express and understand verbal information without help?",
+      "question":"Can you speak and understand spoken information without help?",
       "hint":null,
       "category":"Daily Living: Communicating verbally or non verbally",
       "answers":[
@@ -948,7 +948,7 @@
       ]
     },
     {
-      "question":"Do you need to use an aid or appliance to be able to speak or hear?",
+      "question":"Do you need an aid, such as a hearing aid, so you can speak or hear?",
       "hint":null,
       "category":"Daily Living: Communicating verbally or non verbally",
       "answers":[
@@ -1020,7 +1020,7 @@
       ]
     },
     {
-      "question":"Do you need to use and aid or appliance (other than glasses or contact lenses), to be able to read or understand either basic or complex written information?",
+      "question":"Do you need to use an aid or appliance (not glasses or contact lenses), to read or understand written information?",
       "hint":null,
       "category":"Daily Living: Reading and understanding written information",
       "answers":[
