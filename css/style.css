@@ -959,6 +959,19 @@ header span {
 
 #video-transcription p {
   clear: both;
+  margin: 0;
+}
+
+#video-transcription details :nth-child(2) {
+  margin-top: 0.5em;
+}
+
+details {
+  font-weight: bold;
+  text-align: left;
+  border-bottom: 2px solid #79bde9;
+  padding-bottom: 0.5em;
+  margin: 0.5em 0 1.5em 0;
 }
 
 /* expandies
