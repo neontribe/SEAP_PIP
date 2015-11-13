@@ -14134,6 +14134,16 @@ if (db.isEmpty('pipAss')) {
 
 }
 
+// check if mobile device and if so closes all expanded lists
+$(function() {
+   var isMobile = window.matchMedia("only screen and (max-width: 800px)");
+
+   if (isMobile.matches) {
+       $("#about-PIP .expandies button").attr("aria-expanded", "false");
+       $("#about-PIP .expandies h2").next().attr("aria-hidden", "true");
+   }
+});
+
 /**********************************************************************
 FUNCTIONS
 **********************************************************************/
@@ -14230,6 +14240,10 @@ function loadSlide(id, type) {
     compileCategories();
   }
 
+  if (id === 'about-PIP') {
+    compileAboutButtons();
+  }
+
   if (id === 'category-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
@@ -14261,7 +14275,7 @@ function loadSlide(id, type) {
 
   // find out if we've gone to one of the locations that don't need saving
   // Only remember question based slides
-  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'deleted', 'resume', 'break-time', 'resume-practise'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -14592,6 +14606,13 @@ function compileStats() {
 
 }
 
+function compileAboutButtons() {
+  var template = Handlebars.compile(document.getElementById("about-buttons-template").innerHTML);
+  var pipAssData = db.get('pipAss');
+  var output = template(pipAssData);
+  $('.expandies.information .about-buttons-content').html(output);
+}
+
 function compileCategories() {
 
   // template up the stats with handlebars and
@@ -14864,13 +14885,6 @@ $('body').on('click', '[data-action="clean-up"]', function() {
 
 });
 
-$('body').on('click', '[data-action="delete-are-you-sure"]', function() {
-
-  // load the deleted data slide
-  loadSlide('are-you-sure');
-
-});
-
 $('body').on('click', '[data-action="delete-data"]', function() {
 
   // set answered global to false
@@ -14883,7 +14897,6 @@ $('body').on('click', '[data-action="delete-data"]', function() {
   loadSlide('deleted');
 
 });
-
 
 $('body').on('click', '[data-action="stats"]', function() {
 
