@@ -880,7 +880,6 @@ $('body').on('change', '[type="radio"]', function() {
 
     // set the new points for this question in this category
     db.set('pipAss.answers.' + category + '.' + context, answerObject);
-
     db.set('pipAss.submitPoints', points);
 
   }
