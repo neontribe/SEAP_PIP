@@ -1149,7 +1149,8 @@ footer a {
 }
 
 .c-app footer {
-  height: auto;
+  position: relative;
+  z-index: -1;
 }
 
 .c-app .outro {
