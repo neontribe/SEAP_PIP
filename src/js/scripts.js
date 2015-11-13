@@ -118,9 +118,13 @@ function loadSlide(id, type) {
     ga('send', 'pageview', '#' + id);
   }
 
-  //Reset pick var Not really sure this is doing what Heydon intended.
-  //something to do with skipped questions: https://github.com/neontribe/SEAP_PIP/commit/80bae7efe68963627bff2221d80f67278917d4ac
-  window.realPick = false;
+  // Oops! we got here without an id to load - probably resuming user
+  // session after data deleted. So no pipAss.whereIAm defined but computer
+  // thinks user has been here before.
+  if (!id) {
+    console.log('undefined id');
+    loadSlide('main-menu');
+  }
 
   if (id === 'stats') {
 
@@ -172,7 +176,6 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  // Only remember question based slides
   var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
@@ -185,6 +188,9 @@ function loadSlide(id, type) {
     db.set('pipAss.whereIAm', id);
 
   }
+
+  // Save stats as page if we're going on a break. Or click home link?
+  // see listener below.
 
   // Set context reference (jQuery object)
   db.set('pipAss.context', id);
@@ -332,6 +338,7 @@ function pickQuestion() {
   db.set('pipAss.seenQuestions', _.uniq(seen));
 
   // load question slide and set slide type global to 'question'
+  console.log('About to load question: ' + question);
   loadSlide(question, 'question');
 
   // set to false until button pressed
@@ -359,6 +366,8 @@ function restart() {
 
 // go to slide you were last at
 function resume() {
+
+  console.log('about to load slide I last saw ' + db.get('pipAss.whereIAm'));
 
   // get the stored slide id
   var whereIWas = db.get('pipAss.whereIAm');
@@ -720,6 +729,11 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
 
+  //@todo fix this
+  // If we are taking a break from the stats page save our place
+  if (db.get('pipAss.context') === 'stats') {
+    db.set('pipAss.whereIAm', 'stats');
+  }
   loadSlide('break-time');
 
 });
@@ -814,6 +828,7 @@ $('body').on('click', '[data-action="prep"]', function() {
   // check checkboxes based on previous actions
   checkReminders(id);
 
+  console.log('Clicked prep ' + id);
   // load slide
   loadSlide(id);
 
@@ -857,6 +872,7 @@ $('body').on('change', '[type="radio"]', function() {
     // turn the followup question into a slug
     var followupSlug = 'question-' + sluggify(points);
 
+    console.log('Loading followupSlug ' + followupSlug);
     // load the followup slide
     loadSlide(followupSlug);
 
@@ -905,6 +921,7 @@ $('body').on('click', '[data-action="change"]', function() {
   // get question slug
   var slug = $(this).attr('data-question');
 
+  console.log('Loading slide ' + slug);
   // just show the question slide
   loadSlide(slug, 'question');
 
@@ -930,6 +947,7 @@ $(window).on('hashchange', function(e) {
   // by the window.hasHistory array
   if (window.location.hash.substr(0, 9) === '#question' ) {
     if (window.hashHistory.indexOf(window.location.hash) > -1) {
+      console.log('loading window hash...');
       loadSlide(window.location.hash.substr(1), 'question');
     }
   }
