@@ -14299,8 +14299,8 @@ function loadSlide(id, type) {
 // show a random unseen question
 function pickQuestion() {
 
-  // Has the user actually invoked this function?
-  window.realPick = true;
+  // Check if points combo qualifies
+  qualify(db.get('pipAss.submitPoints'));
 
   if (db.get('pipAss.show-qualify-low-mobility')) {
     loadSlide('qualify-low-mobility');
@@ -14490,14 +14490,13 @@ function tally() {
   // console.log('answers daily living ', ans.dailyLiving);
 
   // add up the highest values for each category
-  // by taking the max value that's not 16 or * from each
   // category and adding them together
   addedup.mobility = _.reduce(ans.mobility, function(memo, cat) {
-    return memo + _.max(_.without(_.pluck(cat, 'points'), 16, '*'));
+    return memo + _.max(_.pluck(cat, 'points'));
   }, 0);
 
   addedup.dailyLiving = _.reduce(ans.dailyLiving, function(memo, cat) {
-    return memo + _.max(_.without(_.pluck(cat, 'points'), 16, '*'));
+    return memo + _.max(_.pluck(cat, 'points'));
   }, 0);
 
   return addedup;
@@ -14505,7 +14504,7 @@ function tally() {
 
 // add the high scores for each category together
 // and notify user if they qualify
-function qualify() {
+function qualify(points) {
 
   var total = tally();
   // console.log('mobility ', total.mobility);
@@ -14578,7 +14577,6 @@ function compileStats() {
 
   // Check to see if low or high applies
   var total = tally();
-
   if (total.mobility < 15) {
     db.set('pipAss.high-mobility', false);
   }
@@ -14587,12 +14585,12 @@ function compileStats() {
     db.set('pipAss.low-mobility', false);
   }
 
-  if (total < 15) {
-    db.set('pipAss.high-mobility', false);
+  if (total.dailyLiving < 15) {
+    db.set('pipAss.high-dailyLiving', false);
   }
 
-  if (total < 8) {
-    db.set('pipAss.low-mobility', false);
+  if (total.dailyLiving < 8) {
+    db.set('pipAss.low-dailyLiving', false);
   }
 
   divideAnswers();
@@ -14736,7 +14734,6 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
 
   var high = db.get('pipAss.high-dailyLiving');
   var low = db.get('pipAss.low-dailyLiving');
-
   if (high) {
     return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
   } else if (low) {
@@ -14780,12 +14777,12 @@ EVENTS
 // click to see a random question
 $('body').on('click', '[data-action="pick"]', function() {
 
-  // run pickQuestion function to get a random unseen question
+  // run pickQuestion function to get an unseen question
   pickQuestion();
 
 });
 
-// click to see a random question
+// click to see a question
 $('body').on('click', '[data-action="skipped"]', function() {
 
   // the first skipped question cannot have been answered
@@ -14860,14 +14857,12 @@ $('body').on('click', '[data-action="resume"]', function() {
 
 $('body').on('click', '[data-action="menu"]', function() {
 
-  // run resume function defined in FUNCTIONS block
   loadSlide('main-menu');
 
 });
 
 $('body').on('click', '[data-action="remember"]', function() {
 
-  // run resume function defined in FUNCTIONS block
   loadSlide('remember');
 
 });
@@ -14987,10 +14982,7 @@ $('body').on('change', '[type="radio"]', function() {
 
     // set the new points for this question in this category
     db.set('pipAss.answers.' + category + '.' + context, answerObject);
-
-    // fire the adding up function
-    // to see if there are enough points to qualify
-    qualify();
+    db.set('pipAss.submitPoints', points);
 
   }
 
@@ -15036,10 +15028,9 @@ $('body').on('click', '[data-action="set-cat"]', function() {
 $(window).on('hashchange', function(e) {
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
-  // I don't think the realpick part of this is working but
   // the override only happens if we've been here before as recorded
   // by the window.hasHistory array
-  if (window.location.hash.substr(0, 9) === '#question' && !window.realPick) {
+  if (window.location.hash.substr(0, 9) === '#question' ) {
     if (window.hashHistory.indexOf(window.location.hash) > -1) {
       loadSlide(window.location.hash.substr(1), 'question');
     }
