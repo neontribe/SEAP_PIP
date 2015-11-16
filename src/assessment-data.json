@@ -76,7 +76,7 @@
       ]
     },
     {
-      "question":"How much time each week does someone need to spend helping, prompting or supervising you to manage any therapies you take (ie this is not medication)?",
+      "question":"Every week, how much time does someone spend helping or supervising you to manage any therapies (not medication) you take?",
       "hint":null,
       "category":"Daily Living: Managing your treatments",
       "answers":[
@@ -85,19 +85,19 @@
           "value":0
         },
         {
-          "label":"Up to three and a half hours a week",
+          "label":"up to 3.5 hours a week",
           "value":2
         },
         {
-          "label":"Three and a half to seven hours a week",
+          "label":"3.5 to 7 hours a week",
           "value":4
         },
         {
-          "label":"Seven to fourteen hours a week",
+          "label":"7 to 14 hours each a week",
           "value":6
         },
         {
-          "label":"More than 14 hours a week",
+          "label":"more than 14 hours a week",
           "value":8
         }
       ]
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "question":"Which of these best describes what happens when you\u2019re with other people?",
+      "question":"Which of these best describes what happens when you're with other people?",
       "hint":null,
       "category":"Daily Living: Mixing with others",
       "answers":[
@@ -150,11 +150,11 @@
           "value":0
         },
         {
-          "label":"I exhibit behaviour which would harm me or another person",
+          "label":"I show behaviour that could harm me or another person",
           "value":8
         },
         {
-          "label":"I feel overwhelming psychological distress",
+          "label":"I feel overwhelmed and distressed",
           "value":8
         }
       ]
