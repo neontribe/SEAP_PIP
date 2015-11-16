@@ -83,11 +83,11 @@ function initAss() {
 
 function getCatQuestions(slug) {
 
-  if (slug === "i-dont-know") {
+  if (slug === "random-category") {
     // Select a random category containing unseen questions
     var nextCat = _.sample(db.get('pipAss.remainingCategories'));
     db.set('pipAss.category', nextCat);
-    loadSlide('chose-i-dont-know');
+    loadSlide('chose-random-category');
     return;
   } else {
     db.set('pipAss.category', slug);
@@ -146,9 +146,9 @@ function loadSlide(id, type) {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
 
-  if (id === 'chose-i-dont-know') {
-    $('#chose-i-dont-know button').attr('data-category', db.get('pipAss.category'));
-    $('#chose-i-dont-know #unseen-category').text(db.get('pipAss.category'));
+  if (id === 'chose-random-category') {
+    $('#chose-random-category button').attr('data-category', db.get('pipAss.category'));
+    $('#chose-random-category #unseen-category').text(db.get('pipAss.category'));
   }
 
   $('.slide > *').removeClass('loaded');

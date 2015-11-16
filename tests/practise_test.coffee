@@ -79,7 +79,7 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
         'data-category'
       #@echo allCategories
       for activityName in allCategories
-        if activityName != 'i-dont-know'
+        if activityName != 'random-category'
           activitySelect test, activityName
           isNext =
             @exists '.question-container.loaded button[data-action="pick"]'
