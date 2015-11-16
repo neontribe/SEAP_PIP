@@ -85,7 +85,7 @@
           "value":0
         },
         {
-          "label":"up to 3.5 hours a week",
+          "label":"Up to 3.5 hours a week",
           "value":2
         },
         {
@@ -97,7 +97,7 @@
           "value":6
         },
         {
-          "label":"more than 14 hours a week",
+          "label":"More than 14 hours a week",
           "value":8
         }
       ]
@@ -542,11 +542,11 @@
       "category":"Daily Living: Preparing food",
       "answers":[
         {
-          "label":"yes",
+          "label":"Yes",
           "value":2
         },
         {
-          "label":"no",
+          "label":"No",
           "value":0
         }
       ]
