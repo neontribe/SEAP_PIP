@@ -17,7 +17,7 @@
   <div class="{{#if answeredOne}}message{{/if}} no-print">
     {{#if answeredOne}} {{#if incomplete}}
     <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate prediction.</p>{{/if}} {{else}}
-    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
     {{/if}}
   </div>
 
@@ -33,7 +33,7 @@
     {{/each}}
   </ul>
   {{/if}} {{#unless importantAnswers}}
-  <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+  <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
   {{/unless}}
 
   <ul aria-label="menu">
