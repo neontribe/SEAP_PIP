@@ -16,7 +16,7 @@
 
   <div class="{{#if answeredOne}}message{{/if}} no-print">
     {{#if answeredOne}} {{#if incomplete}}
-    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate prediction.</p>{{/if}} {{else}}
+    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
     <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
     {{/if}}
   </div>
