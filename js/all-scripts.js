@@ -14276,7 +14276,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -14832,7 +14832,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats','about-PIP'];
+  var validBreakReturn = ['stats', 'about-PIP', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
