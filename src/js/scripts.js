@@ -174,7 +174,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -188,7 +188,8 @@ function loadSlide(id, type) {
   }
 
   // Only set context if we were not on a break from excluded (eg stats or about)
-  if (db.get('pipAss.context') !== 'break-from-excluded') {
+  var currentContext = db.get('pipAss.context') ? db.get('pipAss.context') : '';
+  if (currentContext.indexOf('break-from-') === -1) {
     // Set context reference (jQuery object)
     db.set('pipAss.context', id);
   }
@@ -367,16 +368,20 @@ function resume() {
   // get the stored slide id
   var whereIWas = db.get('pipAss.whereIAm');
 
-  //@todo this is not the page looking for...
-  var whereICameFrom = db.get('pipAss.context');
-  
   // unless we are having a break from an excluded page - stats, about.
   // Don't save where I was as stats, so we remember practice place.
-  if (db.get('pipAss.context') === 'break-from-excluded') { 
+  if (db.get('pipAss.context').indexOf('break-from-') !== -1) {
+
+    // this is the page we want to return to if we're on a break
+    // from an excluded page
+    var whereICameFrom = db.get('pipAss.context').replace('break-from-', '');
+
     // Reset to correct context for when we leave entry to break page
     db.set('pipAss.context', whereIWas);
     loadSlide(whereICameFrom);
+
   } else {
+
     loadSlide(whereIWas);
   }
 }
@@ -725,10 +730,11 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
   var validBreakReturn = ['stats','about-PIP'];
+      currentContext = db.get('pipAss.context');
 
-  // If we are taking a break from excluded page save our place
+  // If we are taking a break from excluded page but want to save our place
   if (_.contains(validBreakReturn, db.get('pipAss.context'))) {
-    db.set('pipAss.context', 'break-from-excluded');
+    db.set('pipAss.context', 'break-from-' + currentContext);
   }
   loadSlide('break-time');
 
