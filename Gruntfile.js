@@ -65,13 +65,13 @@ module.exports = function(grunt){
       },
       concat: {
         js: {
-          src: ['build/js/jquery.js', 'build/js/underscore.js', 'build/js/storageapi.js', 'build/js/handlebars.js', 'build/js/scripts.js'],
+          src: ['build/js/jquery.js', 'build/js/underscore.js', 'build/js/storageapi.js', 'build/js/handlebars.js', 'build/js/scripts.js', 'build/js/seap-analytics.js'],
           dest: 'build/js/all-scripts.js'
         }
       },
       clean: {
         initial: ['build'],
-        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/js/handlebars.js', 'build/js/html5.js', 'build/js/selectivizr-min.js', 'build/js/storageapi.js', 'build/js/underscore.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html']
+        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/js/handlebars.js', 'build/js/html5.js', 'build/js/selectivizr-min.js', 'build/js/storageapi.js', 'build/js/underscore.js', 'build/js/seap-analytic.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html']
       },
       jshint: {
         options: {
