@@ -14220,14 +14220,9 @@ function loadSlide(id, type) {
     ga('send', 'pageview', '#' + id);
   }
 
-  console.log('whereIAm: ' + db.get('pipAss.whereIAm'));
-  console.log('context: ' + db.get('pipAss.context'));
-  // Oops! we got here without an id to load - probably resuming user
-  // session after data deleted. So no pipAss.whereIAm defined but computer
-  // thinks user has been here before.
-  if (!id) {
-    loadSlide('main-menu');
-  }
+  //Reset pick var Not really sure this is doing what Heydon intended.
+  //something to do with skipped questions: https://github.com/neontribe/SEAP_PIP/commit/80bae7efe68963627bff2221d80f67278917d4ac
+  window.realPick = false;
 
   if (id === 'stats') {
 
@@ -14238,7 +14233,7 @@ function loadSlide(id, type) {
 
     // compile the stats before showing slide
     compileStats();
-    console.log('compiled stats');
+
   }
 
   if (id === 'categories') {
@@ -14279,6 +14274,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
+  // Only remember question based slides
   var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
@@ -14292,12 +14288,8 @@ function loadSlide(id, type) {
 
   }
 
-  // Only set context if we were not on a break from excluded (eg stats or about)
-  if (db.get('pipAss.context') !== 'break-from-excluded') {
-    // Set context reference (jQuery object)
-    console.log('Setting context as: ' + id);
-    db.set('pipAss.context', id);
-  }
+  // Set context reference (jQuery object)
+  db.set('pipAss.context', id);
 
   // add the loaded class for transitions
   $('#' + id + ' > *').addClass('loaded');
@@ -14473,18 +14465,8 @@ function resume() {
   // get the stored slide id
   var whereIWas = db.get('pipAss.whereIAm');
 
-  //@todo this is not the page looking for...
-  var whereICameFrom = db.get('pipAss.context');
-  
-  // unless we are having a break from an excluded page - stats, about.
-  // Don't save where I was as stats, so we remember practice place.
-  if (db.get('pipAss.context') === 'break-from-excluded') { 
-    // Reset to correct context for when we leave entry to break page
-    db.set('pipAss.context', whereIWas);
-    loadSlide(whereICameFrom);
-  } else {
-    loadSlide(whereIWas);
-  }
+  loadSlide(whereIWas);
+
 }
 
 function tally() {
@@ -14827,7 +14809,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   // has the user (or _a_ user) been to the questions section before?
   if (db.get('pipAss.started')) {
-    console.log('have started');
+
     resume();
 
   } else {
@@ -14839,13 +14821,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 });
 
 $('body').on('click', '[data-action="break"]', function() {
-  // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats','about-PIP'];
-  
-  // If we are taking a break from excluded page save our place
-  if (_.contains(validBreakReturn, db.get('pipAss.context'))) {
-    db.set('pipAss.context', 'break-from-excluded');
-  }
+
   loadSlide('break-time');
 
 });
@@ -14932,6 +14908,19 @@ $('body').on('click', '[data-action="stats"]', function() {
 
 });
 
+$('body').on('click', '[data-action="prep"]', function() {
+
+  // get id of slide to load
+  var id = $(this).attr('data-prep-slug');
+
+  // check checkboxes based on previous actions
+  checkReminders(id);
+
+  // load slide
+  loadSlide(id);
+
+});
+
 $('body').on('click', '[data-action="about-PIP"]', function() {
 
   // load slide
@@ -15013,7 +15002,6 @@ $('body').on('click', '[data-action="categories"]', function() {
 
 });
 
-// Change your answer
 $('body').on('click', '[data-action="change"]', function() {
 
   // get question slug
