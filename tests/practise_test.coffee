@@ -54,7 +54,7 @@ activitySelect = (test, activityName) ->
     'Found "' + activityName + '" button.'
   casper.click activitySelector
   true
-  
+
 # Answer question with given value
 # returns false if value is not valid option
 answerQuestion = (value) ->
@@ -99,7 +99,7 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
           if match > 0
             test.comment @getCurrentUrl()
             test.assertSelectorHasText '.box.loaded h1',
-              'Practise Complete',
+              'Questions completed!',
               'Landed on the answered all questions page'
           else
             # verify we are on the category-finished page
