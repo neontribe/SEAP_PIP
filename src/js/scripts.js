@@ -121,7 +121,7 @@ function loadSlide(id, type) {
   // Oops! we got here without an id to load - probably resuming user
   // session after data deleted. So no pipAss.whereIAm defined but computer
   // thinks user has been here before.
-  if (!id) {
+  if (!id || id === 'undefined') {
     loadSlide('main-menu');
   }
 
@@ -366,7 +366,7 @@ function restart() {
 function resume() {
 
   // get the stored slide id
-  var whereIWas = db.get('pipAss.whereIAm');
+  var whereIWas = db.get('pipAss.whereIAm') ? db.get('pipAss.whereIAm') : 'main-menu';
 
   // unless we are having a break from an excluded page - stats, about.
   // Don't save where I was as stats, so we remember practice place.
