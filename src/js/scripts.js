@@ -118,8 +118,6 @@ function loadSlide(id, type) {
     ga('send', 'pageview', '#' + id);
   }
 
-  console.log('whereIAm: ' + db.get('pipAss.whereIAm'));
-  console.log('context: ' + db.get('pipAss.context'));
   // Oops! we got here without an id to load - probably resuming user
   // session after data deleted. So no pipAss.whereIAm defined but computer
   // thinks user has been here before.
@@ -136,7 +134,6 @@ function loadSlide(id, type) {
 
     // compile the stats before showing slide
     compileStats();
-    console.log('compiled stats');
   }
 
   if (id === 'categories') {
@@ -193,7 +190,6 @@ function loadSlide(id, type) {
   // Only set context if we were not on a break from excluded (eg stats or about)
   if (db.get('pipAss.context') !== 'break-from-excluded') {
     // Set context reference (jQuery object)
-    console.log('Setting context as: ' + id);
     db.set('pipAss.context', id);
   }
 
@@ -402,9 +398,6 @@ function tally() {
     return key.indexOf('Mobility') !== -1;
   });
 
-  // console.log('answers mobility', ans.mobility);
-  // console.log('answers daily living ', ans.dailyLiving);
-
   // add up the highest values for each category
   // category and adding them together
   addedup.mobility = _.reduce(ans.mobility, function(memo, cat) {
@@ -423,8 +416,6 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
-  // console.log('mobility ', total.mobility);
-  // console.log('daily living ', total.dailyLiving);
 
   if (total.mobility >= 8) {
 
@@ -578,9 +569,6 @@ function disabledCats() {
 
     var catName = button.attr('data-category');
 
-    // console.log('remaining', remaining);
-    // console.log('disabled?', !_.contains(remaining, catName));
-
     if (!_.contains(remaining, catName)) {
 
       button.attr('disabled', 'disabled');
@@ -672,7 +660,6 @@ Handlebars.registerHelper('deprefix', function(cat) {
   if (cat) {
     var reduced = cat.split(':')[1];
     var trimmed = reduced.substr(1);
-    // console.log(trimmed);
     return trimmed;
   }
 });
@@ -725,7 +712,6 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   // has the user (or _a_ user) been to the questions section before?
   if (db.get('pipAss.started')) {
-    console.log('have started');
     resume();
 
   } else {
@@ -739,7 +725,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
   var validBreakReturn = ['stats','about-PIP'];
-  
+
   // If we are taking a break from excluded page save our place
   if (_.contains(validBreakReturn, db.get('pipAss.context'))) {
     db.set('pipAss.context', 'break-from-excluded');
