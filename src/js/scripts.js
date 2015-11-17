@@ -507,6 +507,7 @@ function compileAboutButtons() {
   var pipAssData = db.get('pipAss');
   var output = template(pipAssData);
   $('.expandies.information .about-buttons-content').html(output);
+  $('#transcript .about-buttons-content').html(output);
 }
 
 function compileCategories() {
@@ -823,6 +824,13 @@ $('body').on('click', '[data-action="about-PIP"]', function() {
 
   // load slide
   loadSlide('about-PIP');
+
+});
+
+$('body').on('click', '[data-action="transcript"]', function() {
+
+  // load slide
+  loadSlide('transcript');
 
 });
 
