@@ -118,9 +118,12 @@ function loadSlide(id, type) {
     ga('send', 'pageview', '#' + id);
   }
 
-  //Reset pick var Not really sure this is doing what Heydon intended.
-  //something to do with skipped questions: https://github.com/neontribe/SEAP_PIP/commit/80bae7efe68963627bff2221d80f67278917d4ac
-  window.realPick = false;
+  // Oops! we got here without an id to load - probably resuming user
+  // session after data deleted. So no pipAss.whereIAm defined but computer
+  // thinks user has been here before.
+  if (!id) {
+    loadSlide('main-menu');
+  }
 
   if (id === 'stats') {
 
@@ -131,7 +134,6 @@ function loadSlide(id, type) {
 
     // compile the stats before showing slide
     compileStats();
-
   }
 
   if (id === 'categories') {
@@ -172,8 +174,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  // Only remember question based slides
-  var exclude = _.find(['main-menu', 'stats', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -186,8 +187,12 @@ function loadSlide(id, type) {
 
   }
 
-  // Set context reference (jQuery object)
-  db.set('pipAss.context', id);
+  // Only set context if we were not on a break from excluded (eg stats or about)
+  var currentContext = db.get('pipAss.context') ? db.get('pipAss.context') : '';
+  if (currentContext.indexOf('break-from-') === -1) {
+    // Set context reference (jQuery object)
+    db.set('pipAss.context', id);
+  }
 
   // add the loaded class for transitions
   $('#' + id + ' > *').addClass('loaded');
@@ -363,8 +368,22 @@ function resume() {
   // get the stored slide id
   var whereIWas = db.get('pipAss.whereIAm');
 
-  loadSlide(whereIWas);
+  // unless we are having a break from an excluded page - stats, about.
+  // Don't save where I was as stats, so we remember practice place.
+  if (db.get('pipAss.context').indexOf('break-from-') !== -1) {
 
+    // this is the page we want to return to if we're on a break
+    // from an excluded page
+    var whereICameFrom = db.get('pipAss.context').replace('break-from-', '');
+
+    // Reset to correct context for when we leave entry to break page
+    db.set('pipAss.context', whereIWas);
+    loadSlide(whereICameFrom);
+
+  } else {
+
+    loadSlide(whereIWas);
+  }
 }
 
 function tally() {
@@ -384,9 +403,6 @@ function tally() {
     return key.indexOf('Mobility') !== -1;
   });
 
-  // console.log('answers mobility', ans.mobility);
-  // console.log('answers daily living ', ans.dailyLiving);
-
   // add up the highest values for each category
   // category and adding them together
   addedup.mobility = _.reduce(ans.mobility, function(memo, cat) {
@@ -405,8 +421,6 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
-  // console.log('mobility ', total.mobility);
-  // console.log('daily living ', total.dailyLiving);
 
   if (total.mobility >= 8) {
 
@@ -561,9 +575,6 @@ function disabledCats() {
 
     var catName = button.attr('data-category');
 
-    // console.log('remaining', remaining);
-    // console.log('disabled?', !_.contains(remaining, catName));
-
     if (!_.contains(remaining, catName)) {
 
       button.attr('disabled', 'disabled');
@@ -655,7 +666,6 @@ Handlebars.registerHelper('deprefix', function(cat) {
   if (cat) {
     var reduced = cat.split(':')[1];
     var trimmed = reduced.substr(1);
-    // console.log(trimmed);
     return trimmed;
   }
 });
@@ -708,7 +718,6 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   // has the user (or _a_ user) been to the questions section before?
   if (db.get('pipAss.started')) {
-
     resume();
 
   } else {
@@ -720,7 +729,14 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 });
 
 $('body').on('click', '[data-action="break"]', function() {
+  // If we are on one of these pages when we take a break, save our place.
+  var validBreakReturn = ['stats','about-PIP'];
+      currentContext = db.get('pipAss.context');
 
+  // If we are taking a break from excluded page but want to save our place
+  if (_.contains(validBreakReturn, db.get('pipAss.context'))) {
+    db.set('pipAss.context', 'break-from-' + currentContext);
+  }
   loadSlide('break-time');
 
 });
@@ -804,19 +820,6 @@ $('body').on('click', '[data-action="stats"]', function() {
 
   // load the stats slide
   loadSlide('stats');
-
-});
-
-$('body').on('click', '[data-action="prep"]', function() {
-
-  // get id of slide to load
-  var id = $(this).attr('data-prep-slug');
-
-  // check checkboxes based on previous actions
-  checkReminders(id);
-
-  // load slide
-  loadSlide(id);
 
 });
 
@@ -908,6 +911,7 @@ $('body').on('click', '[data-action="categories"]', function() {
 
 });
 
+// Change your answer
 $('body').on('click', '[data-action="change"]', function() {
 
   // get question slug
