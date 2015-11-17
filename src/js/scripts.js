@@ -121,7 +121,7 @@ function loadSlide(id, type) {
   // Oops! we got here without an id to load - probably resuming user
   // session after data deleted. So no pipAss.whereIAm defined but computer
   // thinks user has been here before.
-  if (!id) {
+  if (!id || id === 'undefined') {
     loadSlide('main-menu');
   }
 
@@ -174,7 +174,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -366,7 +366,7 @@ function restart() {
 function resume() {
 
   // get the stored slide id
-  var whereIWas = db.get('pipAss.whereIAm');
+  var whereIWas = db.get('pipAss.whereIAm') ? db.get('pipAss.whereIAm') : 'main-menu';
 
   // unless we are having a break from an excluded page - stats, about.
   // Don't save where I was as stats, so we remember practice place.
@@ -521,6 +521,7 @@ function compileAboutButtons() {
   var pipAssData = db.get('pipAss');
   var output = template(pipAssData);
   $('.expandies.information .about-buttons-content').html(output);
+  $('#transcript .about-buttons-content').html(output);
 }
 
 function compileCategories() {
@@ -729,7 +730,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats','about-PIP'];
+  var validBreakReturn = ['stats', 'about-PIP', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -826,6 +827,13 @@ $('body').on('click', '[data-action="about-PIP"]', function() {
 
   // load slide
   loadSlide('about-PIP');
+
+});
+
+$('body').on('click', '[data-action="transcript"]', function() {
+
+  // load slide
+  loadSlide('transcript');
 
 });
 
