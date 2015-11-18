@@ -1020,7 +1020,6 @@ footer {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 3em;
   line-height: 3em;
 }
 
@@ -1160,6 +1159,14 @@ footer a {
   text-align: center;
 }
 
+.privacy-link p {
+  line-height: 1.5em;
+}
+
+.privacy-link {
+  margin: 0;
+}
+
 /* PROFILE BUTTONS ------------------------------------------------- */
 
 .social-profile-buttons,
@@ -1282,6 +1289,9 @@ footer a {
     display: inline;
   }
 
+  .c-app .wrapper {
+    padding-bottom: 8em;
+  }
 }
 
 @media (min-width: 600px) {
@@ -1404,7 +1414,7 @@ footer a {
   }
 
   .c-app .wrapper {
-    padding-bottom: 8em;
+    padding-bottom: 9em;
   }
 
   .social-profile-buttons {
