@@ -11,13 +11,13 @@
   <h2>Would you qualify?</h2> {{#if answeredOne}}
   <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
   <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
-  <p>You need to <a href="javascript: void(0)" data-action="start">answer some questions</a> so we can predict whether or not you would qualify.</p>
+  <p>You need to <a href="javascript: void(0)" data-action="start">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
   {{/if}}
 
   <div class="{{#if answeredOne}}message{{/if}} no-print">
     {{#if answeredOne}} {{#if incomplete}}
-    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate prediction.</p>{{/if}} {{else}}
-    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
+    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
     {{/if}}
   </div>
 
@@ -33,7 +33,7 @@
     {{/each}}
   </ul>
   {{/if}} {{#unless importantAnswers}}
-  <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Practise some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+  <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
   {{/unless}}
 
   <ul aria-label="menu">

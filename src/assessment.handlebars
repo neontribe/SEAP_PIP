@@ -176,7 +176,7 @@
   <div class="slide are-you-sure" id="are-you-sure">
     <div class="box">
       <h1 tabindex="-1" style="red">Are you sure?</h1>
-      <p>##MISSING COPY## Do you really want to delete your data and start over? ##MISSING COPY##</p>
+      <p>This means we will get rid of any answers you've already given and you'll start again from the beginning.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link red" data-action="delete-data">I&#x2019;m done! Delete my stuff</button>
@@ -229,14 +229,14 @@
   </div>
   <div class="slide get-started" id="seen-all-even-skipped">
     <div class="box green">
-      <h1 tabindex="-1">Practise Complete!</h1>
-      <p>You&#x2019;ve finished all the practice questions. What would you like to do next? </p>
+      <h1 tabindex="-1">Questions completed!</h1>
+      <p>You&#x2019;ve finished all the questions. What would you like to do next? </p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="stats" role="link">See how my assessment went</button>
         </li>
         <li>
-          <button class="nav-link" data-action="restart">Practise again</button>
+          <button class="nav-link" data-action="restart">Try again</button>
         </li>
         <li>
           <button class="nav-link" data-action="menu" role="link">See the main menu</button>
@@ -332,9 +332,9 @@
       <ul aria-label="menu">
         <li>
           {{#if incomplete}}
-          <button class="nav-link pick" data-action="start-or-resume">Practise some questions</button>
+          <button class="nav-link pick" data-action="start-or-resume">Try some questions</button>
           {{else}}
-          <button class="nav-link pick" data-action="restart">Practise again</button>
+          <button class="nav-link pick" data-action="restart">Try again</button>
           {{/if}}
         </li>
         <li>
@@ -550,7 +550,7 @@
               <p>Caption: You might qualify for other benefits</p>
               <p>Graphic: Mobility Scooter</p>
           </details>
-          <p><strong>Screen 19: </strong>If you are unhappy with the decision you have received, you can request a mandatory reconsideration. If, after that, you are still unhappy with the decision, you can appeal against it. We recommend that you get some support for this from a local Citizen’s Advice Bureau or advice centre.</p>
+          <p><strong>Screen 19: </strong>If you do not think the decision you have received is correct, you can request a mandatory reconsideration. If, after that, you still don’t think the decision is right, you can appeal against it. We recommend that you get some support for this from a local Citizen’s Advice Bureau or advice centre.</p>
             <details>
               <summary>Captions</summary>
                 <p>Caption: If you are unhappy with the decision</p>
@@ -561,7 +561,7 @@
               <li>Call the DWP on 0800 917 2222</li>
               <li>or by text phone on 0800 917 7777</li>
             </ul>
-          <p>You can get more information about the PIP assessment and practise some of the questions at our independant website <a href="http://www.pip-assessment.support">www.pip-assessment.support</a></p>
+          <p>You can get more information about the PIP assessment and try some of the questions at our independant website <a href="http://www.pip-assessment.support">www.pip-assessment.support</a></p>
         <div class="about-buttons-content">
         </div>
     </div>
@@ -629,7 +629,7 @@
           <ul class="ticks">
             <li>Don&#x2019;t put on a brave face when talking about your disability or health condition - be clear about how much it affects you.</li>
             <li>Your condition may change from day to day, be clear about how it impacts on you on your worst day and other days when you don’t feel well.</li>
-            <li>Be aware of what it means to say you are able to carry out a task. Can you do it safely, properly, more than once, and within a reasonable time period? Does it cause you pain when you carry out the task? Make it clear if you use any aids to help you. Does carrying out a task/activity exhaust you afterwards?</li>
+            <li>Be aware of what it means to say you are able to carry out a task. Can you do it safely, properly, more than once, and within a reasonable time period? Does it cause you pain when you carry out the task? Make it clear if you use any aids to help you. Are you exhausted after carrying out a task?</li>
             <li>Equally, don&#x2019;t pretend things are worse than they really are. Knowingly giving false answers as part of a benefit application is benefit fraud, which is a criminal offence.</li>
           </ul>
           <div class="about-buttons-content">
@@ -682,7 +682,7 @@
         <div id="the-outcome" aria-hidden="false">
           <p>You will receive a letter from the DWP telling you the outcome of your application. It will explain how the decision was made, and include the points you scored in your test. It will tell you which of the components you will get, which rates you will receive, and how long it will be until your case will be reassessed.</p>
           <p>Depending on the components and rate of PIP you are entitled to, you might qualify for other benefits or help, for example the motability scheme.</p>
-          <p>If you are unhappy with the decision you have received, you can request a mandatory reconsideration. If, after that, you are still unhappy with the decision, you can appeal against it. We recommend that you get some support for this from a local <a href="https://www.citizensadvice.org.uk/" target="_blank">Citizen&#x2019;s Advice Bureau</a> or advice centre.</p>
+          <p>If you do not think the decision you have received is correct, you can request a mandatory reconsideration. If, after that, you still don’t think the decision is right, you can appeal against it. We recommend that you get some support for this from a local <a href="https://www.citizensadvice.org.uk/" target="_blank">Citizen&#x2019;s Advice Bureau</a> or advice centre.</p>
           <div class="about-buttons-content">
           </div>
         </div>
@@ -694,7 +694,7 @@
         </div>
         <ul aria-label="menu">
           <li>
-            <button class="nav-link" data-action="start-or-resume" role="link">Practise some assessment questions</button>
+            <button class="nav-link" data-action="start-or-resume" role="link">Try some assessment questions</button>
           </li>
           <li>
             <button class="nav-link" data-action="menu" role="link">Home</button>
@@ -707,6 +707,7 @@
     <div class="flow">
       <h1 tabindex="-1">PIP assessment</h1>
       <p class="larger">The Personal Independence Payment (PIP) helps with some of the extra costs caused by long-term ill-health or a disability if you’re aged 16 to 64. The rate depends on how your condition affects you, not the condition itself.</p>
+      <p class="larger">We understand that new benefits can be confusing, so this site is here to help you. It explains the eligibility and assessment process so you&#x2019;ll know what to expect.</p>
       <p class="larger">Here you can try answering the sorts of questions that are asked at assessment and understand what it’s like to apply for PIP.</p>
       <div role="toolbar" aria-label="menu options">
         <ul>
@@ -723,7 +724,7 @@
   <div class="slide category-finished" id="category-finished">
     <div class="box">
       <img src="images/icon_tick_00.png" alt="check box tick" />
-      <p>You&#x2019;ve seen all the practise questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
+      <p>You&#x2019;ve seen all the questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="categories" role="link">A new activity</button>
@@ -740,7 +741,7 @@
   <div class="slide chose-random-category" id="chose-random-category">
     <div class="box">
       <h1 tabindex="-1">Assorted questions</h1>
-      <p>Because you chose &#x201c;Pick at random&#x201d;, we have selected an activity containing questions you haven&#x2019;t practised yet. Remember: You can <a role="button" href="#break-time" data-action="break">take a break</a> at any time.</p>
+      <p>Because you chose &#x201c;Pick at random&#x201d;, we have selected an activity containing questions you haven&#x2019;t seen yet. Remember: You can <a role="button" href="#break-time" data-action="break">take a break</a> at any time.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="set-cat" data-category="random-category"><span id="unseen-category">Unseen category</span></button>
