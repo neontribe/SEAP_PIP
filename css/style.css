@@ -1156,6 +1156,10 @@ footer a {
   clear:both;
 }
 
+.privacy .larger {
+  text-align: center;
+}
+
 /* PROFILE BUTTONS ------------------------------------------------- */
 
 .social-profile-buttons,
