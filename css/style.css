@@ -1032,6 +1032,7 @@ footer a {
   border: 0;
 }
 
+/*footer sprites*/
 .sprite {
   background-image: url(../images/spritesheet.png);
   background-repeat: no-repeat;
@@ -1060,6 +1061,41 @@ footer a {
   height: 50px;
   background-position: -5px -65px;
 }
+
+/* slide icons sprites */
+
+.sprite-icons {
+    background-image: url(../images/spritesheet-icons.png);
+    background-repeat: no-repeat;
+    display: block;
+    margin: 0 auto;
+}
+
+.sprite-film {
+    width: 161px;
+    height: 121px;
+    background-position: -5px -5px;
+}
+
+.sprite-list {
+    width: 160px;
+    height: 159px;
+    background-position: -5px -136px;
+}
+
+.sprite-tick {
+    width: 160px;
+    height: 153px;
+    background-position: -176px -5px;
+}
+
+.sprite-tea {
+    width: 160px;
+    height: 171px;
+    background-position: -175px -168px;
+}
+
+
 /* feedback
 ---------------------------------------------*/
 
