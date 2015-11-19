@@ -948,12 +948,12 @@ header span {
   margin: 0.8em 0;
 }
 
-/* about-esa about-PIP
+/* about-esa about-pip
 ---------------------------------------------*/
 
 /* Video transcription expandie */
 #about-esa .print-box button,
-#about-PIP .print-box button {
+#about-pip .print-box button {
   margin: 0 0.5em 0.4em 0;
 }
 
