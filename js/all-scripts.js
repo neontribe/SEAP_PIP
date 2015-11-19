@@ -14214,11 +14214,17 @@ function getCatQuestionArr(slug) {
 
 function loadSlide(id, type) {
 
+  // Register google page view
+  var trackHashes = ['main-menu', 'stats', 'data', 'about-PIP', 'start'];
+  if ($.inArray(id, trackHashes) !== -1) {
+    ga('send', 'pageview', '#' + id);
+  }
+
   // Oops! we got here without an id to load - probably resuming user
   // session after data deleted. So no pipAss.whereIAm defined but computer
   // thinks user has been here before.
-  if (!id) {
-    id = 'main-menu';
+  if (!id || id === 'undefined') {
+    loadSlide('main-menu');
   }
 
   if (id === 'stats') {
@@ -15043,36 +15049,4 @@ $(window).on('hashchange', function(e) {
   }
   window.hashHistory.push(window.location.hash);
   _.uniq(window.hashHistory);
-});
-
-// Which c-app site are we?
-var siteTitle = $(document).find("title").text();
-    site = 'c-app';
-    if (siteTitle === 'ESA Assessment Support') {
-      site = 'esa';
-    }
-    if (siteTitle === 'PIP Assessment Support') {
-      site = 'pip';
-    }
-
-var siteAss = site + 'Ass';
-
-// Track all slides as pageviews
-$(window).on('hashchange', function(e) {
-  // @todo add list of # not to track. For now let's call every change a page.
-  var page = window.location.hash;
-  ga('send', 'pageview', page);
-});
-
-// Event on every a
-$('body').on('click', 'a', function(e) {
-  var page = '';
-      linkText = $(this).text();
-  // Attempt to get the page we came from in the hashHistory.
-  // If that fails, call it unknown.
-  page = _.last(window.hashHistory);
-  if (!page) {
-    page = 'unknown';
-  }
-  ga('send', 'event', page, 'a-link-click', linkText, null);
 });
