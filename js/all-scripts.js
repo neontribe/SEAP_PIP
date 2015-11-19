@@ -14139,8 +14139,8 @@ $(function() {
    var isMobile = window.matchMedia("only screen and (max-width: 800px)");
 
    if (isMobile.matches) {
-       $("#about-pip .expandies button").attr("aria-expanded", "false");
-       $("#about-pip .expandies h2").next().attr("aria-hidden", "true");
+       $("#about-PIP .expandies button").attr("aria-expanded", "false");
+       $("#about-PIP .expandies h2").next().attr("aria-hidden", "true");
    }
 });
 
@@ -14236,7 +14236,7 @@ function loadSlide(id, type) {
     compileCategories();
   }
 
-  if (id === 'about-pip') {
+  if (id === 'about-PIP') {
     compileAboutButtons();
   }
 
@@ -14270,7 +14270,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -14727,9 +14727,9 @@ Handlebars.registerHelper('qualifyMobility', function() {
   var low = db.get('pipAss.low-mobility');
 
   if (high) {
-    return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> standard PIP rate.</p>";
   } else {
     return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
   }
@@ -14741,9 +14741,9 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   var high = db.get('pipAss.high-dailyLiving');
   var low = db.get('pipAss.low-dailyLiving');
   if (high) {
-    return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> standard PIP rate.</p>";
   } else {
     return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
   }
@@ -14826,7 +14826,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats', 'about-pip', 'transcript'];
+  var validBreakReturn = ['stats', 'about-PIP', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -14919,10 +14919,10 @@ $('body').on('click', '[data-action="stats"]', function() {
 
 });
 
-$('body').on('click', '[data-action="about-pip"]', function() {
+$('body').on('click', '[data-action="about-PIP"]', function() {
 
   // load slide
-  loadSlide('about-pip');
+  loadSlide('about-PIP');
 
 });
 
@@ -15064,7 +15064,7 @@ $(window).on('hashchange', function(e) {
   ga('send', 'pageview', page);
 });
 
-// Event on every a
+// Event on every a click
 $('body').on('click', 'a', function(e) {
   var page = '';
       linkText = $(this).text();
@@ -15075,4 +15075,17 @@ $('body').on('click', 'a', function(e) {
     page = 'unknown';
   }
   ga('send', 'event', page, 'a-link-click', linkText, null);
+});
+
+// Event on every button click
+$('body').on('click', 'button', function(e) {
+  var page = '';
+      linkText = $(this).text();
+  // Attempt to get the page we came from in the hashHistory.
+  // If that fails, call it unknown.
+  page = _.last(window.hashHistory);
+  if (!page) {
+    page = 'unknown';
+  }
+  ga('send', 'event', page, 'button-click', linkText, null);
 });

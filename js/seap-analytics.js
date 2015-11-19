@@ -17,7 +17,7 @@ $(window).on('hashchange', function(e) {
   ga('send', 'pageview', page);
 });
 
-// Event on every a
+// Event on every a click
 $('body').on('click', 'a', function(e) {
   var page = '';
       linkText = $(this).text();
@@ -28,4 +28,17 @@ $('body').on('click', 'a', function(e) {
     page = 'unknown';
   }
   ga('send', 'event', page, 'a-link-click', linkText, null);
+});
+
+// Event on every button click
+$('body').on('click', 'button', function(e) {
+  var page = '';
+      linkText = $(this).text();
+  // Attempt to get the page we came from in the hashHistory.
+  // If that fails, call it unknown.
+  page = _.last(window.hashHistory);
+  if (!page) {
+    page = 'unknown';
+  }
+  ga('send', 'event', page, 'button-click', linkText, null);
 });
