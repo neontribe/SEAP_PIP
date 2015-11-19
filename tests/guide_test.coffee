@@ -9,7 +9,7 @@
 # Todo - check for pdf guide link
 
 url = 'http://localhost:9001/build'
-hash = 'about-PIP'
+hash = 'about-pip'
 guideSections = []
 guideSectionSelector = '.flow.loaded .expandies h2 button'
 countSuccess = 0

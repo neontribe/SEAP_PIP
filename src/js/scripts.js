@@ -37,8 +37,8 @@ $(function() {
    var isMobile = window.matchMedia("only screen and (max-width: 800px)");
 
    if (isMobile.matches) {
-       $("#about-PIP .expandies button").attr("aria-expanded", "false");
-       $("#about-PIP .expandies h2").next().attr("aria-hidden", "true");
+       $("#about-pip .expandies button").attr("aria-expanded", "false");
+       $("#about-pip .expandies h2").next().attr("aria-hidden", "true");
    }
 });
 
@@ -134,7 +134,7 @@ function loadSlide(id, type) {
     compileCategories();
   }
 
-  if (id === 'about-PIP') {
+  if (id === 'about-pip') {
     compileAboutButtons();
   }
 
@@ -168,7 +168,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-PIP', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'stats', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -724,7 +724,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats', 'about-PIP', 'transcript'];
+  var validBreakReturn = ['stats', 'about-pip', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -817,10 +817,10 @@ $('body').on('click', '[data-action="stats"]', function() {
 
 });
 
-$('body').on('click', '[data-action="about-PIP"]', function() {
+$('body').on('click', '[data-action="about-pip"]', function() {
 
   // load slide
-  loadSlide('about-PIP');
+  loadSlide('about-pip');
 
 });
 
