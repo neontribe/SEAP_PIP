@@ -14727,9 +14727,9 @@ Handlebars.registerHelper('qualifyMobility', function() {
   var low = db.get('pipAss.low-mobility');
 
   if (high) {
-    return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Mobility</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> standard PIP rate.</p>";
   } else {
     return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
   }
@@ -14741,9 +14741,9 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   var high = db.get('pipAss.high-dailyLiving');
   var low = db.get('pipAss.low-dailyLiving');
   if (high) {
-    return "<p>It looks like you&#x2019;ll qualify for the high PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you&#x2019;ll qualify for the standard PIP rate for <strong>Daily Living</strong>. Remember to show your assessor the <strong>important answers</strong> listed below.</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> standard PIP rate.</p>";
   } else {
     return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
   }
