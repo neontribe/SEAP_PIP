@@ -51,9 +51,9 @@ $('#stats-content').on('stats-analytic-event', function(e) {
       answers = db.get(siteAss).answers;
       numAnswered = 0;
 
-      $.each(answers, function(key, value) {
-        numAnswered += _.size(value);
-      });
+  $.each(answers, function(key, value) {
+    numAnswered += _.size(value);
+  });
 
   // Percentage of questions seen and skipped.
   var percentSkipped = (numSkipped/numSeen).toFixed(2);
@@ -63,4 +63,17 @@ $('#stats-content').on('stats-analytic-event', function(e) {
   var percentAnswered = (numAnswered/numAll).toFixed(2);
   ga('send', 'event', '#stats', 'question-progress', 'percent answered', percentAnswered);
 
+});
+
+//Event on seen all and click stats
+$('#seen-all').on('click', '[data-action="stats"]', function() {
+  var numAll = window.allQuestions.length;
+      numAnswered = 0;
+      answers = db.get(siteAss).answers;
+
+  $.each(answers, function(key, value) {
+    numAnswered += _.size(value);
+  });
+  var percentAnswered = (numAnswered/numAll).toFixed(2);
+  ga('send', 'event', '#seen-all', 'more-prepared:stats-button-click', 'percent answered', percentAnswered);
 });
