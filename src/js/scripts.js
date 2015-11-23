@@ -506,8 +506,7 @@ function compileStats() {
   var template = Handlebars.compile(document.getElementById("stats-template").innerHTML);
   var pipAssData = db.get('pipAss');
   var output = template(pipAssData);
-  $('#stats-content').html(output);
-
+  $('#stats-content').html(output).trigger('stats-analytic-event');
 }
 
 function compileAboutButtons() {
