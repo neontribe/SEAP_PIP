@@ -522,7 +522,7 @@
       ]
     },
     {
-      "question":"Can you prepare and cook a simple meal without help from someone else?",
+      "question":"Are you able to peel and chop vegetables to cook a simple meal on your own? For example an omelette or beans on toast.",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -537,7 +537,7 @@
       ]
     },
     {
-      "question":"Do you need to use special aids or appliances to prepare food or cook a simple meal?",
+      "question":"Do you need any special aids or appliances to prepare food or cook a simple meal? For example to help you peel, chop and cook vegetables.",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -552,7 +552,7 @@
       ]
     },
     {
-      "question":"Which of these best describes what you would use to cook a simple meal if you had a conventional or microwave oven or were shown how to use them?",
+      "question":"If you were shown how to use both an oven and a microwave, which one would you use to cook yourself a simple meal?",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -571,7 +571,7 @@
       ]
     },
     {
-      "question":"Do you need someone to tell you to cook and prepare a simple meal for yourself?",
+      "question":"Do you need someone to tell you to cook meals for yourself?",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -590,7 +590,7 @@
       ]
     },
     {
-      "question":"Do you need someone to supervise you or assist you to cook and prepare a simple meal?",
+      "question":"Do you need someone to help you to cook or to keep an eye on you?",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -605,7 +605,7 @@
       ]
     },
     {
-      "question":"Can you prepare and cook food?",
+      "question":"Can you prepare and cook food on your own?",
       "hint":null,
       "category":"Daily Living: Preparing food",
       "answers":[
@@ -696,7 +696,7 @@
       ]
     },
     {
-      "question":"Do you need to be prompted to eat food or about the amount you should eat?",
+      "question":"Do you need to be **reminded** to eat food, or about the amount you should eat?",
       "hint":null,
       "category":"Daily Living: Eating and drinking",
       "answers":[
