@@ -56,11 +56,13 @@ $('#stats-content').on('stats-analytic-event', function(e) {
   });
 
   // Percentage of questions seen and skipped.
-  var percentSkipped = (numSkipped/numSeen).toFixed(2);
+  var percentSkipped = 0;
+  if (numSeen > 0) { percentSkipped = (numSkipped/numSeen).toFixed(2); }
   ga('send', 'event', '#stats', 'question-progress', 'percent skipped', percentSkipped);
 
   // Percentage of all questions answered (including ones not yet seen).
-  var percentAnswered = (numAnswered/numAll).toFixed(2);
+  var percentAnswered = 0;
+  if (numSeen > 0) { percentAnswered = (numAnswered/numAll).toFixed(2); }
   ga('send', 'event', '#stats', 'question-progress', 'percent answered', percentAnswered);
 
 });

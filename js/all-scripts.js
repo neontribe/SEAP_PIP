@@ -14726,9 +14726,9 @@ Handlebars.registerHelper('qualifyMobility', function() {
   var low = db.get('pipAss.low-mobility');
 
   if (high) {
-    return "<p>It looks like you will qualify for the <strong>Mobility</strong> enhanced PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you will qualify for the <strong>Mobility</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Mobility</strong> standard PIP rate.</p>";
   } else {
     return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
   }
@@ -14740,9 +14740,9 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   var high = db.get('pipAss.high-dailyLiving');
   var low = db.get('pipAss.low-dailyLiving');
   if (high) {
-    return "<p>It looks like you will qualify for the <strong>Daily Living</strong> enhanced PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> enhanced PIP rate.</p>";
   } else if (low) {
-    return "<p>It looks like you will qualify for the <strong>Daily Living</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you&#x2019;ll qualify for the <strong>Daily Living</strong> standard PIP rate.</p>";
   } else {
     return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
   }
@@ -15102,11 +15102,13 @@ $('#stats-content').on('stats-analytic-event', function(e) {
   });
 
   // Percentage of questions seen and skipped.
-  var percentSkipped = (numSkipped/numSeen).toFixed(2);
+  var percentSkipped = 0;
+  if (numSeen > 0) { percentSkipped = (numSkipped/numSeen).toFixed(2); }
   ga('send', 'event', '#stats', 'question-progress', 'percent skipped', percentSkipped);
 
   // Percentage of all questions answered (including ones not yet seen).
-  var percentAnswered = (numAnswered/numAll).toFixed(2);
+  var percentAnswered = 0;
+  if (numSeen > 0) { percentAnswered = (numAnswered/numAll).toFixed(2); }
   ga('send', 'event', '#stats', 'question-progress', 'percent answered', percentAnswered);
 
 });
