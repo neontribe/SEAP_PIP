@@ -628,7 +628,7 @@ Handlebars.registerHelper('qualifyMobility', function() {
   } else if (low) {
     return "<p>It looks like you will qualify for the <strong>Mobility Component</strong> of PIP at the standard rate.</p><p>It's still possible that you may qualify for the enhanced rate. To find out, try some more questions.</p>";
   } else {
-    return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> component of PIP.</p>";
+    return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
   }
 
 });
@@ -642,7 +642,7 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   } else if (low) {
     return "<p>It looks like you will qualify for the <strong>Daily Living Component</strong> of PIP at the standard rate.</p><p>It's still possible that you may qualify for the enhanced rate. To find out, try some more questions.</p>";
   } else {
-    return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> component of PIP.</p>";
+    return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
   }
 
 });
