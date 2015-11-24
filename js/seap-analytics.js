@@ -19,7 +19,7 @@ function getPercentSeenSkipped() {
   var percentSkipped = 0;
   if (numSeen > 0) { percentSkipped = (numSkipped/numSeen).toFixed(2); }
 
-  return percentSkipped;
+  return percentSkipped * 100;
 }
 
 // Get percent answered (out of all possible)
@@ -34,7 +34,7 @@ function getPercentAnswered() {
 
   var percentAnswered = 0;
   if (numAll > 0) { percentAnswered = (numAnswered/numAll).toFixed(2); }
-  return percentAnswered;
+  return percentAnswered * 100;
 }
 
 // Track all slides as pageviews
