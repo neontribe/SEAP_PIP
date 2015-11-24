@@ -15130,7 +15130,7 @@ $('#stats-content').on('stats-analytic-event', function(e) {
 });
 
 //More Prepared - Event on print with answer %
-$('#stats').on('click', '#printing-box button', function() {
+$('#stats').on('click', 'button.print', function() {
   var perAns = getPercentAnswered();
   ga('send', 'event', '#stats', 'more-prepared:print-button-click', 'percent answered', perAns);
 });

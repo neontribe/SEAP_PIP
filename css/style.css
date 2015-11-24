@@ -76,6 +76,14 @@ p + p {
   margin-top: 0.66em;
 }
 
+.hide-visually {
+  display: block;
+  overflow: hidden;
+  text-indent: -9999px;
+  height: 0;
+  margin: 0;
+}
+
 #stats * + h3 {
   margin-top: 30px;
   margin-top: 1.5rem;
