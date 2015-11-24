@@ -14730,7 +14730,7 @@ Handlebars.registerHelper('qualifyMobility', function() {
   } else if (low) {
     return "<p>It looks like you will qualify for the <strong>Mobility</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
   } else {
-    return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> element of PIP.</p>";
+    return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> component of PIP.</p>";
   }
 
 });
@@ -14744,7 +14744,7 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   } else if (low) {
     return "<p>It looks like you will qualify for the <strong>Daily Living</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
   } else {
-    return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> element of PIP.</p>";
+    return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> component of PIP.</p>";
   }
 
 });
@@ -15107,13 +15107,29 @@ $('body').on('click', 'a', function(e) {
 $('body').on('click', 'button', function(e) {
   var page = '';
       linkText = $(this).text();
+      value = null;
   // Attempt to get the page we came from in the hashHistory.
   // If that fails, call it unknown.
   page = _.last(window.hashHistory);
   if (!page) {
     page = 'unknown';
   }
-  ga('send', 'event', page, 'button-click', linkText, null);
+  // @todo make the value 1 if submit answer, 0 if skipped
+  // If we are submitting/ skipping a question set value 1 or 0
+  if (linkText === 'Ask me another') {
+    //console.log(db.get(siteAss));
+  }
+  ga('send', 'event', page, 'button-click', linkText, value);
+});
+
+// Event on open/ close
+$('.expandies.information').on('click', 'button', function(e) {
+    var state = 'close';
+    if ($(this).attr('aria-expanded') === 'true') {
+      state = 'open';
+    }
+    var linkText = 'info-' + state + ': ' + $(this).text();
+    ga('send', 'event', window.location.hash, 'expandies-click', linkText, null);
 });
 
 // Event on visit to stats page
@@ -15129,14 +15145,19 @@ $('#stats-content').on('stats-analytic-event', function(e) {
 
 });
 
-//More Prepared - Event on print with answer %
-$('#stats').on('click', 'button.print', function() {
+// More Prepared - Event on print with answer %
+$('#stats').on('click', 'button.print', function(e) {
   var perAns = getPercentAnswered();
   ga('send', 'event', '#stats', 'more-prepared:print-button-click', 'percent answered', perAns);
 });
 
-//More Prepared - Event on seen all and click stats
-$('#seen-all').on('click', '[data-action="stats"]', function() {
+// More Prepared - Event on seen all and click stats
+$('#seen-all').on('click', '[data-action="stats"]', function(e) {
   var perAns = getPercentAnswered();
   ga('send', 'event', '#seen-all', 'more-prepared:stats-button-click', 'percent answered', perAns);
+});
+
+// More Prepared - Event on any button click on your assessment button
+$('#seen-all-even-skipped').on('click', '[data-action="stats"]', function(e) {
+  ga('send', 'event', '#seen-all-even-skipped', 'more-prepared:stats-button-click', 'percent answered', 100);
 });
