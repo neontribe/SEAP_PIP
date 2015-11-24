@@ -624,9 +624,9 @@ Handlebars.registerHelper('qualifyMobility', function() {
   var low = db.get('pipAss.low-mobility');
 
   if (high) {
-    return "<p>It looks like you will qualify for the <strong>Mobility</strong> enhanced PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you will qualify for the <strong>Mobility Component</strong> of PIP at the enhanced rate.</p><p>You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.</p>";
   } else if (low) {
-    return "<p>It looks like you will qualify for the <strong>Mobility</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you will qualify for the <strong>Mobility Component</strong> of PIP at the standard rate.</p><p>It's still possible that you may qualify for the enhanced rate. To find out, try some more questions.</p>";
   } else {
     return "<p>Based on the questions you've answered, so far you don't have enough points to qualify for the <strong>Mobility</strong> component of PIP.</p>";
   }
@@ -638,9 +638,9 @@ Handlebars.registerHelper('qualifyDailyLiving', function() {
   var high = db.get('pipAss.high-dailyLiving');
   var low = db.get('pipAss.low-dailyLiving');
   if (high) {
-    return "<p>It looks like you will qualify for the <strong>Daily Living</strong> enhanced PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you will qualify for the <strong>Daily Living Component</strong> of PIP at the enhanced rate.</p><p>You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.</p>";
   } else if (low) {
-    return "<p>It looks like you will qualify for the <strong>Daily Living</strong> standard PIP rate. You can take a look at some more questions so that you are better prepared for the assessment</p>";
+    return "<p>It looks like you will qualify for the <strong>Daily Living Component</strong> of PIP at the standard rate.</p><p>It's still possible that you may qualify for the enhanced rate. To find out, try some more questions.</p>";
   } else {
     return "<p>From the questions you've answered, so far you would not have enough points to qualify for the <strong>Daily Living</strong> component of PIP.</p>";
   }
