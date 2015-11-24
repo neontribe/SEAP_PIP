@@ -15056,6 +15056,33 @@ var siteTitle = $(document).find("title").text();
 
 var siteAss = site + 'Ass';
 
+// Get percent skipped (out of seen)
+function getPercentSeenSkipped() {
+  var numSeen = db.get(siteAss).seenQuestions.length;
+      numSkipped = db.get(siteAss).skippedQuestions.length;
+
+  // Percentage of questions seen and skipped.
+  var percentSkipped = 0;
+  if (numSeen > 0) { percentSkipped = (numSkipped/numSeen).toFixed(2); }
+
+  return percentSkipped;
+}
+
+// Get percent answered (out of all possible)
+function getPercentAnswered() {
+  var numAll = window.allQuestions.length;
+      numAnswered = 0;
+      answers = db.get(siteAss).answers;
+
+  $.each(answers, function(key, value) {
+    numAnswered += _.size(value);
+  });
+
+  var percentAnswered = 0;
+  if (numAll > 0) { percentAnswered = (numAnswered/numAll).toFixed(2); }
+  return percentAnswered;
+}
+
 // Track all slides as pageviews
 $(window).on('hashchange', function(e) {
   // @todo add list of # not to track. For now let's call every change a page.
@@ -15091,37 +15118,25 @@ $('body').on('click', 'button', function(e) {
 
 // Event on visit to stats page
 $('#stats-content').on('stats-analytic-event', function(e) {
-  var numAll = window.allQuestions.length;
-      numSeen = db.get(siteAss).seenQuestions.length;
-      numSkipped = db.get(siteAss).skippedQuestions.length;
-      answers = db.get(siteAss).answers;
-      numAnswered = 0;
-
-  $.each(answers, function(key, value) {
-    numAnswered += _.size(value);
-  });
 
   // Percentage of questions seen and skipped.
-  var percentSkipped = 0;
-  if (numSeen > 0) { percentSkipped = (numSkipped/numSeen).toFixed(2); }
-  ga('send', 'event', '#stats', 'question-progress', 'percent skipped', percentSkipped);
+  var perSkip = getPercentSeenSkipped();
+  ga('send', 'event', '#stats', 'question-progress', 'percent skipped', perSkip);
 
   // Percentage of all questions answered (including ones not yet seen).
-  var percentAnswered = 0;
-  if (numSeen > 0) { percentAnswered = (numAnswered/numAll).toFixed(2); }
-  ga('send', 'event', '#stats', 'question-progress', 'percent answered', percentAnswered);
+  var perAns = getPercentAnswered();
+  ga('send', 'event', '#stats', 'question-progress', 'percent answered', perAns);
 
 });
 
-//Event on seen all and click stats
-$('#seen-all').on('click', '[data-action="stats"]', function() {
-  var numAll = window.allQuestions.length;
-      numAnswered = 0;
-      answers = db.get(siteAss).answers;
+//More Prepared - Event on print with answer %
+$('#stats').on('click', '#printing-box button', function() {
+  var perAns = getPercentAnswered();
+  ga('send', 'event', '#stats', 'more-prepared:print-button-click', 'percent answered', perAns);
+});
 
-  $.each(answers, function(key, value) {
-    numAnswered += _.size(value);
-  });
-  var percentAnswered = (numAnswered/numAll).toFixed(2);
-  ga('send', 'event', '#seen-all', 'more-prepared:stats-button-click', 'percent answered', percentAnswered);
+//More Prepared - Event on seen all and click stats
+$('#seen-all').on('click', '[data-action="stats"]', function() {
+  var perAns = getPercentAnswered();
+  ga('send', 'event', '#seen-all', 'more-prepared:stats-button-click', 'percent answered', perAns);
 });
