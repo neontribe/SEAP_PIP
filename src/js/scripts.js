@@ -415,7 +415,6 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
-
   if (total.mobility >= 8) {
 
     //don't show the slide if you have already
@@ -430,20 +429,22 @@ function qualify(points) {
 
   }
 
-  if (total.mobility >= 15) {
+  if (total.mobility >= 12) {
 
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility')) {
 
       db.set('pipAss.show-qualify-high-mobility', true);
 
+      // If we've qualified enhanced, don't show the low slide
+      db.set('pipAss.show-qualify-low-mobility', false);
     }
 
-    // record that low qualification is possible
+    // record that high qualification is possible
     db.set('pipAss.high-mobility', true);
 
   }
-
+  
   if (total.dailyLiving >= 8) {
 
     //don't show the slide if you have already
@@ -458,13 +459,15 @@ function qualify(points) {
 
   }
 
-  if (total.dailyLiving >= 15) {
+  if (total.dailyLiving >= 12) {
 
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving')) {
 
       db.set('pipAss.show-qualify-high-dailyLiving', true);
 
+      // If we'e qualified enhanced, don't show low slide.
+      db.set('pipAss.show-qualify-low-dailyLiving', false);
     }
 
     // record that low qualification is possible
@@ -483,7 +486,7 @@ function compileStats() {
 
   // Check to see if low or high applies
   var total = tally();
-  if (total.mobility < 15) {
+  if (total.mobility < 12) {
     db.set('pipAss.high-mobility', false);
   }
 
@@ -491,7 +494,7 @@ function compileStats() {
     db.set('pipAss.low-mobility', false);
   }
 
-  if (total.dailyLiving < 15) {
+  if (total.dailyLiving < 12) {
     db.set('pipAss.high-dailyLiving', false);
   }
 
