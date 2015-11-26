@@ -14517,7 +14517,6 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
-  console.log(total);
   if (total.mobility >= 8) {
 
     //don't show the slide if you have already
@@ -14578,7 +14577,6 @@ function qualify(points) {
 
   }
 
-  console.log(db.get('pipAss'));
 }
 
 // helper function to test numeric strings
