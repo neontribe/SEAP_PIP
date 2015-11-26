@@ -14532,7 +14532,7 @@ function qualify(points) {
 
   }
 
-  if (total.mobility >= 15) {
+  if (total.mobility >= 12) {
 
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility')) {
@@ -14560,7 +14560,7 @@ function qualify(points) {
 
   }
 
-  if (total.dailyLiving >= 15) {
+  if (total.dailyLiving >= 12) {
 
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving')) {
@@ -14585,7 +14585,7 @@ function compileStats() {
 
   // Check to see if low or high applies
   var total = tally();
-  if (total.mobility < 15) {
+  if (total.mobility < 12) {
     db.set('pipAss.high-mobility', false);
   }
 
@@ -14593,7 +14593,7 @@ function compileStats() {
     db.set('pipAss.low-mobility', false);
   }
 
-  if (total.dailyLiving < 15) {
+  if (total.dailyLiving < 12) {
     db.set('pipAss.high-dailyLiving', false);
   }
 
