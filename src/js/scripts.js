@@ -415,7 +415,7 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
-
+  console.log(total);
   if (total.mobility >= 8) {
 
     //don't show the slide if you have already
@@ -437,13 +437,15 @@ function qualify(points) {
 
       db.set('pipAss.show-qualify-high-mobility', true);
 
+      // If we've qualified enhanced, don't show the low slide
+      db.set('pipAss.show-qualify-low-mobility', false);
     }
 
-    // record that low qualification is possible
+    // record that high qualification is possible
     db.set('pipAss.high-mobility', true);
 
   }
-
+  
   if (total.dailyLiving >= 8) {
 
     //don't show the slide if you have already
@@ -465,6 +467,8 @@ function qualify(points) {
 
       db.set('pipAss.show-qualify-high-dailyLiving', true);
 
+      // If we'e qualified enhanced, don't show low slide.
+      db.set('pipAss.show-qualify-low-dailyLiving', false);
     }
 
     // record that low qualification is possible
@@ -472,6 +476,7 @@ function qualify(points) {
 
   }
 
+  console.log(db.get('pipAss'));
 }
 
 // helper function to test numeric strings
