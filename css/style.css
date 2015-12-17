@@ -782,14 +782,12 @@ header span {
 
 .question-container {
   -webkit-transform: scale(0.5);
-      -ms-transform: scale(0.5);
           transform: scale(0.5);
   opacity: 0;
 }
 
 .question-container.loaded {
   -webkit-transform: scale(1);
-      -ms-transform: scale(1);
           transform: scale(1);
   opacity: 1;
 }
