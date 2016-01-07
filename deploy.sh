@@ -35,7 +35,8 @@ if [ "$TRAVIS_TAG" ]; then
     rm robots.txt
     cd ..
     tar -czf release.tgz SEAP_PIP 
-    sudo apt-get -y install sshpass
+		sudo apt-get update
+		sudo apt-get -y install sshpass
 
     #copy tarball to deployment server
     sshpass -p $DEPLOY_PASS scp -o stricthostkeychecking=no release.tgz $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_PATH
