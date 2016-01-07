@@ -1038,6 +1038,34 @@ footer a {
   border: 0;
 }
 
+footer .privacy .larger {
+  text-align: center;
+}
+
+footer .privacy-link {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0;
+  line-height: 1.5em;
+}
+
+footer #privacy {
+  margin: 0 1em 0 1em;
+}
+
+footer #feedback {
+  margin-left: 1em;
+}
+
 /*footer sprites*/
 .sprite {
   background-image: url(../images/spritesheet.png);
@@ -1100,7 +1128,6 @@ footer a {
     height: 171px;
     background-position: -175px -168px;
 }
-
 
 /* feedback
 ---------------------------------------------*/
@@ -1193,20 +1220,15 @@ footer a {
   height: auto;
 }
 
+.c-app footer .privacy-link {
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
 .c-app .outro {
   clear:both;
-}
-
-.privacy .larger {
-  text-align: center;
-}
-
-.privacy-link p {
-  line-height: 1.5em;
-}
-
-.privacy-link {
-  margin: 0;
 }
 
 /* PROFILE BUTTONS ------------------------------------------------- */
@@ -1459,9 +1481,19 @@ footer a {
     padding-bottom: 9em;
   }
 
+  .c-app .privacy-link {
+    -webkit-align-self: flex-end;
+        -ms-flex-item-align: end;
+            align-self: flex-end;
+  }
+
   .social-profile-buttons {
     margin: 2em 0 0 1.5em;
     width: 100%;
+  }
+
+  footer {
+    height: 4em;
   }
 
   footer p {
