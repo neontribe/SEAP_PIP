@@ -243,17 +243,17 @@ button:only-of-type {
 }
 
 button[disabled] {
-  opacity: 0.7;
+  background: #0a8f60;
+  color: #6fe9bf;
 }
 
 button[disabled]::after {
   content: ' (done)';
   font-size: 0.8em;
+  padding-right: 0.25em;
+  font-weight: bold;
 }
 
-button[disabled]:active {
-  background: #E25C43;
-}
 /* links
 ---------------------------------------------*/
 
@@ -714,6 +714,17 @@ header span {
   float: right;
   margin-top: 0;
 }
+
+.flex-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 /* main menu
 ---------------------------------------------*/
 
@@ -760,7 +771,6 @@ header span {
 .ticks li + li {
   margin-top: 0.25em;
   padding-top: 0.25em;
-  border-top: 1px solid #79bde9;
 }
 
 .ticks li::before {
