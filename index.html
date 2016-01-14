@@ -2900,7 +2900,9 @@
   <div class="slide category-finished" id="category-finished">
     <div class="box">
       <span class="sprite-icons sprite-tick" alt="check box tick"></span>
-      <p>You&#x2019;ve seen all the questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
+      <div class="flex-center">
+        <p>You&#x2019;ve seen all the questions about <strong id="this-activity">this activity</strong>. What would you like to look at next?</p>
+      </div>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="categories" role="link">A new activity</button>
@@ -3026,7 +3028,9 @@
   </script>
   <script id="categories-template" type="text/x-handlebars-template">
     <h1 tabindex="-1">Choose an activity affected by your condition</h1>
-    <p>Each activity has a maximum of 7 questions to answer. You can have a break at any time and come back to where you left off.</p>
+    <div class="flex-center">
+      <p>Each activity has a maximum of 7 questions to answer. You can have a break at any time and come back to where you left off.</p>
+    </div>  
     <div class="category-list" role="toolbar" aria-label="menu options">
       <ul>
         {{#each allCategories}}
