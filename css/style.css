@@ -1291,6 +1291,7 @@ footer #feedback {
   body {
     font-size: 18px;
   }
+
   .category-list li {
     min-width: 50% !important;
     -webkit-box-flex: 1 !important;
@@ -1298,6 +1299,7 @@ footer #feedback {
         -ms-flex: 1 0 50% !important;
             flex: 1 0 50% !important;
   }
+
   .box {
     margin: 0 10%;
   }
@@ -1327,17 +1329,21 @@ footer #feedback {
     margin: 0 0.5em;
     padding: 1em 0.5em 0.5em;
   }
+
   .question h2 {
     font-size: 1.55em;
   }
+
   button,
   .button-shaped,
   [type="radio"] + span {
     font-size: 0.9em;
   }
+
   footer p {
     padding-right: 0;
   }
+
   .category-list li {
     min-width: 100% !important;
     -webkit-box-flex: 1 !important;
@@ -1381,6 +1387,7 @@ footer #feedback {
         -ms-flex-pack: distribute;
             justify-content: space-around;
   }
+
   [aria-label="menu options"] li {
     width: 100%;
     padding: 0.5em;
@@ -1390,13 +1397,16 @@ footer #feedback {
             flex: 1 0 auto;
     position: relative;
   }
+
   [aria-label="menu options"] button {
     margin: 0;
     height: 100%;
   }
+
   [aria-label="menu options"] .half {
     width: 50%;
   }
+
   .category-list ul {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1407,6 +1417,7 @@ footer #feedback {
         -ms-flex-align: stretch;
             align-items: stretch;
   }
+
   .category-list li {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1422,6 +1433,7 @@ footer #feedback {
             flex: 1 0 33.333%;
     min-height: 3em;
   }
+
   .category-list li button {
     height: 100%;
     -webkit-box-flex: 1;
@@ -1515,40 +1527,67 @@ footer #feedback {
   body > * {
     display: none;
   }
-  #stats {
+
+  #stats,
+  .privacy {
     display: block;
+    padding: 0;
   }
+
   #remember {
     display: block;
+    padding: 0;
+    page-break-before: auto;
   }
+
+  #main-menu,
+  #about-pip,
+  #about-esa,
+  #start,
+  #resume,
+  #categories,
+  #break-time,
+  #are-you-sure,
+  #deleted,
+  .slide:target {
+    display: none;
+  }
+
   [aria-label$="menu"] {
     display: none;
   }
+
   .no-print {
     display: none !important;
   }
+
   .q-and-a {
     padding: 1em;
     border: 2px solid;
     color: #000;
   }
+
   .q-and-a li {
     padding: 0;
     background: none;
     margin: 0;
     page-break-before: auto;
   }
+
   .q-and-a li + li {
     margin-top: 1.5em;
     border-top: 1px solid;
     padding-top: 1.5em;
   }
+
   .slide {
     padding: 0;
   }
+
   .label-input {
     width: 100%;
   }
+
   .label-input input {
     border: 0;
     padding: 0;
