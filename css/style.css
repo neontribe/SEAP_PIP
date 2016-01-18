@@ -745,6 +745,7 @@ header span {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 0.5em;
 }
 
 .big-buttons button {
@@ -762,6 +763,12 @@ header span {
   width: 50%;
 }
 
+.learn-about p,
+.quiz-time p {
+  margin-left: 1.5em;
+  margin-top: 1em;
+}
+
 .learn-about li,
 .quiz-time li {
   margin: 10px;
@@ -769,10 +776,14 @@ header span {
 }
 
 .quiz-time {
-  margin-left: 32px;
   margin-top: 0;
   text-align: center;
   width: 50%;
+}
+
+.learn-about ul,
+.quiz-time ul {
+  margin-top: 0;
 }
 
 [role="toolbar"] ul {

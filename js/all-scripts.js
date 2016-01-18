@@ -14887,14 +14887,6 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
-
-    //Waypoint
-    var $looksAt = $('#looks-at');
-
-    $looksAt.waypoint(function () {
-      console.log('You are half way');
-    }, { offset: '50%' } );
-    //Waypoint End
   }
 
   if (id === 'category-finished') {
@@ -15752,34 +15744,21 @@ $(window).on('hashchange', function(e) {
 
 // Event on every a click
 $('body').on('click', 'a', function(e) {
-  var page = '';
-      linkText = $(this).text();
-  // Attempt to get the page we came from in the hashHistory.
-  // If that fails, call it unknown.
-  page = _.last(window.hashHistory);
-  if (!page) {
-    page = 'unknown';
-  }
-  ga('send', 'event', page, 'a-link-click', linkText, null);
+  var linkText = $(this).text();
+      page = _.last(window.hashHistory) ? _.last(window.hashHistory) : 'unknown';
+  $.when(page).then(
+    ga('send', 'event', page, 'a-link-click', linkText, null)
+  );
 });
 
 // Event on every button click
 $('body').on('click', 'button', function(e) {
-  var page = '';
-      linkText = $(this).text();
+  var linkText = $(this).text();
       value = null;
-  // Attempt to get the page we came from in the hashHistory.
-  // If that fails, call it unknown.
-  page = _.last(window.hashHistory);
-  if (!page) {
-    page = 'unknown';
-  }
-  // @todo make the value 1 if submit answer, 0 if skipped
-  // If we are submitting/ skipping a question set value 1 or 0
-  if (linkText === 'Ask me another') {
-    //console.log(db.get(siteAss));
-  }
-  ga('send', 'event', page, 'button-click', linkText, value);
+      page = _.last(window.hashHistory) ? _.last(window.hashHistory) : 'unknown';
+  $.when(page).then(
+    ga('send', 'event', page, 'button-click', linkText, null)
+  );
 });
 
 // Event on open/ close
