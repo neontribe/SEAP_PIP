@@ -14749,6 +14749,15 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
   return __module0__;
 }));
 
+/*
+var $halfWay = $('#about-pip').waypoint(function() {
+  console.log('you made it half way');
+}, {
+  offset: '50%'
+});
+*/
+
+
 /**********************************************************************
 START UP
 **********************************************************************/
@@ -14887,6 +14896,15 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
+
+    // Waypoint
+    var $looksAt = $('#looks-at');
+
+    $looksAt.waypoint(function () {
+      console.log('You are half way');
+    }, { offset: '50%' } );
+    //End Waypoint
+
   }
 
   if (id === 'category-finished') {
