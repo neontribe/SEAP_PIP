@@ -747,15 +747,17 @@ header span {
           justify-content: space-between;
 }
 
+.big-buttons button {
+  width: 100%;
+}
+
 .big-buttons button span {
   display: block;
-  font-weight: normal;
-  font-style: italic;
-  font-size: 0.75em;
+  font-weight: 700;
 }
 
 .learn-about {
-  margin-right: 10px;
+  margin-right: 32px;
   text-align: center;
   width: 50%;
 }
@@ -767,13 +769,11 @@ header span {
 }
 
 .quiz-time {
-  margin-left: 10px;
+  margin-left: 32px;
   margin-top: 0;
   text-align: center;
   width: 50%;
 }
-
-
 
 [role="toolbar"] ul {
   margin: 0;
@@ -1418,6 +1418,22 @@ footer #feedback {
 
   .c-app .wrapper {
     padding-bottom: 8em;
+  }
+
+  .big-buttons  {
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+
+  .learn-about  {
+    width: 100%;
+    margin-right: 0
+  }
+
+  .quiz-time {
+    width: 100%;
+    margin-left: 0;
   }
 }
 
