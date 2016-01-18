@@ -14749,11 +14749,21 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
   return __module0__;
 }));
 
+/*
+var $halfWay = $('#about-pip').waypoint(function() {
+  console.log('you made it half way');
+}, {
+  offset: '50%'
+});
+*/
+
 var $looksAt = $('#looks-at');
 
 $looksAt.waypoint(function () {
-  alert('You are half way');
-}, { offset: '50%' });
+  console.log('You are half way');
+}, { offset: '50%' } );
+
+
 
 
 /**********************************************************************
