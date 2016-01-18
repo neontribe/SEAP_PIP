@@ -1,8 +1,18 @@
+/*
+var $halfWay = $('#about-pip').waypoint(function() {
+  console.log('you made it half way');
+}, {
+  offset: '50%'
+});
+*/
+
 var $looksAt = $('#looks-at');
 
 $looksAt.waypoint(function () {
-  alert('You are half way');
-}, { offset: '50%' });
+  console.log('You are half way');
+}, { offset: '50%' } );
+
+
 
 
 /**********************************************************************
