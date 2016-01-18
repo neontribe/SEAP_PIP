@@ -1,3 +1,10 @@
+var $looksAt = $('#looks-at');
+
+$looksAt.waypoint(function () {
+  alert('You are half way');
+}, { offset: '50%' });
+
+
 /**********************************************************************
 START UP
 **********************************************************************/
@@ -444,7 +451,7 @@ function qualify(points) {
     db.set('pipAss.high-mobility', true);
 
   }
-  
+
   if (total.dailyLiving >= 8) {
 
     //don't show the slide if you have already
