@@ -136,6 +136,14 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
+
+    //Waypoint
+    var $looksAt = $('#looks-at');
+
+    $looksAt.waypoint(function () {
+      console.log('You are half way');
+    }, { offset: '50%' } );
+    //Waypoint End
   }
 
   if (id === 'category-finished') {
@@ -444,7 +452,7 @@ function qualify(points) {
     db.set('pipAss.high-mobility', true);
 
   }
-  
+
   if (total.dailyLiving >= 8) {
 
     //don't show the slide if you have already
