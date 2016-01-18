@@ -136,14 +136,6 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
-
-    //Waypoint
-    var $looksAt = $('#looks-at');
-
-    $looksAt.waypoint(function () {
-      console.log('You are half way');
-    }, { offset: '50%' } );
-    //Waypoint End
   }
 
   if (id === 'category-finished') {
