@@ -444,7 +444,7 @@ function qualify(points) {
     db.set('pipAss.high-mobility', true);
 
   }
-  
+
   if (total.dailyLiving >= 8) {
 
     //don't show the slide if you have already
