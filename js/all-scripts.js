@@ -14783,6 +14783,16 @@ if (db.isEmpty('pipAss')) {
 
 }
 
+// check if mobile device and if so closes all expanded lists
+$(function() {
+   var isMobile = window.matchMedia("only screen and (max-width: 800px)");
+
+   if (isMobile.matches) {
+       $("#about-pip .expandies button").attr("aria-expanded", "false");
+       $("#about-pip .expandies h2").next().attr("aria-hidden", "true");
+   }
+});
+
 /**********************************************************************
 FUNCTIONS
 **********************************************************************/
@@ -15789,4 +15799,13 @@ $('#seen-all').on('click', '[data-action="stats"]', function(e) {
 // More Prepared - Event on any button click on your assessment button
 $('#seen-all-even-skipped').on('click', '[data-action="stats"]', function(e) {
   ga('send', 'event', '#seen-all-even-skipped', 'more-prepared:stats-button-click', 'percent answered', 100);
+});
+
+// Waypoint - Event on reaching half way down the about page
+// Todo get id# for code reuse on other waypoints
+var $waypointTrigger = $('.waypoint-trigger');
+$waypointTrigger.waypoint(function (direction) {
+  if (direction === 'down') {
+    ga('send', 'event', '#about-' + site, 'reached-waypoint', 'id#looks-at', null);
+  }
 });
