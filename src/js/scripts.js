@@ -1,12 +1,3 @@
-/*
-var $halfWay = $('#about-pip').waypoint(function() {
-  console.log('you made it half way');
-}, {
-  offset: '50%'
-});
-*/
-
-
 /**********************************************************************
 START UP
 **********************************************************************/
@@ -146,13 +137,8 @@ function loadSlide(id, type) {
   if (id === 'about-pip') {
     compileAboutButtons();
 
-    // Waypoint
-    var $looksAt = $('#looks-at');
 
-    $looksAt.waypoint(function () {
-      console.log('You are half way');
-    }, { offset: '50%' } );
-    //End Waypoint
+
 
   }
 
