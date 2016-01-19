@@ -136,10 +136,6 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
-
-
-
-
   }
 
   if (id === 'category-finished') {
