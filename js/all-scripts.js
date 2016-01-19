@@ -15469,7 +15469,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   } else {
 
-    loadSlide('start');
+    loadSlide('categories');
 
   }
 

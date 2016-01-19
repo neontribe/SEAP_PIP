@@ -670,7 +670,7 @@ nav li + li::before {
 }
 
 #categories-content {
-  margin: 0 10%;
+  margin: 0 10% 1em 10%;
 }
 
 .category-list {
