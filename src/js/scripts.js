@@ -32,16 +32,6 @@ if (db.isEmpty('pipAss')) {
 
 }
 
-// check if mobile device and if so closes all expanded lists
-$(function() {
-   var isMobile = window.matchMedia("only screen and (max-width: 800px)");
-
-   if (isMobile.matches) {
-       $("#about-pip .expandies button").attr("aria-expanded", "false");
-       $("#about-pip .expandies h2").next().attr("aria-hidden", "true");
-   }
-});
-
 /**********************************************************************
 FUNCTIONS
 **********************************************************************/
