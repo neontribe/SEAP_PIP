@@ -2765,14 +2765,9 @@
       </ul>
       <p>If you’d prefer, we&#x2019;ve also put this information into an 8 minute video.</p>
 
-      <div class="print-box">
-        <a href="https://vimeo.com/139481065" target="_blank" aria-hidden="true"><span class="sprite-icons sprite-film" alt="Watch the Video"></span><span aria-hidden="true" class="hide-visually">Watch the video</span></a>
-        <div class="button-box">
-          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/145264946" title="Watch the video" target="_blank">Watch the video</a>
-          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/139481065" title="Watch the video with BSL" target="_blank">Watch the video with BSL</a>
-          <a class="button-shaped" aria-hidden="false" data-action="transcript" title="Read the video transcript">Read the video transcript</a>
-        </div>
-      </div> <!--Vid-box end-->
+    <div class="video-embed">
+      <iframe src="https://player.vimeo.com/video/145264946" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
 
       <p>Once you’ve looked at the Guide or the video, you can <a role="button" data-action="start-or-resume" href="javascript:void(0)">get more prepared by trying out some questions &#x2192;</a></p>
       <div class="expandies information">
@@ -2957,6 +2952,12 @@
   <script id="stats-template" type="text/x-handlebars-template">
     <h1 tabindex="-1">Your assessment</h1>
     
+    <div class="print-box no-print" id="printing-box">
+      <span class="sprite-icons sprite-list" alt="a list of items"></span>
+      <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
+        <button class="print" onClick="window.print()">Print now</button>
+    </div>
+    
     <div class="paper">
     
       <h2>Would you qualify?</h2> {{#if answeredOne}}
@@ -3003,13 +3004,6 @@
         </li>
       </ul>
     </div>
-    
-    <div class="print-box no-print" id="printing-box">
-      <span class="sprite-icons sprite-list" alt="a list of items"></span>
-      <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
-        <button class="print" onClick="window.print()">Print now</button>
-    </div>
-    
     <div class="box no-print" id="data-box">
       <h2>Your Data</h2>
       <p>This site does not send any of your data anywhere. It does collect some anonymous information such as how many people have used the tool so we can make improvements.</p>
