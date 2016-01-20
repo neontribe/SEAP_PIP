@@ -1,11 +1,5 @@
 <h1 tabindex="-1">Your assessment</h1>
 
-<div class="print-box no-print" id="printing-box">
-  <span class="sprite-icons sprite-list" alt="a list of items"></span>
-  <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
-    <button class="print" onClick="window.print()">Print now</button>
-</div>
-
 <div class="paper">
 
   <h2>Would you qualify?</h2> {{#if answeredOne}}
@@ -51,6 +45,13 @@
     </li>
   </ul>
 </div>
+
+<div class="print-box no-print" id="printing-box">
+  <span class="sprite-icons sprite-list" alt="a list of items"></span>
+  <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
+    <button class="print" onClick="window.print()">Print now</button>
+</div>
+
 <div class="box no-print" id="data-box">
   <h2>Your Data</h2>
   <p>This site does not send any of your data anywhere. It does collect some anonymous information such as how many people have used the tool so we can make improvements.</p>
