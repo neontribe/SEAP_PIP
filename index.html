@@ -2765,9 +2765,14 @@
       </ul>
       <p>If you’d prefer, we&#x2019;ve also put this information into an 8 minute video.</p>
 
-    <div class="video-embed">
-      <iframe src="https://player.vimeo.com/video/145264946" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    </div>
+      <div class="print-box">
+        <a href="https://vimeo.com/139481065" target="_blank" aria-hidden="true"><span class="sprite-icons sprite-film" alt="Watch the Video"></span><span aria-hidden="true" class="hide-visually">Watch the video</span></a>
+        <div class="button-box">
+          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/145264946" title="Watch the video" target="_blank">Watch the video</a>
+          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/139481065" title="Watch the video with BSL" target="_blank">Watch the video with BSL</a>
+          <a class="button-shaped" aria-hidden="false" data-action="transcript" title="Read the video transcript">Read the video transcript</a>
+        </div>
+      </div> <!--Vid-box end-->
 
       <p>Once you’ve looked at the Guide or the video, you can <a role="button" data-action="start-or-resume" href="javascript:void(0)">get more prepared by trying out some questions &#x2192;</a></p>
       <div class="expandies information">
@@ -2827,7 +2832,7 @@
         <h2><button aria-controls="before" aria-expanded="false">Preparing for the assessment</button></h2>
         <div id="before" aria-hidden="true">
           <ul class="ticks">
-            <li>Make a list of your health conditions and disabilities, so you can mention them at the assessment. Think about the ways they impact on your life and the mobility activities the assessment looks at. Try <a role="button" href="#start" data-action="start"> answering some of the questions here</a> first, so you know the sorts of things you’ll be asked.</li>
+            <li>Make a list of your health conditions and disabilities, so you can mention them at the assessment. Think about the ways they impact on your life and the mobility activities the assessment looks at. Try <a role="button" href="#categories"> answering some of the questions here</a> first, so you know the sorts of things you’ll be asked.</li>
             <li>Plan your journey to the assessment centre in advance. Don’t be late.</li>
             <li>Your assessor will probably ask you how you got to the assessment. It may affect your claim if the answer you give seems to contradict the answers given on your form.</li>
             <li>If your condition has worsened since you completed the form, get a report/letter from a doctor or other professional to explain how it has changed, and how that impacts on you.</li>
@@ -2961,17 +2966,16 @@
     <div class="paper">
     
       <h2>Would you qualify?</h2> {{#if answeredOne}}
-      <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
-      <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
-      <p>You need to <a href="#start" data-action="start">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
-      {{/if}}
-    
       <div class="{{#if answeredOne}}message{{/if}} no-print">
         {{#if answeredOne}} {{#if incomplete}}
         <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
         <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
         {{/if}}
       </div>
+      <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
+      <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
+      <p>You need to <a href="#categories">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
+      {{/if}}
     
       <h2>Important answers</h2> {{#if importantAnswers}}
       <p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
