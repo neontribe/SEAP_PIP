@@ -341,6 +341,8 @@ function restart() {
   db.set('pipAss.category', null);
   db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
+}
+
 // go to slide you were last at
 function resume() {
 
