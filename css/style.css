@@ -666,8 +666,8 @@ nav li + li::before {
 }
 
 #data-box {
-  margin: 0;
-}
+  margin: 1.5em 0;
+ }
 
 #categories-content {
   margin: 0 10% 1em 10%;
