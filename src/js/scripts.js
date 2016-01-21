@@ -1,13 +1,21 @@
 /**********************************************************************
 ABOUT PAGE VIDEO BUTTONS
 **********************************************************************/
-$(document).ready(function(){
-  $( "#video-signed" ).on( "click", function() {
-  $( "#video-signed" ).text("Watch the video unsigned");
-  $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+$(function() {
+
+  $("#video-signed").on("click", function() {
+    var el = $(this);
+    if (el.text() === el.data("text-swap")) {
+      el.text(el.data("text-original"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    } else {
+      el.data("text-original", el.text());
+      el.text(el.data("text-swap"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    }
+  });
 });
 
-});
 /**********************************************************************
 START UP
 **********************************************************************/
