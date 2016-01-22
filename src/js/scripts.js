@@ -341,8 +341,8 @@ function restart() {
   db.set('pipAss.category', null);
   db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
-  // go to start screen
-  loadSlide('start');
+  // go to categories screen
+  loadSlide('categories');
 
 }
 
