@@ -14750,24 +14750,6 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
 }));
 
 /**********************************************************************
-ABOUT PAGE VIDEO BUTTONS
-**********************************************************************/
-$(function() {
-
-  $("#video-signed").on("click", function() {
-    var el = $(this);
-    if (el.text() === el.data("text-swap")) {
-      el.text(el.data("text-original"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-    } else {
-      el.data("text-original", el.text());
-      el.text(el.data("text-swap"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-    }
-  });
-});
-
-/**********************************************************************
 START UP
 **********************************************************************/
 
@@ -15110,8 +15092,8 @@ function restart() {
   db.set('pipAss.category', null);
   db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
-  // go to start screen
-  loadSlide('start');
+  // go to categories screen
+  loadSlide('categories');
 
 }
 

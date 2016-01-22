@@ -2600,7 +2600,7 @@
               <li>Washing and bathing.</li>
               <li>Managing your toilet needs/ continence.</li>
               <li>Dressing and undressing.</li>
-              <li>Communicating verbally and non verbally.</li>
+              <li>Communicating verbally or non verbally.</li>
               <li>Reading and understanding written information.</li>
               <li>Mixing with others.</li>
               <li>Making decisions about money.</li>
@@ -2619,7 +2619,7 @@
                     <li>Washing and bathing.</li>
                     <li>Managing your toilet needs/ continence.</li>
                     <li>Dressing and undressing.</li>
-                    <li>Communicating verbally and non verbally.</li>
+                    <li>Communicating verbally or non verbally.</li>
                     <li>Reading and understanding written information.</li>
                     <li>Mixing with others.</li>
                     <li>Making decisions about money.</li>
@@ -2756,7 +2756,25 @@
   <div class="slide about" id="about-pip">
     <div class="flow">
       <h1 tabindex="-1">Essential guide to PIP</h1>
+      <p>Our essential guide to PIP will help you:</p>
+      <ul class="ticks">
+        <li>Understand what PIP is and how to apply for it.</li>
+        <li>Understand the assessment process.</li>
+        <li>Get advice on how to answer the questions in the assessment.</li>
+        <li>Be clear about your rights in the assessment.</li>
+      </ul>
+      <p>If you’d prefer, we&#x2019;ve also put this information into an 8 minute video.</p>
 
+      <div class="print-box">
+        <a href="https://vimeo.com/139481065" target="_blank" aria-hidden="true"><span class="sprite-icons sprite-film" alt="Watch the Video"></span><span aria-hidden="true" class="hide-visually">Watch the video</span></a>
+        <div class="button-box">
+          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/145264946" title="Watch the video" target="_blank">Watch the video</a>
+          <a class="button-shaped" aria-hidden="false" href="https://vimeo.com/139481065" title="Watch the video with BSL" target="_blank">Watch the video with BSL</a>
+          <a class="button-shaped" aria-hidden="false" data-action="transcript" title="Read the video transcript">Read the video transcript</a>
+        </div>
+      </div> <!--Vid-box end-->
+
+      <p>Once you’ve looked at the Guide or the video, you can <a role="button" data-action="start-or-resume" href="javascript:void(0)">get more prepared by trying out some questions &#x2192;</a></p>
       <div class="expandies information">
         <h2><button aria-controls="what-is-PIP" aria-expanded="false">What is PIP?</button></h2>
         <div id="what-is-PIP" aria-hidden="true">
@@ -2780,24 +2798,6 @@
           </ul>
           <p>An independent medical professional carries out the assessment. The assessor does not make the final decision on your claim, but makes recommendations to a decision maker from the Department for Work and Pensions (DWP).</p>
         </div>
-      </div>
-
-    <div class="video-embed">
-      <iframe id="video-iframe" src="https://player.vimeo.com/video/145264946" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    </div>
-
-    <div class="button-box">
-  <!--      <label id="video-unsigned">
-          <input type="radio" value="0" class="button-shaped" aria-hidden="false" href="https://vimeo.com/145264946" title="Watch the video"><span>Watch the video</span>
-        </label> -->
-
-          <a data-text-swap="Watch the video unsigned" id="video-signed" class="button-shaped" aria-hidden="false" title="Watch the video with BSL">Watch the video with BSL</a>
-
-          <a id="video-transcript" class="button-shaped"  aria-hidden="false" data-action="transcript" title="Read the video transcript">Read the video transcript</a>
-    </div>
-
-      <p>Once you’ve looked at the Guide or the video, you can <a role="button" data-action="start-or-resume" href="javascript:void(0)">get more prepared by trying out some questions &#x2192;</a></p>
-      <div class="expandies information">
         <h2><button aria-controls="looks-at" aria-expanded="false">What the assessor looks at</button></h2>
         <div id="looks-at" class="waypoint-trigger" aria-hidden="true">
           <p>When making their recommendation, the assessor will consider:</p>
@@ -2832,7 +2832,7 @@
         <h2><button aria-controls="before" aria-expanded="false">Preparing for the assessment</button></h2>
         <div id="before" aria-hidden="true">
           <ul class="ticks">
-            <li>Make a list of your health conditions and disabilities, so you can mention them at the assessment. Think about the ways they impact on your life and the mobility activities the assessment looks at. Try <a role="button" href="#start" data-action="start"> answering some of the questions here</a> first, so you know the sorts of things you’ll be asked.</li>
+            <li>Make a list of your health conditions and disabilities, so you can mention them at the assessment. Think about the ways they impact on your life and the mobility activities the assessment looks at. Try <a role="button" href="#categories"> answering some of the questions here</a> first, so you know the sorts of things you’ll be asked.</li>
             <li>Plan your journey to the assessment centre in advance. Don’t be late.</li>
             <li>Your assessor will probably ask you how you got to the assessment. It may affect your claim if the answer you give seems to contradict the answers given on your form.</li>
             <li>If your condition has worsened since you completed the form, get a report/letter from a doctor or other professional to explain how it has changed, and how that impacts on you.</li>
@@ -2957,26 +2957,19 @@
   <script id="stats-template" type="text/x-handlebars-template">
     <h1 tabindex="-1">Your assessment</h1>
     
-    <div class="print-box no-print" id="printing-box">
-      <span class="sprite-icons sprite-list" alt="a list of items"></span>
-      <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
-        <button class="print" onClick="window.print()">Print now</button>
-    </div>
-    
     <div class="paper">
     
       <h2>Would you qualify?</h2> {{#if answeredOne}}
-      <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
-      <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
-      <p>You need to <a href="#start" data-action="start">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
-      {{/if}}
-    
       <div class="{{#if answeredOne}}message{{/if}} no-print">
         {{#if answeredOne}} {{#if incomplete}}
         <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
         <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
         {{/if}}
       </div>
+      <h4>Daily Living</h4> {{{qualifyDailyLiving}}}
+      <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
+      <p>You need to <a href="#categories">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
+      {{/if}}
     
       <h2>Important answers</h2> {{#if importantAnswers}}
       <p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
@@ -3009,6 +3002,13 @@
         </li>
       </ul>
     </div>
+    
+    <div class="print-box no-print" id="printing-box">
+      <span class="sprite-icons sprite-list" alt="a list of items"></span>
+      <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
+        <button class="print" onClick="window.print()">Print now</button>
+    </div>
+    
     <div class="box no-print" id="data-box">
       <h2>Your Data</h2>
       <p>This site does not send any of your data anywhere. It does collect some anonymous information such as how many people have used the tool so we can make improvements.</p>

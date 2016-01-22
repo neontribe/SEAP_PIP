@@ -1048,6 +1048,29 @@ details {
   margin: 0.5em 0 1.5em 0;
 }
 
+.video-embed {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.video-embed iframe,
+.video-embed object,
+.video-embed embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button-box {
+text-align: center;
+font-size: 1.25em;
+}
+
 /* expandies
 ---------------------------------------------*/
 
@@ -1396,6 +1419,12 @@ footer #feedback {
   .button-shaped,
   [type="radio"] + span {
     font-size: 0.9em;
+  }
+
+  #video-signed,
+  #video-transcript {
+    display: block;
+    font-size: 1.25em;
   }
 
   footer p {
