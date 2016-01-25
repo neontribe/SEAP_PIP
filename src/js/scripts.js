@@ -95,7 +95,7 @@ function getCatQuestions(slug) {
     // Select a random category containing unseen questions
     var nextCat = _.sample(db.get('pipAss.remainingCategories'));
     db.set('pipAss.category', nextCat);
-    loadSlide('chose-random-category');
+    loadSlide('choose-random-category');
     return;
   } else {
     db.set('pipAss.category', slug);
@@ -150,9 +150,9 @@ function loadSlide(id, type) {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
 
-  if (id === 'chose-random-category') {
-    $('#chose-random-category button').attr('data-category', db.get('pipAss.category'));
-    $('#chose-random-category #unseen-category').text(db.get('pipAss.category'));
+  if (id === 'choose-random-category') {
+    $('#choose-random-category button').attr('data-category', db.get('pipAss.category'));
+    $('#choose-random-category #unseen-category').text(db.get('pipAss.category'));
   }
 
   $('.slide > *').removeClass('loaded');
