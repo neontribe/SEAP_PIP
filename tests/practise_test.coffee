@@ -141,6 +141,7 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
       test.assert match > 0,
         'Qualify Low with 8 points from ' + cat
       @click '.box.loaded button[data-action="pick"]'
+      #@click '.slide.score .loaded button[data-action="pick"]'
       @click '.box.loaded button[data-action="categories"]'
       # Get some points from Mobility
       cat = 'Mobility: Planning a journey'
