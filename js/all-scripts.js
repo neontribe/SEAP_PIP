@@ -14826,6 +14826,7 @@ function initAss() {
     answers: {}, // the master object of category high scores for tallying
     low: false, // low qualification?
     high: false, // high qualification?
+    score: false,
     incomplete: true // whether all the questions have been answered
   };
 
@@ -14846,7 +14847,7 @@ function getCatQuestions(slug) {
     // Select a random category containing unseen questions
     var nextCat = _.sample(db.get('pipAss.remainingCategories'));
     db.set('pipAss.category', nextCat);
-    loadSlide('choose-random-category');
+    loadSlide('chose-random-category');
     return;
   } else {
     db.set('pipAss.category', slug);
@@ -14901,9 +14902,9 @@ function loadSlide(id, type) {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
 
-  if (id === 'choose-random-category') {
-    $('#choose-random-category button').attr('data-category', db.get('pipAss.category'));
-    $('#choose-random-category #unseen-category').text(db.get('pipAss.category'));
+  if (id === 'chose-random-category') {
+    $('#chose-random-category button').attr('data-category', db.get('pipAss.category'));
+    $('#chose-random-category #unseen-category').text(db.get('pipAss.category'));
   }
 
   $('.slide > *').removeClass('loaded');
@@ -14961,24 +14962,36 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-low-mobility')) {
     loadSlide('qualify-low-mobility');
     db.set('pipAss.show-qualify-low-mobility', false);
+    db.set('pipAss.score', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-mobility')) {
     loadSlide('qualify-high-mobility');
     db.set('pipAss.show-qualify-high-mobility', false);
+    db.set('pipAss.score', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-low-dailyLiving')) {
     loadSlide('qualify-low-dailyLiving');
     db.set('pipAss.show-qualify-low-dailyLiving', false);
+    db.set('pipAss.score', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-dailyLiving')) {
     loadSlide('qualify-high-dailyLiving');
     db.set('pipAss.show-qualify-high-dailyLiving', false);
+    db.set('pipAss.score', false);
+    return;
+  }
+
+  // If we need to alert user of scoring some points, do it
+  if (db.get('pipAss.score') && db.get('pipAss.context') !== 'score') {
+    loadSlide('score');
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.score', false);
     return;
   }
 
@@ -15174,6 +15187,11 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
+
+  if (points > 0 && total.mobility <= 7 ) {
+    db.set('pipAss.score', true);
+  }
+
   if (total.mobility >= 8) {
 
     //don't show the slide if you have already
@@ -15202,6 +15220,10 @@ function qualify(points) {
     // record that high qualification is possible
     db.set('pipAss.high-mobility', true);
 
+  }
+
+  if (points > 0 && total.dailyLiving <= 7 ) {
+    db.set('pipAss.score', true);
   }
 
   if (total.dailyLiving >= 8) {
