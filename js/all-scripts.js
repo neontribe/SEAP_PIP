@@ -14961,6 +14961,7 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-low-mobility')) {
     loadSlide('qualify-low-mobility');
     db.set('pipAss.show-qualify-low-mobility', false);
+    db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
@@ -14968,6 +14969,7 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-high-mobility')) {
     loadSlide('qualify-high-mobility');
     db.set('pipAss.show-qualify-high-mobility', false);
+    db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
@@ -14975,6 +14977,7 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-low-dailyLiving')) {
     loadSlide('qualify-low-dailyLiving');
     db.set('pipAss.show-qualify-low-dailyLiving', false);
+    db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
@@ -14982,6 +14985,7 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-high-dailyLiving')) {
     loadSlide('qualify-high-dailyLiving');
     db.set('pipAss.show-qualify-high-dailyLiving', false);
+    db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
