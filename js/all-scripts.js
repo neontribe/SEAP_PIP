@@ -14826,7 +14826,6 @@ function initAss() {
     answers: {}, // the master object of category high scores for tallying
     low: false, // low qualification?
     high: false, // high qualification?
-    score: false,
     incomplete: true // whether all the questions have been answered
   };
 
@@ -14962,36 +14961,36 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-low-mobility')) {
     loadSlide('qualify-low-mobility');
     db.set('pipAss.show-qualify-low-mobility', false);
-    db.set('pipAss.score', false);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-mobility')) {
     loadSlide('qualify-high-mobility');
     db.set('pipAss.show-qualify-high-mobility', false);
-    db.set('pipAss.score', false);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-low-dailyLiving')) {
     loadSlide('qualify-low-dailyLiving');
     db.set('pipAss.show-qualify-low-dailyLiving', false);
-    db.set('pipAss.score', false);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-dailyLiving')) {
     loadSlide('qualify-high-dailyLiving');
     db.set('pipAss.show-qualify-high-dailyLiving', false);
-    db.set('pipAss.score', false);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   // If we need to alert user of scoring some points, do it
-  if (db.get('pipAss.score') && db.get('pipAss.context') !== 'score') {
+  if (db.get('pipAss.showScore') && db.get('pipAss.context') !== 'showScore') {
     loadSlide('score');
     db.set('pipAss.submitPoints', 0);
-    db.set('pipAss.score', false);
+    db.set('pipAss.showScore', false);
     return;
   }
 
@@ -15189,7 +15188,7 @@ function qualify(points) {
   var total = tally();
 
   if (points > 0 && total.mobility <= 7 ) {
-    db.set('pipAss.score', true);
+    db.set('pipAss.showScore', true);
   }
 
   if (total.mobility >= 8) {
@@ -15223,7 +15222,7 @@ function qualify(points) {
   }
 
   if (points > 0 && total.dailyLiving <= 7 ) {
-    db.set('pipAss.score', true);
+    db.set('pipAss.showScore', true);
   }
 
   if (total.dailyLiving >= 8) {
