@@ -142,6 +142,10 @@ function loadSlide(id, type) {
     compileCategories();
   }
 
+  if (id === 'score') {
+    compileScore();
+  }
+
   if (id === 'about-pip') {
     compileAboutButtons();
   }
@@ -564,6 +568,17 @@ function compileCategories() {
 
   // set seen categories to disabled
   disabledCats();
+
+}
+
+function compileScore() {
+
+  // compiles #score page with handlebars in order
+  // to show percent of questions answered
+  var template = Handlebars.compile(document.getElementById("score-template").innerHTML);
+  var pipAssData = db.get('pipAss');
+  var output = template(pipAssData);
+  $('#slide-score-content').html(output);
 
 }
 

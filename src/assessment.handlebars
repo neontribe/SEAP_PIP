@@ -165,31 +165,6 @@
       </ul>
     </div>
   </div>
-  <div class="slide score" id="score">
-  <div class="box green">
-    <h1 tabindex="-1">
-      You scored<br/>
-      <strong>Important Answer</strong>
-    </h1>
-    <p>
-      Your answer to this questions scored some points.
-    </p>
-    <p>
-      You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.
-    </p>
-    <ul aria-label="menu">
-      <li>
-        <button class="nav-link" data-action="pick">Another question</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="about-pip" role="link">More information</button>
-      </li>
-    </ul>
-  </div>
-</div>
   <div class="slide break-time" id="break-time">
     <div class="box">
       <span class="sprite-icons sprite-tea" alt="steaming cup of tea"></span>
@@ -207,7 +182,6 @@
       </ul>
     </div>
   </div>
-
   <div class="slide are-you-sure" id="are-you-sure">
     <div class="box">
       <h1 tabindex="-1" style="red">Are you sure?</h1>
@@ -287,7 +261,6 @@
       <div id="stats-content" class="flow"></div>
     </div>
   </div>
-
   <div class="slide remember" id="remember">
     <div class="flow">
       <h2>Remember</h2>
@@ -763,6 +736,10 @@
     <div id="categories-content">
     </div>
   </div>
+  <div class="slide score" id="score">
+    <div id="slide-score-content">
+    </div>
+  </div>
   <footer role="contentinfo">
     <p>Brought to you by
       <a href="http://www.seap.org.uk/" target="_blank" title="The Charity, seAp (link Opens new tab)">
@@ -793,6 +770,9 @@
   </script>
   <script id="about-buttons-template" type="text/x-handlebars-template">
     <!--(bake about-buttons-template.html)-->
+  </script>
+  <script id="score-template" type="text/x-handlebars-template">
+    <!--(bake score-template.html)-->
   </script>
 </body>
 
