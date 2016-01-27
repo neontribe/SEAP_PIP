@@ -2357,31 +2357,6 @@
       </ul>
     </div>
   </div>
-  <div class="slide score" id="score">
-  <div class="box green">
-    <h1 tabindex="-1">
-      You scored<br/>
-      <strong>Important Answer</strong>
-    </h1>
-    <p>
-      Your answer to this questions scored some points.
-    </p>
-    <p>
-      You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.
-    </p>
-    <ul aria-label="menu">
-      <li>
-        <button class="nav-link" data-action="pick">Another question</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="about-pip" role="link">More information</button>
-      </li>
-    </ul>
-  </div>
-</div>
   <div class="slide break-time" id="break-time">
     <div class="box">
       <span class="sprite-icons sprite-tea" alt="steaming cup of tea"></span>
@@ -2399,7 +2374,6 @@
       </ul>
     </div>
   </div>
-
   <div class="slide are-you-sure" id="are-you-sure">
     <div class="box">
       <h1 tabindex="-1" style="red">Are you sure?</h1>
@@ -2479,7 +2453,6 @@
       <div id="stats-content" class="flow"></div>
     </div>
   </div>
-
   <div class="slide remember" id="remember">
     <div class="flow">
       <h2>Remember</h2>
@@ -2951,6 +2924,10 @@
     <div id="categories-content">
     </div>
   </div>
+  <div class="slide score" id="score">
+    <div id="slide-score-content">
+    </div>
+  </div>
   <footer role="contentinfo">
     <p>Brought to you by
       <a href="http://www.seap.org.uk/" target="_blank" title="The Charity, seAp (link Opens new tab)">
@@ -3074,6 +3051,38 @@
         <button class="nav-link" data-action="break" role="link">Take a break?</button>
       </li>
     </ul>
+    
+  </script>
+  <script id="score-template" type="text/x-handlebars-template">
+    <div class="box green">
+      <h1 tabindex="-1">
+        You scored<br/>
+        <strong>Important Answer</strong>
+      </h1>
+      <div class="{{#if answeredOne}}message{{/if}} no-print">
+        {{#if answeredOne}} {{#if incomplete}}
+        <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
+        <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+        {{/if}}
+      </div>
+      <p>
+        Your answer to this questions scored some points.
+      </p>
+      <p>
+        You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.
+      </p>
+      <ul aria-label="menu">
+        <li>
+          <button class="nav-link" data-action="pick">Another question</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="about-pip" role="link">More information</button>
+        </li>
+      </ul>
+    </div>
     
   </script>
 </body>
