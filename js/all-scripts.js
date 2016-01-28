@@ -14749,15 +14749,6 @@ var __module0__ = (function(__dependency1__, __dependency2__, __dependency3__, _
   return __module0__;
 }));
 
-/***********************************************************************
-STAGING SITE BANNER DETECTION
-***********************************************************************/
-$(function() {
-    if ( document.location.href.indexOf('neontribe.github.io') > -1 ) {
-        $('.staging-banner').show();
-    }
-});
-
 /**********************************************************************
 ABOUT PAGE VIDEO BUTTONS
 **********************************************************************/
