@@ -564,6 +564,34 @@ noscript {
   position: absolute;
 }
 
+.staging-banner {
+  position: fixed;
+  top: -225px;
+  left: -200px;
+  height: 400px !important;
+  width: 400px;
+  opacity: .9;
+  display: none;
+  padding: 0 !important;
+  background: red;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.staging-banner p {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  line-height: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+
+}
+
+
 .slide {
   display: table-cell;
   width: 100%;
