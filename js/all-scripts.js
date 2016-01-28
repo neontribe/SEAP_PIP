@@ -14759,24 +14759,6 @@ $(function() {
 });
 
 /**********************************************************************
-ABOUT PAGE VIDEO BUTTONS
-**********************************************************************/
-$(function() {
-
-  $("#video-signed").on("click", function() {
-    var buttonData = $(this);
-    if (buttonData.text() === buttonData.data("text-swap")) {
-      buttonData.text(buttonData.data("text-original"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-    } else {
-      buttonData.data("text-original", buttonData.text());
-      buttonData.text(buttonData.data("text-swap"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-    }
-  });
-});
-
-/**********************************************************************
 START UP
 **********************************************************************/
 
@@ -14815,6 +14797,15 @@ FUNCTIONS
 **********************************************************************/
 
 function initAss() {
+  // resets the video to start
+  try {
+    if (db.get('pipAss.videoLoaded')) {
+      var message = {"method":"unload"};
+      player1.postMessage(message, "*");
+    }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
+  }
   // model the database 'ass' object
   var assTemplate = { // the questions which haven't been viewed
     unseenQuestions: [],
@@ -14835,7 +14826,8 @@ function initAss() {
     answers: {}, // the master object of category high scores for tallying
     low: false, // low qualification?
     high: false, // high qualification?
-    incomplete: true // whether all the questions have been answered
+    incomplete: true, // whether all the questions have been answered
+    videoLoaded: false
   };
 
   // empty hash history
@@ -14908,6 +14900,7 @@ function loadSlide(id, type) {
 
   if (id === 'about-pip') {
     compileAboutButtons();
+    setPlayer();
   }
 
   if (id === 'category-finished') {
@@ -15389,6 +15382,31 @@ function disabledCats() {
 
 }
 
+function setPlayer() {
+  var iframe1 = $('#video-iframe')[0];
+      player1 = iframe1.contentWindow;
+
+  db.set('pipAss.videoLoaded', true);
+}
+
+/**********************************************************************
+ABOUT PAGE VIDEO BUTTONS
+**********************************************************************/
+$(function() {
+
+  $("#video-signed").on("click", function() {
+    var buttonData = $(this);
+    if (buttonData.text() === buttonData.data("text-swap")) {
+      buttonData.text(buttonData.data("text-original"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    } else {
+      buttonData.data("text-original", buttonData.text());
+      buttonData.text(buttonData.data("text-swap"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    }
+  });
+});
+
 /**********************************************************************
 HELPERS
 **********************************************************************/
@@ -15740,6 +15758,16 @@ $('body').on('click', '[data-action="set-cat"]', function() {
 
 // Fix back button
 $(window).on('hashchange', function(e) {
+  // If we navigate away from the page and the video is playing pause the video
+
+  try {
+    if (db.get('esaAss.videoLoaded')) {
+      var message = {"method":"pause"};
+      player1.postMessage(message, "*");
+    }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
+  }
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
   // the override only happens if we've been here before as recorded
