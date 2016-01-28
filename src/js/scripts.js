@@ -46,6 +46,15 @@ FUNCTIONS
 **********************************************************************/
 
 function initAss() {
+  // resets the video to start
+  try {
+    if (db.get('pipAss.videoLoaded')) {
+      var message = {"method":"unload"};
+      player1.postMessage(message, "*");
+    }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
+  }
   // model the database 'ass' object
   var assTemplate = { // the questions which haven't been viewed
     unseenQuestions: [],
@@ -1004,9 +1013,9 @@ $(window).on('hashchange', function(e) {
     if (db.get('esaAss.videoLoaded')) {
       var message = {"method":"pause"};
       player1.postMessage(message, "*");
-    } catch (err) {
-      // catches error when refreshing browser on the about page
     }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
   }
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
