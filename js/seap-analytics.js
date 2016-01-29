@@ -46,21 +46,20 @@ $(window).on('hashchange', function(e) {
 
 // Event on every a click
 $('body').on('click', 'a', function(e) {
+  // try to get page from hashHistory but if we just refreshed the page it
+  // won't be there yet - so use current page - which will be last page
   var linkText = $(this).text();
-      page = _.last(window.hashHistory) ? _.last(window.hashHistory) : 'unknown';
-  $.when(page).then(
+      page = _.last(window.hashHistory)
+        ? _.last(window.hashHistory) : ( window.location.hash || 'unknown');
     ga('send', 'event', page, 'a-link-click', linkText, null)
-  );
 });
 
 // Event on every button click
 $('body').on('click', 'button', function(e) {
   var linkText = $(this).text();
-      value = null;
-      page = _.last(window.hashHistory) ? _.last(window.hashHistory) : 'unknown';
-  $.when(page).then(
+      page = _.last(window.hashHistory)
+        ? _.last(window.hashHistory) : (window.location.hash || 'unknown');
     ga('send', 'event', page, 'button-click', linkText, null)
-  );
 });
 
 // Event on open/ close
