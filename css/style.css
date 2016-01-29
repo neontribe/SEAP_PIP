@@ -242,16 +242,21 @@ button:only-of-type {
   font-size: 1.25em;
 }
 
-button[disabled] {
+button.done {
   background: #0a8f60;
   color: #6fe9bf;
 }
 
-button[disabled]::after {
+button.done::after {
   content: ' (done)';
   font-size: 0.8em;
   padding-right: 0.25em;
   font-weight: bold;
+}
+
+button.done:hover {
+  background: #006541;
+  box-shadow: 0 0.125em #006541;
 }
 
 /* links

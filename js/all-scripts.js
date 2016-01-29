@@ -14847,7 +14847,7 @@ function getCatQuestions(slug) {
     // Select a random category containing unseen questions
     var nextCat = _.sample(db.get('pipAss.remainingCategories'));
     db.set('pipAss.category', nextCat);
-    loadSlide('chose-random-category');
+    loadSlide('activity-selection');
     return;
   } else {
     db.set('pipAss.category', slug);
@@ -14890,7 +14890,7 @@ function loadSlide(id, type) {
     compileStats();
   }
 
-  if (id === 'categories') {
+  if (id === 'activities') {
     compileCategories();
   }
 
@@ -14903,13 +14903,13 @@ function loadSlide(id, type) {
     setPlayer();
   }
 
-  if (id === 'category-finished') {
+  if (id === 'activity-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
 
-  if (id === 'chose-random-category') {
-    $('#chose-random-category button').attr('data-category', db.get('pipAss.category'));
-    $('#chose-random-category #unseen-category').text(db.get('pipAss.category'));
+  if (id === 'activity-selection') {
+    $('#activity-selection button').attr('data-category', db.get('pipAss.category'));
+    $('#activity-selection #unseen-category').text(db.get('pipAss.category'));
   }
 
   $('.slide > *').removeClass('loaded');
@@ -15041,7 +15041,7 @@ function pickQuestion() {
           return;
         }
       } else {
-        loadSlide('category-finished');
+        loadSlide('activity-finished');
         return;
       }
     }
@@ -15133,7 +15133,7 @@ function restart() {
   db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
   // go to categories screen
-  loadSlide('categories');
+  loadSlide('activities');
 
 }
 
@@ -15542,7 +15542,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   } else {
 
-    loadSlide('categories');
+    loadSlide('activities');
 
   }
 
@@ -15725,9 +15725,9 @@ $('body').on('change', '[type="radio"]', function() {
 
 });
 
-$('body').on('click', '[data-action="categories"]', function() {
+$('body').on('click', '[data-action="activities"]', function() {
 
-  loadSlide('categories');
+  loadSlide('activities');
 
 });
 
