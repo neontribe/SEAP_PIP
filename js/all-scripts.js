@@ -15320,7 +15320,7 @@ function compileCategories() {
   $('#categories-content').html(output);
 
   // set seen categories to disabled
-  doneCats();
+  disabledCats();
 
 }
 
@@ -15360,7 +15360,7 @@ function divideAnswers() {
 
 }
 
-function doneCats() {
+function disabledCats() {
 
   var remaining = db.get('pipAss.remainingCategories');
 
@@ -15368,11 +15368,13 @@ function doneCats() {
 
     var button = $('button', this);
 
+    button.attr('disabled', null);
+
     var catName = button.attr('data-category');
 
     if (!_.contains(remaining, catName)) {
 
-      button.addClass('done');
+      button.attr('disabled', 'disabled');
 
     }
 
