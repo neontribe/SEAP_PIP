@@ -706,7 +706,7 @@
       </div>
     </div>
   </div>
-  <div class="slide category-finished" id="category-finished">
+  <div class="slide activity-finished" id="activity-finished">
     <div class="box">
       <span class="sprite-icons sprite-tick" alt="check box tick"></span>
       <div class="flex-center">
@@ -714,7 +714,7 @@
       </div>
       <ul aria-label="menu">
         <li>
-          <button class="nav-link" data-action="categories" role="link">A new activity</button>
+          <button class="nav-link" data-action="activities" role="link">A new activity</button>
         </li>
         <li>
           <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
@@ -725,20 +725,26 @@
       </ul>
     </div>
   </div>
-  <div class="slide chose-random-category" id="chose-random-category">
+  <div class="slide activity-selection" id="activity-selection">
     <div class="box">
-      <h1 tabindex="-1">Assorted questions</h1>
+      <h1 tabindex="-1">Activity Selection</h1>
+      <div class="flex-center activity">
+        <p>Activity: <span id="unseen-category">Unseen category</span></p>
+      </div>
       <div class="flex-center">
         <p>Because you chose &#x201c;Pick at random&#x201d;, we have selected an activity containing questions you haven&#x2019;t seen yet. Remember: You can <a role="button" href="#break-time" data-action="break">take a break</a> at any time.</p>
       </div>
       <ul aria-label="menu">
         <li>
-          <button class="nav-link" data-action="set-cat" data-category="random-category"><span id="unseen-category">Unseen category</span></button>
+          <button class="nav-link" data-action="set-cat" data-category="random-category">Try the questions</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="activities">Choose a different activity</button>
         </li>
       </ul>
     </div>
   </div>
-  <div class="slide categories" id="categories">
+  <div class="slide categories" id="activities">
     <div id="categories-content">
     </div>
   </div>
