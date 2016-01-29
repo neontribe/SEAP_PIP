@@ -1010,7 +1010,7 @@ $(window).on('hashchange', function(e) {
   // If we navigate away from the page and the video is playing pause the video
 
   try {
-    if (db.get('esaAss.videoLoaded')) {
+    if (db.get('pipAss.videoLoaded')) {
       var message = {"method":"pause"};
       player1.postMessage(message, "*");
     }
