@@ -93,6 +93,10 @@ p + p {
   font-style: italic;
 }
 
+.activity {
+  color: #3389c1;
+}
+
 .question-text .activity {
   font-size: 0.66em !important;
   display: block !important;
@@ -1622,7 +1626,7 @@ footer #feedback {
   .box {
     margin: 0;
   }
-  #categories.slide {
+  #activities.slide {
     padding: 120px 0px;
     padding: 6rem 0rem;
   }
@@ -1683,7 +1687,7 @@ footer #feedback {
   #about-esa,
   #start,
   #resume,
-  #categories,
+  #activities,
   #break-time,
   #are-you-sure,
   #deleted,
