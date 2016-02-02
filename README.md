@@ -14,7 +14,7 @@
 * The master template is at `src/assessment.handlebars`. This is for building the single `index.html` assessment page in `build`
 * The data context for this template is at `assessment-data.json`. The `questions` property is an array and is used to construct all the questions "slide" `<div>`s in index.html.
 * `helpers` is where we define template helpers for the above. Eg. **sluggify.js** turns strings into alphanumeric slugs. Used like `{{sluggify string}}`
-* `css` contains the master CSS file, `style.css` This is stored in the seap_core repository which is a dependancy of this project. During development symlinks can be used to test style development. When deploying the css will need to be pushed to the seap_core repository in order to be upto date.
+* `css` contains the master CSS file, `style.css` This is stored in the seap_core repository which is a dependency of this project. During development symlinks can be used to test style development. When deploying the css will need to be pushed to the seap_core repository in order to be upto date.
 * The applications scripts are in `js/scripts.js`. If you run `grunt generate-production` the concatenated scripts will be uglified
 
 ## Deploy procedure
