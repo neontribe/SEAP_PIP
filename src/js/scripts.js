@@ -128,7 +128,7 @@ function loadSlide(id, type) {
     id = 'main-menu';
   }
 
-  if (id === 'stats') {
+  if (id === 'your-assessment') {
 
     // if you ran out of unseen questions and didn't skip any
     if (_.isEmpty(db.get('pipAss.unseenQuestions')) && _.isEmpty(db.get('pipAss.skippedQuestions')) && _.isEmpty(db.get('pipAss.remainingCategories')) && db.get('pipAss.started')) {
@@ -182,7 +182,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'your-assessment', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -799,7 +799,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats', 'about-pip', 'transcript'];
+  var validBreakReturn = ['your-assessment', 'about-pip', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -885,10 +885,10 @@ $('body').on('click', '[data-action="delete-data"]', function() {
 });
 
 
-$('body').on('click', '[data-action="stats"]', function() {
+$('body').on('click', '[data-action="your-assessment"]', function() {
 
   // load the stats slide
-  loadSlide('stats');
+  loadSlide('your-assessment');
 
 });
 
