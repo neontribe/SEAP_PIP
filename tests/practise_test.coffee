@@ -38,7 +38,7 @@ clearAndGetCategories = (test) ->
     #set empty answer obj
     data['answered'] = {}
     # Correct url appears for activity start
-    test.assertUrlMatch url + '/#categories',
+    test.assertUrlMatch url + '/#activities',
       'Button press Navigated to ' + @getCurrentUrl()
     # visible loaded categories-content
   casper.then (data) ->
@@ -102,13 +102,13 @@ casper.test.begin 'Answer all questions every category', numOfTests, (test) ->
               'Landed on the answered all questions page'
           else
             # verify we are on the category-finished page
-            test.assertUrlMatch url + '/#category-finished',
+            test.assertUrlMatch url + '/#activity-finished',
               'Landed on category finished page'
             # verify category name as expected
             test.assertSelectorHasText '.box.loaded p strong',
               activityName.toLowerCase(),
               'Category name matches "' + activityName + '"'
-            @click '#category-finished button[data-action="categories"]'
+            @click '#activity-finished button[data-action="activities"]'
     .run ->
       test.done()
 
@@ -141,7 +141,8 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
       test.assert match > 0,
         'Qualify Low with 8 points from ' + cat
       @click '.box.loaded button[data-action="pick"]'
-      @click '.box.loaded button[data-action="categories"]'
+      #@click '.slide.score .loaded button[data-action="pick"]'
+      @click '.box.loaded button[data-action="activities"]'
       # Get some points from Mobility
       cat = 'Mobility: Planning a journey'
       activitySelect test, cat
@@ -169,7 +170,7 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
 
 
       @echo @getCurrentUrl()
-      @click '.box.loaded button[data-action="categories"]'
+      @click '.box.loaded button[data-action="activities"]'
       cat = 'Daily Living: Washing and bathing'
       activitySelect test, cat
       questions = @getElementsInfo 'input[data-category-name="'+cat+'"]'

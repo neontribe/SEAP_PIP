@@ -1,19 +1,10 @@
-/**********************************************************************
-ABOUT PAGE VIDEO BUTTONS
-**********************************************************************/
+/***********************************************************************
+STAGING SITE BANNER DETECTION
+***********************************************************************/
 $(function() {
-
-  $("#video-signed").on("click", function() {
-    var buttonData = $(this);
-    if (buttonData.text() === buttonData.data("text-swap")) {
-      buttonData.text(buttonData.data("text-original"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
-    } else {
-      buttonData.data("text-original", buttonData.text());
-      buttonData.text(buttonData.data("text-swap"));
-      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    if ( document.location.href.indexOf('neontribe.github.io') > -1 ) {
+        $('.staging-banner').show();
     }
-  });
 });
 
 /**********************************************************************
@@ -55,6 +46,15 @@ FUNCTIONS
 **********************************************************************/
 
 function initAss() {
+  // resets the video to start
+  try {
+    if (db.get('pipAss.videoLoaded')) {
+      var message = {"method":"unload"};
+      player1.postMessage(message, "*");
+    }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
+  }
   // model the database 'ass' object
   var assTemplate = { // the questions which haven't been viewed
     unseenQuestions: [],
@@ -75,7 +75,8 @@ function initAss() {
     answers: {}, // the master object of category high scores for tallying
     low: false, // low qualification?
     high: false, // high qualification?
-    incomplete: true // whether all the questions have been answered
+    incomplete: true, // whether all the questions have been answered
+    videoLoaded: false
   };
 
   // empty hash history
@@ -95,7 +96,7 @@ function getCatQuestions(slug) {
     // Select a random category containing unseen questions
     var nextCat = _.sample(db.get('pipAss.remainingCategories'));
     db.set('pipAss.category', nextCat);
-    loadSlide('chose-random-category');
+    loadSlide('activity-selection');
     return;
   } else {
     db.set('pipAss.category', slug);
@@ -138,21 +139,26 @@ function loadSlide(id, type) {
     compileStats();
   }
 
-  if (id === 'categories') {
+  if (id === 'activities') {
     compileCategories();
+  }
+
+  if (id === 'score') {
+    compileScore();
   }
 
   if (id === 'about-pip') {
     compileAboutButtons();
+    setPlayer();
   }
 
-  if (id === 'category-finished') {
+  if (id === 'activity-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
 
-  if (id === 'chose-random-category') {
-    $('#chose-random-category button').attr('data-category', db.get('pipAss.category'));
-    $('#chose-random-category #unseen-category').text(db.get('pipAss.category'));
+  if (id === 'activity-selection') {
+    $('#activity-selection button').attr('data-category', db.get('pipAss.category'));
+    $('#activity-selection #unseen-category').text(db.get('pipAss.category'));
   }
 
   $('.slide > *').removeClass('loaded');
@@ -210,24 +216,40 @@ function pickQuestion() {
   if (db.get('pipAss.show-qualify-low-mobility')) {
     loadSlide('qualify-low-mobility');
     db.set('pipAss.show-qualify-low-mobility', false);
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-mobility')) {
     loadSlide('qualify-high-mobility');
     db.set('pipAss.show-qualify-high-mobility', false);
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-low-dailyLiving')) {
     loadSlide('qualify-low-dailyLiving');
     db.set('pipAss.show-qualify-low-dailyLiving', false);
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.showScore', false);
     return;
   }
 
   if (db.get('pipAss.show-qualify-high-dailyLiving')) {
     loadSlide('qualify-high-dailyLiving');
     db.set('pipAss.show-qualify-high-dailyLiving', false);
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.showScore', false);
+    return;
+  }
+
+  // If we need to alert user of scoring some points, do it
+  if (db.get('pipAss.showScore') && db.get('pipAss.context') !== 'showScore') {
+    loadSlide('score');
+    db.set('pipAss.submitPoints', 0);
+    db.set('pipAss.showScore', false);
     return;
   }
 
@@ -268,7 +290,7 @@ function pickQuestion() {
           return;
         }
       } else {
-        loadSlide('category-finished');
+        loadSlide('activity-finished');
         return;
       }
     }
@@ -360,7 +382,7 @@ function restart() {
   db.set('pipAss.remainingCategories', _.uniq(window.allCategories));
 
   // go to categories screen
-  loadSlide('categories');
+  loadSlide('activities');
 
 }
 
@@ -423,6 +445,11 @@ function tally() {
 function qualify(points) {
 
   var total = tally();
+
+  if (points > 0 && total.mobility <= 7 ) {
+    db.set('pipAss.showScore', true);
+  }
+
   if (total.mobility >= 8) {
 
     //don't show the slide if you have already
@@ -451,6 +478,10 @@ function qualify(points) {
     // record that high qualification is possible
     db.set('pipAss.high-mobility', true);
 
+  }
+
+  if (points > 0 && total.dailyLiving <= 7 ) {
+    db.set('pipAss.showScore', true);
   }
 
   if (total.dailyLiving >= 8) {
@@ -538,7 +569,18 @@ function compileCategories() {
   $('#categories-content').html(output);
 
   // set seen categories to disabled
-  disabledCats();
+  doneCats();
+
+}
+
+function compileScore() {
+
+  // compiles #score page with handlebars in order
+  // to show percent of questions answered
+  var template = Handlebars.compile(document.getElementById("score-template").innerHTML);
+  var pipAssData = db.get('pipAss');
+  var output = template(pipAssData);
+  $('#slide-score-content').html(output);
 
 }
 
@@ -567,7 +609,7 @@ function divideAnswers() {
 
 }
 
-function disabledCats() {
+function doneCats() {
 
   var remaining = db.get('pipAss.remainingCategories');
 
@@ -575,19 +617,42 @@ function disabledCats() {
 
     var button = $('button', this);
 
-    button.attr('disabled', null);
-
     var catName = button.attr('data-category');
 
     if (!_.contains(remaining, catName)) {
 
-      button.attr('disabled', 'disabled');
+      button.addClass('done');
 
     }
 
   });
 
 }
+
+function setPlayer() {
+  var iframe1 = $('#video-iframe')[0];
+      player1 = iframe1.contentWindow;
+
+  db.set('pipAss.videoLoaded', true);
+}
+
+/**********************************************************************
+ABOUT PAGE VIDEO BUTTONS
+**********************************************************************/
+$(function() {
+
+  $("#video-signed").on("click", function() {
+    var buttonData = $(this);
+    if (buttonData.text() === buttonData.data("text-swap")) {
+      buttonData.text(buttonData.data("text-original"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/145264946' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    } else {
+      buttonData.data("text-original", buttonData.text());
+      buttonData.text(buttonData.data("text-swap"));
+      $( ".video-embed").html("<iframe id='video-iframe' src='https://player.vimeo.com/video/139481065' frameborder='0' webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>");
+    }
+  });
+});
 
 /**********************************************************************
 HELPERS
@@ -726,7 +791,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
   } else {
 
-    loadSlide('categories');
+    loadSlide('activities');
 
   }
 
@@ -909,9 +974,9 @@ $('body').on('change', '[type="radio"]', function() {
 
 });
 
-$('body').on('click', '[data-action="categories"]', function() {
+$('body').on('click', '[data-action="activities"]', function() {
 
-  loadSlide('categories');
+  loadSlide('activities');
 
 });
 
@@ -940,6 +1005,16 @@ $('body').on('click', '[data-action="set-cat"]', function() {
 
 // Fix back button
 $(window).on('hashchange', function(e) {
+  // If we navigate away from the page and the video is playing pause the video
+
+  try {
+    if (db.get('pipAss.videoLoaded')) {
+      var message = {"method":"pause"};
+      player1.postMessage(message, "*");
+    }
+  } catch (err) {
+    // catches error when refreshing browser on the about page
+  }
   // If we've gone to a question fragment but we haven't
   // pressed a "pick a question" button to get there...
   // the override only happens if we've been here before as recorded

@@ -1,0 +1,29 @@
+<div class="box green">
+  <h1 tabindex="-1">
+    That's an<br/>
+    <strong>Important Answer</strong>
+  </h1>
+  <div class="{{#if answeredOne}}message{{/if}} no-print">
+    {{#if answeredOne}} {{#if incomplete}}
+    <p style="margin-top: 0">You have answered {{accuracy}} of the questions available. <a href="javascript:void(0)" role="button" data-action="pick">Try some more questions</a> to give you a more accurate idea of whether or not you would qualify.</p>{{/if}} {{else}}
+    <p><strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
+    {{/if}}
+  </div>
+  <p>
+    That answer will count towards qualification. You should mention it in your assessment.
+  </p>
+  <p>
+    You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.
+  </p>
+  <ul aria-label="menu">
+    <li>
+      <button class="nav-link" data-action="pick">Another question</button>
+    </li>
+    <li>
+      <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+    </li>
+    <li>
+      <button class="nav-link" data-action="about-pip" role="link">More information</button>
+    </li>
+  </ul>
+</div>
