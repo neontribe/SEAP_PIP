@@ -15715,15 +15715,55 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-  if ($(':checked', '#' + context).next().text() === 'Sometimes') {
-    $('[role="alert"]', '#' + context)
-      .append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
+    triggerText = $(':checked', '#' + context).next().text();
+
+  if (_.indexOf(triggerButtons, triggerText) !== -1) {
+    switch (triggerText) {
+      case 'Sometimes':
+        flagSometimes();
+        break;
+      case 'Most of the time':
+        flagMost();
+        break;
+      case 'Not very often':
+        flagNot();
+        break;
+      default:
+        flagSometimes();
+    }
   }
   if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
-    $('[role="alert"] p', '#' + context).remove();
+    $('#flag-sometimes').remove();
+  }
+  if ($(':checked', '#' + context).next().text() !== 'Most of the time') {
+    $('#flag-most').remove();
+  }
+  if ($(':checked', '#' + context).next().text() !== 'Not very often') {
+    $('#flag-not').remove();
   }
 
 });
+
+var showMessage = function(message) {
+  var context = db.get('pipAss.context');
+  $('[role="alert"]', '#' + context)
+    .append(message);
+};
+
+var flagSometimes = _.once(function() {
+  showMessage('<p id="flag-sometimes"><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+});
+
+var flagMost = _.once(function() {
+  showMessage('<p id="flag-most"><strong>You\'ve clicked on \'Most of the Time\'. Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
+});
+
+var flagNot = _.once(function() {
+  showMessage('<p> id="flag-not"<strong>You\'ve clicked on \'Not Very Often\'. Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+});
+
+
 
 $('body').on('click', '[data-action="activities"]', function() {
 
