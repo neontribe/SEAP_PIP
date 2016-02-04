@@ -15724,16 +15724,10 @@ var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
         flagSometimes();
         break;
       case 'Most of the time':
-        var checkedScore = $('input:checked').val();
-        if (checkedScore > 0) {
-          flagMost();
-        }
+        flagMost();
         break;
       case 'Not very often':
-        checkedScore = $('input:checked').val();
-        if (checkedScore > 0) {
-          flagNot();
-        }
+        flagNot();
         break;
       default:
         flagSometimes();
@@ -15766,7 +15760,7 @@ var flagMost = _.once(function() {
 });
 
 var flagNot = _.once(function() {
-  showMessage('<p id="flag-not"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+  showMessage('<p> id="flag-not"<strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
 });
 
 
