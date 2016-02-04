@@ -1005,11 +1005,17 @@ var flagSometimes = _.once(function() {
 });
 
 var flagMost = _.once(function() {
+  var checkedScore = $('input:checked').val();
+  if (checkedScore > 0) {
   showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
+  }
 });
 
 var flagNot = _.once(function() {
+  var checkedScore = $('input:checked').val();
+  if (checkedScore > 0) {
   showMessage('<p> id="flag-not"<strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+  }
 });
 
 
