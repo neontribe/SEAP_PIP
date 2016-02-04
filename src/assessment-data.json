@@ -325,7 +325,7 @@
       ]
     },
     {
-      "question":"Can you dress and undress your lower body without help?",
+      "question":"Can you dress and undress your <strong>lower</strong> body without help?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "question":"Can you dress and undress your upper body without help?",
+      "question":"Can you dress and undress your <strong>upper</strong> body without help?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -408,7 +408,7 @@
       ]
     },
     {
-      "question":"Can you go on an unfamiliar journey without the help of another person or orientation aid?",
+      "question":"Can you go on an <strong>unfamiliar</strong> journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -446,7 +446,7 @@
       ]
     },
     {
-      "question":"Can you go on a familiar journey without the help of another person or orientation aid?",
+      "question":"Can you go on a <strong>familiar</strong> journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
