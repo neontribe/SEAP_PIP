@@ -15756,11 +15756,11 @@ var flagSometimes = _.once(function() {
 });
 
 var flagMost = _.once(function() {
-  showMessage('<p id="flag-most"><strong>You\'ve clicked on \'Most of the Time\'. Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
+  showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
 });
 
 var flagNot = _.once(function() {
-  showMessage('<p> id="flag-not"<strong>You\'ve clicked on \'Not Very Often\'. Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+  showMessage('<p> id="flag-not"<strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
 });
 
 
