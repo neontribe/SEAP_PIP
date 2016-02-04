@@ -1702,6 +1702,11 @@ footer #feedback {
     padding: 0;
   }
 
+  #privacy-print {
+    display: block;
+    padding: 0;
+  }
+
   #remember {
     display: block;
     padding: 0;
