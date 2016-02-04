@@ -20,7 +20,7 @@ getCategorySectionSelector = (activityName) ->
 
 # Helper to clear data from session and return home
 clearData = (test) ->
-  casper.click 'a[data-action="stats"]'
+  casper.click 'a[data-action="your-assessment"]'
   casper.thenClick 'button[data-action="delete-data"]'
   # Make sure we get the deleted message
   casper.then ->
@@ -137,7 +137,7 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
           @click '.question-container.loaded button[data-action="pick"]'
       @click '.question-container.loaded button[data-action="pick"]'
       # Qualify low Daily Living
-      match = @getCurrentUrl().indexOf 'qualify-low-dailyLiving'
+      match = @getCurrentUrl().indexOf 'qualify-standard-dailyLiving'
       test.assert match > 0,
         'Qualify Low with 8 points from ' + cat
       @click '.box.loaded button[data-action="pick"]'
@@ -154,11 +154,11 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
           @click '.question-container.loaded button[data-action="pick"]'
       @click '.question-container.loaded button[data-action="pick"]'
       # Qualify low Mobility
-      match = @getCurrentUrl().indexOf 'qualify-low-mobility'
+      match = @getCurrentUrl().indexOf 'qualify-standard-mobility'
       test.assert match > 0,
         'Qualify Low with 10 points from ' + cat
       # Show important but not qualify for either
-      @click '.box.loaded button[data-action="stats"]'
+      @click '.box.loaded button[data-action="your-assessment"]'
       importantAnswers = @getElementsInfo('ul.q-and-a li').length
       # verify we have 2 important answers
       test.assertEquals importantAnswers, 2, 'Found 2 important answers'
@@ -180,7 +180,7 @@ casper.test.begin 'Qualify high/ low with both, neither, either', 12, (test) ->
           @click '.question-container.loaded button[data-action="pick"]'
       @click '.question-container.loaded button[data-action="pick"]'
       # Qualify high Daily Living
-      match = @getCurrentUrl().indexOf 'qualify-high-dailyLiving'
+      match = @getCurrentUrl().indexOf 'qualify-enhanced-dailyLiving'
       test.assert match > 0,
         'Qualify High with 12 points from Daily Living'
 

@@ -128,7 +128,7 @@ function loadSlide(id, type) {
     id = 'main-menu';
   }
 
-  if (id === 'stats') {
+  if (id === 'your-assessment') {
 
     // if you ran out of unseen questions and didn't skip any
     if (_.isEmpty(db.get('pipAss.unseenQuestions')) && _.isEmpty(db.get('pipAss.skippedQuestions')) && _.isEmpty(db.get('pipAss.remainingCategories')) && db.get('pipAss.started')) {
@@ -182,7 +182,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'your-assessment', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -213,33 +213,33 @@ function pickQuestion() {
   // Check if points combo qualifies
   qualify(db.get('pipAss.submitPoints'));
 
-  if (db.get('pipAss.show-qualify-low-mobility')) {
-    loadSlide('qualify-low-mobility');
-    db.set('pipAss.show-qualify-low-mobility', false);
+  if (db.get('pipAss.show-qualify-standard-mobility')) {
+    loadSlide('qualify-standard-mobility');
+    db.set('pipAss.show-qualify-standard-mobility', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-high-mobility')) {
-    loadSlide('qualify-high-mobility');
-    db.set('pipAss.show-qualify-high-mobility', false);
+  if (db.get('pipAss.show-qualify-enhanced-mobility')) {
+    loadSlide('qualify-enhanced-mobility');
+    db.set('pipAss.show-qualify-enhanced-mobility', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-low-dailyLiving')) {
-    loadSlide('qualify-low-dailyLiving');
-    db.set('pipAss.show-qualify-low-dailyLiving', false);
+  if (db.get('pipAss.show-qualify-standard-dailyLiving')) {
+    loadSlide('qualify-standard-dailyLiving');
+    db.set('pipAss.show-qualify-standard-dailyLiving', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-high-dailyLiving')) {
-    loadSlide('qualify-high-dailyLiving');
-    db.set('pipAss.show-qualify-high-dailyLiving', false);
+  if (db.get('pipAss.show-qualify-enhanced-dailyLiving')) {
+    loadSlide('qualify-enhanced-dailyLiving');
+    db.set('pipAss.show-qualify-enhanced-dailyLiving', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
@@ -455,7 +455,7 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility') && !db.get('pipAss.low-mobility')) {
 
-      db.set('pipAss.show-qualify-low-mobility', true);
+      db.set('pipAss.show-qualify-standard-mobility', true);
 
     }
 
@@ -469,10 +469,10 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility')) {
 
-      db.set('pipAss.show-qualify-high-mobility', true);
+      db.set('pipAss.show-qualify-enhanced-mobility', true);
 
       // If we've qualified enhanced, don't show the low slide
-      db.set('pipAss.show-qualify-low-mobility', false);
+      db.set('pipAss.show-qualify-standard-mobility', false);
     }
 
     // record that high qualification is possible
@@ -489,7 +489,7 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving') && !db.get('pipAss.low-dailyLiving')) {
 
-      db.set('pipAss.show-qualify-low-dailyLiving', true);
+      db.set('pipAss.show-qualify-standard-dailyLiving', true);
 
     }
 
@@ -503,10 +503,10 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving')) {
 
-      db.set('pipAss.show-qualify-high-dailyLiving', true);
+      db.set('pipAss.show-qualify-enhanced-dailyLiving', true);
 
       // If we'e qualified enhanced, don't show low slide.
-      db.set('pipAss.show-qualify-low-dailyLiving', false);
+      db.set('pipAss.show-qualify-standard-dailyLiving', false);
     }
 
     // record that low qualification is possible
@@ -799,7 +799,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats', 'about-pip', 'transcript'];
+  var validBreakReturn = ['your-assessment', 'about-pip', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -885,10 +885,10 @@ $('body').on('click', '[data-action="delete-data"]', function() {
 });
 
 
-$('body').on('click', '[data-action="stats"]', function() {
+$('body').on('click', '[data-action="your-assessment"]', function() {
 
   // load the stats slide
-  loadSlide('stats');
+  loadSlide('your-assessment');
 
 });
 
