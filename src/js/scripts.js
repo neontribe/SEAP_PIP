@@ -965,14 +965,22 @@ $('body').on('change', '[type="radio"]', function() {
   }
 
   if ($(':checked', '#' + context).next().text() === 'Sometimes') {
-    $('[role="alert"]', '#' + context)
-      .append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+      runOnce();
+      console.log('run');
   }
   if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
     $('[role="alert"] p', '#' + context).remove();
   }
 
 });
+
+
+var runOnce = _.throttle(function() {
+  var context = db.get('pipAss.context');
+  $('[role="alert"]', '#' + context)
+    .append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+}, 4000);
+
 
 $('body').on('click', '[data-action="activities"]', function() {
 
