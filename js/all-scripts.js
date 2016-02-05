@@ -14903,13 +14903,6 @@ function loadSlide(id, type) {
     setPlayer();
   }
 
-  if (id === 'assessment-checklist') {
-    compileRemember();
-    //var qandaContent = $('#paper');
-      //  rememberContent = $('.remember-content');
-    //$('#checklist-content').empty().prepend( qandaContent, rememberContent );
-  }
-
   if (id === 'activity-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
@@ -15342,18 +15335,6 @@ function compileScore() {
 
 }
 
-function compileRemember() {
-
-  // compiles #score page with handlebars in order
-  // to show percent of questions answered
-  var template = Handlebars.compile(document.getElementById("remember-template").innerHTML);
-  var pipAssData = db.get('pipAss');
-  var output = template(pipAssData);
-  $('#remember-slide-content').html(output);
-
-}
-
-
 // remove answers from category nesting for easy iteration
 function divideAnswers() {
 
@@ -15549,13 +15530,6 @@ $('body').on('click', '[data-action="restart"]', function() {
 
   // run restart function defined in FUNCTIONS block
   restart();
-
-});
-
-$('body').on('click', '[data-action="view-assessment"]', function() {
-
-// load your assessment checklist slide
-  loadSlide('assessment-checklist');
 
 });
 
