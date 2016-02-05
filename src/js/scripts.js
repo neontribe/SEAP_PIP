@@ -154,9 +154,6 @@ function loadSlide(id, type) {
 
   if (id === 'assessment-checklist') {
     compileRemember();
-    //var qandaContent = $('#paper');
-      //  rememberContent = $('.remember-content');
-    //$('#checklist-content').empty().prepend( qandaContent, rememberContent );
   }
 
   if (id === 'activity-finished') {
