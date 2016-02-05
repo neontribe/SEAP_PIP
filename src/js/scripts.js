@@ -128,7 +128,7 @@ function loadSlide(id, type) {
     id = 'main-menu';
   }
 
-  if (id === 'stats') {
+  if (id === 'your-assessment') {
 
     // if you ran out of unseen questions and didn't skip any
     if (_.isEmpty(db.get('pipAss.unseenQuestions')) && _.isEmpty(db.get('pipAss.skippedQuestions')) && _.isEmpty(db.get('pipAss.remainingCategories')) && db.get('pipAss.started')) {
@@ -182,7 +182,7 @@ function loadSlide(id, type) {
     .focus();
 
   // find out if we've gone to one of the locations that don't need saving
-  var exclude = _.find(['main-menu', 'stats', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
+  var exclude = _.find(['main-menu', 'your-assessment', 'about-pip', 'transcript', 'are-you-sure', 'deleted', 'resume', 'break-time'],
     function(unsaveable) {
       return unsaveable === id;
     });
@@ -213,33 +213,33 @@ function pickQuestion() {
   // Check if points combo qualifies
   qualify(db.get('pipAss.submitPoints'));
 
-  if (db.get('pipAss.show-qualify-low-mobility')) {
-    loadSlide('qualify-low-mobility');
-    db.set('pipAss.show-qualify-low-mobility', false);
+  if (db.get('pipAss.show-qualify-standard-mobility')) {
+    loadSlide('qualify-standard-mobility');
+    db.set('pipAss.show-qualify-standard-mobility', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-high-mobility')) {
-    loadSlide('qualify-high-mobility');
-    db.set('pipAss.show-qualify-high-mobility', false);
+  if (db.get('pipAss.show-qualify-enhanced-mobility')) {
+    loadSlide('qualify-enhanced-mobility');
+    db.set('pipAss.show-qualify-enhanced-mobility', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-low-dailyLiving')) {
-    loadSlide('qualify-low-dailyLiving');
-    db.set('pipAss.show-qualify-low-dailyLiving', false);
+  if (db.get('pipAss.show-qualify-standard-dailyLiving')) {
+    loadSlide('qualify-standard-dailyLiving');
+    db.set('pipAss.show-qualify-standard-dailyLiving', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
   }
 
-  if (db.get('pipAss.show-qualify-high-dailyLiving')) {
-    loadSlide('qualify-high-dailyLiving');
-    db.set('pipAss.show-qualify-high-dailyLiving', false);
+  if (db.get('pipAss.show-qualify-enhanced-dailyLiving')) {
+    loadSlide('qualify-enhanced-dailyLiving');
+    db.set('pipAss.show-qualify-enhanced-dailyLiving', false);
     db.set('pipAss.submitPoints', 0);
     db.set('pipAss.showScore', false);
     return;
@@ -455,7 +455,7 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility') && !db.get('pipAss.low-mobility')) {
 
-      db.set('pipAss.show-qualify-low-mobility', true);
+      db.set('pipAss.show-qualify-standard-mobility', true);
 
     }
 
@@ -469,10 +469,10 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-mobility')) {
 
-      db.set('pipAss.show-qualify-high-mobility', true);
+      db.set('pipAss.show-qualify-enhanced-mobility', true);
 
       // If we've qualified enhanced, don't show the low slide
-      db.set('pipAss.show-qualify-low-mobility', false);
+      db.set('pipAss.show-qualify-standard-mobility', false);
     }
 
     // record that high qualification is possible
@@ -489,7 +489,7 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving') && !db.get('pipAss.low-dailyLiving')) {
 
-      db.set('pipAss.show-qualify-low-dailyLiving', true);
+      db.set('pipAss.show-qualify-standard-dailyLiving', true);
 
     }
 
@@ -503,10 +503,10 @@ function qualify(points) {
     //don't show the slide if you have already
     if (!db.get('pipAss.high-dailyLiving')) {
 
-      db.set('pipAss.show-qualify-high-dailyLiving', true);
+      db.set('pipAss.show-qualify-enhanced-dailyLiving', true);
 
       // If we'e qualified enhanced, don't show low slide.
-      db.set('pipAss.show-qualify-low-dailyLiving', false);
+      db.set('pipAss.show-qualify-standard-dailyLiving', false);
     }
 
     // record that low qualification is possible
@@ -799,7 +799,7 @@ $('body').on('click', '[data-action="start-or-resume"]', function() {
 
 $('body').on('click', '[data-action="break"]', function() {
   // If we are on one of these pages when we take a break, save our place.
-  var validBreakReturn = ['stats', 'about-pip', 'transcript'];
+  var validBreakReturn = ['your-assessment', 'about-pip', 'transcript'];
       currentContext = db.get('pipAss.context');
 
   // If we are taking a break from excluded page but want to save our place
@@ -891,10 +891,10 @@ $('body').on('click', '[data-action="delete-data"]', function() {
 });
 
 
-$('body').on('click', '[data-action="stats"]', function() {
+$('body').on('click', '[data-action="your-assessment"]', function() {
 
   // load the stats slide
-  loadSlide('stats');
+  loadSlide('your-assessment');
 
 });
 
@@ -970,15 +970,55 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-  if ($(':checked', '#' + context).next().text() === 'Sometimes') {
-    $('[role="alert"]', '#' + context)
-      .append('<p><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
+    triggerText = $(':checked', '#' + context).next().text();
+
+  if (_.indexOf(triggerButtons, triggerText) !== -1) {
+    switch (triggerText) {
+      case 'Sometimes':
+        flagSometimes();
+        break;
+      case 'Most of the time':
+        flagMost();
+        break;
+      case 'Not very often':
+        flagNot();
+        break;
+      default:
+        flagSometimes();
+    }
   }
   if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
-    $('[role="alert"] p', '#' + context).remove();
+    $('#flag-sometimes').remove();
+  }
+  if ($(':checked', '#' + context).next().text() !== 'Most of the time') {
+    $('#flag-most').remove();
+  }
+  if ($(':checked', '#' + context).next().text() !== 'Not very often') {
+    $('#flag-not').remove();
   }
 
 });
+
+var showMessage = function(message) {
+  var context = db.get('pipAss.context');
+  $('[role="alert"]', '#' + context)
+    .append(message);
+};
+
+var flagSometimes = _.once(function() {
+  showMessage('<p id="flag-sometimes"><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
+});
+
+var flagMost = _.once(function() {
+  showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
+});
+
+var flagNot = _.once(function() {
+  showMessage('<p> id="flag-not"<strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+});
+
+
 
 $('body').on('click', '[data-action="activities"]', function() {
 

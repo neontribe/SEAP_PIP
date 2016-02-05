@@ -46,7 +46,7 @@
           <a href="#main-menu" data-action="menu">Home</a>
         </li>
         <li>
-          <a href="javascript:void(0)" data-action="stats">Your assessment</a>
+          <a href="javascript:void(0)" data-action="your-assessment">Your assessment</a>
         </li>
       </ul>
     </nav>
@@ -73,7 +73,7 @@
       <h2 class="question-text" tabindex="-1">
 					<span id="category-{{sluggify question}}" class="activity" aria-hidden="true">{{category}}</span>
 					<span class="vh">Question:</span>
-					<em>{{question}}</em>
+					<em>{{{question}}}</em>
 					<span aria-labelledby="category-{{sluggify question}}"></span>
 				</h2>
       <div role="alert"></div>
@@ -92,7 +92,7 @@
           <button data-followup="#{{followUp}}" class="nav-link pick" data-action="pick">Try another</button>
         </li>
         <li>
-          <button class="nav-link stats" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link your-assessment" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button class="nav-link break" data-action="break">I need a break</button>
@@ -101,21 +101,21 @@
     </div>
   </div>
   {{/each}}
-  <div class="slide qualify" id="qualify-high-mobility">
+  <div class="slide qualify" id="qualify-enhanced-mobility">
     <div class="box green">
       <h1 tabindex="-1">
-					You may qualify for the<br/>
-					<strong>Mobility Component, Enhanced rate</strong>
-				</h1>
-      <p>Your answer to the last question indicates you may qualify for the &#x201c;Mobility Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the enhanced rate.
-      </p>
-      <p>You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.</p>
+        You may qualify for the<br/>
+        <strong>Mobility Component, Enhanced rate</strong>
+      </h1>
+      <p>Your answer to the last question indicates you may qualify for the &#x201c;Mobility Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the enhanced rate.</p>
+      <p>Have a look at some more questions to see what else you might be asked in your assessment, and if there are other things you should make sure you mention.</p>
+      <p>Please be aware: Some of the activities that look as if they are just about your physical health, such as dressing and undressing, are also about your mental health. Don’t forget to have a look at those questions too.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="pick">Another question</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button class="nav-link" data-action="about-pip" role="link">More information</button>
@@ -123,22 +123,21 @@
       </ul>
     </div>
   </div>
-  <div class="slide qualify" id="qualify-low-mobility">
+  <div class="slide qualify" id="qualify-standard-mobility">
     <div class="box green">
       <h1 tabindex="-1">
-					You may qualify for the<br/>
-					<strong>Mobility Component</strong>
-				</h1>
-        <p>Your answer to the last question indicates you may qualify for the &#x201c;Mobility Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the standard rate.
-        </p>
-        <p> It&#x2019;s still possible that you may qualify for the enhanced rate. To find out, try some more questions.
-      </p>
+        You may qualify for the<br/>
+        <strong>Mobility Component</strong>
+      </h1>
+        <p>Your answer to the last question indicates you may qualify for the &#x201c;Mobility Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the standard rate.</p>
+        <p>Try some more questions to see if you qualify for the higher, enhanced rate.</p>
+        <p>Please be aware: Some of the activities that look as if they are just about your physical health, such as dressing and undressing, are also about your mental health. Don’t forget to have a look at those questions too.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="pick">Another question</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button data-action="about-pip" class="nav-link" role="link">More information</button>
@@ -146,20 +145,21 @@
       </ul>
     </div>
   </div>
-  <div class="slide qualify" id="qualify-high-dailyLiving">
+  <div class="slide qualify" id="qualify-enhanced-dailyLiving">
     <div class="box green">
       <h1 tabindex="-1">
 					You may qualify for the<br/>
 					<strong>Daily Living Component, Enhanced rate</strong>
 				</h1>
       <p>Your answer to the last question indicates you may qualify for the &#x201c;Daily Living&#x201d; component of <abbr title="Personal Independence Payment">PIP</abbr> at the enhanced rate.</p>
-      <p>You may still find it helpful to take a look at some more questions so that you are better prepared for the assessment.</p>
+      <p>Have a look at some more questions to see what else you might be asked in your assessment, and if there are other things you should make sure you mention.</p>
+      <p>Please be aware: Some of the activities that look as if they are just about your physical health, such as dressing and undressing, are also about your mental health. Have a look at some of those questions too.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="pick">Another question</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button class="nav-link" data-action="about-pip" role="link">More information</button>
@@ -167,22 +167,21 @@
       </ul>
     </div>
   </div>
-  <div class="slide qualify" id="qualify-low-dailyLiving">
+  <div class="slide qualify" id="qualify-standard-dailyLiving">
     <div class="box green">
       <h1 tabindex="-1">
 					You may qualify for the<br/>
-					<strong>Daily Living Component</strong>
+					<strong>Daily Living Component, Standard Rate</strong>
 			</h1>
-      <p>Your answer to the last question indicates you may qualify for the &#x201c;Daily Living Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the standard rate.
-      </p>
-       <p>It&#x2019;s still possible that you may qualify for the enhanced rate. To find out, try some more questions.
-      </p>
+      <p>Your answer to the last question indicates you may qualify for the &#x201c;Daily Living Component&#x201d; of <abbr title="Personal Independence Payment">PIP</abbr> at the standard rate.</p>
+      <p>Try some more questions to see if you qualify for the higher, enhanced rate.</p>
+      <p>Please be aware: Some of the activities that look as if they are just about your physical health, such as dressing and undressing, are also about your mental health. Have a look at some of those questions too.</p>
       <ul aria-label="menu">
         <li>
           <button class="nav-link" data-action="pick">Another question</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button data-action="about-pip" class="nav-link" role="link">More information</button>
@@ -245,7 +244,7 @@
           <button class="nav-link" data-action="skipped">Answer skipped questions</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
       </ul>
     </div>
@@ -256,7 +255,7 @@
       <p>You&#x2019;ve finished all the questions. What would you like to do next? </p>
       <ul aria-label="menu">
         <li>
-          <button class="nav-link" data-action="stats" role="link">See how your assessment went</button>
+          <button class="nav-link" data-action="your-assessment" role="link">See how your assessment went</button>
         </li>
         <li>
           <button class="nav-link" data-action="restart">Try again</button>
@@ -283,7 +282,7 @@
       </ul>
     </div>
   </div>
-  <div class="slide stats" id="stats">
+  <div class="slide your-assessment" id="your-assessment">
     <div class="stats-container">
       <div id="stats-content" class="flow"></div>
     </div>
@@ -974,7 +973,7 @@
           <button class="nav-link" data-action="activities" role="link">A new activity</button>
         </li>
         <li>
-          <button class="nav-link" data-action="stats" role="link">Your assessment so far</button>
+          <button class="nav-link" data-action="your-assessment" role="link">Your assessment so far</button>
         </li>
         <li>
           <button class="nav-link" data-action="about-pip" role="link">Guide to PIP</button>

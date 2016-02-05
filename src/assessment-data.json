@@ -114,6 +114,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -128,6 +136,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":4
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -171,6 +187,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -185,6 +209,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -201,6 +233,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -215,6 +255,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -231,6 +279,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":3
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -246,6 +302,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":4
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -260,6 +324,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":8
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -325,7 +397,7 @@
       ]
     },
     {
-      "question":"Can you dress and undress your lower body without help?",
+      "question":"Can you dress and undress your <strong>lower</strong> body without help?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -340,7 +412,7 @@
       ]
     },
     {
-      "question":"Can you dress and undress your upper body without help?",
+      "question":"Can you dress and undress your <strong>upper</strong> body without help?",
       "hint":null,
       "category":"Daily Living: Dressing and undressing",
       "answers":[
@@ -366,10 +438,6 @@
         {
           "label":"No",
           "value":8
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -384,10 +452,6 @@
         },
         {
           "label":"No",
-          "value":0
-        },
-        {
-          "label":"Sometimes",
           "value":0
         }
       ]
@@ -408,7 +472,7 @@
       ]
     },
     {
-      "question":"Can you go on an unfamiliar journey without the help of another person or orientation aid?",
+      "question":"Can you go on an <strong>unfamiliar</strong> journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -419,10 +483,6 @@
         {
           "label":"No",
           "value":10
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -438,15 +498,11 @@
         {
           "label":"No",
           "value":10
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
     {
-      "question":"Can you go on a familiar journey without the help of another person or orientation aid?",
+      "question":"Can you go on a <strong>familiar</strong> journey without the help of another person or orientation aid?",
       "hint":null,
       "category":"Mobility: Planning a journey",
       "answers":[
@@ -457,10 +513,6 @@
         {
           "label":"No",
           "value":12
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -514,10 +566,6 @@
         {
           "label":"No",
           "value":6
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -533,6 +581,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -547,6 +603,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -584,6 +648,10 @@
           "value":0
         },
         {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
           "label":"Sometimes",
           "value":0
         }
@@ -601,6 +669,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":4
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -616,10 +692,6 @@
         {
           "label":"Not at all",
           "value":8
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -650,10 +722,6 @@
         {
           "label":"No",
           "value":0
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -668,10 +736,6 @@
         },
         {
           "label":"No",
-          "value":0
-        },
-        {
-          "label":"Sometimes",
           "value":0
         }
       ]
@@ -688,10 +752,6 @@
         {
           "label":"No",
           "value":2
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         }
       ]
     },
@@ -706,10 +766,6 @@
         },
         {
           "label":"No",
-          "value":0
-        },
-        {
-          "label":"Sometimes",
           "value":0
         }
       ]
@@ -758,8 +814,12 @@
           "value":4
         },
         {
-          "label":"Sometimes",
+          "label":"Most of the time",
           "value":0
+        },
+        {
+          "label":"Not very often",
+          "value":4
         }
       ]
     },
@@ -792,8 +852,12 @@
           "value":10
         },
         {
-          "label":"Sometimes",
+          "label":"Most of the time",
           "value":0
+        },
+        {
+          "label":"Not very often",
+          "value":10
         }
       ]
     },
@@ -854,6 +918,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -868,6 +940,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -884,6 +964,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":2
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -898,6 +986,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":4
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -914,6 +1010,14 @@
         {
           "label":"No",
           "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":6
+        },
+        {
+          "label":"Sometimes",
+          "value":0
         }
       ]
     },
@@ -928,6 +1032,14 @@
         },
         {
           "label":"No",
+          "value":0
+        },
+        {
+          "label":"Most of the time",
+          "value":8
+        },
+        {
+          "label":"Sometimes",
           "value":0
         }
       ]
@@ -961,8 +1073,8 @@
           "value":0
         },
         {
-          "label":"Sometimes",
-          "value":0
+          "label":"Most of the time",
+          "value":2
         }
       ]
     },
@@ -1008,10 +1120,6 @@
         {
           "label":"No",
           "value":12
-        },
-        {
-          "label":"Sometimes",
-          "value":0
         },
         {
           "label":"Does not apply to me",
