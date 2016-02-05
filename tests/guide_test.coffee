@@ -48,9 +48,9 @@ casper.test.begin 'PIP Guide', 3, (test) ->
         test.comment data.startOpen + ' Guide sections opened at start'
         test.comment 'Click ' + guideSection + ' to open'
         @click guideSectionSelector + '[aria-controls="' + guideSection+'"]'
-        # verify that more sections are now open
+        # verify that a different number of sections are now open
         openGuideSections = countOpen guideSectionSelector
-        countSuccess++ if openGuideSections > data.startOpen
+        countSuccess++ if openGuideSections != data.startOpen
         # click again to close
         test.comment 'Click ' + guideSection + ' to close'
         @click guideSectionSelector + '[aria-controls="' + guideSection+'"]'
