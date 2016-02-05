@@ -77,29 +77,29 @@ $('#stats-content').on('stats-analytic-event', function(e) {
 
   // Percentage of questions seen and skipped.
   var perSkip = getPercentSeenSkipped();
-  ga('send', 'event', '#stats', 'question-progress', 'percent skipped', perSkip);
+  ga('send', 'event', '#your-assessment', 'question-progress', 'percent skipped', perSkip);
 
   // Percentage of all questions answered (including ones not yet seen).
   var perAns = getPercentAnswered();
-  ga('send', 'event', '#stats', 'question-progress', 'percent answered', perAns);
+  ga('send', 'event', '#your-assessment', 'question-progress', 'percent answered', perAns);
 
 });
 
 // More Prepared - Event on print with answer %
-$('#stats').on('click', 'button.print', function(e) {
+$('#your-assessment').on('click', 'button.print', function(e) {
   var perAns = getPercentAnswered();
-  ga('send', 'event', '#stats', 'more-prepared:print-button-click', 'percent answered', perAns);
+  ga('send', 'event', '#your-assessment', 'more-prepared:print-button-click', 'percent answered', perAns);
 });
 
 // More Prepared - Event on seen all and click stats
-$('#seen-all').on('click', '[data-action="stats"]', function(e) {
+$('#seen-all').on('click', '[data-action="your-assessment"]', function(e) {
   var perAns = getPercentAnswered();
-  ga('send', 'event', '#seen-all', 'more-prepared:stats-button-click', 'percent answered', perAns);
+  ga('send', 'event', '#seen-all', 'more-prepared:assessment-button-click', 'percent answered', perAns);
 });
 
-// More Prepared - Event on any button click on your assessment button
-$('#seen-all-even-skipped').on('click', '[data-action="stats"]', function(e) {
-  ga('send', 'event', '#seen-all-even-skipped', 'more-prepared:stats-button-click', 'percent answered', 100);
+// More Prepared - Event on click on your assessment button from seen-all-even-skipped
+$('#seen-all-even-skipped').on('click', '[data-action="your-assessment"]', function(e) {
+  ga('send', 'event', '#seen-all-even-skipped', 'more-prepared:assessment-button-click', 'percent answered', 100);
 });
 
 // Waypoint - Event on reaching half way down the about page
