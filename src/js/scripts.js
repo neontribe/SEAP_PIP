@@ -964,8 +964,8 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
-    triggerText = $(':checked', '#' + context).next().text();
+  var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
+      triggerText = $(':checked', '#' + context).next().text();
 
   if (_.indexOf(triggerButtons, triggerText) !== -1) {
     switch (triggerText) {
