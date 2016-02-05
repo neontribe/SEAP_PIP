@@ -1,6 +1,6 @@
 <h1 tabindex="-1">Your assessment</h1>
 
-<div class="paper">
+<div class="paper" id="paper">
 
   <h2>Would you qualify?</h2> {{#if answeredOne}}
   <div class="{{#if answeredOne}}message{{/if}} no-print">
@@ -48,8 +48,10 @@
 
 <div class="print-box no-print" id="printing-box">
   <span class="sprite-icons sprite-list" alt="a list of items"></span>
-  <p>This page contains information about the result you might get from the assessment, based on the answers you have given to the questions. You can print it out and take it with you or access it when you’re there from your phone or tablet.</p>
-    <button class="print" onClick="window.print()">Print now</button>
+  <h2>Your assessment checklist</h2>
+  <p>This page contains information about the result you may get based on the answers you have given to the questions. You can also see <a data-action="view-assessment">helpful tips to remember</a>. You can print out your assessment checklist and take it with you or view it at the assessment if you bring this device (tablet / phone / laptop) with you.</p>
+  <button class="button print" onClick="window.print()">Print</button>
+  <button class="button view-assessment" data-action="view-assessment">View</button>
 </div>
 
 <div class="box no-print" id="data-box">

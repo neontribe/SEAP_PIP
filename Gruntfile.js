@@ -17,7 +17,7 @@ module.exports = function(grunt){
                 'head-script-disabled': false,
                 'style-disabled': true
             },
-            src: ['build/*.html', '!build/stats-template.html', '!build/categories-template.html', '!build/about-buttons-template.html', '!build/score-template.html']
+            src: ['build/*.html', '!build/remember-template.html', '!build/stats-template.html', '!build/categories-template.html', '!build/about-buttons-template.html', '!build/score-template.html']
         }
       },
       watch: {
@@ -71,7 +71,7 @@ module.exports = function(grunt){
       },
       clean: {
         initial: ['build'],
-        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/js/jquery.waypoints.js', 'build/js/handlebars.js', 'build/js/html5.js', 'build/js/selectivizr-min.js', 'build/js/storageapi.js', 'build/js/underscore.js', 'build/js/seap-analytic.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html', 'build/score-template.html']
+        tidyup: ['build/js/jquery.js', 'build/js/scripts.js', 'build/js/jquery.waypoints.js', 'build/js/handlebars.js', 'build/js/html5.js', 'build/js/selectivizr-min.js', 'build/js/storageapi.js', 'build/js/underscore.js', 'build/js/seap-analytic.js', 'build/helpers', 'build/assessment-data.json', 'build/assessment.handlebars', 'build/stats-template.html', 'build/categories-template.html', 'build/remember-template.html', 'build/score-template.html']
       },
       jshint: {
         options: {
