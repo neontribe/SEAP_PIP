@@ -41,7 +41,7 @@
         },
         {
           "label":"No",
-          "value":0
+          "value":1
         }
       ]
     },
@@ -835,6 +835,14 @@
         {
           "label":"No",
           "value":8
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Not very often",
+          "value":8
         }
       ]
     },
@@ -873,6 +881,14 @@
         {
           "label":"No",
           "value":12
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Not very often",
+          "value":12
         }
       ]
     },
@@ -888,6 +904,14 @@
         {
           "label":"No",
           "value":12
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Not very often",
+          "value":12
         }
       ]
     },
@@ -902,6 +926,14 @@
         },
         {
           "label":"No",
+          "value":12
+        },
+        {
+          "label":"Most of the time",
+          "value":0
+        },
+        {
+          "label":"Not very often",
           "value":12
         }
       ]
