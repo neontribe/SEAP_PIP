@@ -152,6 +152,10 @@ function loadSlide(id, type) {
     setPlayer();
   }
 
+  if (id === 'assessment-checklist') {
+    compileRemember();
+  }
+
   if (id === 'activity-finished') {
     $('#this-activity').text(db.get('pipAss.category').toLowerCase());
   }
@@ -584,6 +588,18 @@ function compileScore() {
 
 }
 
+function compileRemember() {
+
+  // compiles #score page with handlebars in order
+  // to show percent of questions answered
+  var template = Handlebars.compile(document.getElementById("remember-template").innerHTML);
+  var pipAssData = db.get('pipAss');
+  var output = template(pipAssData);
+  $('#remember-slide-content').html(output);
+
+}
+
+
 // remove answers from category nesting for easy iteration
 function divideAnswers() {
 
@@ -782,6 +798,13 @@ $('body').on('click', '[data-action="restart"]', function() {
 
 });
 
+$('body').on('click', '[data-action="view-assessment"]', function() {
+
+// load your assessment checklist slide
+  loadSlide('assessment-checklist');
+
+});
+
 // restart the app
 $('body').on('click', '[data-action="start-or-resume"]', function() {
 
@@ -970,26 +993,28 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
-    triggerText = $(':checked', '#' + context).next().text();
+  // check for specific answers and run popup functions
+
+  var triggerButtons = ['Most of the time', 'Not very often'];
+      triggerText = $(':checked', '#' + context).next().text();
 
   if (_.indexOf(triggerButtons, triggerText) !== -1) {
     switch (triggerText) {
-      case 'Sometimes':
-        flagSometimes();
-        break;
       case 'Most of the time':
-        flagMost();
+        var checkedScore = $('input:checked').val();
+        if (checkedScore > 0) {
+          flagMost();
+        }
         break;
       case 'Not very often':
-        flagNot();
+        checkedScore = $('input:checked').val();
+        if (checkedScore > 0) {
+          flagNot();
+        }
         break;
       default:
-        flagSometimes();
+        flagMost();
     }
-  }
-  if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
-    $('#flag-sometimes').remove();
   }
   if ($(':checked', '#' + context).next().text() !== 'Most of the time') {
     $('#flag-most').remove();
@@ -1006,16 +1031,12 @@ var showMessage = function(message) {
     .append(message);
 };
 
-var flagSometimes = _.once(function() {
-  showMessage('<p id="flag-sometimes"><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
-});
-
 var flagMost = _.once(function() {
   showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
 });
 
 var flagNot = _.once(function() {
-  showMessage('<p> id="flag-not"<strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
+  showMessage('<p id="flag-not"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can\'t do something very often, you will score points on that activity.</strong></p>');
 });
 
 
