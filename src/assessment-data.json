@@ -517,40 +517,32 @@
       ]
     },
     {
-      "question":"Can you work out your household and personal expenses, pay your bills and make decisions about what you\u2019ll buy in the future?",
+      "question":"Do you need help to work out your household and personal spending, pay your bills, and make decisions about what you\u2019ll buy in the future?",
       "hint":null,
       "category":"Daily Living: Making decisions about money",
       "answers":[
         {
           "label":"Yes",
-          "value":0
+          "value":2
         },
         {
           "label":"No",
           "value":0
-        },
-        {
-          "label":"Only with help from someone else",
-          "value":2
         }
       ]
     },
     {
-      "question":"When you pay for something in a shop can you work out how much change you should get?",
+      "question":"Do you need help to work out how much change you should get when you are paying for something in a shop?",
       "hint":null,
       "category":"Daily Living: Making decisions about money",
       "answers":[
         {
           "label":"Yes",
-          "value":0
+          "value":4
         },
         {
           "label":"No",
           "value":0
-        },
-        {
-          "label":"Only with help from someone else",
-          "value":4
         }
       ]
     },
