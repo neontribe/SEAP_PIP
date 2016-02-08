@@ -169,6 +169,11 @@ h4 {
 ul {
   margin-left: 1.5em;
 }
+
+ol {
+    list-style-type:lower-roman;
+    margin-left: 1.5em;
+}
 /* buttons
 ---------------------------------------------*/
 
@@ -1367,14 +1372,10 @@ footer #feedback {
   font-size: 0.75em;
 }
 
-.c-app .intro {
-  margin-bottom: 1em;
-}
-
 .c-app .esa-section, .c-app .pip-section {
   text-align: center;
   width: 46%;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 .c-app .esa-section {
   float: left;
@@ -1382,6 +1383,10 @@ footer #feedback {
 
 .c-app .pip-section {
   float: right;
+}
+
+.c-app .checklists {
+  clear: both;
 }
 
 .c-app footer {
