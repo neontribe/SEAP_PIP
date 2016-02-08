@@ -987,14 +987,13 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
-    triggerText = $(':checked', '#' + context).next().text();
+  // check for specific answers and run popup functions
+
+  var triggerButtons = ['Most of the time', 'Not very often'];
+      triggerText = $(':checked', '#' + context).next().text();
 
   if (_.indexOf(triggerButtons, triggerText) !== -1) {
     switch (triggerText) {
-      case 'Sometimes':
-        flagSometimes();
-        break;
       case 'Most of the time':
         var checkedScore = $('input:checked').val();
         if (checkedScore > 0) {
@@ -1008,11 +1007,8 @@ var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
         }
         break;
       default:
-        flagSometimes();
+        flagMost();
     }
-  }
-  if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
-    $('#flag-sometimes').remove();
   }
   if ($(':checked', '#' + context).next().text() !== 'Most of the time') {
     $('#flag-most').remove();
@@ -1028,10 +1024,6 @@ var showMessage = function(message) {
   $('[role="alert"]', '#' + context)
     .append(message);
 };
-
-var flagSometimes = _.once(function() {
-  showMessage('<p id="flag-sometimes"><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
-});
 
 var flagMost = _.once(function() {
   showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
