@@ -993,15 +993,16 @@ $('body').on('change', '[type="radio"]', function() {
       triggerText = $(':checked', '#' + context).next().text();
 
   if (_.indexOf(triggerButtons, triggerText) !== -1) {
+    var checkedScore = 0;
     switch (triggerText) {
       case 'Most of the time':
-        var checkedScore = $('input:checked').val();
+        checkedScore = $(':checked', '#' + context).val();
         if (checkedScore > 0) {
           flagMost();
         }
         break;
       case 'Not very often':
-        checkedScore = $('input:checked').val();
+        checkedScore = $(':checked', '#' + context).val();
         if (checkedScore > 0) {
           flagNot();
         }
