@@ -15625,12 +15625,6 @@ $('body').on('click', '[data-action="remember"]', function() {
 
 });
 
-$('body').on('click', '[data-action="guide"]', function() {
-
-  loadSlide('guide');
-
-});
-
 $('body').on('click', '[data-action="clean-up"]', function() {
 
   // set answered global to false
