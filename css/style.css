@@ -1191,6 +1191,19 @@ h2 [aria-expanded="true"]::before {
   font-size: 2em;
 }
 
+table {
+  border-collapse: collapse;
+  margin: 1em auto;
+  text-align: center;
+  width: 80%;
+}
+
+table,
+th,
+td {
+  border: 2px solid #79bde9;
+}
+
 /* footer
 ---------------------------------------------*/
 
@@ -1465,6 +1478,10 @@ footer #feedback {
 
   .box {
     margin: 0 10%;
+  }
+
+  table {
+    width: 100%;
   }
 }
 /*ipad 768px iphone6&6+ 736px */
