@@ -15934,6 +15934,12 @@ $('#your-assessment').on('click', 'button.print', function(e) {
   ga('send', 'event', '#your-assessment', 'more-prepared:print-button-click', 'percent answered', perAns);
 });
 
+// More Prepared - Event on print with answer %
+$('#your-assessment').on('click', 'button.view-assessment', function(e) {
+  var perAns = getPercentAnswered();
+  ga('send', 'event', '#your-assessment', 'more-prepared:view-button-click', 'percent answered', perAns);
+});
+
 // More Prepared - Event on seen all and click stats
 $('#seen-all').on('click', '[data-action="your-assessment"]', function(e) {
   var perAns = getPercentAnswered();
