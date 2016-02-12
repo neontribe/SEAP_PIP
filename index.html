@@ -2587,8 +2587,17 @@
   <div class="slide transcript" id="transcript">
     <div class="flow">
       <h1 tabindex="-1">Read the video transcript</h1>
-      <div class="about-buttons-content">
-      </div>
+      <ul aria-label="menu">
+        <li>
+          <button class="nav-link" data-action="start-or-resume" role="link">Try some questions</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="about-pip" role="link">More information</button>
+        </li>
+        <li>
+          <button class="nav-link" data-action="break" role="link">Take a break?</button>
+        </li>
+      </ul>
           <p><strong>Screen 1: </strong>This is a guide providing the basic information to help you apply for Personal Independence Payment, PIP for short, for you or someone you care for.</p>
             <details>
               <summary>Captions</summary>
@@ -2800,8 +2809,17 @@
               <li>or by text phone on 0800 917 7777</li>
             </ul>
           <p>You can get more information about the <abbr title="Personal Independence Payment">PIP</abbr> assessment and try some of the questions at our independent website <a href="http://www.pip-assessment.support">www.pip-assessment.support</a></p>
-        <div class="about-buttons-content">
-        </div>
+          <ul aria-label="menu">
+            <li>
+              <button class="nav-link" data-action="start-or-resume" role="link">Try some questions</button>
+            </li>
+            <li>
+              <button class="nav-link" data-action="about-pip" role="link">More information</button>
+            </li>
+            <li>
+              <button class="nav-link" data-action="break" role="link">Take a break?</button>
+            </li>
+          </ul>
     </div>
   </div>
   <div class="slide about" id="about-pip">
@@ -2915,8 +2933,14 @@
         <div id="the-guide" aria-hidden="true">
                 <p>If you&#x2019;d like more information you can <a data-action="guide">read our full guide</a> to applying for <abbr title="Personal Independence Payment">PIP</abbr>.</p>
         </div>
-        <div class="about-buttons-content">
-        </div>
+        <ul aria-label="menu">
+          <li>
+            <button class="nav-link" data-action="start-or-resume" role="link">Try some questions</button>
+          </li>
+          <li>
+            <button class="nav-link" data-action="break" role="link">Take a break?</button>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
@@ -3304,9 +3328,6 @@
         <li>
           <button class="nav-link break" data-action="break">Have a break</button>
         </li>
-        <li>
-          <button class="nav-link break" data-action="about-pip">Read more about PIP</button>
-        </li>
       </ul>
     </div>
   </div>
@@ -3586,20 +3607,6 @@
         {{/each}}
       </ul>
     </div>
-    
-  </script>
-  <script id="about-buttons-template" type="text/x-handlebars-template">
-    <ul aria-label="menu">
-      <li>
-        <button class="nav-link" data-action="start-or-resume" role="link">Try some questions</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="about-pip" role="link">More information</button>
-      </li>
-      <li>
-        <button class="nav-link" data-action="break" role="link">Take a break?</button>
-      </li>
-    </ul>
     
   </script>
   <script id="score-template" type="text/x-handlebars-template">

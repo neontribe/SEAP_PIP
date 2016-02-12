@@ -1191,6 +1191,10 @@ h2 [aria-expanded="true"]::before {
   font-size: 2em;
 }
 
+.guide ul {
+  margin-top: 0.5em;
+}
+
 table {
   border-collapse: collapse;
   margin: 1em auto;
