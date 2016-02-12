@@ -148,7 +148,6 @@ function loadSlide(id, type) {
   }
 
   if (id === 'about-pip') {
-    compileAboutButtons();
     setPlayer();
   }
 
@@ -555,14 +554,6 @@ function compileStats() {
   $('#stats-content').html(output).trigger('stats-analytic-event');
 }
 
-function compileAboutButtons() {
-  var template = Handlebars.compile(document.getElementById("about-buttons-template").innerHTML);
-  var pipAssData = db.get('pipAss');
-  var output = template(pipAssData);
-  $('.expandies.information .about-buttons-content').html(output);
-  $('#transcript .about-buttons-content').html(output);
-}
-
 function compileCategories() {
 
   // template up the stats with handlebars and
@@ -871,6 +862,12 @@ $('body').on('click', '[data-action="menu"]', function() {
 $('body').on('click', '[data-action="remember"]', function() {
 
   loadSlide('remember');
+
+});
+
+$('body').on('click', '[data-action="guide"]', function() {
+
+  loadSlide('guide');
 
 });
 

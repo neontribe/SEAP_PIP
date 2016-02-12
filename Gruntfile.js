@@ -17,7 +17,7 @@ module.exports = function(grunt){
                 'head-script-disabled': false,
                 'style-disabled': true
             },
-            src: ['build/*.html', '!build/remember-template.html', '!build/stats-template.html', '!build/categories-template.html', '!build/about-buttons-template.html', '!build/score-template.html']
+            src: ['build/*.html', '!build/remember-template.html', '!build/stats-template.html', '!build/categories-template.html', '!build/score-template.html']
         }
       },
       watch: {
