@@ -14754,7 +14754,7 @@ STAGING SITE BANNER DETECTION
 ***********************************************************************/
 $(function() {
     if ( document.location.href.indexOf('neontribe.github.io') > -1 ) {
-        $('.staging-banner').show();
+        $('.staging-banner').append("<p>This is our test site<br/>Please visit<br/> www.pip-assessment.support</p>").show();
     }
 });
 
