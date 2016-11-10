@@ -775,37 +775,29 @@ header span {
 
   display: -webkit-box;
 
-  display: -webkit-flex;
-
   display: -ms-flexbox;
 
   display: flex;
   -webkit-box-pack: center;
-  -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 /* main menu
 ---------------------------------------------*/
 
 .big-buttons {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 0.5em;
@@ -1234,14 +1226,11 @@ footer .privacy .larger {
 
 footer .privacy-link {
   display: -webkit-box;
-  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 0;
@@ -1412,7 +1401,6 @@ footer #feedback {
 
 .c-app footer .privacy-link {
   -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
   justify-content: flex-end;
 }
@@ -1475,7 +1463,6 @@ footer #feedback {
   .category-list li {
     min-width: 50% !important;
     -webkit-box-flex: 1 !important;
-    -webkit-flex: 1 0 50% !important;
         -ms-flex: 1 0 50% !important;
             flex: 1 0 50% !important;
   }
@@ -1537,7 +1524,6 @@ footer #feedback {
   .category-list li {
     min-width: 100% !important;
     -webkit-box-flex: 1 !important;
-    -webkit-flex: 1 0 100% !important;
         -ms-flex: 1 0 100% !important;
             flex: 1 0 100% !important;
   }
@@ -1564,9 +1550,8 @@ footer #feedback {
   }
 
   .big-buttons  {
-    -webkit-flex-wrap: wrap;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 
   .learn-about  {
@@ -1583,22 +1568,18 @@ footer #feedback {
 @media (min-width: 600px) {
   [aria-label="menu options"] ul {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-flow: row wrap;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
 
   [aria-label="menu options"] li {
     width: 100%;
     padding: 0.5em;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 auto;
         -ms-flex: 1 0 auto;
             flex: 1 0 auto;
     position: relative;
@@ -1615,26 +1596,21 @@ footer #feedback {
 
   .category-list ul {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-align: stretch;
-    -webkit-align-items: stretch;
         -ms-flex-align: stretch;
             align-items: stretch;
   }
 
   .category-list li {
     display: -webkit-box;
-    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-flow: column;
-        -ms-flex-flow: column;
-            flex-flow: column;
+    -ms-flex-flow: column;
+        flex-flow: column;
     min-width: 33.333%;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0 33.333%;
         -ms-flex: 1 0 33.333%;
             flex: 1 0 33.333%;
     min-height: 3em;
@@ -1643,7 +1619,6 @@ footer #feedback {
   .category-list li button {
     height: 100%;
     -webkit-box-flex: 1;
-    -webkit-flex: 1 0;
         -ms-flex: 1 0;
             flex: 1 0;
     min-height: 3.25em;
@@ -1715,9 +1690,8 @@ footer #feedback {
   }
 
   .c-app .privacy-link {
-    -webkit-align-self: flex-end;
-        -ms-flex-item-align: end;
-            align-self: flex-end;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
   }
 
   .social-profile-buttons {
