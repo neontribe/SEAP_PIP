@@ -14754,7 +14754,7 @@ STAGING SITE BANNER DETECTION
 ***********************************************************************/
 $(function() {
     if ( document.location.href.indexOf('neontribe.github.io') > -1 ) {
-        $('.staging-banner').show();
+        $('.staging-banner').append("<p>This is our test site<br/>Please visit<br/> www.pip-assessment.support</p>").show();
     }
 });
 
@@ -14899,7 +14899,6 @@ function loadSlide(id, type) {
   }
 
   if (id === 'about-pip') {
-    compileAboutButtons();
     setPlayer();
   }
 
@@ -15306,14 +15305,6 @@ function compileStats() {
   $('#stats-content').html(output).trigger('stats-analytic-event');
 }
 
-function compileAboutButtons() {
-  var template = Handlebars.compile(document.getElementById("about-buttons-template").innerHTML);
-  var pipAssData = db.get('pipAss');
-  var output = template(pipAssData);
-  $('.expandies.information .about-buttons-content').html(output);
-  $('#transcript .about-buttons-content').html(output);
-}
-
 function compileCategories() {
 
   // template up the stats with handlebars and
@@ -15625,6 +15616,12 @@ $('body').on('click', '[data-action="remember"]', function() {
 
 });
 
+$('body').on('click', '[data-action="guide"]', function() {
+
+  loadSlide('guide');
+
+});
+
 $('body').on('click', '[data-action="clean-up"]', function() {
 
   // set answered global to false
@@ -15738,32 +15735,29 @@ $('body').on('change', '[type="radio"]', function() {
 
   }
 
-var triggerButtons = ['Sometimes', 'Most of the time', 'Not very often'];
-    triggerText = $(':checked', '#' + context).next().text();
+  // check for specific answers and run popup functions
+
+  var triggerButtons = ['Most of the time', 'Not very often'];
+      triggerText = $(':checked', '#' + context).next().text();
 
   if (_.indexOf(triggerButtons, triggerText) !== -1) {
+    var checkedScore = 0;
     switch (triggerText) {
-      case 'Sometimes':
-        flagSometimes();
-        break;
       case 'Most of the time':
-        var checkedScore = $('input:checked').val();
+        checkedScore = $(':checked', '#' + context).val();
         if (checkedScore > 0) {
           flagMost();
         }
         break;
       case 'Not very often':
-        checkedScore = $('input:checked').val();
+        checkedScore = $(':checked', '#' + context).val();
         if (checkedScore > 0) {
           flagNot();
         }
         break;
       default:
-        flagSometimes();
+        flagMost();
     }
-  }
-  if ($(':checked', '#' + context).next().text() !== 'Sometimes') {
-    $('#flag-sometimes').remove();
   }
   if ($(':checked', '#' + context).next().text() !== 'Most of the time') {
     $('#flag-most').remove();
@@ -15779,10 +15773,6 @@ var showMessage = function(message) {
   $('[role="alert"]', '#' + context)
     .append(message);
 };
-
-var flagSometimes = _.once(function() {
-  showMessage('<p id="flag-sometimes"><strong>If this can\'t be done safely, reliably or repeatedly within a short time, please consider changing your answer.</strong></p>');
-});
 
 var flagMost = _.once(function() {
   showMessage('<p id="flag-most"><strong>Your condition probably varies from day to day. The assessment takes this into account. The easiest way to understand this is that if you can’t do something most of the time, you will score points on that activity.</p>');
