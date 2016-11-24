@@ -626,6 +626,10 @@ noscript {
   display: none;
   padding: 120px 30px;
   padding: 6rem 1.5rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .slide h2 {
