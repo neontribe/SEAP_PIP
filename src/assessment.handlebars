@@ -1204,23 +1204,37 @@
     <div id="slide-score-content">
     </div>
   </div>
+  
   <footer role="contentinfo">
-    <p>Brought to you by
-      <a href="http://www.seap.org.uk/" target="_blank" title="The Charity, seAp (link opens new tab)">
-        <span class="sprite sprite-logo" alt="The Charity, seAp (link opens new tab)"></span>
-      </a>
-      <a href="http://www.thelegaleducationfoundation.org/" target="_blank" title="The Legal Education Foundation (link opens new tab)">
-        <span class="sprite sprite-TLEFlogo" alt="The Legal Education Foundation logo (link opens new tab)"></span>
-      </a>
-      <a href="http://www.comicrelief.com/" target="_blank" title="Comic Relief (link opens new tab)">
-        <span class="sprite sprite-comic" alt="Comic Relief (link opens new tab)"></span>
-      </a>
-    </p>
-    <div class="privacy-link">
-      <a id="feedback" href="https://www.surveymonkey.co.uk/r/YD8SJMH" target="_blank" title="PIP Survey (link opens new tab)">Do you have any feedback about this site?</a>
-      <a id="privacy" href="http://c-app.org.uk/privacy.html">Privacy &#x26; terms of use</a>
+    <div class="footer-container">
+      <div class="privacy-link">
+        <a id="feedback" href="https://www.surveymonkey.co.uk/r/XLLSBJX" target="_blank" title="ESA Survey (link opens new tab)">Do you have any feedback about this site?</a>
+        <a id="privacy" href="http://c-app.org.uk/privacy.html">Privacy &#x26; terms of use</a>
+      </div>
+    </div>
+
+    <div class="footer-container push">
+      <img src="images/ct-awards.png" class="winner" alt="Charity Times Awards Winner 2017"/>
+    </div>
+
+    <div class="footer-container">
+      <p class="sponsor-text">
+          Brought to you by
+      </p>
+      <div class="sponsor-images">
+        <a href="http://www.seap.org.uk/" target="_blank" title="The Charity, seAp (link Opens new tab)">
+          <img class="logo-image" src="images/seap_logo.png" alt="The Charity, seAp (link Opens new tab)" />
+        </a>
+        <a href="http://www.thelegaleducationfoundation.org/" target="_blank" title="The Legal Education Foundation (link Opens new tab)">
+          <img class="logo-image" src="images/lef_logo.png" alt="The Legal Education Foundation logo (link Opens new tab)" />
+        </a>
+        <a href="http://www.comicrelief.com/" target="_blank" title="Comic Relief (link Opens new tab)">
+          <img class="logo-image" src="images/comic_relief_logo.png" alt="Comic Relief (link Opens new tab)" />
+        </a>
+      </div>
     </div>
   </footer>
+  
   <script>
     window.allQuestions = [{{#each questions}}{ question: 'question-{{sluggify question}}', category: '{{category}}' },{{/each}}];
     			window.allCategories = [{{#each questions}}'{{category}}',{{/each}}];
