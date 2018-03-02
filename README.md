@@ -4,7 +4,7 @@
 
 1. run `npm install`
 2. Build by running `grunt generate`
-3. This will create a **build** folder. Point your browser at this to test
+3. This will create a **build** folder. Point your browser at this to test.
 4. Run `grunt watch` to trigger `generate` whenever you change files in `src/`
 5. git clone seap_core into your development directory
 6. create a symlink between seap_core folder and the seap_core folder in the SEAP_PIP node_modules folder
