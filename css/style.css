@@ -1416,6 +1416,12 @@ footer #feedback {
   clear: both;
 }
 
+.c-app a.button-shaped {
+  font-size: 1.25em;
+  margin: 0;
+  width: 100%;
+}
+
 /* profile buttons
 ---------------------------------------------*/
 
