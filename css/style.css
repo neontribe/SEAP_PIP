@@ -631,6 +631,21 @@ noscript {
   padding: 0.5rem 1rem;
 }
 
+.donation-banner a.button-shaped {
+  background: #79bde9;
+  box-shadow: 0 0.125em #3389c1;
+  color: #003555;
+  font-size: 1.25em;
+  margin: 0.5rem auto;
+  padding: 0;
+  width: 10rem;
+}
+
+.donation-banner a.button-shaped:hover {
+  background: #003555;
+  color: #79bde9;
+}
+
 .slide {
   display: table-cell;
   width: 100%;
@@ -941,13 +956,13 @@ header span {
 
 @keyframes zoomzoom {
   0% {
-    transform: scale(0.95)
+    transform: scale(0.95);
   }
   25% {
-    transform: scale(1)
+    transform: scale(1);
   }
   50% {
-    transform: scale(0.95)
+    transform: scale(0.95);
   }
   100% {
     transform: scale(1);
@@ -1416,7 +1431,7 @@ footer #feedback {
   clear: both;
 }
 
-.c-app a.button-shaped {
+.c-app .button-shaped {
   font-size: 1.25em;
   margin: 0;
   width: 100%;
@@ -1541,7 +1556,8 @@ footer #feedback {
         flex: 1 0 100% !important;
   }
 
-  .c-app .esa-section, .c-app .pip-section {
+  .c-app .esa-section,
+  .c-app .pip-section {
     text-align: center;
     width: 100%;
   }
@@ -1676,7 +1692,7 @@ footer #feedback {
   .box {
     margin: 0;
   }
-  
+
   #activities.slide {
     padding: 120px 0px;
     padding: 6rem 0rem;
@@ -1701,7 +1717,7 @@ footer #feedback {
         align-self: flex-end;
     text-align: left;
   }
-  
+
   footer {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -1710,7 +1726,7 @@ footer #feedback {
     margin: 0;
     padding: 1.5em;
   }
-  
+
   /* Social block */
   .footer-container:nth-child(1) {
     margin: 0;
@@ -1720,32 +1736,32 @@ footer #feedback {
         flex-basis: 100%;
     max-width: 100%;
   }
-  
+
   /* Award winner block */
   .footer-container:nth-child(2) {
     margin: 0;
     -ms-flex-preferred-size: 30%;
         flex-basis: 30%;
   }
-  
+
   .footer-container:nth-child(2) > img {
     width: 100%;
     height: auto;
   }
-  
+
   /* "Brought to you by" block */
   .footer-container:nth-child(3) {
     margin: 0;
     -ms-flex-preferred-size: 70%;
         flex-basis: 70%;
   }
-    
+
   .social-profile-buttons {
     margin: 2em 0 0 0;
     width: 100%;
     margin: 0;
   }
-  
+
   .c-app .winner {
     height: 3rem;
     margin-top: 2rem;
@@ -1760,15 +1776,15 @@ footer #feedback {
   footer p {
     font-size: 12px;
   }
-  
+
   footer #feedback {
-  margin: 0;
+    margin: 0;
   }
-  
+
   footer #privacy {
-  margin: 0;
+    margin: 0;
   }
-  
+
   .c-app footer {
     height: 12em;
   }
