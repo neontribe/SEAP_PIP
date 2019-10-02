@@ -17,7 +17,6 @@
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-htmlhint": "^0.9.13",
-    "grunt-remove": "^0.1.0",
     "matchdep": "*",
     "seap_core": "github:neontribe/seap_core"
   },
