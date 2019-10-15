@@ -7,6 +7,7 @@ module.exports = function(grunt){
       htmlhintplus: {
         build: {
             options: {
+              rules: {
                 'tag-pair': true,
                 'tagname-lowercase': true,
                 'attr-lowercase': true,
@@ -16,6 +17,7 @@ module.exports = function(grunt){
                 'id-unique': true,
                 'head-script-disabled': false,
                 'style-disabled': true
+              }
             },
             src: ['build/*.html', '!build/remember-template.html', '!build/stats-template.html', '!build/categories-template.html', '!build/score-template.html']
         }
