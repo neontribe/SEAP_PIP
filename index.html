@@ -3537,9 +3537,9 @@
   <script src="js/all-scripts.js"></script>
   <script id="stats-template" type="text/x-handlebars-template">
     <h1 tabindex="-1">Your assessment</h1>
-    
+
     <div class="paper" id="paper">
-    
+
       <h2>Would you qualify?</h2> {{#if answeredOne}}
       <div class="{{#if answeredOne}}message{{/if}} no-print">
         {{#if answeredOne}} {{#if incomplete}}
@@ -3551,7 +3551,7 @@
       <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
       <p>You need to <a href="javascript:void(0)" data-action="start-or-resume">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
       {{/if}}
-    
+
       <h2>Important answers</h2> {{#if importantAnswers}}
       <p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
       <ul class="q-and-a">
@@ -3566,7 +3566,7 @@
       {{/if}} {{#unless importantAnswers}}
       <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
       {{/unless}}
-    
+
       <ul aria-label="menu">
         <li>
           {{#if incomplete}}
@@ -3583,7 +3583,7 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="print-box no-print" id="printing-box">
       <span class="sprite-icons sprite-list" alt="a list of items"></span>
       <h2>Your assessment checklist</h2>
@@ -3591,7 +3591,7 @@
       <button class="nav-link print" onClick="window.print()">Print checklist</button>
       <button class="nav-link view-assessment" data-action="view-assessment">View checklist</button>
     </div>
-    
+
     <div class="box no-print" id="data-box">
       <h2>Your Data</h2>
       <p>This site does not send any of your data anywhere. It does collect some anonymous information such as how many people have used the tool so we can make improvements.</p>
@@ -3608,7 +3608,7 @@
         </li>
       </ul>
     </div>
-    
+
   </script>
   <script id="categories-template" type="text/x-handlebars-template">
     <h1 tabindex="-1">What do you have trouble with?</h1>
@@ -3626,7 +3626,7 @@
         {{/each}}
       </ul>
     </div>
-    
+
   </script>
   <script id="score-template" type="text/x-handlebars-template">
     <div class="box green">
@@ -3658,7 +3658,7 @@
         </li>
       </ul>
     </div>
-    
+
   </script>
   <script id="remember-template" type="text/x-handlebars-template">
     <h2 class="no-print">Your assessment checklist</h2>
@@ -3674,7 +3674,7 @@
       <h4>Mobility</h4> {{{qualifyMobility}}} {{else}}
       <p>You need to <a href="javascript:void(0)" data-action="start-or-resume">answer some questions</a> so we can get a more accurate idea of whether or not you would qualify.</p>
       {{/if}}
-    
+
       <h2>Important answers</h2> {{#if importantAnswers}}
       <p>These are the answers you gave that count towards qualification. You should mention them in your assessment.</p>
       <ul class="q-and-a">
@@ -3689,9 +3689,9 @@
       {{/if}} {{#unless importantAnswers}}
       <p><strong>So far, you haven&#x2019;t provided any answers which you need to remember to mention in your real assessment</strong>. <strong><a href="javascript: void(0)" data-action="start-or-resume">Try some questions <span aria-hidden="true">&#x2192;</span></a></strong></p>
       {{/unless}}
-    
+
     </div>
-    
+
   </script>
 </body>
 

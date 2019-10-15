@@ -597,7 +597,8 @@ noscript {
   opacity: 0.9;
   padding: 0 !important;
   background: red;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .no-js {
@@ -609,7 +610,8 @@ noscript {
   opacity: 0.9;
   padding: 0 !important;
   background: red;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 .staging-banner p,
@@ -804,10 +806,12 @@ header span {
 }
 
 .flex-center {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: center;
-      justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
@@ -816,14 +820,18 @@ header span {
 ---------------------------------------------*/
 
 .big-buttons {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: row;
-      flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin-top: 0.5em;
 }
 
@@ -927,54 +935,109 @@ header span {
 }
 
 .question-container {
-  transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
   opacity: 0;
 }
 
 .question-container.loaded {
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
   opacity: 1;
+}
+
+@-webkit-keyframes wobble {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  75% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
 }
 
 @keyframes wobble {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   25% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   50% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   75% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes zoomzoom {
+  0% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  25% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 @keyframes zoomzoom {
   0% {
-    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
   }
   25% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
   50% {
-    transform: scale(0.95);
+    -webkit-transform: scale(0.95);
+            transform: scale(0.95);
   }
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
 .box.loaded {
-  animation: wobble 0.25s linear 1;
+  -webkit-animation: wobble 0.25s linear 1;
+          animation: wobble 0.25s linear 1;
 }
 
 .box.green.loaded {
-  animation: zoomzoom 0.5s linear 1;
+  -webkit-animation: zoomzoom 0.5s linear 1;
+          animation: zoomzoom 0.5s linear 1;
 }
 
 /* my assessment
@@ -1178,6 +1241,7 @@ footer {
   left: 0;
   right: 0;
   line-height: inherit;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
@@ -1205,6 +1269,7 @@ footer a {
 footer {
   padding: 0 1.5em;
   margin: auto;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
@@ -1214,10 +1279,12 @@ footer .privacy .larger {
 }
 
 footer .privacy-link {
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   margin: 0;
@@ -1335,6 +1402,18 @@ footer #feedback {
   font-weight: bold;
 }
 
+@-webkit-keyframes prompt {
+  0% {
+    background: transparent;
+  }
+  20% {
+    background: #3389c1;
+  }
+  100% {
+    background: transparent;
+  }
+}
+
 @keyframes prompt {
   0% {
     background: transparent;
@@ -1352,7 +1431,8 @@ footer #feedback {
   max-width: 700px;
   margin: 0.5em auto;
   text-align: justify;
-  animation: prompt 0.75s linear 1;
+  -webkit-animation: prompt 0.75s linear 1;
+          animation: prompt 0.75s linear 1;
   border: 1px solid;
 }
 
@@ -1408,10 +1488,12 @@ footer #feedback {
 .c-app footer {
   padding: 0 1.5em 0em 1.5em;
   margin: auto;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: justify;
-      justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .c-app .winner {
@@ -1422,6 +1504,7 @@ footer #feedback {
 }
 
 .c-app footer .privacy-link {
+  -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
   display: inline-block;
@@ -1492,8 +1575,9 @@ footer #feedback {
 
   .category-list li {
     min-width: 50% !important;
-    -ms-flex: 1 0 50% !important;
-        flex: 1 0 50% !important;
+    -webkit-box-flex: 1 !important;
+        -ms-flex: 1 0 50% !important;
+            flex: 1 0 50% !important;
   }
 
   .box {
@@ -1552,8 +1636,9 @@ footer #feedback {
 
   .category-list li {
     min-width: 100% !important;
-    -ms-flex: 1 0 100% !important;
-        flex: 1 0 100% !important;
+    -webkit-box-flex: 1 !important;
+        -ms-flex: 1 0 100% !important;
+            flex: 1 0 100% !important;
   }
 
   .c-app .esa-section,
@@ -1596,6 +1681,7 @@ footer #feedback {
 
 @media (min-width: 600px) {
   [aria-label="menu options"] ul {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: row wrap;
@@ -1607,8 +1693,9 @@ footer #feedback {
   [aria-label="menu options"] li {
     width: 100%;
     padding: 0.5em;
-    -ms-flex: 1 0 auto;
-        flex: 1 0 auto;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
     position: relative;
   }
 
@@ -1622,27 +1709,32 @@ footer #feedback {
   }
 
   .category-list ul {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-align: stretch;
-        align-items: stretch;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
   }
 
   .category-list li {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: column;
         flex-flow: column;
     min-width: 33.333%;
-    -ms-flex: 1 0 33.333%;
-        flex: 1 0 33.333%;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 33.333%;
+            flex: 1 0 33.333%;
     min-height: 3em;
   }
 
   .category-list li button {
     height: 100%;
-    -ms-flex: 1 0;
-        flex: 1 0;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0;
+            flex: 1 0;
     min-height: 3.25em;
   }
 }
@@ -1721,8 +1813,9 @@ footer #feedback {
   footer {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -ms-flex-pack: justify;
-        justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     margin: 0;
     padding: 1.5em;
   }
@@ -1730,8 +1823,9 @@ footer #feedback {
   /* Social block */
   .footer-container:nth-child(1) {
     margin: 0;
-    -ms-flex-order: 3;
-        order: 3;
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
     -ms-flex-preferred-size: 100%;
         flex-basis: 100%;
     max-width: 100%;
