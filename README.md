@@ -8,7 +8,7 @@
 4. Run `grunt watch` to trigger `generate` whenever you change files in `src/`
 5. git clone seap_core into your development directory
 6. create a symlink between seap_core folder and the seap_core folder in the SEAP_PIP node_modules folder
-7. create a symlink between src/css and seap_core/src/css
+7. create a symlink between src/css/style.css and seap_core/src/style.css
 ## What everything is
 
 * The master template is at `src/assessment.handlebars`. This is for building the single `index.html` assessment page in `build`
@@ -29,5 +29,5 @@ __Live__
 `git tag -a v0.0.0-beta -m "description of release updates"`
 `git push origin --tags`
 * Travis will carry out procedure as for Staging
-* If all goes well, push the new build to the live site - overwriting whatever is there.
-* To set up live server run travis encrypt DEPLOY_HOST=123.12.12.12 --add for DEPLOY_HOST, DEPLOY_PATH DEPLOY_USER DEPLOY_PASS and add deploy-seap-pip.sh to deployment server (legacy hosting - live server access is locked by ip).
+* If all goes well, manually push the new build to the live site - overwriting whatever is there.
+* To set up live deployment server run travis encrypt DEPLOY_HOST=123.12.12.12 --add for DEPLOY_HOST, DEPLOY_PATH DEPLOY_USER DEPLOY_PASS and add deploy-seap-pip.sh to deployment server (legacy hosting - live server access is locked by ip).
